@@ -17,8 +17,8 @@ class UserController extends Controller
 
     public function __construct()
     {
-        $this->appId = 'wxc0e57faa5b2ced55';
-        $this->secret = 'b57a3ee65ed40216c398aada0e9fcbf4';
+        $this->appId = env("WECHAT_APPID");
+        $this->secret = env("WECHAT_SECRET");
         $this->redirectUri = '/user/access_token';
         $this->scope = 'snsapi_userinfo';
         $this->state = rand(100000, 999999);

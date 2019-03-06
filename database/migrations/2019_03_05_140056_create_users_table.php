@@ -16,8 +16,8 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('openid', 32)->comment('微信openid');
-            $table->string('nickname', 32)->comment('微信昵称');
             $table->string('openid', 32)->comment('微信openid');
+            $table->string('nickname', 32)->comment('微信昵称');
             $table->integer('sex', 32)->comment('用户的性别，值为1时是男性，值为2时是女性，值为0时是未知');
             $table->string('province', 32)->comment('省份');
             $table->string('city', 32)->comment('城市');
