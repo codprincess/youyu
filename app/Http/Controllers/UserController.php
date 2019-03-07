@@ -27,11 +27,11 @@ class UserController extends Controller
     /**
      * 获取code
      */
-    public function getCode()
+    public function getCode(Request $request)
     {
         $uri = sprintf('https://open.weixin.qq.com/connect/oauth2/authorize?appid=%s&redirect_uri=%s&response_type=code&scope=%s&state=%s#wechat_redirect',
             $this->appId,
-            urlencode($this->redirectUri),
+            urlencode($request->url() . $this->redirectUri),
             $this->scope,
             $this->state
         );
