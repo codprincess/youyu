@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Log\Logger;
@@ -27,7 +28,7 @@ class UserController extends Controller
     /**
      * 获取code
      */
-    public function getCode(Request $request)
+    public function getCode()
     {
         $uri = sprintf('https://open.weixin.qq.com/connect/oauth2/authorize?appid=%s&redirect_uri=%s&response_type=code&scope=%s&state=%s#wechat_redirect',
             $this->appId,
@@ -79,7 +80,25 @@ class UserController extends Controller
         // 创建用户
 
         // 返回用户信息给客户端
-        //
-        return $data;
+        // 跳转回首页
+        $email_verify = User::updateOrCreate(
+            [
+                'openid' => $data['openid']
+            ],
+            [
+                'nickname' => $data['nickname'],
+                'sex' => $data['sex'],
+                'language' => $data['language'],
+                'city' => $data['city'],
+                'province' => $data['province'],
+                'country' => $data['country'],
+                'headimgurl' => $data['headimgurl'],
+                'privilege' => $data['privilege'],
+                'created_at' => date('Y-m-d H:i:s')
+            ]
+        );
+
+        return $email_verify;
     }
+
 }

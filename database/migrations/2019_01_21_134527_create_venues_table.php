@@ -24,8 +24,7 @@ class CreateVenuesTable extends Migration
             $table->string('counts')->comment('场馆总数量');
             $table->string('free_counts')->comment('空闲场地');
             $table->timestamp('start_time')->comment('场馆开放时间');
-            $table->timestamp('end_time')->comment('场馆结束时间');
-            $table->timestamps();
+//            $table->timestamp('end_time')->comment('场馆结束时间');
         });
     }
 
