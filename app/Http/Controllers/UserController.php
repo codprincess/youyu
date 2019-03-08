@@ -31,7 +31,7 @@ class UserController extends Controller
     {
         $uri = sprintf('https://open.weixin.qq.com/connect/oauth2/authorize?appid=%s&redirect_uri=%s&response_type=code&scope=%s&state=%s#wechat_redirect',
             $this->appId,
-            urlencode($_SERVER["HTTP_HOST"] . $this->redirectUri),
+            urlencode($_SERVER["REQUEST_SCHEME"] . '://' . $_SERVER["HTTP_HOST"] . $this->redirectUri),
             $this->scope,
             $this->state
         );
