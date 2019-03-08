@@ -93,7 +93,6 @@ class UserController extends Controller
                 'province' => $data['province'],
                 'country' => $data['country'],
                 'headimgurl' => $data['headimgurl'],
-                'privilege' => $data['privilege'],
                 'created_at' => date('Y-m-d H:i:s')
             ]
         );
