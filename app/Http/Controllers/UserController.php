@@ -20,7 +20,7 @@ class UserController extends Controller
     {
         $this->appId = env("WECHAT_APPID");
         $this->secret = env("WECHAT_SECRET");
-        $this->redirectUri = '/user/access_token';
+        $this->redirectUri = '/login';
         $this->scope = 'snsapi_userinfo';
         $this->state = rand(100000, 999999);
     }
