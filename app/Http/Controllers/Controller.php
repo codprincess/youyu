@@ -22,7 +22,7 @@ class Controller extends BaseController
             $this->userInfo = $request->session()->get('userInfo');
         }else{
             var_dump("6666");
-            return redirect("/auth");
+            return redirect("auth");
         }
     }
 }
