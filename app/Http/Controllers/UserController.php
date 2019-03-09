@@ -98,7 +98,7 @@ class UserController
             ]
         )->toArray();
         // 设置session
-        \session("userInfo", $userInfo);
+        Session::put("userInfo", $userInfo);
         // 跳转回首页
     }
 
