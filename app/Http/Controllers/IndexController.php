@@ -13,13 +13,16 @@ use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
-    public function __construct(Request $request)
-    {
-    }
-
     public function index(Request $request)
     {
-        $this->checkAuth($request);
+        if ($request->session()->has('userInfo')) {
+            // 微信授权
+            var_dump(session("userInfo"));
+            $this->userInfo = $request->session()->get('userInfo');
+        }else{
+            var_dump("6666");
+            redirect("auth");
+        }
         // 场馆信息
         var_dump($this->userInfo);
         var_dump(session("userInfo"));
