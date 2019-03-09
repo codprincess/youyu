@@ -36,6 +36,7 @@ class UserController
             $this->scope,
             $this->state
         );
+        var_dump(777);
         return redirect($uri);
     }
 
@@ -48,6 +49,7 @@ class UserController
      */
     public function getAccessToken(Request $request)
     {
+        var_dump(3333);
         $uri = sprintf('https://api.weixin.qq.com/sns/oauth2/access_token?appid=%s&secret=%s&code=%s&grant_type=authorization_code',
             $this->appId,
             $this->secret,
