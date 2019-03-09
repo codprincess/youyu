@@ -10,4 +10,13 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    protected $userInfo = [];
+
+    public function __construct()
+    {
+        // 微信授权
+        $this->userInfo = (new UserController())->getCode();
+
+    }
 }

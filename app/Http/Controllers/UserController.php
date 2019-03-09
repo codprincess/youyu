@@ -5,10 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
-use Illuminate\Log\Logger;
 use Illuminate\Support\Facades\Log;
 
-class UserController extends Controller
+class UserController
 {
     private $appId = '';
     private $secret = '';
@@ -39,9 +38,11 @@ class UserController extends Controller
         return redirect($uri);
     }
 
+
     /**
      * 获取accessToken
      * @param Request $request
+     * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function getAccessToken(Request $request)
@@ -75,13 +76,9 @@ class UserController extends Controller
         $res = $client->request('GET', $uri);
         $data = json_decode((string)$res->getBody(), true);
         Log::debug('response body is ', $data);
-        // 判断是否新用户
 
-        // 创建用户
-
-        // 返回用户信息给客户端
         // 跳转回首页
-        $email_verify = User::updateOrCreate(
+        $userInfo = User::updateOrCreate(
             [
                 'openid' => $data['openid']
             ],
@@ -96,8 +93,7 @@ class UserController extends Controller
                 'created_at' => date('Y-m-d H:i:s')
             ]
         );
-
-        return $email_verify;
+        return $userInfo;
     }
 
 }
