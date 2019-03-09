@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Session;
 
 class Controller extends BaseController
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+//    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     protected $userInfo = [];
 
@@ -20,7 +20,7 @@ class Controller extends BaseController
     {
         if (!Session::has('userInfo')) {
             Log::debug('checkAuth is fail');
-            return redirect(url("auth"));
+            return redirect("auth");
         }
     }
 }
