@@ -15,11 +15,11 @@ class IndexController extends Controller
 {
     public function __construct(Request $request)
     {
-        parent::__construct($request);
     }
 
-    public function index()
+    public function index(Request $request)
     {
+        $this->checkAuth($request);
         // 场馆信息
         dd($this->userInfo);
     }

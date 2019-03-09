@@ -14,7 +14,7 @@ class Controller extends BaseController
 
     protected $userInfo = [];
 
-    public function __construct(Request $request)
+    public function checkAuth(Request $request)
     {
         if ($request->session()->has('userInfo')) {
             // 微信授权
