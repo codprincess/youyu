@@ -19,10 +19,6 @@ class Controller extends BaseController
 
     public function checkAuth(Request $request)
     {
-        return redirect("auth");
-//        if (!Session::has('userInfo')) {
-//            Log::debug('checkAuth is fail');
-//
-//        }
+
     }
 }

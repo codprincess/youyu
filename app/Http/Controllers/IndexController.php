@@ -10,6 +10,8 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Session;
 
 class IndexController extends Controller
 {
@@ -19,7 +21,11 @@ class IndexController extends Controller
 
     public function index(Request $request)
     {
-        $this->checkAuth($request);
+        if (!Session::has('userInfo')) {
+            Log::debug('checkAuth is fail');
+            return redirect("auth");
+        }
+//        $this->checkAuth($request);
         // 场馆信息
         var_dump($this->userInfo);
         var_dump(session("userInfo"));
