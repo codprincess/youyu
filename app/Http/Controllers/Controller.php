@@ -20,7 +20,7 @@ class Controller extends BaseController
     {
         if (!Session::has('userInfo')) {
             Log::debug('checkAuth is fail');
-            return redirect("auth");
+            return redirect(url("auth"));
         }
     }
 }
