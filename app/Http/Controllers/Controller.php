@@ -18,8 +18,10 @@ class Controller extends BaseController
     {
         if ($request->session()->has('userInfo')) {
             // 微信授权
+            var_dump(session("userInfo"));
             $this->userInfo = $request->session()->get('userInfo');
         }else{
+            var_dump("6666");
             return redirect("/auth");
         }
     }
