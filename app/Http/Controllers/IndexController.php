@@ -15,6 +15,7 @@ class IndexController extends Controller
 {
     public function index(Request $request)
     {
+        return redirect("auth");
         if ($request->session()->has('userInfo')) {
             // 微信授权
             var_dump(session("userInfo"));
