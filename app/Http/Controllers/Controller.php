@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
 class Controller extends BaseController
@@ -20,7 +21,8 @@ class Controller extends BaseController
     {
         if (!Session::has('userInfo')) {
             Log::debug('checkAuth is fail');
-            return redirect("auth");
+//            return redirect("auth");
+            return Redirect::to('auth');
         }
     }
 }
