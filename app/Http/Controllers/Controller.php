@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -13,10 +14,13 @@ class Controller extends BaseController
 
     protected $userInfo = [];
 
-    public function __construct()
+    public function __construct(Request $request)
     {
-        // 微信授权
-        $this->userInfo = (new UserController())->auth();
-
+        if ($request->session()->has('userInfo')) {
+            // 微信授权
+            $this->userInfo = $request->session()->get('userInfo');
+        }else{
+            return redirect("/auth");
+        }
     }
 }

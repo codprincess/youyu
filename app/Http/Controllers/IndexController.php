@@ -9,14 +9,16 @@
 namespace App\Http\Controllers;
 
 
+use Illuminate\Http\Request;
+
 class IndexController extends Controller
 {
-    public function __construct()
+    public function __construct(Request $request)
     {
-        parent::__construct();
+        parent::__construct($request);
     }
 
-    public function Index()
+    public function index()
     {
         // 场馆信息
         dd($this->userInfo);

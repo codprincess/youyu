@@ -15,5 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', "IndexController@Index");
+Route::get('/', "IndexController@index");
+Route::get('/auth', "IndexController@auth");
 Route::get('/login', "UserController@getAccessToken");

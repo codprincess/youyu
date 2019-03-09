@@ -6,6 +6,7 @@ use App\Models\User;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Session;
 
 class UserController
 {
@@ -93,7 +94,11 @@ class UserController
                 'created_at' => date('Y-m-d H:i:s')
             ]
         )->toArray();
-        return $userInfo;
+        // 设置session
+        \session("userInfo", $userInfo);
+
+        // 跳转回首页
+        return redirect("/");
     }
 
 }
