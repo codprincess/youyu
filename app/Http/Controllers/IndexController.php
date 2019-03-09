@@ -19,6 +19,6 @@ class IndexController extends Controller
     public function Index()
     {
         // 场馆信息
-        return $this->userInfo["nickname"];
+        dd($this->userInfo);
     }
 }
