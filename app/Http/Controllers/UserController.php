@@ -48,7 +48,6 @@ class UserController
      */
     public function getAccessToken(Request $request)
     {
-        var_dump(3333);
         $uri = sprintf('https://api.weixin.qq.com/sns/oauth2/access_token?appid=%s&secret=%s&code=%s&grant_type=authorization_code',
             $this->appId,
             $this->secret,
@@ -59,6 +58,8 @@ class UserController
         $data = json_decode((string)$res->getBody(), true);
         Log::debug('response body is', $data);
         $this->getUserInfo($data["access_token"], $data["openid"]);
+
+        return redirect("/");
     }
 
     /**
@@ -98,7 +99,6 @@ class UserController
         // 设置session
         \session("userInfo", $userInfo);
         // 跳转回首页
-        return redirect("/");
     }
 
 }
