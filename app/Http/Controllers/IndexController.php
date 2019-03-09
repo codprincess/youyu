@@ -21,7 +21,8 @@ class IndexController extends Controller
 
     public function index(Request $request)
     {
-        \session("tt","78787878");
+        \session("tt", "78787878");
+        \session()->save();
 //        $this->checkAuth($request);
         if (!Session::has('userInfo')) {
             Log::debug('checkAuth is fail');
