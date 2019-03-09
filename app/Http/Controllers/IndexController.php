@@ -21,6 +21,7 @@ class IndexController extends Controller
     {
         $this->checkAuth($request);
         // 场馆信息
-        dd($this->userInfo);
+        var_dump($this->userInfo);
+        var_dump(session("userInfo"));
     }
 }
