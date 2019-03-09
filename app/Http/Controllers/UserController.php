@@ -36,7 +36,6 @@ class UserController
             $this->scope,
             $this->state
         );
-        var_dump(777);
         return redirect($uri);
     }
 
@@ -98,7 +97,6 @@ class UserController
         )->toArray();
         // 设置session
         \session("userInfo", $userInfo);
-        var_dump("88888");
         // 跳转回首页
         return redirect("/");
     }
