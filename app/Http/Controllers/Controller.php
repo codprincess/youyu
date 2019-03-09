@@ -16,7 +16,7 @@ class Controller extends BaseController
     public function __construct()
     {
         // 微信授权
-        $this->userInfo = (new UserController())->getCode();
+        $this->userInfo = (new UserController())->auth();
 
     }
 }

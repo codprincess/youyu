@@ -27,7 +27,7 @@ class UserController
     /**
      * 获取code
      */
-    public function getCode()
+    public function auth()
     {
         $uri = sprintf('https://open.weixin.qq.com/connect/oauth2/authorize?appid=%s&redirect_uri=%s&response_type=code&scope=%s&state=%s#wechat_redirect',
             $this->appId,
@@ -92,7 +92,7 @@ class UserController
                 'headimgurl' => $data['headimgurl'],
                 'created_at' => date('Y-m-d H:i:s')
             ]
-        );
+        )->toArray();
         return $userInfo;
     }
 
