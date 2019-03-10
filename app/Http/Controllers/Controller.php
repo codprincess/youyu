@@ -17,7 +17,7 @@ class Controller extends BaseController
 
     protected $userInfo = [];
 
-    public function checkAuth(Request $request)
+    public function checkAuth()
     {
         if (!Session::has('userInfo')) {
             Log::debug('checkAuth is fail');

@@ -21,11 +21,7 @@ class IndexController extends Controller
 
     public function index(Request $request)
     {
-//        $this->checkAuth($request);
-        if (!Session::has('userInfo')) {
-            Log::debug('checkAuth is fail');
-            return redirect("auth");
-        }
+        $this->checkAuth();
         // 场馆信息
         var_dump($this->userInfo);
         var_dump(session("userInfo"));
