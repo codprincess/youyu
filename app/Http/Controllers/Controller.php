@@ -19,7 +19,7 @@ class Controller extends BaseController
 
     public function checkAuth()
     {
-        if (!Session::has('userInfo')) {
+        if (Session::has('userInfo')) {
             $this->userInfo = \session('userInfo');
         } else {
             Log::debug('checkAuth is fail');
