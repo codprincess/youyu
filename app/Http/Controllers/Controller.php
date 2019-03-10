@@ -15,7 +15,10 @@ class Controller extends BaseController
 
     protected $userInfo = [];
 
-
+    public function __construct()
+    {
+        $this->userInfo = \session("userInfo");
+    }
 
     public function success($message, $data)
     {
