@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/', "IndexController@index");
 Route::get('/auth', "UserController@auth");
 Route::get('/login', "UserController@getAccessToken");

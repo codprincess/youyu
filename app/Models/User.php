@@ -12,4 +12,9 @@ class User extends Model
     {
         return $this->hasMany("App\Models\Venue");
     }
+
+    public function orders()
+    {
+        return $this->hasMany("App\Models\Order");
+    }
 }

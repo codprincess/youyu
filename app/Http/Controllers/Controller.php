@@ -3,17 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
 class Controller extends BaseController
 {
-//    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     protected $userInfo = [];
 
@@ -25,6 +23,24 @@ class Controller extends BaseController
             Log::debug('checkAuth is fail');
             header("Location:" . url("auth"));
         }
+    }
+
+    public function success($message, $data)
+    {
+        return [
+            "code" => 0,
+            "message" => $message,
+            "data" => $data,
+        ];
+    }
+
+    public function fail($message, $data)
+    {
+        return [
+            "code" => 1,
+            "message" => $message,
+            "data" => $data,
+        ];
     }
 
 
