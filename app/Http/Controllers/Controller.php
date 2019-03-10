@@ -15,15 +15,7 @@ class Controller extends BaseController
 
     protected $userInfo = [];
 
-    public function checkAuth()
-    {
-        if (Session::has('userInfo')) {
-            $this->userInfo = \session('userInfo');
-        } else {
-            Log::debug('checkAuth is fail');
-            header("Location:" . url("auth"));
-        }
-    }
+
 
     public function success($message, $data)
     {
