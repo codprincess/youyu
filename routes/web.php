@@ -11,6 +11,6 @@
 |
 */
 
-Route::middleware('weChatAuth')->get('/', "IndexController@index");
+Route::get('/', "IndexController@index")->middleware('weChatAuth');
 Route::get('/auth', "UserController@auth");
 Route::get('/login', "UserController@getAccessToken");
