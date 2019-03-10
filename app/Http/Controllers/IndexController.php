@@ -18,29 +18,19 @@ use Illuminate\Support\Facades\Session;
 
 class IndexController extends Controller
 {
-    public function __construct(Request $request)
+    public function __construct()
     {
+    }
 
-    }
-    public function checkAuth()
-    {
-        if (Session::has('userInfo')) {
-            $this->userInfo = \session('userInfo');
-        } else {
-            Log::debug('checkAuth is fail');
-            header("Location:" . url("auth"));
-        }
-    }
     public function index(Request $request)
     {
-        $this->checkAuth();
         // 场馆信息
         $bannerList = (new BannerRepository())->getBanerList();
         $venueList = (new VenueRepository)->getVenueList();
         $userInfo = [
-            'nickname' => $this->userInfo['nickname']??'',
-            'sex' => $this->userInfo['sex']??'',
-            'headimgurl' => $this->userInfo['headimgurl']??'',
+            'nickname' => $this->userInfo['nickname'] ?? '',
+            'sex' => $this->userInfo['sex'] ?? '',
+            'headimgurl' => $this->userInfo['headimgurl'] ?? '',
         ];
         $res = [
             'userInfo' => $userInfo,
