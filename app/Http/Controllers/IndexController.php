@@ -20,11 +20,12 @@ class IndexController extends Controller
 {
     public function __construct(Request $request)
     {
-        $this->checkAuth();
+
     }
 
     public function index(Request $request)
     {
+        $this->checkAuth();
         // 场馆信息
         $bannerList = (new BannerRepository())->getBanerList();
         $venueList = (new VenueRepository)->getVenueList();
