@@ -13,13 +13,6 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    protected $userInfo = [];
-
-    public function __construct()
-    {
-        $this->userInfo = \session("userInfo");
-    }
-
     public function success($message, $data)
     {
         return [

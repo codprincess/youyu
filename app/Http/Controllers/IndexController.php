@@ -18,19 +18,16 @@ use Illuminate\Support\Facades\Session;
 
 class IndexController extends Controller
 {
-    public function __construct()
-    {
-    }
-
     public function index(Request $request)
     {
+        $sessionUserInfo = \session('userInfo');
         // 场馆信息
         $bannerList = (new BannerRepository())->getBanerList();
         $venueList = (new VenueRepository)->getVenueList();
         $userInfo = [
-            'nickname' => $this->userInfo['nickname'] ?? '',
-            'sex' => $this->userInfo['sex'] ?? '',
-            'headimgurl' => $this->userInfo['headimgurl'] ?? '',
+            'nickname' => $sessionUserInfo['nickname'] ?? '',
+            'sex' => $sessionUserInfo['sex'] ?? '',
+            'headimgurl' => $sessionUserInfo['headimgurl'] ?? '',
         ];
         $res = [
             'userInfo' => $userInfo,
