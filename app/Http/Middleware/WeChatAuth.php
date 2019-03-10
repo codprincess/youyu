@@ -21,6 +21,7 @@ class WeChatAuth
             Log::debug('checkAuth is fail');
             return redirect(url("auth"));
         }
+        Log::debug('session userInfo  is :', \session('userInfo'));
         return $next($request);
     }
 }
