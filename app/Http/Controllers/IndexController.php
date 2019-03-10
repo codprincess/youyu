@@ -26,4 +26,11 @@ class IndexController extends Controller
         var_dump($this->userInfo);
         var_dump(session("userInfo"));
     }
+    public function checkAuth()
+    {
+        if (!Session::has('userInfo')) {
+            Log::debug('checkAuth is fail');
+            return redirect("auth");
+        }
+    }
 }
