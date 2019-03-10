@@ -30,6 +30,7 @@ class UserController
      */
     public function auth()
     {
+        Log::debug('auth');
         $uri = sprintf('https://open.weixin.qq.com/connect/oauth2/authorize?appid=%s&redirect_uri=%s&response_type=code&scope=%s&state=%s#wechat_redirect',
             $this->appId,
             urlencode($_SERVER["REQUEST_SCHEME"] . '://' . $_SERVER["HTTP_HOST"] . $this->redirectUri),
@@ -56,7 +57,7 @@ class UserController
         $client = new Client();
         $res = $client->request('GET', $uri);
         $data = json_decode((string)$res->getBody(), true);
-        Log::debug('response body is', $data);
+        Log::debug('response1 body is', $data);
         $this->getUserInfo($data["access_token"], $data["openid"]);
     }
 
@@ -76,7 +77,7 @@ class UserController
         $client = new Client();
         $res = $client->request('GET', $uri);
         $data = json_decode((string)$res->getBody(), true);
-        Log::debug('response body is ', $data);
+        Log::debug('response2 body is ', $data);
 
         // 跳转回首页
         $userInfo = User::updateOrCreate(

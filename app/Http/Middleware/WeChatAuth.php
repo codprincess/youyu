@@ -18,6 +18,7 @@ class WeChatAuth
     public function handle($request, Closure $next)
     {
         if (Session::has('userInfo')) {
+            Log::debug('checkAuth is ok');
             $this->userInfo = \session('userInfo');
         } else {
             Log::debug('checkAuth is fail');
