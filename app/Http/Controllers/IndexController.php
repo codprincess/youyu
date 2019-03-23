@@ -18,11 +18,9 @@ use Illuminate\Support\Facades\Log;
 class IndexController extends Controller
 {
     // 登录跳转
-    public function index(Request $request)
+    public function index()
     {
-        $apiToken = $request->get('apiToken');
-        Log::debug('apiToken is:', [$apiToken]);
-        Log::debug('userInfo is:', [session('userInfo')]);
+        $apiToken = session('userInfo')['api_token'];
         return view('home.layout', compact($apiToken));
     }
 
