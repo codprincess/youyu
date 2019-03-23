@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="api-token" content="{{ $apiToken }}">
+    <meta name="api-token" content="Bearer {{ $apiToken }}">
     <title>控制面板</title>
     <link rel="stylesheet" href="{{ URL::asset('static/home/css/reset.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('static/home/css/border.css') }}">
