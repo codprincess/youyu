@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
 
 class UserController
 {
@@ -80,7 +81,7 @@ class UserController
         $data = json_decode((string)$res->getBody(), true);
         Log::debug('response2 body is ', $data);
 
-        $apiToken = Hash::make($data['openid'] + now());
+        $apiToken = Str::random(60);
 
         Log::debug('make apiToken is :', $data);
         // 跳转回首页
