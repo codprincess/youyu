@@ -1,12 +1,10 @@
 <?php
-
 namespace App\Http\Controllers;
-
+use App\Models\User;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Log\Logger;
 use Illuminate\Support\Facades\Log;
-
 class UserController extends Controller
 {
     private $appId = '';
@@ -14,16 +12,14 @@ class UserController extends Controller
     private $redirectUri = '';
     private $scope = '';
     private $state = '';
-
     public function __construct()
     {
-        $this->appId = 'wxc0e57faa5b2ced55';
-        $this->secret = 'b57a3ee65ed40216c398aada0e9fcbf4';
+        $this->appId = env("WECHAT_APPID");
+        $this->secret = env("WECHAT_SECRET");
         $this->redirectUri = '/user/access_token';
         $this->scope = 'snsapi_userinfo';
         $this->state = rand(100000, 999999);
     }
-
     /**
      * 获取code
      */
@@ -31,13 +27,12 @@ class UserController extends Controller
     {
         $uri = sprintf('https://open.weixin.qq.com/connect/oauth2/authorize?appid=%s&redirect_uri=%s&response_type=code&scope=%s&state=%s#wechat_redirect',
             $this->appId,
-            urlencode($this->redirectUri),
+            urlencode($_SERVER["REQUEST_SCHEME"] . '://' . $_SERVER["HTTP_HOST"] . $this->redirectUri),
             $this->scope,
             $this->state
         );
         return redirect($uri);
     }
-
     /**
      * 获取accessToken
      * @param Request $request
@@ -54,9 +49,8 @@ class UserController extends Controller
         $res = $client->request('GET', $uri);
         $data = json_decode((string)$res->getBody(), true);
         Log::debug('response body is', $data);
-        $this->getUserInfo($data["access_token"], $data["openid"]);
+        return $this->getUserInfo($data["access_token"], $data["openid"]);
     }
-
     /**
      * 获取用户信息
      * @param $accessToken
@@ -75,11 +69,25 @@ class UserController extends Controller
         $data = json_decode((string)$res->getBody(), true);
         Log::debug('response body is ', $data);
         // 判断是否新用户
-
         // 创建用户
-
         // 返回用户信息给客户端
-        //
-        return $data;
+        // 跳转回首页
+        $email_verify = User::updateOrCreate(
+            [
+                'openid' => $data['openid']
+            ],
+            [
+                'nickname' => $data['nickname'],
+                'sex' => $data['sex'],
+                'language' => $data['language'],
+                'city' => $data['city'],
+                'province' => $data['province'],
+                'country' => $data['country'],
+                'headimgurl' => $data['headimgurl'],
+                'privilege' => $data['privilege'],
+                'created_at' => date('Y-m-d H:i:s')
+            ]
+        );
+        return $email_verify;
     }
 }
