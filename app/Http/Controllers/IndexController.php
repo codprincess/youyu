@@ -24,12 +24,18 @@ class IndexController extends Controller
         return view('home.layout');
     }
 
-    public function home()
+    public function home(Request $request)
     {
+        $data = $request->only('city');
+        if (!isset($data['city'])) {
+            $venueList = (new VenueRepository)->getVenueList();
+        } else {
+            $venueList = (new VenueRepository)->getVenueList($data['city']);
+        }
+
         $sessionUserInfo = \session('userInfo');
         // 场馆信息
         $bannerList = (new BannerRepository())->getBanerList();
-        $venueList = (new VenueRepository)->getVenueList();
         $userInfo = [
             'nickname' => $sessionUserInfo['nickname'] ?? '',
             'sex' => $sessionUserInfo['sex'] ?? '',

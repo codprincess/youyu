@@ -9,15 +9,27 @@ use Illuminate\Support\Facades\DB;
 
 class VenueRepository
 {
-    public function getVenueList()
+    public function getVenueList($city = '')
     {
-        return Venue::select([
-            'id', 'name', 'district', 'description', 'province', 'city', 'thumb', 'street', 'score', 'price', 'total_counts', 'free_counts',
-            'start_at', 'end_at'
-        ])
-            ->where('status', 1)
-            ->paginate(10)
-            ->toArray();
+        if ($city == '') {
+            return Venue::select([
+                'id', 'name', 'district', 'description', 'province', 'city', 'street', 'score', 'price', 'total_counts', 'free_counts',
+                'start_at', 'end_at'
+            ])
+                ->where('status', 1)
+                ->paginate(10)
+                ->toArray();
+        } else {
+            return Venue::select([
+                'id', 'name', 'district', 'description', 'province', 'city', 'street', 'score', 'price', 'total_counts', 'free_counts',
+                'start_at', 'end_at'
+            ])
+                ->Where('city', $city)
+                ->where('status', 1)
+                ->paginate(10)
+                ->toArray();
+        }
+
     }
 
     /**
