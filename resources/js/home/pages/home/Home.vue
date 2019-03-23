@@ -36,17 +36,11 @@
         computed: {
             ...mapState(['city'])
         },
-        mounted(){
-            alert(8888888)
-            this.getHomeInfo()
-        },
         methods: {
             getHomeInfo() {
                 // 请求
-                alert("66666666666666")
-                axios.get('/api?city=' + this.city)
-                    .then(this.getHomeInfoSucc)
-                // axios.get('/index.json?city=' + this.city)
+                axios.get('/index.json?city=' + this.city).then(this.getHomeInfoSucc)
+
                 // .then(this.getHomeInfoSucc)
             },
             getHomeInfoSucc(res) {
