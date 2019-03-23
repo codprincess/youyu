@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::view('/', 'home.layout');
+Route::view('/{query}', 'home.layout')->where('query', '.*');
 
 Route::get('/user/auth', "UserController@getCode");
 Route::get('/user/access_token', "UserController@getAccessToken");
