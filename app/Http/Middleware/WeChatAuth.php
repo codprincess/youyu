@@ -19,12 +19,10 @@ class WeChatAuth
     {
         if (!Session::has('userInfo')) {
             Log::debug('checkAuth is fail:', Session::all());
-            header('Location:' . url("auth"));
-//            return redirect(url("auth"));
-        } else {
-            Log::debug('session userInfo  is :', \session('userInfo'));
-            return $next($request);
+            return redirect("auth");
         }
+        Log::debug('session userInfo  is :', \session('userInfo'));
+        return $next($request);
 
     }
 }
