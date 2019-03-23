@@ -39,7 +39,7 @@
         methods: {
             getHomeInfo() {
                 // 请求
-                axios.get('/index.json?city=' + this.city).then(this.getHomeInfoSucc)
+                axios.get('/api?city=' + this.city).then(this.getHomeInfoSucc)
 
                 // .then(this.getHomeInfoSucc)
             },
