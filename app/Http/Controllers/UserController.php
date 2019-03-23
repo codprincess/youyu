@@ -1,11 +1,13 @@
 <?php
 namespace App\Http\Controllers;
+
 use App\Models\User;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
-use Illuminate\Log\Logger;
 use Illuminate\Support\Facades\Log;
-class UserController extends Controller
+use Illuminate\Support\Facades\Session;
+
+class UserController
 {
     private $appId = '';
     private $secret = '';
@@ -16,15 +18,16 @@ class UserController extends Controller
     {
         $this->appId = env("WECHAT_APPID");
         $this->secret = env("WECHAT_SECRET");
-        $this->redirectUri = '/user/access_token';
+        $this->redirectUri = '/login';
         $this->scope = 'snsapi_userinfo';
         $this->state = rand(100000, 999999);
     }
     /**
      * 获取code
      */
-    public function getCode()
+    public function auth()
     {
+        Log::debug('auth');
         $uri = sprintf('https://open.weixin.qq.com/connect/oauth2/authorize?appid=%s&redirect_uri=%s&response_type=code&scope=%s&state=%s#wechat_redirect',
             $this->appId,
             urlencode($_SERVER["REQUEST_SCHEME"] . '://' . $_SERVER["HTTP_HOST"] . $this->redirectUri),
@@ -33,9 +36,12 @@ class UserController extends Controller
         );
         return redirect($uri);
     }
+
+
     /**
      * 获取accessToken
      * @param Request $request
+     * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function getAccessToken(Request $request)
@@ -48,8 +54,8 @@ class UserController extends Controller
         $client = new Client();
         $res = $client->request('GET', $uri);
         $data = json_decode((string)$res->getBody(), true);
-        Log::debug('response body is', $data);
-        return $this->getUserInfo($data["access_token"], $data["openid"]);
+        Log::debug('response1 body is', $data);
+        $this->getUserInfo($data["access_token"], $data["openid"]);
     }
     /**
      * 获取用户信息
@@ -67,12 +73,10 @@ class UserController extends Controller
         $client = new Client();
         $res = $client->request('GET', $uri);
         $data = json_decode((string)$res->getBody(), true);
-        Log::debug('response body is ', $data);
-        // 判断是否新用户
-        // 创建用户
-        // 返回用户信息给客户端
+        Log::debug('response2 body is ', $data);
+
         // 跳转回首页
-        $email_verify = User::updateOrCreate(
+        $userInfo = User::updateOrCreate(
             [
                 'openid' => $data['openid']
             ],
@@ -84,10 +88,14 @@ class UserController extends Controller
                 'province' => $data['province'],
                 'country' => $data['country'],
                 'headimgurl' => $data['headimgurl'],
-                'privilege' => $data['privilege'],
                 'created_at' => date('Y-m-d H:i:s')
             ]
-        );
-        return $email_verify;
+        )->toArray();
+        // 设置session
+        Session::put("userInfo", $userInfo);
+        Session::save();
+        // 跳转回首页
+        return redirect("/");
     }
+
 }

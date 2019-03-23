@@ -11,8 +11,11 @@
 |
 */
 
+Route::view('/', 'IndexController@index')->middleware('weChatAuth');;
 
-Route::view('/', 'home.layout');
+Route::get('/auth', "UserController@auth");
+Route::get('/login', "UserController@getAccessToken");
+
 Route::view('/{query}', 'home.layout')->where('query', '.*');
 
 Route::get('/user/auth', "UserController@getCode");
