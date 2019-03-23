@@ -18,7 +18,13 @@ use Illuminate\Support\Facades\Session;
 
 class IndexController extends Controller
 {
-    public function index(Request $request)
+    // 登录跳转
+    public function index()
+    {
+        return view('home.layout');
+    }
+
+    public function home()
     {
         $sessionUserInfo = \session('userInfo');
         // 场馆信息

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\User;
@@ -15,7 +14,6 @@ class UserController
     private $redirectUri = '';
     private $scope = '';
     private $state = '';
-
     public function __construct()
     {
         $this->appId = env("WECHAT_APPID");
@@ -24,7 +22,6 @@ class UserController
         $this->scope = 'snsapi_userinfo';
         $this->state = rand(100000, 999999);
     }
-
     /**
      * 获取code
      */
@@ -60,7 +57,6 @@ class UserController
         Log::debug('response1 body is', $data);
         $this->getUserInfo($data["access_token"], $data["openid"]);
     }
-
     /**
      * 获取用户信息
      * @param $accessToken
