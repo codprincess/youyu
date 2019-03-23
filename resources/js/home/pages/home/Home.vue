@@ -36,6 +36,10 @@
         computed: {
             ...mapState(['city'])
         },
+        mounted(){
+            alert(8888888)
+            this.getHomeInfo()
+        },
         methods: {
             getHomeInfo() {
                 // 请求
