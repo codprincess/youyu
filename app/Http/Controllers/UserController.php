@@ -83,7 +83,7 @@ class UserController
 
         $apiToken = Str::random(60);
 
-        Log::debug('make apiToken is :', $apiToken);
+        Log::debug('make apiToken is :', [$apiToken]);
         // 跳转回首页
         $userInfo = User::updateOrCreate(
             [
