@@ -1,9 +1,11 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\User;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 
@@ -14,6 +16,7 @@ class UserController
     private $redirectUri = '';
     private $scope = '';
     private $state = '';
+
     public function __construct()
     {
         $this->appId = env("WECHAT_APPID");
@@ -22,6 +25,7 @@ class UserController
         $this->scope = 'snsapi_userinfo';
         $this->state = rand(100000, 999999);
     }
+
     /**
      * 获取code
      */
@@ -57,6 +61,7 @@ class UserController
         Log::debug('response1 body is', $data);
         $this->getUserInfo($data["access_token"], $data["openid"]);
     }
+
     /**
      * 获取用户信息
      * @param $accessToken
@@ -75,6 +80,7 @@ class UserController
         $data = json_decode((string)$res->getBody(), true);
         Log::debug('response2 body is ', $data);
 
+        $apiToken=Hash::make($data['openid'] + now());
         // 跳转回首页
         $userInfo = User::updateOrCreate(
             [
@@ -88,11 +94,14 @@ class UserController
                 'province' => $data['province'],
                 'country' => $data['country'],
                 'headimgurl' => $data['headimgurl'],
+                'api_token' => $apiToken,
                 'created_at' => date('Y-m-d H:i:s')
             ]
         )->toArray();
+
         // 设置session
         Session::put("userInfo", $userInfo);
+        Session::put("apiToken", $apiToken);
         Session::save();
         // 跳转回首页
         return redirect("/");

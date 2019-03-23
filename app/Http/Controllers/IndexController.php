@@ -21,7 +21,9 @@ class IndexController extends Controller
     // 登录跳转
     public function index()
     {
-        return view('home.layout');
+        $apiToken = \session('apiToken');
+        Log::debug('apiToken is:', [$apiToken]);
+        return view('home.layout', $apiToken);
     }
 
     public function home(Request $request)
