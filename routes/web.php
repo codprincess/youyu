@@ -12,15 +12,13 @@
 */
 
 Route::get('/', 'IndexController@index')->middleware('weChatAuth');
-Route::view('/{query}', 'home.layout')->where('query', '.*')->middleware('weChatAuth');
 
 
 Route::get('/auth', "UserController@auth");
 Route::get('/login', "UserController@getAccessToken");
 
-
-Route::get('/user/auth', "UserController@getCode");
-Route::get('/user/access_token', "UserController@getAccessToken");
+// 必须写在最后面
+Route::view('/{query}', 'home.layout')->where('query', '.*')->middleware('weChatAuth');
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     //登录
