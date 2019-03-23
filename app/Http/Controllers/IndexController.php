@@ -9,19 +9,18 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\Venue;
 use App\Repositories\BannerRepository;
 use App\Repositories\VenueRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Session;
 
 class IndexController extends Controller
 {
     // 登录跳转
-    public function index()
+    public function index(Request $request)
     {
-        $apiToken = \session('apiToken');
+        $apiToken = $request->get('apiToken');
         Log::debug('apiToken is:', [$apiToken]);
         return view('home.layout', compact($apiToken));
     }
@@ -35,13 +34,14 @@ class IndexController extends Controller
             $venueList = (new VenueRepository)->getVenueList($data['city']);
         }
 
-        $sessionUserInfo = \session('userInfo');
+        $authUserInfo = Auth::guard('api')->user();
+        Log::debug('apiToken is:', [$authUserInfo]);
         // 场馆信息
         $bannerList = (new BannerRepository())->getBanerList();
         $userInfo = [
-            'nickname' => $sessionUserInfo['nickname'] ?? '',
-            'sex' => $sessionUserInfo['sex'] ?? '',
-            'headimgurl' => $sessionUserInfo['headimgurl'] ?? '',
+            'nickname' => $authUserInfo['nickname'] ?? '神秘人',
+            'sex' => $authUserInfo['sex'] ?? '',
+            'headimgurl' => $authUserInfo['headimgurl'] ?? '',
         ];
         $res = [
             'userInfo' => $userInfo,

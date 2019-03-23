@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::group(['auth' => 'api'], function () {
+Route::group(['middleware' => 'auth:api'], function () {
     Route::get('/', "IndexController@home");
 });
 
