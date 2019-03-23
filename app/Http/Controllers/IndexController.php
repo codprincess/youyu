@@ -21,6 +21,7 @@ class IndexController extends Controller
     public function index()
     {
         $apiToken = session('userInfo')['api_token'];
+        Log::debug('测试', compact($apiToken));
         return view('home.layout', compact($apiToken));
     }
 
