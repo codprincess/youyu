@@ -22,6 +22,7 @@ class IndexController extends Controller
     {
         $apiToken = $request->get('apiToken');
         Log::debug('apiToken is:', [$apiToken]);
+        Log::debug('userInfo is:', [session('userInfo')]);
         return view('home.layout', compact($apiToken));
     }
 

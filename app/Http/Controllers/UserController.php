@@ -7,6 +7,7 @@ use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Session;
 
 class UserController
 {
@@ -80,6 +81,8 @@ class UserController
         Log::debug('response2 body is ', $data);
 
         $apiToken = Hash::make($data['openid'] + now());
+
+        Log::debug('make apiToken is :', $data);
         // 跳转回首页
         $userInfo = User::updateOrCreate(
             [
@@ -97,6 +100,10 @@ class UserController
                 'created_at' => date('Y-m-d H:i:s')
             ]
         )->toArray();
+
+        // 设置session
+        Session::put("userInfo", $userInfo);
+        Session::save();
         // 跳转回首页
         return redirect("/?apiToken=" . $apiToken);
     }
