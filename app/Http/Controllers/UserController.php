@@ -106,7 +106,8 @@ class UserController
         Session::put("userInfo", $userInfo);
         Session::save();
         // 跳转回首页
-        return redirect("?apiToken=" . $apiToken);
+        Log::debug('Location is :', ['Location:' . url("/?apiToken=" . $apiToken)]);
+        header('Location:' . url("/?apiToken=" . $apiToken));
     }
 
 }
