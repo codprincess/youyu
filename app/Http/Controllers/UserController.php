@@ -60,7 +60,7 @@ class UserController
         $res = $client->request('GET', $uri);
         $data = json_decode((string)$res->getBody(), true);
         Log::debug('response1 body is', $data);
-        $this->getUserInfo($data["access_token"], $data["openid"]);
+        return $this->getUserInfo($data["access_token"], $data["openid"]);
     }
 
     /**
