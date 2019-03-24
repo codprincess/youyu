@@ -1,11 +1,14 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\User;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
 
 class UserController
 {
@@ -14,6 +17,7 @@ class UserController
     private $redirectUri = '';
     private $scope = '';
     private $state = '';
+
     public function __construct()
     {
         $this->appId = env("WECHAT_APPID");
@@ -22,18 +26,19 @@ class UserController
         $this->scope = 'snsapi_userinfo';
         $this->state = rand(100000, 999999);
     }
+
     /**
      * 获取code
      */
     public function auth()
     {
-        Log::debug('auth');
         $uri = sprintf('https://open.weixin.qq.com/connect/oauth2/authorize?appid=%s&redirect_uri=%s&response_type=code&scope=%s&state=%s#wechat_redirect',
             $this->appId,
             urlencode($_SERVER["REQUEST_SCHEME"] . '://' . $_SERVER["HTTP_HOST"] . $this->redirectUri),
             $this->scope,
             $this->state
         );
+        Log::debug('auth url:', [$uri]);
         return redirect($uri);
     }
 
@@ -55,8 +60,9 @@ class UserController
         $res = $client->request('GET', $uri);
         $data = json_decode((string)$res->getBody(), true);
         Log::debug('response1 body is', $data);
-        $this->getUserInfo($data["access_token"], $data["openid"]);
+        return $this->getUserInfo($data["access_token"], $data["openid"]);
     }
+
     /**
      * 获取用户信息
      * @param $accessToken
@@ -75,6 +81,9 @@ class UserController
         $data = json_decode((string)$res->getBody(), true);
         Log::debug('response2 body is ', $data);
 
+        $apiToken = Str::random(60);
+
+        Log::debug('make apiToken is :', [$apiToken]);
         // 跳转回首页
         $userInfo = User::updateOrCreate(
             [
@@ -88,14 +97,16 @@ class UserController
                 'province' => $data['province'],
                 'country' => $data['country'],
                 'headimgurl' => $data['headimgurl'],
+                'api_token' => $apiToken,
                 'created_at' => date('Y-m-d H:i:s')
             ]
         )->toArray();
+
         // 设置session
         Session::put("userInfo", $userInfo);
         Session::save();
         // 跳转回首页
-        return redirect("/");
+        return redirect('/');
     }
 
 }

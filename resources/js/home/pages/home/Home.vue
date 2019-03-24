@@ -39,14 +39,12 @@
         methods: {
             getHomeInfo() {
                 // 请求
-                axios.get('/api?city=' + this.city)
-                    .then(this.getHomeInfoSucc)
-                // axios.get('/index.json?city=' + this.city)
+                axios.get('/api?city=' + this.city).then(this.getHomeInfoSucc)
+
                 // .then(this.getHomeInfoSucc)
             },
             getHomeInfoSucc(res) {
                 console.log(res)
-                alert(res)
                 res = res.data
                 if (res.ret && res.data) {
                     const data = res.data

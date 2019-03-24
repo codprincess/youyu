@@ -9,31 +9,38 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\Venue;
 use App\Repositories\BannerRepository;
 use App\Repositories\VenueRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Session;
 
 class IndexController extends Controller
 {
     // 登录跳转
     public function index()
     {
-        return view('home.layout');
+        $apiToken = session('userInfo')['api_token'];
+        return view('home.layout', ['apiToken' => $apiToken]);
     }
 
-    public function home()
+    public function home(Request $request)
     {
-        $sessionUserInfo = \session('userInfo');
+        $data = $request->only('city');
+        if (!isset($data['city'])) {
+            $venueList = (new VenueRepository)->getVenueList();
+        } else {
+            $venueList = (new VenueRepository)->getVenueList($data['city']);
+        }
+
+        $authUserInfo = Auth::guard('api')->user();
+        Log::debug('apiToken is:', [$authUserInfo]);
         // 场馆信息
         $bannerList = (new BannerRepository())->getBanerList();
-        $venueList = (new VenueRepository)->getVenueList();
         $userInfo = [
-            'nickname' => $sessionUserInfo['nickname'] ?? '',
-            'sex' => $sessionUserInfo['sex'] ?? '',
-            'headimgurl' => $sessionUserInfo['headimgurl'] ?? '',
+            'nickname' => $authUserInfo['nickname'] ?? '神秘人',
+            'sex' => $authUserInfo['sex'] ?? '',
+            'headimgurl' => $authUserInfo['headimgurl'] ?? '',
         ];
         $res = [
             'userInfo' => $userInfo,
