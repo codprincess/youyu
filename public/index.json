@@ -1,0 +1,71 @@
+{
+  "ret": true,
+  "data": {
+    "swiperList": [{
+        "id": "0001",
+        "imgUrl": "https://img.16pic.com/00/68/09/16pic_6809924_s.jpg"
+      },{
+        "id": "0002",
+        "imgUrl": "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2728642449,2819884282&fm=27&gp=0.jpg"
+      },{
+        "id": "0003",
+        "imgUrl": "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3565808341,3800508924&fm=27&gp=0.jpg"
+      },{
+        "id": "0004",
+        "imgUrl": "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2672254308,2158380663&fm=27&gp=0.jpg"
+      }],
+   
+    "recommendList": [{
+          "id": "0001",
+          "imgUrl": "https://img.16pic.com/00/68/09/16pic_6809924_s.jpg",
+          "title": "广西师范大学",
+          "desc": "中国广西壮族自治区桂林市"
+      }, {
+        "id": "0002",
+        "imgUrl": "https://img.16pic.com/00/68/09/16pic_6809924_s.jpg",
+        "title": "广西师范大学",
+        "desc": "中国广西壮族自治区桂林市"
+      }, {
+        "id": "0003",
+        "imgUrl": "https://img.16pic.com/00/68/09/16pic_6809924_s.jpg",
+          "title": "广西师范大学",
+          "desc": "中国广西壮族自治区桂林市"
+      }, {
+        "id": "0004",
+        "imgUrl": "https://img.16pic.com/00/68/09/16pic_6809924_s.jpg",
+          "title": "广西师范大学",
+          "desc": "中国广西壮族自治区桂林市"
+      }, {
+        "id": "0005",
+        "imgUrl": "https://img.16pic.com/00/68/09/16pic_6809924_s.jpg",
+          "title": "广西师范大学",
+          "desc": "中国广西壮族自治区桂林市"
+      }],
+    "weekendList": [{
+        "id": "0001",
+        "imgUrl": "https://img.16pic.com/00/68/09/16pic_6809924_s.jpg",
+        "title": "广西师范大学",
+        "desc": "中国广西壮族自治区桂林市"
+      }, {
+        "id": "0002",
+        "imgUrl": "https://img.16pic.com/00/68/09/16pic_6809924_s.jpg",
+          "title": "广西师范大学",
+          "desc": "中国广西壮族自治区桂林市"
+      }, {
+        "id": "0003",
+        "imgUrl": "https://img.16pic.com/00/68/09/16pic_6809924_s.jpg",
+        "title": "广西师范大学",
+        "desc": "中国广西壮族自治区桂林市"
+      }, {
+        "id": "0004",
+        "imgUrl": "https://img.16pic.com/00/68/09/16pic_6809924_s.jpg",
+        "title": "广西师范大学",
+        "desc": "中国广西壮族自治区桂林市"
+      }, {
+        "id": "0005",
+        "imgUrl": "https://img.16pic.com/00/68/09/16pic_6809924_s.jpg",
+        "title": "广西师范大学",
+        "desc": "中国广西壮族自治区桂林市"
+      }]
+  }
+}
