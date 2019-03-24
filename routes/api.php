@@ -12,8 +12,15 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::group(['middleware' => 'auth:api'], function () {
+Route::group(['namespace' => 'Home', 'middleware' => 'auth:api'], function () {
     Route::get('/', "IndexController@home");
+
+});
+
+Route::group(['namespace' => 'Home'], function () {
+    Route::get('/venue/{venue}/detail', "VenueController@venueDetail");
+    Route::get('/venue/{venue}/time/list', "VenueController@venueTimeList");
+
 });
 
 //Route::get('/', "IndexController@index");
