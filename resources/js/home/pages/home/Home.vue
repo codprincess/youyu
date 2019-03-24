@@ -45,7 +45,6 @@
             },
             getHomeInfoSucc(res) {
                 console.log(res)
-                alert(res)
                 res = res.data
                 if (res.ret && res.data) {
                     const data = res.data
