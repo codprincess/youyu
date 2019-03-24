@@ -11,14 +11,6 @@
 |
 */
 
-Route::get('/', 'IndexController@index')->middleware('weChatAuth');
-
-
-Route::get('/auth', "UserController@auth");
-Route::get('/login', "UserController@getAccessToken");
-
-// 必须写在最后面
-Route::view('/{query}', 'home.layout')->where('query', '.*')->middleware('weChatAuth');
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     //登录
@@ -42,18 +34,25 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::delete('user/destroy', 'UserController@destroy')->name('admin.user.destroy');
 
     //场馆
-    Route::get('venues', 'VenuesController@index')->name('admin.venues');
-    //添加
-    Route::get('venues/create', 'VenuesController@create')->name('admin.venues.create');
-    Route::get('venues/store', 'VenuesController@store')->name('admin.venues.store');
-    //编辑
-    Route::get('venues/{id}/edit', 'VenuesController@edit')->name('admin.venues.edit');
-    Route::put('venues/{id}/update', 'VenuesController@update')->name('admin.venues.update');
-    //删除
-    Route::delete('venues/destroy', 'VenuesController@destroy')->name('admin.venues.destroy');
+    Route::get('venues', 'VenueController@index')->name('admin.venues');
+
+    Route::resource('venues', 'VenueController');
+//    Route::resource('venue/time', 'VenueTimeController');
 
     //编辑
 //    Route::get('')
 
+});
+
+
+Route::group(['namespace' => 'Home'], function () {
+    Route::get('/', 'IndexController@index')->middleware('weChatAuth');
+
+
+    Route::get('/auth', "UserController@auth");
+    Route::get('/login', "UserController@getAccessToken");
+
+// 必须写在最后面
+    Route::view('/{query}', 'home.layout')->where('query', '.*')->middleware('weChatAuth');
 
 });
