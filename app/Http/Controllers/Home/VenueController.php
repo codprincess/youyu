@@ -17,6 +17,11 @@ use Illuminate\Http\Request;
 class VenueController extends Controller
 {
 
+    /** 获取场馆详情api
+     * @param Request $request
+     * @param Venue $venue
+     * @return array
+     */
     public function venueDetail(Request $request, Venue $venue)
     {
 
@@ -24,6 +29,12 @@ class VenueController extends Controller
         return $this->success("获取成功", $venueDetail);
     }
 
+    /**
+     * 获取场馆场次api
+     * @param Request $request
+     * @param Venue $venue
+     * @return array
+     */
     public function venueTimeList(Request $request, Venue $venue)
     {
         $data = $request->only('date');

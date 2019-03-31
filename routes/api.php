@@ -20,6 +20,7 @@ Route::group(['namespace' => 'Home', 'middleware' => 'auth:api'], function () {
 Route::group(['namespace' => 'Home'], function () {
     Route::get('/venue/{venue}/detail', "VenueController@venueDetail");
     Route::get('/venue/{venue}/time/list', "VenueController@venueTimeList");
+    Route::get('/venue/{venue}/order/create', "OrderController@OrderCreate");
 
 });
 

@@ -19,4 +19,9 @@ class Venue extends Model
     {
         return $this->belongsTo('App\Models\User');
     }
+
+    public function times()
+    {
+        return $this->hasMany(VenueTime::class);
+    }
 }
