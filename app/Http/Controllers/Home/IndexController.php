@@ -18,13 +18,21 @@ use Illuminate\Support\Facades\Log;
 
 class IndexController extends Controller
 {
-    // 登录跳转
+    /**
+     * 首页权限认证，模板渲染
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
         $apiToken = session('userInfo')['api_token'];
         return view('home.layout', ['apiToken' => $apiToken]);
     }
 
+    /**
+     * 首页数据api
+     * @param Request $request
+     * @return array
+     */
     public function home(Request $request)
     {
         $data = $request->only('city');
@@ -51,6 +59,12 @@ class IndexController extends Controller
         return $this->success("获取成功", $res);
     }
 
+    /**
+     * 首页搜索api
+     * @param Request $request
+     * @return array
+     * @throws \Illuminate\Validation\ValidationException
+     */
     public function search(Request $request)
     {
         $this->validate($request, [
@@ -65,6 +79,12 @@ class IndexController extends Controller
     }
 
 
+    /**
+     * 首页筛选api
+     * @param Request $request
+     * @return array
+     * @throws \Illuminate\Validation\ValidationException
+     */
     public function filter(Request $request)
     {
         $this->validate($request, [
