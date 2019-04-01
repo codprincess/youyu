@@ -22,16 +22,18 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::get('/index1', 'IndexController@index1')->name('admin.index1');
     Route::get('/index2', 'IndexController@index2')->name('admin.index2');
 
+    //数据
+    Route::get('/data','IndexController@data')->name('admin.data');
     //用户
-    Route::get('/user', 'UserController@index')->name('admin.user');
+    Route::get('/user', 'AdminController@index')->name('admin.user');
     //添加
-    Route::get('/user/create', 'UserController@create')->name('admin.user.create');
-    Route::post('user/store', 'UserController@store')->name('admin.user.store');
+    Route::get('/user/create', 'AdminController@create')->name('admin.user.create');
+    Route::post('user/store', 'AdminController@store')->name('admin.user.store');
     //编辑
-    Route::get('/user/{id}/edit', 'UserController@edit')->name('admin.user.edit');
-    Route::put('user/{id}/update', 'UserController@update')->name('admin.user.update');
+    Route::get('/user/{id}/edit', 'AdminController@edit')->name('admin.user.edit');
+    Route::put('user/{id}/update', 'AdminController@update')->name('admin.user.update');
     //删除
-    Route::delete('user/destroy', 'UserController@destroy')->name('admin.user.destroy');
+    Route::delete('user/destroy', 'AdminController@destroy')->name('admin.user.destroy');
 
     //场馆
     //场馆

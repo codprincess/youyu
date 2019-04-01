@@ -6,7 +6,7 @@
             <h2>添加用户</h2>
         </div>
         <div class="layui-card-body"  style="margin-left: 25%;">
-            <form class="layui-form" action="" method="post">
+            <form class="layui-form" action="{{route('admin.user.store')}}" method="post">
             @include('admin.user._form')
         </form>
         </div>

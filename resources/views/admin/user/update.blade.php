@@ -8,25 +8,25 @@
         <div class="layui-form-item">
             <label for="" class="layui-form-label">昵&nbsp;&nbsp;&nbsp;称</label>
             <div class="layui-input-inline">
-                <input type="text" name="nickname" value="" required="" lay-verify="required" placeholder="请输入昵称" autocomplete="off" class="layui-input" >
+                <input type="text" name="nickname" value="{{$admin->nickname}}}" required="" lay-verify="required" placeholder="请输入昵称" autocomplete="off" class="layui-input" >
             </div>
         </div>
         <div class="layui-form-item">
             <label for="" class="layui-form-label">邮&nbsp;&nbsp;&nbsp;箱</label>
             <div class="layui-input-inline">
-                <input type="email" name="email" value="" required="" lay-verify="required" placeholder="请输入Email" autocomplete="off" class="layui-input" >
+                <input type="email" name="email" value="{{$admin->email}}}" required="" lay-verify="required" placeholder="请输入Email" autocomplete="off" class="layui-input" >
             </div>
         </div>
         <div class="layui-form-item">
             <label for="" class="layui-form-label">用户名</label>
             <div class="layui-input-inline">
-                <input type="text" name="name" value="" required="" lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+                <input type="text" name="name" value="{{$admin->name}}" required="" lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <label for="" class="layui-form-label">手机号</label>
             <div class="layui-input-inline">
-                <input type="text" name="tel" value="" required="" lay-verify="required" placeholder="请输入手机号" autocomplete="off" class="layui-input">
+                <input type="text" name="tel" value="{{$admin->tel}}" required="" lay-verify="required" placeholder="请输入手机号" autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">

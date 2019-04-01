@@ -5,12 +5,12 @@
 
         <div class="layui-card-header layuiadmin-card-header-auto">
             <div class="layui-btn-group">
-
+                {{--@can('user.destroy')--}}
                 <button class="layui-btn layui-btn-sm layui-btn-danger" id="listDelete">删 除</button>
-
-
+                {{--@endcan--}}
+                {{--@can('user.create')--}}
                 <a class="layui-btn layui-btn-sm" href="{{route('admin.user.create')}}">添 加</a>
-
+                {{--@endcan--}}
             </div>
         </div>
 
@@ -24,9 +24,9 @@
                     <a class="layui-btn layui-btn-sm" lay-event="role">角色</a>
 
                     <a class="layui-btn layui-btn-sm" lay-event="permission">权限</a>
-
-                    <a class="layui-btn layui-btn-danger layui-btn-sm " lay-event="del">删除</a>
-
+                    {{--@can('admin.user.destroy')--}}
+                      <a class="layui-btn layui-btn-danger layui-btn-sm " lay-event="del">删除</a>
+                    {{--@endcan--}}
                 </div>
             </script>
         </div>
@@ -35,7 +35,7 @@
 @endsection
 
 @section('script')
-    @can('system.user')
+    {{--@can('system.user')--}}
     <script>
         layui.use(['layer','table','form'],function () {
             var layer = layui.layer;
@@ -47,7 +47,7 @@
                 elem: '#dataTable'
                 ,height: 500
                 ,url: "{{ route('admin.data') }}" //数据接口
-                ,where:{model:"user"}
+                ,where:{model:"admin"}
                 ,page: true //开启分页
                 ,cols: [[ //表头
                     {checkbox: true,fixed: true}
@@ -110,7 +110,7 @@
             })
         })
     </script>
-    @endcan
+    {{--@endcan--}}
 @endsection
 
 

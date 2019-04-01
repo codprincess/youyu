@@ -117,7 +117,7 @@
                         </a>
                         <dl class="layui-nav-child">
                             <dd data-name="用户管理">
-                                <a lay-href="{{route('admin.user')}}">用户管理</a>
+                                <a lay-href="{{route('admin.user')}}">管理员管理</a>
                             </dd>
                             <dd data-name="角色管理">
                                 <a lay-href="{{route('admin.index1')}}">角色管理</a>

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Admin;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -22,5 +24,29 @@ class IndexController extends Controller
     public function index2()
     {
         return view('admin.index.index2');
+    }
+
+    public function data(Request $request)
+    {
+        $model = $request->get('model');
+        switch (strtolower($model)){
+            case 'admin':
+                $query = new Admin();
+                break;
+            default:
+                $query = new Admin();
+                break;
+        }
+
+        $res = $query->paginate($request->get('limit',30))->toArray();
+
+        $data = [
+          'code'=>0,
+          'msg'=>'请求数据中...',
+          'count'=>$res['total'],
+          'data'=>$res['data']
+        ];
+
+        return response()->json($data);
     }
 }
