@@ -28,7 +28,6 @@
                 lastCity: '',
                 // city: '',
                 swiperList: [],
-                iconList: [],
                 recommendList: [],
 
             }
@@ -39,24 +38,21 @@
         methods: {
             getHomeInfo() {
                 // 请求
-                alert(1)
                 axios.get('/api?city=' + this.city).then(this.getHomeInfoSucc)
 
-                // .then(this.getHomeInfoSucc)
             },
             getHomeInfoSucc(res) {
-                alert(2)
+                //alert(2)
                 console.log(res)
                 res = res.data
                 if (res.ret && res.data) {
                     const data = res.data
                     // this.city = data.city
-                    this.swiperList = data.swiperList
-                    this.iconList = data.iconList
-                    this.recommendList = data.recommendList
-                    this.weekendList = data.weekendList
+                    this.swiperList = data.bannerList
+                    this.recommendList = data.venueList.data
                 }
-                //console.log(res);
+                console.log( this.swiperList);
+                console.log( this.recommendList);
             }
         },
         mounted() {
