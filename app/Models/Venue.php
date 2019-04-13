@@ -13,8 +13,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Venue extends Model
 {
-    protected $guarded = [];
+    //protected $guarded = [];
 
+    protected $fillable = ['name','province','district','city','status','description','start_at','end_at','phone'];
     public function user()
     {
         return $this->belongsTo('App\Models\User');

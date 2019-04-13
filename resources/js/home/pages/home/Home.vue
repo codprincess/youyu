@@ -26,7 +26,7 @@
         data() {
             return {
                 lastCity: '',
-                // city: '',
+                city: '',
                 swiperList: [],
                 recommendList: [],
 

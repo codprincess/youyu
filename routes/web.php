@@ -15,8 +15,11 @@
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     //登录
     Route::get('login', 'LoginController@showLoginForm')->name('admin.loginForm');
+    Route::post('login','LoginController@login')->name('admin.login');
+    Route::get('logout','LoginController@logout')->name('admin.logout');
 
     //后台页面
+    Route::post('/uploadImg', 'PublicController@uploadImg')->name('uploadImg');
     Route::get('/', 'IndexController@layout');
     Route::get('/index', 'IndexController@index')->name('admin.index');
     Route::get('/index1', 'IndexController@index1')->name('admin.index1');
@@ -37,15 +40,15 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
 
     //场馆
     //场馆
-    Route::get('venues', 'VenuesController@index')->name('admin.venues');
+    Route::get('venues', 'VenueController@index')->name('admin.venues');
     //添加
-    Route::get('venues/create', 'VenuesController@create')->name('admin.venues.create');
-    Route::get('venues/store', 'VenuesController@store')->name('admin.venues.store');
+    Route::get('venues/create', 'VenueController@create')->name('admin.venues.create');
+    Route::post('venues/store', 'VenueController@store')->name('admin.venues.store');
     //编辑
-    Route::get('venues/{id}/edit', 'VenuesController@edit')->name('admin.venues.edit');
-    Route::put('venues/{id}/update', 'VenuesController@update')->name('admin.venues.update');
+    Route::get('venues/{id}/edit', 'VenueController@edit')->name('admin.venues.edit');
+    Route::put('venues/{id}/update', 'VenueController@update')->name('admin.venues.update');
     //删除
-    Route::delete('venues/destroy', 'VenuesController@destroy')->name('admin.venues.destroy');
+    Route::delete('venues/destroy', 'VenueController@destroy')->name('admin.venues.destroy');
 
 });
 

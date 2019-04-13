@@ -220,14 +220,14 @@
     }).use('index');
 </script>
 
-<script>
-    //执行一个laydate实例
-    laydate.render({
-        elem: '#test1' //指定元素
-        ,type:'date'//默认为date
-        ,trigger:'click'//默认为click，即点击后出现日历框
-    });
-</script>
+{{--<script>--}}
+    {{--//执行一个laydate实例--}}
+    {{--laydate.render({--}}
+        {{--elem: '#test1' //指定元素--}}
+        {{--,type:'date'//默认为date--}}
+        {{--,trigger:'click'//默认为click，即点击后出现日历框--}}
+    {{--});--}}
+{{--</script>--}}
 
 </body>
 </html>

@@ -35,17 +35,18 @@ class VenueController extends Controller
             'province' => 'required|string:max:32',
             'city' => 'required|string:max:20|min:2',
             'street' => 'required|string:max:20|min:2',
-            'cover_uri' => 'required|string:max:255|min:2',
+//            'cover_uri' => 'required|string:max:255|min:2',
             'start_at' => 'required|string:max:64|min:2',
             'end_at' => 'required|string:max:64|min:2',
             'phone' => 'required|string:max:32|min:2',
-            'venue_place_list' => 'required|string:max:255|min:2',
+//            'venue_place_list' => 'required|string:max:255|min:2',
         ]);
 
         if ($validator->fails()) {
             return $this->success('失败啦', $validator->errors()->first());
         }
         $data = $request->only(['name', 'district', 'status', 'description', 'province', 'city', 'street', 'cover_uri', 'start_at', 'end_at', 'phone',]);
+        dd($data);
 
         // TODO:上传图片
 
@@ -55,6 +56,7 @@ class VenueController extends Controller
         $venuePlaceList = explode(',', \request('venue_place_list'));
         $venuePlaceListData = [];
         $venue = Venue::create($data);
+        dd($venue);
         foreach ($venuePlaceList as $venuePlace) {
             $venuePlaceListData[] = [
                 'name' => $venuePlace,
