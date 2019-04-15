@@ -18,6 +18,22 @@ class AdminController extends Controller
         return view('admin.user.index');
     }
 
+    public function data(Request $request)
+    {
+        $model = Admin::query();
+        if($request->get('name')){
+            $model = $model->where('name','like','%'.$request->get('name').'%');
+        }
+        $res = $model->orderBy('created_at','desc')->paginate($request->get('limit',30))->toArray();
+        $data = [
+            'code' => 0,
+            'msg'   => '正在请求中...',
+            'count' => $res['total'],
+            'data'  => $res['data']
+        ];
+        return response()->json($data);
+    }
+
     public function create()
     {
         return view('admin.user.create');

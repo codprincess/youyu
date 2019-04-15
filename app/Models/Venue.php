@@ -15,7 +15,7 @@ class Venue extends Model
 {
     //protected $guarded = [];
 
-    protected $fillable = ['name','province','district','city','status','description','start_at','end_at','phone'];
+    protected $fillable = ['name','province','district','city','status','street','cover_uri','description','start_at','end_at','phone'];
     public function user()
     {
         return $this->belongsTo('App\Models\User');

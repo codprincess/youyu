@@ -11,6 +11,15 @@ class LoginController extends Controller
 {
     use AuthenticatesUsers;
 
+    protected $redirectTo = '/admin/index';
+   // protected $username;
+
+//    public function __construct()
+//    {
+//        $this->middleware('guest:admin', ['except' => 'logout']);
+//        $this->username = config('admin.global.username');
+//    }
+
     public function showLoginForm()
     {
         return view('admin.login.login');
@@ -24,10 +33,10 @@ class LoginController extends Controller
     /**
      * 登录成功跳转
      */
-    public function redirectTo()
-    {
-        return route('admin.layout');
-    }
+//    public function redirectTo()
+//    {
+//        return route('admin.layout');
+//    }
 
     public function logout(Request $request)
     {
@@ -38,7 +47,7 @@ class LoginController extends Controller
 
     protected function guard()
     {
-        return Auth::guard();
+        return Auth::guard('admin');
     }
 
 

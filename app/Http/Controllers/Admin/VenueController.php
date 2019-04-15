@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\VenueRequest;
 use App\Models\Venue;
 use App\Models\VenuePlace;
 use Illuminate\Http\Request;
@@ -9,6 +10,8 @@ use App\Http\Controllers\Controller;
 
 class VenueController extends Controller
 {
+
+
 
     public function index()
     {
@@ -35,31 +38,25 @@ class VenueController extends Controller
             'province' => 'required|string:max:32',
             'city' => 'required|string:max:20|min:2',
             'street' => 'required|string:max:20|min:2',
-//            'cover_uri' => 'required|string:max:255|min:2',
+            'cover_uri' => 'required|string:max:255|min:2',
             'start_at' => 'required|string:max:64|min:2',
             'end_at' => 'required|string:max:64|min:2',
             'phone' => 'required|string:max:32|min:2',
-//            'venue_place_list' => 'required|string:max:255|min:2',
+            'venue_place_list' => 'required|string:max:255|min:2',  // 1号场
         ]);
 
         if ($validator->fails()) {
             return $this->success('失败啦', $validator->errors()->first());
         }
         $data = $request->only(['name', 'district', 'status', 'description', 'province', 'city', 'street', 'cover_uri', 'start_at', 'end_at', 'phone',]);
-        dd($data);
-
-        // TODO:上传图片
-
-//        if (!empty($request->input('cover_uri'))) {
-//            $data['cover_uri'] = preg_replace("/storage(\/.+)/m", '${1}', $request->get('cover_uri'));
-//        }
         $venuePlaceList = explode(',', \request('venue_place_list'));
         $venuePlaceListData = [];
         $venue = Venue::create($data);
-        dd($venue);
-        foreach ($venuePlaceList as $venuePlace) {
+        //dd($venue);
+        foreach ($venuePlaceList as $k=>$venuePlace) {
             $venuePlaceListData[] = [
                 'name' => $venuePlace,
+                'weight' => $k,
                 'venue_id' => $venue->id,
             ];
         }
@@ -69,19 +66,60 @@ class VenueController extends Controller
         return $this->success('创建成功', $venue);
     }
 
+//    public function show($id)
+//    {
+//
+//    }
+
     public function edit($id)
     {
-        return view('admin.venues.edit');
+        $venueList = Venue::findOrFail($id);
+        if(!$venueList){
+            return redirect(route('admin.venues'))->withErrors(['status'=>'哎呀，场馆不存在']);
+        }
+        return view('admin.venues.edit',compact('venueList'));
     }
 
-    public function update(Request $request, Venue $venue)
+    public function update(VenueRequest $request,$id)
     {
+        $venueList = Venue::findOrFail($id);
+        $data = $request->only(['name', 'district', 'status', 'description', 'province', 'city', 'street', 'cover_uri', 'start_at', 'end_at', 'phone',]);
 
+        if($venueList->update($data)){
+            return redirect(route('admin.venues'))->with(['status'=>'更新成功']);
+        }
+        return redirect(route('admin.venues'))->withErrors(['status'=>'哎呀，更新失败了']);
     }
 
-    public function destroy()
+    public function destroy(Request $request)
     {
+        $ids = $request->get('ids');
+        if(empty($ids)){
+            return response()->json(['code'=>1,'msg'=>'请选择删除项']);
+        }
 
+        if(Venue::destroy($ids)){
+            return response()->json(['code'=>0,'msg'=>'删除成功']);
+        }
+        return response()->json(['code'=>1,'msg'=>'删除失败']);
     }
+
+
+    public function data(Request $request)
+    {
+        $model = Venue::query();
+        if($request->get('name')){
+            $model = $model->where('name','like','%'.$request->get('name').'%');
+        }
+        $res = $model->orderBy('created_at','desc')->paginate($request->get('limit',30))->toArray();
+        $data = [
+            'code' => 0,
+            'msg'   => '正在请求中...',
+            'count' => $res['total'],
+            'data'  => $res['data']
+        ];
+        return response()->json($data);
+    }
+
 
 }

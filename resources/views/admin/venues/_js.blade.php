@@ -61,9 +61,9 @@
                 if(res.code == 0){
                     $("#thumb").val(res.url);
                     $('#layui-upload-box li p').text('上传成功');
-                    return layer.msg(res.msg);
+                    return layer.msg('上传成功啦');
                 }
-                return layer.msg(res.msg);
+                return layer.msg('上传失败啦');
             }
         });
     })

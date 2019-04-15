@@ -72,7 +72,7 @@
                         <dd><a lay-href="set/user/info.html">基本资料</a></dd>
                         <dd><a lay-href="set/user/password.html">修改密码</a></dd>
                         <hr>
-                        <dd  style="text-align: center;"><a href="">退出</a></dd>
+                        <dd  style="text-align: center;"><a href="{{route('admin.logout')}}">退出</a></dd>
                     </dl>
                 </li>
 
@@ -88,7 +88,7 @@
         <!-- 侧边菜单 -->
         <div class="layui-side layui-side-menu">
             <div class="layui-side-scroll">
-                <div class="layui-logo" lay-href="{{route('admin.index')}}" style="background-color:#009688 !important; ">
+                <div class="layui-logo" lay-href="{{route('admin.index1')}}" style="background-color:#009688 !important; ">
                     <span>今天有羽</span>
                 </div>
 
@@ -100,13 +100,13 @@
                         </a>
                         <dl class="layui-nav-child">
                             <dd data-name="console" class="layui-this">
-                                <a lay-href="{{route('admin.index')}}">控制台</a>
+                                <a lay-href="{{route('admin.index1')}}">控制台</a>
                             </dd>
                             <dd data-name="console">
-                                <a lay-href="{{route('admin.index1')}}">主页一</a>
+                                <a lay-href="{{route('admin.index2')}}">主页一</a>
                             </dd>
                             <dd data-name="console">
-                                <a lay-href="{{route('admin.index2')}}">主页二</a>
+                                <a lay-href="{{route('admin.index3')}}">主页二</a>
                             </dd>
                         </dl>
                     </li>
@@ -145,8 +145,19 @@
                             <cite>会员管理</cite>
                         </a>
                         <dl class="layui-nav-child">
-                            <dd data-name="会员管理">
-                                <a lay-href="{{route('admin.venues')}}">会员管理</a>
+                            <dd data-name="用户管理">
+                                <a lay-href="{{route('admin.members')}}">账号管理</a>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li data-name="图片管理" class="layui-nav-item">
+                        <a href="javascript:;" lay-tips="图片管理" >
+                            <i class="layui-icon layui-icon-app"></i>
+                            <cite>图片管理</cite>
+                        </a>
+                        <dl class="layui-nav-child">
+                            <dd data-name="图片管理">
+                                <a lay-href="{{route('admin.banners')}}">图片管理</a>
                             </dd>
                         </dl>
                     </li>
@@ -194,14 +205,14 @@
             </div>
             <div class="layui-tab" lay-unauto lay-allowClose="true" lay-filter="layadmin-layout-tabs">
                 <ul class="layui-tab-title" id="LAY_app_tabsheader">
-                    <li lay-id="{{route('admin.index')}}" lay-attr="{{route('admin.index')}}" class="layui-this"><i class="layui-icon layui-icon-home"></i></li>
+                    <li lay-id="{{route('admin.index1')}}" lay-attr="{{route('admin.index1')}}" class="layui-this"><i class="layui-icon layui-icon-home"></i></li>
                 </ul>
             </div>
         </div>
         <!-- 主体内容 -->
         <div class="layui-body" id="LAY_app_body">
             <div class="layadmin-tabsbody-item layui-show">
-                <iframe src="{{route('admin.index')}}" frameborder="0" class="layadmin-iframe"></iframe>
+                <iframe src="{{route('admin.index1')}}" frameborder="0" class="layadmin-iframe"></iframe>
             </div>
         </div>
 
@@ -211,7 +222,8 @@
 </div>
 
 <script src="/static/admin/layuiadmin/layui/layui.js"></script>
-<script src="/static/admin/layuiadmin/layui/laydate.js"></script>
+{{--<script src="/static/admin/layuiadmin/layui/laydate.js"></script>--}}
+
 <script>
     layui.config({
         base: '/static/admin/layuiadmin/' //静态资源所在路径
@@ -220,14 +232,6 @@
     }).use('index');
 </script>
 
-{{--<script>--}}
-    {{--//执行一个laydate实例--}}
-    {{--laydate.render({--}}
-        {{--elem: '#test1' //指定元素--}}
-        {{--,type:'date'//默认为date--}}
-        {{--,trigger:'click'//默认为click，即点击后出现日历框--}}
-    {{--});--}}
-{{--</script>--}}
 
 </body>
 </html>
