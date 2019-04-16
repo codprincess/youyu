@@ -2,14 +2,14 @@
 <div class="layui-form-item">
     <label for="" class="layui-form-label">图片名称</label>
     <div class="layui-input-block">
-        <input style="width: 60%" type="text" name="name" value="" lay-verify="required" placeholder="请输入标题" class="layui-input" >
+        <input style="width: 60%" type="text" name="name" value="{{$bannerList->name??old('name')}}" lay-verify="required" placeholder="请输入标题" class="layui-input" >
     </div>
 </div>
 
 <div class="layui-form-item">
     <label for="" class="layui-form-label">图片链接</label>
     <div class="layui-input-block">
-        <input style="width: 60%" type="text" name="redirect_uri" value="" lay-verify="required" placeholder="请输入图片链接" class="layui-input" >
+        <input style="width: 60%" type="text" name="redirect_uri" value="{{$bannerList->redirect_uri??old('redirect_uri')}}" lay-verify="required" placeholder="请输入图片链接" class="layui-input" >
     </div>
 </div>
 
