@@ -2,7 +2,9 @@
    <div class="wrapper" style="height: 240px;">
     <swiper :options="swiperOption" v-if="showSwiper">
       <swiper-slide v-for="item of list" :key="item.id">
-          <img style="height: 240px;" class="swiper-img" :src="item.picture_uri"/>
+          <router-link :to="item.redirect_uri">
+              <img style="height: 240px;" class="swiper-img" :src="item.picture_uri"/>
+          </router-link>
       </swiper-slide>
       <div class="swiper-pagination"  slot="pagination"></div>
     </swiper>

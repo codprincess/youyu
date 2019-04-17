@@ -26,7 +26,7 @@
                 </div>
             </script>
             <script type="text/html" id="thumb">
-                <a href="@{{d.thumb}}" target="_blank" title="点击查看"><img src="@{{d.thumb}}" alt="" width="28" height="28"></a>
+                <a href="@{{d.picture_uri}}" target="_blank" title="点击查看"><img src="@{{d.picture_uri}}" alt="" width="28" height="28"></a>
             </script>
             {{--<script type="text/html" id="tags">--}}
                 {{--@{{#  layui.each(d.tags, function(index, item){ }}--}}

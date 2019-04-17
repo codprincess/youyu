@@ -21,16 +21,13 @@
             <script type="text/html" id="options">
                 <div class="layui-btn-group">
                     <a class="layui-btn layui-btn-sm" href="{{ route('admin.venuesTime.create') }}">添加场次</a>
-
                         <a class="layui-btn layui-btn-sm" lay-event="edit">编辑</a>
-
                         <a class="layui-btn layui-btn-danger layui-btn-sm" lay-event="del">删除</a>
-
                 </div>
             </script>
-            {{--<script type="text/html" id="thumb">--}}
-                {{--<a href="@{{d.thumb}}" target="_blank" title="点击查看"><img src="@{{d.thumb}}" alt="" width="28" height="28"></a>--}}
-            {{--</script>--}}
+            <script type="text/html" id="thumb">
+                <a href="@{{d.cover_uri}}" target="_blank" title="点击查看"><img src="@{{d.cover_uri}}" alt="" width="28" height="28"></a>
+            </script>
             {{--<script type="text/html" id="tags">--}}
                 {{--@{{#  layui.each(d.tags, function(index, item){ }}--}}
                 {{--<button type="button" class="layui-btn layui-btn-sm">@{{ item.name }}</button>--}}
@@ -60,7 +57,7 @@
                         {checkbox: true,fixed: true}
                         ,{field: 'id', title: 'ID', sort: true,width:80}
                         ,{field: 'name', title: '名称',width:160}
-                        ,{field: 'cover_uri', title: '缩略图',width:100}
+                        ,{field: 'cover_uri', title: '缩略图',toolbar:'#thumb',width:100}
                         ,{field:'province', title:'地点', width:350, templet: function(res){
                             return  res.province + res.city + res.street +res.district
                         }}

@@ -85,6 +85,6 @@ Route::group(['namespace' => 'Home'], function () {
     Route::get('/login', "UserController@getAccessToken");
 
 // 必须写在最后面
-    Route::view('/{query}', 'home.layout')->where('query', '.*')->middleware('weChatAuth');
+  //  Route::view('/{query}', 'home.layout')->where('query', '.*')->middleware('weChatAuth');
 
 });
