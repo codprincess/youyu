@@ -26,9 +26,9 @@ class OrderController extends Controller
      * @param Venue $venue
      * @return array
      */
-    public function OrderCreate(Request $request, Venue $venue)
+    public function orderCreate(Request $request, Venue $venue)
     {
-        // 创建场馆
+        // 创建订单
         $validator = \Validator::make($request->all(), [
             'venueTimeIds' => 'required|string:max:64|min:1',
         ]);
@@ -36,10 +36,9 @@ class OrderController extends Controller
         if ($validator->fails()) {
             return $this->success('参数错误', $validator->errors()->first());
         }
-        $data = $request->only(['venueTimeIds',]);
+        $data = $request->only(['venueTimeIds']);
 
         $venueTimeIdList = explode(',', \request('venueTimeIds'));
-        $venuePlaceListData = [];
         $isLock = VenueTime::whereIn('id', $venueTimeIdList)->Where('status', 1)->get(['id'])->toArray();
         if (count($isLock) != count($venueTimeIdList)) {
             return $this->fail('预定失败,该场次已被被人预定,请返回重新选场', []);
@@ -48,7 +47,7 @@ class OrderController extends Controller
         $insertData = [
             'user_id' => Auth::guard('api')->id() ?? 0,
             'venue_id' => $venue->id,
-            'order_no' => date('Ymd') . substr(implode(NULL, array_map('ord', str_split(substr(uniqid(), 7, 13), 1))), 0, 8),
+            'order_no' => $this->createOrderSn(),
             'venue_time_ids' => $data['venueTimeIds'],
             'total_amount' => $totalAmount,
             'status' => 1,
@@ -66,4 +65,6 @@ class OrderController extends Controller
         }
         return $this->success('创建成功', $venue);
     }
+
+
 }

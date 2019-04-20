@@ -19,6 +19,8 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
+        // TODO：上线后移除
         '*',
+        '/wx/pay/notify',
     ];
 }

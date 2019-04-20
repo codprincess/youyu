@@ -11,7 +11,7 @@
 |
 */
 
-
+Route::any('/wx/pay/notify', 'PayController@notify');
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     //登录
     Route::get('/login', 'LoginController@showLoginForm')->name('admin.loginForm');
