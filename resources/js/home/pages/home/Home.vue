@@ -44,16 +44,16 @@
             getHomeInfoSucc(res) {
                 //alert(2)
                 console.log(res)
-                res = res.data
-                console.log(res);
-                if (res.ret && res.data) {
-                    const data = res.data
+                res = res.data.data;
+                console.log('1111111',res);
+                if (res.ret && res.data.data) {
+                    const data = res.data.data
                     // this.city = data.city
                     this.swiperList = data.bannerList
                     this.recommendList = data.venueList.data
                 }
-                console.log( this.swiperList);
-                console.log( this.recommendList);
+                console.log('333333', this.swiperList);
+                console.log( '444444',this.recommendList);
             }
         },
         mounted() {
