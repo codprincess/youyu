@@ -11,13 +11,6 @@
 |
 */
 
-Route::get('/r', function () {
-    $last_line = system('youyu', $retval);
-    return '
-</pre>
-<hr />Last line of the output: ' . $last_line . '
-<hr />Return value: ' . $retval;
-});
 Route::any('/wx/pay/notify', 'PayController@notify');
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     //登录
