@@ -13,7 +13,7 @@
 
 Route::get('/r', function () {
     exec('youyu');
-    return '项目代码部署成功';
+    return '今日有羽项目代码部署成功';
 });
 Route::any('/wx/pay/notify', 'PayController@notify');
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
