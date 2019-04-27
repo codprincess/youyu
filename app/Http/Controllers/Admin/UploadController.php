@@ -12,11 +12,11 @@ class UploadController extends Controller
     public function uploadImg(Request $request)
     {
         $file = $request->file('file');
-        if($file->isValid()){
-            $path = $file->store(date('ymd'));
+        if ($file->isValid()) {
+            $path = $file->store('public/' . date('ymd'));
             return [
-                'code'=>0,
-                'url'=>asset('/upload/'.$path)
+                'code' => 0,
+                'url' => asset('/public/upload/' . $path)
             ];
         }
 //        if($request->isMethod('POST')){
@@ -41,7 +41,7 @@ class UploadController extends Controller
 //                    $data['data'] = $file->getErrorMessage();
 //                }
 //                return response()->json($data);
-           // }
+        // }
 
 
         //}
