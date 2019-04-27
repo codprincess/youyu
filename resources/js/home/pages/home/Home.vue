@@ -26,7 +26,7 @@
         data() {
             return {
                 lastCity: '',
-                city: '',
+              //  city: '',
                 swiperList: [],
                 recommendList: [],
 
@@ -44,10 +44,10 @@
             getHomeInfoSucc(res) {
                 //alert(2)
                 console.log(res)
-                res = res.data.data;
+                res = res.data;
                 console.log('1111111',res);
-                if (res.ret && res.data.data) {
-                    const data = res.data.data
+                if (res.ret && res.data) {
+                    const data = res.data
                     // this.city = data.city
                     this.swiperList = data.bannerList
                     this.recommendList = data.venueList.data
