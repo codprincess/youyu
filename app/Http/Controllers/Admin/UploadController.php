@@ -16,7 +16,7 @@ class UploadController extends Controller
             $path = $file->store('public/' . date('ymd'));
             return [
                 'code' => 0,
-                'url' => asset('/public/upload/' . $path)
+                'url' => Storage::url($path)
             ];
         }
 //        if($request->isMethod('POST')){
