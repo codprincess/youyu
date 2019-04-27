@@ -11,12 +11,16 @@
 |
 */
 
+Route::get('/r', function () {
+    shell_exec('cd /data/www/youyu/ && git pull');
+    return '服务器重启成功';
+});
 Route::any('/wx/pay/notify', 'PayController@notify');
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     //登录
     Route::get('/login', 'LoginController@showLoginForm')->name('admin.loginForm');
-    Route::post('/login','LoginController@login')->name('admin.login');
-    Route::get('logout','LoginController@logout')->name('admin.logout');
+    Route::post('/login', 'LoginController@login')->name('admin.login');
+    Route::get('logout', 'LoginController@logout')->name('admin.logout');
 
     //后台页面
     Route::post('/uploadImg', 'PublicController@uploadImg')->name('uploadImg');
@@ -26,7 +30,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::get('/index3', 'IndexController@index2')->name('admin.index3');
 
     //数据
-    Route::get('/admindata','AdminController@data')->name('admin.admindata');
+    Route::get('/admindata', 'AdminController@data')->name('admin.admindata');
 //    Route::get('/data','AdminController@data')->name('admin.user.data');
     //用户
     Route::get('/user', 'AdminController@index')->name('admin.user');
@@ -40,7 +44,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::delete('user/destroy', 'AdminController@destroy')->name('admin.user.destroy');
 
     //场馆数据
-    Route::get('/venuedata','VenueController@data')->name('admin.venue.data');
+    Route::get('/venuedata', 'VenueController@data')->name('admin.venue.data');
     //场馆
     Route::get('venues', 'VenueController@index')->name('admin.venues');
     //添加
@@ -57,7 +61,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::post('venuestime/store', 'VenueTimeController@store')->name('admin.venuesTime.store');
 
     //获取微信登录用户信息
-    Route::get('/userdata','MemberController@data')->name('admin.member.data');
+    Route::get('/userdata', 'MemberController@data')->name('admin.member.data');
     Route::get('members', 'MemberController@index')->name('admin.members');
 
     //图片上传
@@ -85,6 +89,6 @@ Route::group(['namespace' => 'Home'], function () {
     Route::get('/login', "UserController@getAccessToken");
 
 // 必须写在最后面
-  //  Route::view('/{query}', 'home.layout')->where('query', '.*')->middleware('weChatAuth');
+    //  Route::view('/{query}', 'home.layout')->where('query', '.*')->middleware('weChatAuth');
 
 });
