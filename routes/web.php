@@ -12,8 +12,11 @@
 */
 
 Route::get('/r', function () {
-    exec('youyu');
-    return '今日有羽项目代码部署成功';
+    $last_line = system('cd /data/www/youyu; git pull', $retval);
+    return '
+</pre>
+<hr />Last line of the output: ' . $last_line . '
+<hr />Return value: ' . $retval;
 });
 Route::any('/wx/pay/notify', 'PayController@notify');
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
