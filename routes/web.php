@@ -12,7 +12,7 @@
 */
 
 Route::get('/r', function () {
-    $last_line = system('cd /data/www/youyu; git pull', $retval);
+    $last_line = system('youyu', $retval);
     return '
 </pre>
 <hr />Last line of the output: ' . $last_line . '
