@@ -46,11 +46,11 @@
                 console.log(res)
                 res = res.data;
                 console.log('1111111',res);
-                if (res.ret && res.data) {
-                    const data = res.data
+                if (res) {
+                    //const data = res.data
                     // this.city = data.city
-                    this.swiperList = data.bannerList
-                    this.recommendList = data.venueList.data
+                    this.swiperList = res.data.bannerList
+                    this.recommendList = res.data.venueList.data
                 }
                 console.log('333333', this.swiperList);
                 console.log( '444444',this.recommendList);
