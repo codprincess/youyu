@@ -12,7 +12,7 @@
 */
 
 Route::get('/r', function () {
-    shell_exec('cd /data/www/youyu/ && git pull');
+    exec('cd /data/www/youyu/ && git pull');
     return '项目代码部署成功';
 });
 Route::any('/wx/pay/notify', 'PayController@notify');
