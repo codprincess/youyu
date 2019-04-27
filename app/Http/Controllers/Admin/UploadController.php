@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Storage;
 
 class UploadController extends Controller
 {
-   // use Msg;
     public function uploadImg(Request $request)
     {
         $file = $request->file('file');

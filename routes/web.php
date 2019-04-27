@@ -19,7 +19,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::get('logout', 'LoginController@logout')->name('admin.logout');
 
     //后台页面
-    Route::post('/uploadImg', 'PublicController@uploadImg')->name('uploadImg');
+
     Route::get('/index', 'IndexController@layout');
     Route::get('/index1', 'IndexController@index')->name('admin.index1');
     Route::get('/index2', 'IndexController@index1')->name('admin.index2');

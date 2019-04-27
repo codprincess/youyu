@@ -45,15 +45,15 @@
                 //alert(2)
                 console.log(res)
                 res = res.data;
-                console.log('1111111',res);
+                console.log('111',res);
                 if (res) {
                     //const data = res.data
                     // this.city = data.city
                     this.swiperList = res.data.bannerList
                     this.recommendList = res.data.venueList.data
                 }
-                console.log('333333', this.swiperList);
-                console.log( '444444',this.recommendList);
+                console.log('333', this.swiperList);
+                console.log( '444',this.recommendList);
             }
         },
         mounted() {
