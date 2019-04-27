@@ -13,7 +13,7 @@ class UploadController extends Controller
     {
         $file = $request->file('file');
         if($file->isValid()){
-            $path = $file->store(date('ymd'),'upload');
+            $path = $file->store(date('ymd'));
             return [
                 'code'=>0,
                 'url'=>asset('/upload/'.$path)
