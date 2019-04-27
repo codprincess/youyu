@@ -13,7 +13,7 @@
 
 Route::get('/r', function () {
     exec('cd /data/www/youyu/ && git pull');
-    return '项目代码部署成功';
+    return '项目代码部署';
 });
 Route::any('/wx/pay/notify', 'PayController@notify');
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
