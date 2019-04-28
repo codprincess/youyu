@@ -73,6 +73,7 @@ export default {
         margin-left: -.04rem
         font-size: .24rem
   .orderList
+     height:1000vh
      padding:10px 5% 10px 5%
      .orderItem
         font-size:.32rem
