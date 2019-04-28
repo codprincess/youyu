@@ -5,6 +5,7 @@ import City from '../pages/city/City'
 import Detail from '../pages/detail/Detail'
 import Seat from '../pages/seat/Seat'
 import Order from '../pages/order/Order'
+import User from '../pages/user/User'
 
 Vue.use(Router)
 
@@ -35,6 +36,11 @@ export default new Router({
             path: '/order',
             name: 'Order',
             component: Order
+        },
+        {
+            path: '/user',
+            name: 'User',
+            component: User
         }
 
     ],

@@ -16,6 +16,33 @@
             margin: 0;
             padding: 0;
         }
+        .app-footer{
+            font-size: 0;
+            position: fixed;
+            bottom:0;
+            padding-top:3px;
+            background: #fff;
+            left:0;
+            width:100%;
+            border-top:1px solid #ddd;
+
+        }
+        .footer-item{
+            font-size: 0.3rem;
+            width:33.33%;
+            height:100%;
+            display: inline-block;
+            text-align: center;
+            padding-top: 16px;
+            background-repeat: no-repeat;
+            background-size: 24px 24px;
+            background-position: center top;
+            padding-bottom: 0.2rem;
+            color:#333;
+        }
+        .footer-item.router-link-active{
+            color:#00bcd4;
+        }
 
         /*html, body, #app, .wrapper {*/
         /*    width: 100%;*/
@@ -33,6 +60,11 @@
     <keep-alive exclude="Detail">
         <router-view/>
     </keep-alive>
+    <div class="app-footer">
+        <router-link class="footer-item" to='/'>订场</router-link>
+        <router-link class="footer-item" to='/order'>我的订单</router-link>
+        <router-link class="footer-item" to='/user'>联系</router-link>
+    </div>
 </div>
 <script type="text/javascript" src="{{ URL::asset('static/home/js/app.js')}}"></script>
 {{--<script type="text/javascript">--}}

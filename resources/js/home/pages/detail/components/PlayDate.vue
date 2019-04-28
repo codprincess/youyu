@@ -115,7 +115,7 @@
 		color:#666666;
 	}
 	.playDate .playItems .bookBtn{
-		font-size: .3rem;
+		font-size: .26rem;
 		line-height: 0.8;
 		padding: 5px 5px 6px;
 	}
