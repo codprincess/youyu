@@ -2,14 +2,14 @@
     <div>
         <home-header></home-header>
         <home-swiper :list="swiperList"></home-swiper>
-        <home-filter></home-filter>
+<!--        <home-filter></home-filter>-->
         <home-recommend :list="recommendList"></home-recommend>
     </div>
 </template>
 <script>
     import HomeHeader from './components/Header'
     import HomeSwiper from './components/Swiper'
-    import HomeFilter from './components/FilterBox'
+    // import HomeFilter from './components/FilterBox'
     import HomeRecommend from './components/Recommend'
     import axios from 'axios'
     import {mapState} from 'vuex'
@@ -19,7 +19,7 @@
         components: {
             HomeHeader,
             HomeSwiper,
-            HomeFilter,
+            // HomeFilter,
             HomeRecommend,
         },
         //数据

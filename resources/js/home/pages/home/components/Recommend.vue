@@ -29,7 +29,7 @@ export default {
 <style lang="stylus" scoped>
     .venueList
         z-index:9999
-        height: auto;
+        height: 1000vh;
         .title
           margin-top : .2rem
           line-height : .8rem
