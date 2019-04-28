@@ -37,6 +37,7 @@
 </style>
 <style lang="stylus" scoped>
     .header
+        z-index:2
         display: flex
         line-height: .86rem
         background: #00bcd4

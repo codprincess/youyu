@@ -4,11 +4,11 @@
            <router-link tag="li" class="item border-bottom" v-for="item of list" :key="item.id" :to="'/detail/' + item.id">
                   
                <div class="item-info">
-                   <p class="item-title">{{item.title}} <span style="float:right;margin-right:30px;">天气：晴</span></p>
+                   <p class="item-title">{{item.name}} <span style="float:right;margin-right:30px;">天气：晴</span></p>
                     <p class="item-title">总/空:2/4   <span>单价:10元</span></p>
                    <p class="item-title">地址:{{item.desc}}</p> 
                </div>
-               <img class="item-img" :src="item.imgUrl"/>
+               <img class="item-img" :src="item.cover_uri"/>
            </router-link>
        </ul>
    </div>
@@ -28,7 +28,8 @@ export default {
 </script>
 <style lang="stylus" scoped>
     .venueList
-        height: 100vh;
+        z-index:9999
+        height: auto;
         .title
           margin-top : .2rem
           line-height : .8rem

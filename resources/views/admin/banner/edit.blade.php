@@ -13,5 +13,8 @@
         </div>
     </div>
 @endsection
+@section('script')
+    @include('admin.banner._js')
+@endsection
 
 
