@@ -2390,7 +2390,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: ' detailplaydate',
   props: {
     list: Array
   },
@@ -2547,6 +2546,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var better_scroll__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! better-scroll */ "./node_modules/better-scroll/dist/bscroll.esm.js");
+//
+//
+//
 //
 //
 //
@@ -10891,7 +10893,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, ".banner[data-v-553df334] {\n  position: relative;\n  overflow: hidden;\n  height: 0;\n  padding-bottom: 55%;\n}\n.banner-img[data-v-553df334] {\n  width: 100%;\n}\n.banner-info[data-v-553df334] {\n  display: flex;\n  position: absolute;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  line-height: 0.5rem;\n  color: #fff;\n}\n.banner-title[data-v-553df334] {\n  flex: 1;\n  font-size: 0.32rem;\n  padding: 0 0.2rem;\n}\n.banner-number[data-v-553df334] {\n  height: 0.32rem;\n  line-height: 0.32rem;\n  margin-top: 0.14rem;\n  padding: 0 0.4rem;\n  border-radius: 0.2rem;\n  background: rgba(0,0,0,0.8);\n  font-size: 0.24rem;\n}\n.banner-icon[data-v-553df334] {\n  font-size: 0.24rem;\n}\n", ""]);
+exports.push([module.i, ".banner[data-v-553df334] {\n  position: relative;\n  overflow: hidden;\n  height: 0;\n  padding-bottom: 55%;\n}\n.banner-img[data-v-553df334] {\n  width: 100%;\n}\n.banner-info[data-v-553df334] {\n  display: flex;\n  position: absolute;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  line-height: 0.5rem;\n  color: #fff;\n}\n.banner-title[data-v-553df334] {\n  flex: 1;\n  font-size: 0.26rem;\n  padding: 0 0.2rem;\n}\n.banner-number[data-v-553df334] {\n  height: 0.32rem;\n  line-height: 0.32rem;\n  margin-top: 0.14rem;\n  padding: 0 0.4rem;\n  border-radius: 0.2rem;\n  background: rgba(0,0,0,0.8);\n  font-size: 0.24rem;\n}\n.banner-icon[data-v-553df334] {\n  font-size: 0.24rem;\n}\n", ""]);
 
 // exports
 
@@ -10929,7 +10931,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, ".header[data-v-73f09563] {\n  z-index: 2;\n  display: flex;\n  line-height: 0.86rem;\n  background: #00bcd4;\n  color: #fff;\n}\n.header .header-left[data-v-73f09563] {\n  width: 0.64rem;\n  float: left;\n}\n.header .header-left .back-icon[data-v-73f09563] {\n  text-align: center;\n  font-size: 0.4rem;\n}\n.header .header-input[data-v-73f09563] {\n  flex: 1;\n  height: 0.64rem;\n  line-height: 0.64rem;\n  margin-top: 0.12rem;\n  margin-left: 0.2rem;\n  padding-left: 0.2rem;\n  background: #fff;\n  border-radius: 0.1rem;\n  font-size: 0.32rem;\n  color: #ccc;\n}\n.header .header-input .search-input[data-v-73f09563] {\n  line-height: 0;\n  margin-top: -5px;\n}\n.header .header-right[data-v-73f09563] {\n  min-width: 1.04rem;\n  padding: 0 0.1rem;\n  float: right;\n  text-align: center;\n  color: #fff;\n}\n.header .header-right .arrow-icon[data-v-73f09563] {\n  margin-left: -0.04rem;\n  font-size: 0.24rem;\n}\n", ""]);
+exports.push([module.i, ".header[data-v-73f09563] {\n  z-index: 2;\n  display: flex;\n  line-height: 0.86rem;\n  background: #00bcd4;\n  color: #fff;\n}\n.header .header-left[data-v-73f09563] {\n  width: 0.64rem;\n  float: left;\n}\n.header .header-left .back-icon[data-v-73f09563] {\n  text-align: center;\n  font-size: 0.4rem;\n}\n.header .header-input[data-v-73f09563] {\n  flex: 1;\n  height: 0.64rem;\n  line-height: 0.64rem;\n  margin-top: 0.12rem;\n  margin-left: 0.2rem;\n  padding-left: 0.2rem;\n  background: #fff;\n  border-radius: 0.1rem;\n  font-size: 0.26rem;\n  color: #ccc;\n}\n.header .header-input .search-input[data-v-73f09563] {\n  line-height: 0;\n  margin-top: -5px;\n}\n.header .header-right[data-v-73f09563] {\n  min-width: 1.04rem;\n  padding: 0 0.1rem;\n  float: right;\n  text-align: center;\n  color: #fff;\n}\n.header .header-right .arrow-icon[data-v-73f09563] {\n  margin-left: -0.04rem;\n  font-size: 0.24rem;\n}\n", ""]);
 
 // exports
 
@@ -10948,7 +10950,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, ".venueList[data-v-24e2d454] {\n  z-index: 9999;\n  height: 1000vh;\n}\n.venueList .title[data-v-24e2d454] {\n  margin-top: 0.2rem;\n  line-height: 0.8rem;\n  background: #eee;\n  text-indent: 0.2rem;\n}\n.venueList .item[data-v-24e2d454] {\n  overflow: hidden;\n  display: flex;\n  height: 2.1rem;\n  border-top: 1px solid #ccc;\n  border-bottom: 1px solid #ccc;\n  margin-top: 10px;\n  padding-top: 10px;\n  margin-bottom: 10px;\n  padding-left: 5%;\n  padding-right: 5%;\n}\n.venueList .item .item-img[data-v-24e2d454] {\n  width: 2.6rem;\n  height: 1.7rem;\n  padding: 0.1rem;\n}\n.venueList .item .item-info[data-v-24e2d454] {\n  flex: 1;\n  padding: 0.1rem;\n  min-width: 0;\n}\n.venueList .item .item-info .item-title[data-v-24e2d454] {\n  line-height: 0.6rem;\n  font-size: 0.32rem;\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n}\n.venueList .item .item-info .item-desc[data-v-24e2d454] {\n  line-height: 0.4rem;\n  color: #000;\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n}\n.venueList .item .item-info .item-button[data-v-24e2d454] {\n  line-height: 0.44rem;\n  margin-top: 0.16rem;\n  background: #ff9300;\n  padding: 0 0.2rem;\n  border-radius: 0.06rem;\n  color: #fff;\n}\n", ""]);
+exports.push([module.i, ".venueList[data-v-24e2d454] {\n  z-index: 9999;\n  height: 1000vh;\n}\n.venueList .title[data-v-24e2d454] {\n  margin-top: 0.2rem;\n  line-height: 0.8rem;\n  background: #eee;\n  text-indent: 0.2rem;\n}\n.venueList .item[data-v-24e2d454] {\n  overflow: hidden;\n  display: flex;\n  height: 2.1rem;\n  border-top: 1px solid #ccc;\n  border-bottom: 1px solid #ccc;\n  margin-top: 10px;\n  padding-top: 10px;\n  margin-bottom: 10px;\n  padding-left: 5%;\n  padding-right: 5%;\n}\n.venueList .item .item-img[data-v-24e2d454] {\n  width: 2.6rem;\n  height: 1.7rem;\n  padding: 0.1rem;\n}\n.venueList .item .item-info[data-v-24e2d454] {\n  flex: 1;\n  padding: 0.1rem;\n  min-width: 0;\n}\n.venueList .item .item-info .item-title[data-v-24e2d454] {\n  line-height: 0.6rem;\n  font-size: 0.26rem;\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n}\n.venueList .item .item-info .item-desc[data-v-24e2d454] {\n  line-height: 0.4rem;\n  color: #000;\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n}\n.venueList .item .item-info .item-button[data-v-24e2d454] {\n  line-height: 0.44rem;\n  margin-top: 0.16rem;\n  background: #ff9300;\n  padding: 0 0.2rem;\n  border-radius: 0.06rem;\n  color: #fff;\n}\n", ""]);
 
 // exports
 
@@ -11064,7 +11066,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, "\n.playDate{\n\theight: 100vh;\n}\n.playDate .playItems{\n\theight:50px;\n\twidth:100%;\n\tline-height:50px;\n\tfont-size: .3rem;\n\tborder-bottom: 1px #cccccc solid;\n\tcolor:#666666;\n}\n.playDate .playItems .bookBtn{\n\tfont-size: .3rem;\n\tline-height: 0.8;\n\tpadding: 5px 5px 6px;\n}\n", ""]);
+exports.push([module.i, "\n.playDate{\n\theight: 1000vh;\n}\n.playDate .playItems{\n\theight:50px;\n\twidth:100%;\n\tline-height:50px;\n\tfont-size: .26rem;\n\tborder-bottom: 1px #cccccc solid;\n\tcolor:#666666;\n}\n.playDate .playItems .bookBtn{\n\tfont-size: .3rem;\n\tline-height: 0.8;\n\tpadding: 5px 5px 6px;\n}\n", ""]);
 
 // exports
 
@@ -92626,48 +92628,51 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { ref: "wrapper", staticClass: "venueList" }, [
-    _c(
-      "ul",
-      _vm._l(_vm.list, function(item) {
-        return _c(
-          "router-link",
-          {
-            key: item.id,
-            staticClass: "item border-bottom",
-            attrs: { tag: "li", to: "/detail/" + item.id }
-          },
-          [
-            _c("div", { staticClass: "item-info" }, [
-              _c("p", { staticClass: "item-title" }, [
-                _vm._v(_vm._s(item.name) + " "),
-                _c(
-                  "span",
-                  { staticStyle: { float: "right", "margin-right": "30px" } },
-                  [_vm._v("天气：晴")]
-                )
+    _c("div", [
+      _c(
+        "ul",
+        _vm._l(_vm.list, function(item) {
+          return _c(
+            "router-link",
+            {
+              key: item.id,
+              staticClass: "item border-bottom",
+              attrs: { tag: "li", to: "/detail/" + item.id }
+            },
+            [
+              _c("div", { staticClass: "item-info" }, [
+                _c("p", { staticClass: "item-title" }, [
+                  _vm._v(_vm._s(item.name) + " "),
+                  _c(
+                    "span",
+                    { staticStyle: { float: "right", "margin-right": "30px" } },
+                    [_vm._v("天气：晴")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "item-title" }, [
+                  _vm._v("总/空:2/4   "),
+                  _c("span", [_vm._v("单价:10元")])
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "item-title" }, [
+                  _vm._v(
+                    "地址:" +
+                      _vm._s(item.province + item.district + item.street)
+                  )
+                ])
               ]),
               _vm._v(" "),
-              _c("p", { staticClass: "item-title" }, [
-                _vm._v("总/空:2/4   "),
-                _c("span", [_vm._v("单价:10元")])
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "item-title" }, [
-                _vm._v(
-                  "地址:" + _vm._s(item.province + item.district + item.street)
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("img", {
-              staticClass: "item-img",
-              attrs: { src: item.cover_uri }
-            })
-          ]
-        )
-      }),
-      1
-    )
+              _c("img", {
+                staticClass: "item-img",
+                attrs: { src: item.cover_uri }
+              })
+            ]
+          )
+        }),
+        1
+      )
+    ])
   ])
 }
 var staticRenderFns = []

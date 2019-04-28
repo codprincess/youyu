@@ -57,7 +57,7 @@
             padding-left: .2rem
             background: #fff
             border-radius: .1rem
-            font-size: .32rem
+            font-size: .26rem
             color: #ccc
             .search-input {
                 line-height: 0

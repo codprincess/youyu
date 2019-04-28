@@ -1,16 +1,19 @@
 <template>
    <div ref="wrapper" class="venueList">
-       <ul>
-           <router-link tag="li" class="item border-bottom" v-for="item of list" :key="item.id" :to="'/detail/' + item.id">
+       <div>
+           <ul>
+               <router-link tag="li" class="item border-bottom" v-for="item of list" :key="item.id" :to="'/detail/' + item.id">
 
-               <div class="item-info">
-                   <p class="item-title">{{item.name}} <span style="float:right;margin-right:30px;">天气：晴</span></p>
-                    <p class="item-title">总/空:2/4   <span>单价:10元</span></p>
-                   <p class="item-title">地址:{{item.province  + item.district + item.street}}</p>
-               </div>
-               <img class="item-img" :src="item.cover_uri"/>
-           </router-link>
-       </ul>
+                   <div class="item-info">
+                       <p class="item-title">{{item.name}} <span style="float:right;margin-right:30px;">天气：晴</span></p>
+                       <p class="item-title">总/空:2/4   <span>单价:10元</span></p>
+                       <p class="item-title">地址:{{item.province  + item.district + item.street}}</p>
+                   </div>
+                   <img class="item-img" :src="item.cover_uri"/>
+               </router-link>
+           </ul>
+       </div>
+
    </div>
 </template>
 <script>
@@ -56,7 +59,7 @@ export default {
              min-width : 0
              .item-title
                line-height : .60rem
-               font-size : .32rem
+               font-size : .26rem
                overflow: hidden
                white-space: nowrap
                text-overflow: ellipsis

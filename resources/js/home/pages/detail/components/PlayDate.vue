@@ -88,7 +88,6 @@
 <script>
     import Bscroll from 'better-scroll'
     export default{
-        name:' detailplaydate',
         props: {
             list: Array
         },
@@ -105,13 +104,13 @@
 
 <style>
 	.playDate{
-		height: 100vh;
+		height: 1000vh;
 	}
 	.playDate .playItems{
 		height:50px;
 		width:100%;
 		line-height:50px;
-		font-size: .3rem;
+		font-size: .26rem;
 		border-bottom: 1px #cccccc solid;
 		color:#666666;
 	}

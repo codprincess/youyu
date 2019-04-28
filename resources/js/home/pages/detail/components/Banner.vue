@@ -60,7 +60,7 @@
     }
     .banner-title{
         flex : 1
-        font-size : .32rem
+        font-size : .26rem
         padding : 0 .2rem
     }
     .banner-number{
