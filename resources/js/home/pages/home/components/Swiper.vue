@@ -33,7 +33,7 @@
 </script>
 <style lang="stylus" scoped>
     .wrapper >>> .swiper-pagination-bullet-active
-      background: #fff
+     background: #fff
     .wrapper
       overflow: hidden
       width: 100%
@@ -42,4 +42,5 @@
       background: #eee
       .swiper-img
        width:100%
+       height: 120px;
 </style>

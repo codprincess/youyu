@@ -10967,7 +10967,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, ".wrapper[data-v-19bc6dce] .swiper-pagination-bullet-active {\n  background: #fff;\n}\n.wrapper[data-v-19bc6dce] {\n  overflow: hidden;\n  width: 100%;\n  height: 0;\n  padding-bottom: 31.25%;\n  background: #eee;\n}\n.wrapper .swiper-img[data-v-19bc6dce] {\n  width: 100%;\n}\n", ""]);
+exports.push([module.i, ".wrapper[data-v-19bc6dce] .swiper-pagination-bullet-active {\n  background: #fff;\n}\n.wrapper[data-v-19bc6dce] {\n  overflow: hidden;\n  width: 100%;\n  height: 0;\n  padding-bottom: 31.25%;\n  background: #eee;\n}\n.wrapper .swiper-img[data-v-19bc6dce] {\n  width: 100%;\n  height: 120px;\n}\n", ""]);
 
 // exports
 
@@ -92653,7 +92653,9 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("p", { staticClass: "item-title" }, [
-                _vm._v("地址:" + _vm._s(item.desc))
+                _vm._v(
+                  "地址:" + _vm._s(item.province + item.district + item.street)
+                )
               ])
             ]),
             _vm._v(" "),

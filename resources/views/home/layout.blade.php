@@ -17,15 +17,15 @@
             padding: 0;
         }
 
-        html, body, #app, .wrapper {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
+        /*html, body, #app, .wrapper {*/
+        /*    width: 100%;*/
+        /*    height: 100%;*/
+        /*    overflow: hidden;*/
+        /*}*/
 
-        body {
-            font-family: "Helvetica Neue", Helvetica, "microsoft yahei", arial, STHeiTi, sans-serif;
-        }
+        /*body {*/
+        /*    font-family: "Helvetica Neue", Helvetica, "microsoft yahei", arial, STHeiTi, sans-serif;*/
+        /*}*/
     </style>
 </head>
 <body>
