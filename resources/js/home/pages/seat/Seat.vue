@@ -21,20 +21,20 @@
         <div>
             <div class="time-list">
                 <ul>
-                    <li class="time-list-item">09:00-</li>
-                    <li class="time-list-item">10:00-</li>
-                    <li class="time-list-item">11:00-</li>
-                    <li class="time-list-item">12:00-</li>
-                    <li class="time-list-item">13:00-</li>
-                    <li class="time-list-item">14:00-</li>
-                    <li class="time-list-item">15:00-</li>
-                    <li class="time-list-item">16:00-</li>
-                    <li class="time-list-item">17:00-</li>
-                    <li class="time-list-item">18:00-</li>
-                    <li class="time-list-item">19:00-</li>
-                    <li class="time-list-item">20:00-</li>
-                    <li class="time-list-item">21:00-</li>
-                    <li class="time-list-item">22:00-</li>
+                    <li class="time-list-item">09:00</li>
+                    <li class="time-list-item">10:00</li>
+                    <li class="time-list-item">11:00</li>
+                    <li class="time-list-item">12:00</li>
+                    <li class="time-list-item">13:00</li>
+                    <li class="time-list-item">14:00</li>
+                    <li class="time-list-item">15:00</li>
+                    <li class="time-list-item">16:00</li>
+                    <li class="time-list-item">17:00</li>
+                    <li class="time-list-item">18:00</li>
+                    <li class="time-list-item">19:00</li>
+                    <li class="time-list-item">20:00</li>
+                    <li class="time-list-item">21:00</li>
+                    <li class="time-list-item">22:00</li>
 
                 </ul>
             </div>
@@ -1214,14 +1214,14 @@
         margin-left: 2%;
     }
     .navli{
-        padding:10px 0px;
+        /*padding:10px 0px;*/
         text-align:center;
         float:left;
         margin:0 .2rem;
     }
     .navli i{
         font-style: normal;
-        font-size: .26px;
+        /*font-size: .26px;*/
     }
     .activeT{
         color:#00bcd4;
@@ -1253,7 +1253,7 @@
     }
     .time-place .place-item{
         float: left;
-        margin: 0 .32rem;
+        margin: 0 .293rem;
 
     }
 
