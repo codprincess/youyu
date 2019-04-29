@@ -1,269 +1,1291 @@
 <template>
-    <div>
+    <div class="seat-wapper">
         <div class="header">
             <div class="header-left">
                 <div @click="back" class="iconfont back-icon">&#xe624;</div>
             </div>
             <div class="header-right">广西师范大学羽毛球场</div>
         </div>
-        <div class="tiem-slot">
-            <span>今天</span>
-            <span style="margin-left:2%;margin-right:2%;">03-20</span>
-            <span>9:00-10:00</span>
+        <div class="navlist">
+            <ul>
+                <li class="navli"
+                    v-for="(item,index) in navList"
+                    :key="index"
+                    :class="{'activeT':nowIndex===index}"
+                    @click="tabClick(index)">
+                    <i>{{item.name}}</i><br/>
+                    <i style="font-size:.12rem">16场可订</i>
+                </li>
+            </ul>
         </div>
-        <div class="choice">
-           <span><img src="../../assets/images/yessel.png" width="20px" height="20px"/>可选</span>
-           <span class="selspan"><img src="../../assets/images/hassel.png" width="20px" height="20px"/>已售</span>
-           <span><img src="../../assets/images/sel.png" width="20px" height="20px"/>已选</span>
-        </div>
+        <div>
+            <div class="time-list">
+                <ul>
+                    <li class="time-list-item">09:00-</li>
+                    <li class="time-list-item">10:00-</li>
+                    <li class="time-list-item">11:00-</li>
+                    <li class="time-list-item">12:00-</li>
+                    <li class="time-list-item">13:00-</li>
+                    <li class="time-list-item">14:00-</li>
+                    <li class="time-list-item">15:00-</li>
+                    <li class="time-list-item">16:00-</li>
+                    <li class="time-list-item">17:00-</li>
+                    <li class="time-list-item">18:00-</li>
+                    <li class="time-list-item">19:00-</li>
+                    <li class="time-list-item">20:00-</li>
+                    <li class="time-list-item">21:00-</li>
+                    <li class="time-list-item">22:00-</li>
 
-        <div class="seat-box">
-           
-            <div 
-            @click='seatSel($event,seat)' 
-            v-for="(seat,index) in seats" 
-            :key="index" 
-            :class='[{hassel : seat.status == 0},{yessel : seat.status == 1},{sel : seat.status == 2}]'
-            class="seats-item yessel">
-                <p class="seat-number">{{seat.name}}</p>
+                </ul>
             </div>
-            
-        </div>
-        <div class="buyDetail" v-show='selMoney' :selSeats='selSeats'>
-            <div class="totalPrice">
-                <p style="float:left;font-size:.32rem;margin-top:5px;">订场成功后即可</p>
-                <p style="float:right;font-size:.32rem;">总金额：<span style="color:red;font-size:.4rem;margin-right:5px;">￥{{selMoney}}</span>元</p>
+            <div class="time-place">
+                <ul>
+                    <li class="place-item">1</li>
+                    <li class="place-item">2</li>
+                    <li class="place-item">3</li>
+                    <li class="place-item">4</li>
+                    <li class="place-item">5</li>
+                    <li class="place-item">6</li>
+                    <li class="place-item">7</li>
+                    <li class="place-item">8</li>
+                </ul>
             </div>
-            <Button @click="WechatPay" class="submitBtn" type="success">确认订场</Button>
+            <div class="swiper-container swiper_con">
+                <div class="swiper-wrapper">
+                    <!-- 第一个swiper -->
+                    <div class="swiper-slide" ref="viewBox">
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+
+                    </div>
+                    <!-- 第二个swiper -->
+                    <div class="swiper-slide">
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                    </div>
+
+                    <!-- 第三个swiper -->
+                    <div class="swiper-slide">
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                    </div>
+
+                    <!-- 第四个swiper -->
+                    <div class="swiper-slide">
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                        <Row>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                            <Col span="3">￥8</Col>
+                        </Row>
+                    </div>
+
+                </div>
+            </div>
         </div>
     </div>
 </template>
 <script>
-  export default{
-     data(){
-       return{
-        isShowBuyDetail:false,
-        selMoney:0,//选场的全部钱数
-        selSeats:[],//选择的场地
-        onePrice:8,//单场的钱数
-        seats:[
-            {
-                extId: "05010102", 
-                flag: "0", 
-                leftPx: "60", 
-                name: "1号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "0", 
-                topPx: "30"
-            },
-            {
-                extId: "05010102", 
-                flag: "0", 
-                leftPx: "60", 
-                name: "2号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "1", 
-                topPx: "30"
-            },
-            {
-                extId: "05010102", 
-                flag: "0", 
-                leftPx: "60", 
-                name: "3号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "0", 
-                topPx: "30"
-            },
-            {
-                extId: "05010102", 
-                flag: "0", 
-                leftPx: "60", 
-                name: "4号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "1", 
-                topPx: "30"
-            },
-            {
-                extId: "05010102", 
-                flag: "0", 
-                leftPx: "60", 
-                name: "5号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "1", 
-                topPx: "30"
-            },
-            {
-                extId: "05010102", 
-                flag: "0", 
-                leftPx: "60", 
-                name: "6号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "1", 
-                topPx: "30"
-            },
-            {
-                extId: "05010102", 
-                flag: "0", 
-                leftPx: "60", 
-                name: "7号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "1", 
-                topPx: "30"
-            },
-            {
-                extId: "05010102", 
-                flag: "0", 
-                leftPx: "60", 
-                name: "8号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "1", 
-                topPx: "30"
-            },
-            {
-                extId: "05010102", 
-                flag: "0", 
-                leftPx: "60", 
-                name: "9号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "1", 
-                topPx: "30"
+    export default {
+        name: "swiper",
+        data() {
+            return {
+                navList:[
+                    {name:'04-28'},
+                    {name:'04-29'},
+                    {name:'04-30'},
+                    {name:'05-01'},
+                    {name:'05-02'},
+                    {name:'05-03'}
+                ],
+                nowIndex:0,
             }
-
-
-        ] 
-       }
-     },
-     methods:{
-        back(){
-             this.$router.go(-1);
         },
-
-        seatSel(event,seat){
-            //console.log(seat);
-            //选座，status==1是可以选择的，0是已售，2是已经选择
-            if(seat.status == 0){
-                return;
-            }
-            if(seat.status == 1){
-                seat.status = 2;
-                //console.log(seat.status);
-                this.selSeats.push(seat.name);
-                console.log(this.selSeats);
-                //金额
-                this.selMoney += this.onePrice;
-            }else{
-                seat.status = 1;
-                //从数组中删除某个元素
-                for(var i=0;i<this.selSeats.length;i++){
-                    if(this.selSeats[i] == seat.name){
-                        this.selSeats.splice(i,1);
-                        break;
-                    }
+        components:{
+        },
+        mounted() {
+            var that=this
+            that.mySwiper = new Swiper('.swiper-container',{
+                initialSlide:0,
+                autoplay:false,
+                keyboardControl:true,
+                autoHeight:true,
+                observer:true,
+                observeParents:true,
+                onSlideChangeStart:function(){
+                    // console.log(that.mySwiper.activeIndex)
+                    that.nowIndex=that.mySwiper.activeIndex
                 }
-                //金额
-                 this.selMoney -= this.onePrice;
-            }
+            });
+            // this.getList();
         },
-        //支付模块
-        WechatPay(){
-            console.log('111111');
-        }
+        methods: {
 
-     }
-  }
+            back(){
+                this.$router.go(-1);
+            },
+            tabClick(index){
+                this.nowIndex = index
+                this.mySwiper.slideTo(index,1000,false)
+            },
+        },
+        created(id){
+
+        }
+    }
 </script>
-<style lang="stylus" scoped>
+<style>
+    .seat-wapper{
+        height: 1000vh;
+    }
+    .header{
+        display: flex;
+        line-height: .86rem;
+        background: #00bcd4;
+        color: #fff;
+    }
+    .header .header-left{
+        width: .64rem;
+        float: left;
+    }
+    .header .header-left .back-icon{
+        text-align: center;
+        font-size: .4rem;
+    }
+    .header .header-right{
+        min-width: 1.04rem;
+        padding: 0 .1rem;
+        float: right;
+        text-align: center;
+        color: #fff;
+        font-size: .26rem;
+    }
+    .header .header-right .arrow-icon{
+        margin-left: -.04rem;
+        font-size: .24rem;
+    }
 
-  .header
-    display: flex
-    line-height: .86rem
-    background: #00bcd4
-    color: #fff
-    .header-left
-      width: .64rem
-      float: left
-      .back-icon
-        text-align: center
-        font-size: .4rem
-    .header-right
-      min-width: 1.04rem
-      padding: 0 .1rem
-      float: right
-      text-align: center
-      color: #fff
-      font-size .32rem
-      .arrow-icon
-        margin-left: -.04rem
-        font-size: .24rem
-  .tiem-slot
-      height :40px
-      border-bottom :1px solid #ccc
-      line-height: 40px
-      padding-left :3%
-      font-size: .32rem
-  .choice
-     height :60px
-     width :100%
-     text-align :center
-     line-height :60px
-     .selspan
-        margin-left :5%
-        margin-right :5%
-  .seat-box
-     width:100%
-     padding:10px 5% 10px 12%
-     height :auto
-     overflow:hidden
-     text-align: center
-     .seats-item
-        height :35px
-        width :35px
-        line-height :35px
-        font-size :.30rem
-        float: left
-        margin:5px 10px 30px 10px
-        position: relative
-        .seat-number{
-            position :absolute
-            top:30px;
-            right :0px
-            left :0px
-        }
-     .yessel
-        background:url('../../assets/images/yessel.png') no-repeat left center
-        background-size :cover
-     .hassel
-        background:url('../../assets/images/hassel.png') no-repeat left center
-        background-size :cover
-     .sel
-        background:url('../../assets/images/sel.png') no-repeat left center
-        background-size :cover
-  .buyDetail
-     position :fixed
-     left :0px
-     bottom 0px
-     width:100%
-     height:120px
-     z-index:9999
-     
-     .totalPrice
-        padding:20px 10% 20px 10%
-        height:60px
-     .submitBtn
-        margin-left :10%
-        width:80%
-        background :#00bcd4
-        height 40px
-        font-size 0.32rem
 
+    .navlist{
+        width:98%;
+        height:55px;
+        border-bottom:1px solid rgba(151,151,151,0.1);
+        position:relative;
+        margin-left: 2%;
+    }
+    .navli{
+        padding:10px 0px;
+        text-align:center;
+        float:left;
+        margin:0 .2rem;
+    }
+    .navli i{
+        font-style: normal;
+        font-size: .26px;
+    }
+    .activeT{
+        color:#00bcd4;
+        padding-bottom: .3rem;
+        border-bottom: 2px solid #00bcd4;
+    }
+
+    .time-list{
+        float: left;
+        height: auto;
+        width: 10%;
+        border:1px #cccccc solid;
+        padding-bottom: 30px;
+    }
+
+    .time-list .time-list-item{
+        height: 30px;
+        /* border-bottom: 1px #cccccc solid; */
+        text-align: bottom;
+        line-height: 60px;
+        font-size: 0.26rem;
+    }
+
+    .time-place{
+        float: left;
+        height: 30px;
+        line-height: 30px;
+        border-bottom: #cccccc 1px solid;
+    }
+    .time-place .place-item{
+        float: left;
+        margin: 0 .32rem;
+
+    }
+
+    .swiper_con{
+        width:80%;
+        margin-bottom:40px;
+        position:relative;
+        /* border: 1px solid red; */
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .ivu-col-span-3 {
+        display: block;
+        width: 12.5%;
+        text-align: center;
+        border-bottom: 1px #cccccc solid;
+        border-right: 1px #cccccc solid;
+        height: 30px;
+        line-height: 30px;
+    }
+    .choosegrand{
+        position:absolute;
+        top:-3;
+        right:0;
+    }
+    .show{
+        display:block;
+    }
+    .none{
+        display:none;
+    }
 </style>
+
 
