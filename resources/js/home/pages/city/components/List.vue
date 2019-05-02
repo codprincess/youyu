@@ -16,7 +16,7 @@
             class="button-wrapper"
             v-for="item of hot"
             :key="item.id"
-            @click="handleCityClick(item.name)"
+            @click.native="handleCityClick(item.name)"
           >
             <div class="button">{{item.name}}</div>
           </div>
@@ -34,7 +34,7 @@
             class="item border-bottom"
             v-for="innerItem of item"
             :key="innerItem.id"
-            @click="handleCityClick(innerItem.name)"
+            @click.native="handleCityClick(innerItem.name)"
           >
             {{innerItem.name}}
           </div>

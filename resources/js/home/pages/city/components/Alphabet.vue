@@ -8,7 +8,7 @@
       @touchstart.prevent="handleTouchStart"
       @touchmove="handleTouchMove"
       @touchend="handleTouchEnd"
-      @click="handleLetterClick"
+      @click.native="handleLetterClick"
     >
       {{item}}
     </li>
