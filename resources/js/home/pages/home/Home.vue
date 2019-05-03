@@ -66,7 +66,7 @@ export default {
         Flexbox,
         FlexboxItem,
     },
-    props: [ 'cityName','shouldChangeCity'],
+    //props: [ 'cityName','shouldChangeCity'],
     mounted() {
        // console.log( this.cityName);
         this.$nextTick(() => {
@@ -76,8 +76,8 @@ export default {
 
     data(){
        return{
-            // cityName: '定位中',
-            // shouldChangeCity: true,
+             cityName: '定位中',
+             shouldChangeCity: true,
             // results: [],
             value: '输入场馆名称',
             imgList: [
@@ -155,10 +155,10 @@ export default {
                             var addComp = rs.addressComponents;
                             console.log(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
                             if (_that.shouldChangeCity) {
-                                _that.$parent.cityName = addComp.city.replace('市', '');
-                                // _that.cityName = addComp.city.replace('市', '');
-                                //  console.log( _that.cityName)
-                                console.log('22222222',_that.$parent.cityName)
+                               // _that.$parent.cityName = addComp.city.replace('市', '');
+                                _that.cityName = addComp.city.replace('市', '');
+                                 console.log( _that.cityName)
+                                //console.log('22222222',_that.$parent.cityName)
                             }else{
                                //this.cityName = _that.$parent.cityName;
                             }
@@ -175,7 +175,7 @@ export default {
         //请求数据
         getHomeInfo(){
             let _that = this;
-            axios.get('/api?city=' + _that.$parent.cityName).then(response=>{
+            axios.get('/api?city=' + _that.cityName ).then(response=>{
                 console.log('33333',response);
                 if(response.data.code = 0){
 
