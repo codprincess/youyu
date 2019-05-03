@@ -78,7 +78,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
 
 
 Route::group(['namespace' => 'Home'], function () {
-    Route::get('/', 'IndexController@index')->middleware('weChatAuth');
+    // Route::get('/', 'IndexController@index')->middleware('weChatAuth');
+    Route::get('/', 'IndexController@index');
 
 
     Route::get('/auth', "UserController@auth");

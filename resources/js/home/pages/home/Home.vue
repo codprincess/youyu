@@ -8,7 +8,7 @@
                 </search>
             </div>
                 <div class="header-right">
-                   <router-link tag="span" to="/city" class="address-choose-content" style="font-size:12px;">{{cityName}}
+                   <router-link tag="span" to="/city" class="address-choose-content" style="font-size:12px;" :shouldChangeCity="shouldChangeCity" >{{cityName}}
                     </router-link>
                 </div>
         </div>
@@ -63,9 +63,9 @@ export default {
         Flexbox,
         FlexboxItem,
     },
-    props: ['cityName', 'shouldChangeCity'],
+    props: [ 'cityName','shouldChangeCity'],
     mounted() {
-        console.log( this.cityName);
+       // console.log( this.cityName);
         this.$nextTick(() => {
             this.baiduLocation();
         });
@@ -73,7 +73,9 @@ export default {
 
     data(){
        return{
-            results: [],
+             //cityName: '定位中',
+            // shouldChangeCity: true,
+           // results: [],
             value: '输入场馆名称',
             imgList: [
                 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2728642449,2819884282&fm=27&gp=0.jpg',
@@ -154,7 +156,7 @@ export default {
                                 // this.city = addComp.city.replace('市', '');
                                 // console.log( this.city)
                             }else{
-                               
+                               this.cityName = _that.$parent.cityName;
                             }
 
                         });

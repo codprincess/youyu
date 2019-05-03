@@ -7,13 +7,13 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="api-token" content="Bearer {{ $apiToken??"" }}">
 
-    <title>控制面板</title>
+    <title>今天有羽</title>
     <!-- Styles -->
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
+        /** {*/
+        /*    margin: 0;*/
+        /*    padding: 0;*/
+        /*}*/
         a {color: #000;text-decoration: none;}
         .weui-tabbar {
             display: -webkit-box;
@@ -40,28 +40,41 @@
 <div id="app">
     <!--allmap->地图容器，无内容-->
     <div id="allmap"></div>
-    <!-- <img src="./assets/logo.png"> -->
+    <!-- <img src="./logo.png"> -->
     <!-- <router-view/> -->
     <keep-alive>
-        <router-view :shouldChangeCity="shouldChangeCity" :cityName="cityName"></router-view>
+        <router-view ></router-view>
     </keep-alive>
     <tabbar>
         <tabbar-item selected link="/">
-            <img slot="icon" src="./assets/images/home.png" >
+            <img slot="icon" src="./js/home/images/home.png" >
             <span slot="label">订场</span>
         </tabbar-item>
         <tabbar-item link="/order">
-            <img slot="icon" src="./assets/images/book.png">
+            <img slot="icon" src="./js/home/images/book.png">
             <span slot="label">订单</span>
         </tabbar-item>
         <tabbar-item  show-dot  link="/component/demo">
-            <img slot="icon" src="./assets/images/my.png">
+            <img slot="icon" src="./js/home/images/my.png">
             <span slot="label">我的</span>
         </tabbar-item>
     </tabbar>
 </div>
-<script type="text/javascript" src="{{ URL::asset('static/home/js/app.js')}}"></script>
+{{--<script>--}}
+{{--    export default {--}}
+{{--        name: 'App',--}}
+{{--        data(){--}}
+{{--            return{--}}
+{{--                cityName: '定位中',--}}
+{{--                shouldChangeCity: true,--}}
+
+{{--            }--}}
+{{--        }--}}
+{{--    }--}}
+{{--</script>--}}
+
 <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=QDUfMKo8APcODw5KAnnNMryb9P4rnwLh"></script>
+<script type="text/javascript" src="{{ URL::asset('static/home/js/app.js')}}"></script>
 {{--<script type="text/javascript">--}}
 {{--$.ajaxSetup({--}}
 {{--headers: {--}}

@@ -9,7 +9,10 @@ import Vue from 'vue'
 import router from './router'
 import fastclick from 'fastclick'
 
+import { Tabbar, TabbarItem } from 'vux'
 
+Vue.component('tabbar', Tabbar)
+Vue.component('tabbar-item', TabbarItem)
 
 require('./bootstrap');
 
