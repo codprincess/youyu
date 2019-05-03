@@ -1,5 +1,6 @@
 <template>
     <div>
+        <div id="allmap"></div>
         <div class="header">
             <div class="header-left">
                 <search
@@ -7,10 +8,12 @@
                     ref="search">
                 </search>
             </div>
-                <div class="header-right">
-                   <router-link tag="span" to="/city" class="address-choose-content" style="font-size:12px;" :shouldChangeCity="shouldChangeCity" >{{cityName}}
+            <div class="header-right">
+                <keep-alive>
+                   <router-link tag="span" to="/city" class="address-choose-content" style="font-size:12px;"  >{{cityName}}
                     </router-link>
-                </div>
+                </keep-alive>
+            </div>
         </div>
         <div class="swiper-wrapper">
            <swiper :aspect-ratio="300/800"  auto>
@@ -73,9 +76,9 @@ export default {
 
     data(){
        return{
-             //cityName: '定位中',
+            // cityName: '定位中',
             // shouldChangeCity: true,
-           // results: [],
+            // results: [],
             value: '输入场馆名称',
             imgList: [
                 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2728642449,2819884282&fm=27&gp=0.jpg',
@@ -129,9 +132,9 @@ export default {
     },
    
 
-    // created(){
-    //     this.getHomeInfo()
-    // },
+    created(){
+        this.getHomeInfo()
+    },
 
     methods:{
             baiduLocation() {
@@ -153,10 +156,11 @@ export default {
                             console.log(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
                             if (_that.shouldChangeCity) {
                                 _that.$parent.cityName = addComp.city.replace('市', '');
-                                // this.city = addComp.city.replace('市', '');
-                                // console.log( this.city)
+                                // _that.cityName = addComp.city.replace('市', '');
+                                //  console.log( _that.cityName)
+                                console.log('22222222',_that.$parent.cityName)
                             }else{
-                               this.cityName = _that.$parent.cityName;
+                               //this.cityName = _that.$parent.cityName;
                             }
 
                         });
@@ -169,16 +173,17 @@ export default {
             },
 
         //请求数据
-        // getHomeInfo(){
-        //     axios.get('/api?city=' + this.cityName).then(response=>{
-        //         console.log(response);
-        //         if(response.data.code = 0){
+        getHomeInfo(){
+            let _that = this;
+            axios.get('/api?city=' + _that.$parent.cityName).then(response=>{
+                console.log('33333',response);
+                if(response.data.code = 0){
 
-        //         }
-        //     }).catch(err=>{
-        //         console.log(err)
-        //     })
-        // },
+                }
+            }).catch(err=>{
+                console.log(err)
+            })
+        },
 
         //轮播图
         demo06_onIndexChange (index) {
@@ -204,8 +209,8 @@ a {color: #000000;text-decoration: none;}
 }
 .header-left .weui-search-bar {
     padding: 6px 10px;
-    display: -webkit-box;
-    display: -ms-flexbox;
+    display: block;
+    /*display: -ms-flexbox;*/
     -webkit-box-sizing: border-box;
     background-color: #00bcd4;
 }

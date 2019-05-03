@@ -39,7 +39,7 @@
 <body>
 <div id="app">
     <!--allmap->地图容器，无内容-->
-    <div id="allmap"></div>
+{{--    <div id="allmap"></div>--}}
     <!-- <img src="./logo.png"> -->
     <!-- <router-view/> -->
     <keep-alive>
@@ -60,18 +60,7 @@
         </tabbar-item>
     </tabbar>
 </div>
-{{--<script>--}}
-{{--    export default {--}}
-{{--        name: 'App',--}}
-{{--        data(){--}}
-{{--            return{--}}
-{{--                cityName: '定位中',--}}
-{{--                shouldChangeCity: true,--}}
 
-{{--            }--}}
-{{--        }--}}
-{{--    }--}}
-{{--</script>--}}
 
 <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=QDUfMKo8APcODw5KAnnNMryb9P4rnwLh"></script>
 <script type="text/javascript" src="{{ URL::asset('static/home/js/app.js')}}"></script>

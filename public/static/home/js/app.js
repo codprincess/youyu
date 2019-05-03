@@ -3539,6 +3539,10 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
 
+  created() {
+    this.getHomeInfo();
+  },
+
   methods: {
     baiduLocation() {
       this.$parent.shouldChangeCity = true;
@@ -3560,15 +3564,26 @@ __webpack_require__.r(__webpack_exports__);
 
             if (_that.shouldChangeCity) {
               _that.$parent.cityName = addComp.city.replace('市', '');
-            } else {
-              this.cityName = _that.$parent.cityName;
-            }
+              console.log('22222222', _that.$parent.cityName);
+            } else {}
           });
         } else {
           console.log('failed' + this.getStatus());
         }
       }, {
         enableHighAccuracy: true
+      });
+    },
+
+    getHomeInfo() {
+      let _that = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_5___default.a.get('/api?city=' + _that.$parent.cityName).then(response => {
+        console.log('33333', response);
+
+        if (response.data.code = 0) {}
+      }).catch(err => {
+        console.log(err);
       });
     },
 
@@ -5724,6 +5739,10 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
 
+  created() {
+    this.getHomeInfo();
+  },
+
   methods: {
     baiduLocation() {
       this.$parent.shouldChangeCity = true;
@@ -5745,15 +5764,26 @@ __webpack_require__.r(__webpack_exports__);
 
             if (_that.shouldChangeCity) {
               _that.$parent.cityName = addComp.city.replace('市', '');
-            } else {
-              this.cityName = _that.$parent.cityName;
-            }
+              console.log('22222222', _that.$parent.cityName);
+            } else {}
           });
         } else {
           console.log('failed' + this.getStatus());
         }
       }, {
         enableHighAccuracy: true
+      });
+    },
+
+    getHomeInfo() {
+      let _that = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_5___default.a.get('/api?city=' + _that.$parent.cityName).then(response => {
+        console.log('33333', response);
+
+        if (response.data.code = 0) {}
+      }).catch(err => {
+        console.log(err);
       });
     },
 
@@ -9860,7 +9890,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\na {color: #000000;text-decoration: none;\n}\n.header{\r\n    width: 100%;\r\n    height: 40px;\r\n    background-color: #00bcd4;\n}\n.header-left{\r\n    float: left;\r\n    width: 90%;\n}\n.header-left .weui-search-bar {\r\n    padding: 6px 10px;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    -webkit-box-sizing: border-box;\r\n    background-color: #00bcd4;\n}\n.header-left .weui-search-bar.weui-search-bar_focusing .weui-search-bar__cancel-btn {\r\n    display: none !important;\n}\n.header-left .vux-search-box {\r\n    width: 100%;\n}\n.header-left .weui-search-bar__form {\r\n    border-radius: 6px;\n}\n.header-right{\r\n    width: 10%;\r\n    float: left;\r\n    height: 40px;\r\n    line-height: 40px;\r\n    color: #ffffff;\r\n    cursor: pointer;\n}\n.ab-banner{\r\n    height: 80px;\n}\n.ab-banner img{\r\n    height: 80px;\r\n    width: 100%;\n}\n.ven-wrapper{\r\n    width: 100%;\r\n    height: auto;\r\n    overflow-y: scroll;\n}\n.ven-wrapper .line{\r\n    height: 40px;\r\n    text-align: center;\r\n    line-height: 40px;\n}\n.ven-wrapper .venList-box{\r\n    height: 200vh;\r\n    width: 98%;\r\n    /* height: auto; */\r\n    margin: 0 auto;\n}\n.ven-wrapper .venList-box .vux-flexbox .vux-flexbox-item {\r\n    -webkit-box-flex: 1;\r\n    -ms-flex: 1;\r\n    flex: 1;\r\n    -webkit-flex: 1;\r\n    min-width: 20px;\r\n    width: 0%;\r\n    height: 200px;\r\n    text-align: center;\n}\n.ven-wrapper .venList-box .vux-flexbox .vux-flexbox-item .venItem{\r\n    border: #cccccc 1px solid;\r\n    width: 90%;\r\n    height: 180px;\r\n    text-align: center;\r\n    margin-left: 4%;\r\n    border-radius: 5px;\r\n    -webkit-box-shadow: 0px 2px 4px #cccccc;\r\n    -moz-box-shadow: 0px 2px 4px #cccccc;\r\n    box-shadow: 0px 2px 4px #cccccc;\n}\n.ven-wrapper .venList-box .vux-flexbox .vux-flexbox-item .venItem .item-pic{\r\n    width: 100%;\r\n    height: 130px;\r\n    position: relative;\n}\n.ven-wrapper .venList-box .vux-flexbox .vux-flexbox-item .venItem .item-pic img{\r\n    width: 100%;\r\n    height: 130px;\r\n    outline-width:0px;\r\n    vertical-align:top;\r\n    border-radius: 5px;\n}\n.ven-wrapper .venList-box .vux-flexbox .vux-flexbox-item .venItem .item-pic .item-name{\r\n    width: 100%;\r\n    background-color: #000000;\r\n    position: absolute;\r\n    top: 100px;\r\n    height: 30px;\r\n    line-height: 30px;\r\n    font-size: 14px;\r\n    color: #ffffff;\n}\n.item-info{\r\n    color: #000000;\n}\n.item-info .item-address{\r\n    font-size: 12px;\r\n    text-align: left;\r\n    height: 25px;\r\n    line-height: 25px;\n}\n.item-info .item-price{\r\n    font-size: 12px;\r\n    text-align: left;\r\n    height: 20px;\r\n    line-height: 20px;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\na {color: #000000;text-decoration: none;\n}\n.header{\r\n    width: 100%;\r\n    height: 40px;\r\n    background-color: #00bcd4;\n}\n.header-left{\r\n    float: left;\r\n    width: 90%;\n}\n.header-left .weui-search-bar {\r\n    padding: 6px 10px;\r\n    display: block;\r\n    /*display: -ms-flexbox;*/\r\n    -webkit-box-sizing: border-box;\r\n    background-color: #00bcd4;\n}\n.header-left .weui-search-bar.weui-search-bar_focusing .weui-search-bar__cancel-btn {\r\n    display: none !important;\n}\n.header-left .vux-search-box {\r\n    width: 100%;\n}\n.header-left .weui-search-bar__form {\r\n    border-radius: 6px;\n}\n.header-right{\r\n    width: 10%;\r\n    float: left;\r\n    height: 40px;\r\n    line-height: 40px;\r\n    color: #ffffff;\r\n    cursor: pointer;\n}\n.ab-banner{\r\n    height: 80px;\n}\n.ab-banner img{\r\n    height: 80px;\r\n    width: 100%;\n}\n.ven-wrapper{\r\n    width: 100%;\r\n    height: auto;\r\n    overflow-y: scroll;\n}\n.ven-wrapper .line{\r\n    height: 40px;\r\n    text-align: center;\r\n    line-height: 40px;\n}\n.ven-wrapper .venList-box{\r\n    height: 200vh;\r\n    width: 98%;\r\n    /* height: auto; */\r\n    margin: 0 auto;\n}\n.ven-wrapper .venList-box .vux-flexbox .vux-flexbox-item {\r\n    -webkit-box-flex: 1;\r\n    -ms-flex: 1;\r\n    flex: 1;\r\n    -webkit-flex: 1;\r\n    min-width: 20px;\r\n    width: 0%;\r\n    height: 200px;\r\n    text-align: center;\n}\n.ven-wrapper .venList-box .vux-flexbox .vux-flexbox-item .venItem{\r\n    border: #cccccc 1px solid;\r\n    width: 90%;\r\n    height: 180px;\r\n    text-align: center;\r\n    margin-left: 4%;\r\n    border-radius: 5px;\r\n    -webkit-box-shadow: 0px 2px 4px #cccccc;\r\n    -moz-box-shadow: 0px 2px 4px #cccccc;\r\n    box-shadow: 0px 2px 4px #cccccc;\n}\n.ven-wrapper .venList-box .vux-flexbox .vux-flexbox-item .venItem .item-pic{\r\n    width: 100%;\r\n    height: 130px;\r\n    position: relative;\n}\n.ven-wrapper .venList-box .vux-flexbox .vux-flexbox-item .venItem .item-pic img{\r\n    width: 100%;\r\n    height: 130px;\r\n    outline-width:0px;\r\n    vertical-align:top;\r\n    border-radius: 5px;\n}\n.ven-wrapper .venList-box .vux-flexbox .vux-flexbox-item .venItem .item-pic .item-name{\r\n    width: 100%;\r\n    background-color: #000000;\r\n    position: absolute;\r\n    top: 100px;\r\n    height: 30px;\r\n    line-height: 30px;\r\n    font-size: 14px;\r\n    color: #ffffff;\n}\n.item-info{\r\n    color: #000000;\n}\n.item-info .item-address{\r\n    font-size: 12px;\r\n    text-align: left;\r\n    height: 25px;\r\n    line-height: 25px;\n}\n.item-info .item-price{\r\n    font-size: 12px;\r\n    text-align: left;\r\n    height: 20px;\r\n    line-height: 20px;\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -30432,6 +30462,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
+    _c("div", { attrs: { id: "allmap" } }),
+    _vm._v(" "),
     _c("div", { staticClass: "header" }, [
       _c(
         "div",
@@ -30456,17 +30488,19 @@ var render = function() {
         { staticClass: "header-right" },
         [
           _c(
-            "router-link",
-            {
-              staticClass: "address-choose-content",
-              staticStyle: { "font-size": "12px" },
-              attrs: {
-                tag: "span",
-                to: "/city",
-                shouldChangeCity: _vm.shouldChangeCity
-              }
-            },
-            [_vm._v(_vm._s(_vm.cityName) + "\n                ")]
+            "keep-alive",
+            [
+              _c(
+                "router-link",
+                {
+                  staticClass: "address-choose-content",
+                  staticStyle: { "font-size": "12px" },
+                  attrs: { tag: "span", to: "/city" }
+                },
+                [_vm._v(_vm._s(_vm.cityName) + "\n                ")]
+              )
+            ],
+            1
           )
         ],
         1
