@@ -76,7 +76,7 @@ export default {
 
     data(){
        return{
-             cityName: '定位中',
+             cityName: '桂林',
              shouldChangeCity: true,
             // results: [],
             value: '输入场馆名称',
