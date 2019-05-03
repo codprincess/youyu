@@ -10,10 +10,10 @@
     <title>今天有羽</title>
     <!-- Styles -->
     <style>
-        /** {*/
-        /*    margin: 0;*/
-        /*    padding: 0;*/
-        /*}*/
+        * {
+            margin: 0;
+            padding: 0;
+        }
         a {color: #000;text-decoration: none;}
         .weui-tabbar {
             display: -webkit-box;

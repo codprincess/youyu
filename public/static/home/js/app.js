@@ -3487,7 +3487,7 @@ __webpack_require__.r(__webpack_exports__);
     Flexbox: vux_src_components_flexbox_flexbox_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     FlexboxItem: vux_src_components_flexbox_flexbox_item_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
-  props: ['shouldChangeCity'],
+  props: ['cityName', 'shouldChangeCity'],
 
   mounted() {
     this.$nextTick(() => {
@@ -3497,8 +3497,6 @@ __webpack_require__.r(__webpack_exports__);
 
   data() {
     return {
-      cityName: '定位中',
-      results: [],
       value: '输入场馆名称',
       imgList: ['https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2728642449,2819884282&fm=27&gp=0.jpg', 'http://www.gxljcollege.cn/__local/0/9E/B2/453545B2429FA0C68415CF8AA3E_04DD257C_A9B5E.png?e=.png', 'http://www.gxljcollege.cn/__local/0/9E/B2/453545B2429FA0C68415CF8AA3E_04DD257C_A9B5E.png?e=.png'],
       list: [{
@@ -5674,7 +5672,7 @@ __webpack_require__.r(__webpack_exports__);
     Flexbox: vux_src_components_flexbox_flexbox_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     FlexboxItem: vux_src_components_flexbox_flexbox_item_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
-  props: ['shouldChangeCity'],
+  props: ['cityName', 'shouldChangeCity'],
 
   mounted() {
     this.$nextTick(() => {
@@ -5684,8 +5682,6 @@ __webpack_require__.r(__webpack_exports__);
 
   data() {
     return {
-      cityName: '定位中',
-      results: [],
       value: '输入场馆名称',
       imgList: ['https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2728642449,2819884282&fm=27&gp=0.jpg', 'http://www.gxljcollege.cn/__local/0/9E/B2/453545B2429FA0C68415CF8AA3E_04DD257C_A9B5E.png?e=.png', 'http://www.gxljcollege.cn/__local/0/9E/B2/453545B2429FA0C68415CF8AA3E_04DD257C_A9B5E.png?e=.png'],
       list: [{
