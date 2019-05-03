@@ -1,29 +1,23 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+// import HelloWorld from '@/components/HelloWorld'
 import Home from '../pages/home/Home'
 import City from '../pages/city/City'
 import Detail from '../pages/detail/Detail'
 import Seat from '../pages/seat/Seat'
 import Order from '../pages/order/Order'
-import User from '../pages/user/User'
-
 Vue.use(Router)
 
 export default new Router({
     mode: 'history',
-    base: '/',
     routes: [
         {
             path: '/',
             name: 'Home',
             component: Home
-        }, {
-            path: '/city',
-            name: 'City',
-            component: City
         },
         {
-            path: '/detail/:id',
+            path: '/detail',
             name: 'Detail',
             component: Detail
         },
@@ -38,14 +32,9 @@ export default new Router({
             component: Order
         },
         {
-            path: '/user',
-            name: 'User',
-            component: User
+            path: '/city',
+            name: 'City',
+            component: City
         }
-
-    ],
-    //初始化页面
-    scrollBehavior: function (to, from, savedPosition) {
-        return savedPosition || {x: 0, y: 0}
-    }
+    ]
 })

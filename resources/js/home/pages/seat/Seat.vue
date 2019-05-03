@@ -1,1291 +1,604 @@
 <template>
-    <div class="seat-wapper">
-        <div class="header">
-            <div class="header-left">
-                <div @click="back" class="iconfont back-icon">&#xe624;</div>
-            </div>
-            <div class="header-right">广西师范大学羽毛球场</div>
+    <div>
+        <div class="detail-header">
+            <x-header :left-options="{backText: ''}">选择场次</x-header>
         </div>
-        <div class="navlist">
-            <ul>
-                <li class="navli"
-                    v-for="(item,index) in navList"
-                    :key="index"
-                    :class="{'activeT':nowIndex===index}"
-                    @click="tabClick(index)">
-                    <i>{{item.name}}</i><br/>
-                    <i style="font-size:.12rem">16场可订</i>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <div class="time-list">
-                <ul>
-                    <li class="time-list-item">09:00</li>
-                    <li class="time-list-item">10:00</li>
-                    <li class="time-list-item">11:00</li>
-                    <li class="time-list-item">12:00</li>
-                    <li class="time-list-item">13:00</li>
-                    <li class="time-list-item">14:00</li>
-                    <li class="time-list-item">15:00</li>
-                    <li class="time-list-item">16:00</li>
-                    <li class="time-list-item">17:00</li>
-                    <li class="time-list-item">18:00</li>
-                    <li class="time-list-item">19:00</li>
-                    <li class="time-list-item">20:00</li>
-                    <li class="time-list-item">21:00</li>
-                    <li class="time-list-item">22:00</li>
-
-                </ul>
-            </div>
-            <div class="time-place">
-                <ul>
-                    <li class="place-item">1</li>
-                    <li class="place-item">2</li>
-                    <li class="place-item">3</li>
-                    <li class="place-item">4</li>
-                    <li class="place-item">5</li>
-                    <li class="place-item">6</li>
-                    <li class="place-item">7</li>
-                    <li class="place-item">8</li>
-                </ul>
-            </div>
-            <div class="swiper-container swiper_con">
-                <div class="swiper-wrapper">
-                    <!-- 第一个swiper -->
-                    <div class="swiper-slide" ref="viewBox">
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-
-                    </div>
-                    <!-- 第二个swiper -->
-                    <div class="swiper-slide">
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                    </div>
-
-                    <!-- 第三个swiper -->
-                    <div class="swiper-slide">
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                    </div>
-
-                    <!-- 第四个swiper -->
-                    <div class="swiper-slide">
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                        <Row>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                            <Col span="3">￥8</Col>
-                        </Row>
-                    </div>
-
+        <div style="height:104vh">
+            <div style="height:555px;">
+                <tab :line-width=2 active-color='#fc378c' v-model="index">
+                    <tab-item class="vux-center" :selected="demo2 === item" v-for="(item, index) in list2" @click="demo2 = item" :key="index">
+                        {{item}}
+                         <!-- <span style="font-size:12px;">30场可订</span> -->
+                    </tab-item>
+                </tab>
+                <div class="data-box">
+                    <flexbox orient="vertical" :gutter="0">
+                        <flexbox-item v-for="(item,index) in dataTime" :key="index">
+                            <div class="timeItem">{{item}}</div>
+                        </flexbox-item>
+                    </flexbox>
                 </div>
+                <div class="seats-slider">
+                    <div class="room">
+                        <flexbox>
+                            <flexbox-item><div class="room-item">1</div></flexbox-item>
+                            <flexbox-item><div class="room-item">2</div></flexbox-item>
+                            <flexbox-item><div class="room-item">3</div></flexbox-item>
+                            <flexbox-item><div class="room-item">4</div></flexbox-item>
+                            <flexbox-item><div class="room-item">5</div></flexbox-item>
+                            <flexbox-item><div class="room-item">6</div></flexbox-item>
+                            <flexbox-item><div class="room-item">7</div></flexbox-item>
+                            <flexbox-item><div class="room-item">8</div></flexbox-item>
+                        </flexbox>
+                    </div>
+                    <swiper class="seat-swiper" v-model="index" style="height:489px;" :show-dots="false">
+                        <swiper-item v-for="(item, index) in list2" :key="index">
+                            <div class="tab-swiper vux-center" >
+                               <div class="roomList">
+                                   <!-- {{item}} -->
+                                    <grid :cols="8" :show-lr-borders="false">
+                                        <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
+                                            <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
+                                        </grid-item>
+                                    </grid>
+                                    <grid :cols="8" :show-lr-borders="false">
+                                        <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats2" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
+                                            <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
+                                        </grid-item>
+                                    </grid>
+                                    
+                                   <grid :cols="8" :show-lr-borders="false">
+                                        <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats3" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
+                                            <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
+                                        </grid-item>
+                                    </grid>
+                                   <grid :cols="8" :show-lr-borders="false">
+                                        <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats4" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
+                                            <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
+                                        </grid-item>
+                                    </grid>
+                                     <grid :cols="8" :show-lr-borders="false">
+                                        <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats3" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
+                                            <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
+                                        </grid-item>
+                                    </grid>
+                                   <grid :cols="8" :show-lr-borders="false">
+                                        <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats4" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
+                                            <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
+                                        </grid-item>
+                                    </grid>
+                                     <grid :cols="8" :show-lr-borders="false">
+                                        <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats3" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
+                                            <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
+                                        </grid-item>
+                                    </grid>
+                                   <grid :cols="8" :show-lr-borders="false">
+                                        <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats4" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
+                                            <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
+                                        </grid-item>
+                                    </grid>
+                                     <grid :cols="8" :show-lr-borders="false">
+                                        <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats3" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
+                                            <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
+                                        </grid-item>
+                                    </grid>
+                                   <grid :cols="8" :show-lr-borders="false">
+                                        <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats4" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
+                                            <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
+                                        </grid-item>
+                                    </grid>
+                                   
+                               </div>
+                            </div>
+                        </swiper-item>
+                    </swiper>
+                </div>
+                
+            </div>
+            <div class="pay-box">
+                <flexbox>
+                    <flexbox-item :span="5">
+                        <div class="all-money">订金金额<span style="color:#00bcd4">￥0</span></div>
+                    </flexbox-item>
+                    <flexbox-item :span="3">
+                        <div class="money-des">费用明细</div>
+                    </flexbox-item>
+                    <flexbox-item >
+                        <div class="pay">
+                            <x-button mini type="primary">去支付</x-button>
+                        </div>
+                    </flexbox-item>
+                </flexbox>
             </div>
         </div>
     </div>
 </template>
 <script>
-    export default {
-        name: "swiper",
-        data() {
-            return {
-                navList:[
-                    {name:'04-28'},
-                    {name:'04-29'},
-                    {name:'04-30'},
-                    {name:'05-01'},
-                    {name:'05-02'},
-                    {name:'05-03'}
-                ],
-                nowIndex:0,
+import { XHeader,Tab,TabItem,Swiper, SwiperItem, Flexbox,FlexboxItem,Grid, GridItem, XButton} from 'vux'
+export default {
+    components: {
+        XHeader,
+        Tab,
+        Swiper,
+        SwiperItem,
+        TabItem,
+        Flexbox,
+        FlexboxItem,
+        Grid, 
+        GridItem,
+        XButton,
+    },
+    data(){
+        return{
+            demo21: null,
+            index: 0,
+            list2: ['05-02', '05-03', '05-04', '05-05', '05-06','05-07'],
+            demo2: '精选',
+            dataTime:['09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00','21:00','22:00'],
+            seats:[
+            {
+                Id: "05010102", 
+                price: "6",  
+                name: "1号", 
+                rowName: "1", 
+                seatId: "05010102", 
+                status: "0", 
+                
+            },
+            {
+                Id: "05010102", 
+                price: "6", 
+                name: "2号", 
+                rowName: "1", 
+                seatId: "05010102", 
+                status: "1", 
+                
+            },
+            {
+                Id: "05010102", 
+                price: "6",  
+                name: "3号", 
+                rowName: "1", 
+                seatId: "05010102", 
+                status: "0", 
+                
+            },
+            {
+                Id: "05010102", 
+                price: "7",  
+                name: "4号", 
+                rowName: "1", 
+                seatId: "05010102", 
+                status: "1", 
+                
+            },
+            {
+                extId: "05010102", 
+                price: "8",  
+                name: "5号", 
+                rowName: "1", 
+                seatId: "05010102", 
+                status: "1", 
+                topPx: "30"
+            },
+            {
+                extId: "05010102", 
+                price: "3", 
+                name: "6号", 
+                rowName: "1", 
+                seatId: "05010102", 
+                status: "1", 
+                topPx: "30"
+            },
+            {
+                extId: "05010102", 
+                price: "5", 
+                name: "7号", 
+                rowName: "1", 
+                seatId: "05010102", 
+                status: "1", 
+                topPx: "30"
+            },
+            {
+                extId: "05010102", 
+                price: "6", 
+                name: "8号", 
+                seatId: "05010102", 
+                status: "1", 
+                topPx: "30"
+            },
+
+            ] ,
+            seats2:[
+            {
+                Id: "05010102", 
+                price: "6",  
+                name: "1号", 
+                rowName: "1", 
+                seatId: "05010102", 
+                status: "1", 
+                
+            },
+            {
+                Id: "05010102", 
+                price: "6", 
+                name: "2号", 
+                rowName: "1", 
+                seatId: "05010102", 
+                status: "1", 
+                
+            },
+            {
+                Id: "05010102", 
+                price: "6",  
+                name: "3号", 
+                rowName: "1", 
+                seatId: "05010102", 
+                status: "0", 
+                
+            },
+            {
+                Id: "05010102", 
+                price: "7",  
+                name: "4号", 
+                rowName: "1", 
+                seatId: "05010102", 
+                status: "0", 
+                
+            },
+            {
+                extId: "05010102", 
+                price: "8",  
+                name: "5号", 
+                rowName: "1", 
+                seatId: "05010102", 
+                status: "1", 
+                topPx: "30"
+            },
+            {
+                extId: "05010102", 
+                price: "3", 
+                name: "6号", 
+                rowName: "1", 
+                seatId: "05010102", 
+                status: "1", 
+                topPx: "30"
+            },
+            {
+                extId: "05010102", 
+                price: "5", 
+                name: "7号", 
+                rowName: "1", 
+                seatId: "05010102", 
+                status: "1", 
+                topPx: "30"
+            },
+            {
+                extId: "05010102", 
+                price: "6", 
+                name: "8号", 
+                seatId: "05010102", 
+                status: "1", 
+                topPx: "30"
+            },
+
+            ] ,
+             seats3:[
+            {
+                Id: "05010102", 
+                price: "6",  
+                name: "1号", 
+                rowName: "1", 
+                seatId: "05010102", 
+                status: "1", 
+                
+            },
+            {
+                Id: "05010102", 
+                price: "6", 
+                name: "2号", 
+                rowName: "1", 
+                seatId: "05010102", 
+                status: "1", 
+                
+            },
+            {
+                Id: "05010102", 
+                price: "6",  
+                name: "3号", 
+                rowName: "1", 
+                seatId: "05010102", 
+                status: "0", 
+                
+            },
+            {
+                Id: "05010102", 
+                price: "7",  
+                name: "4号", 
+                rowName: "1", 
+                seatId: "05010102", 
+                status: "0", 
+                
+            },
+            {
+                extId: "05010102", 
+                price: "8",  
+                name: "5号", 
+                rowName: "1", 
+                seatId: "05010102", 
+                status: "1", 
+                topPx: "30"
+            },
+            {
+                extId: "05010102", 
+                price: "3", 
+                name: "6号", 
+                rowName: "1", 
+                seatId: "05010102", 
+                status: "1", 
+                topPx: "30"
+            },
+            {
+                extId: "05010102", 
+                price: "5", 
+                name: "7号", 
+                rowName: "1", 
+                seatId: "05010102", 
+                status: "1", 
+                topPx: "30"
+            },
+            {
+                extId: "05010102", 
+                price: "6", 
+                name: "8号", 
+                seatId: "05010102", 
+                status: "1", 
+                topPx: "30"
+            },
+
+            ] ,
+             seats4:[
+            {
+                Id: "05010102", 
+                price: "6",  
+                name: "1号", 
+                rowName: "1", 
+                seatId: "05010102", 
+                status: "1", 
+                
+            },
+            {
+                Id: "05010102", 
+                price: "6", 
+                name: "2号", 
+                rowName: "1", 
+                seatId: "05010102", 
+                status: "1", 
+                
+            },
+            {
+                Id: "05010102", 
+                price: "6",  
+                name: "3号", 
+                rowName: "1", 
+                seatId: "05010102", 
+                status: "0", 
+                
+            },
+            {
+                Id: "05010102", 
+                price: "7",  
+                name: "4号", 
+                rowName: "1", 
+                seatId: "05010102", 
+                status: "0", 
+                
+            },
+            {
+                extId: "05010102", 
+                price: "8",  
+                name: "5号", 
+                rowName: "1", 
+                seatId: "05010102", 
+                status: "1", 
+                topPx: "30"
+            },
+            {
+                extId: "05010102", 
+                price: "3", 
+                name: "6号", 
+                rowName: "1", 
+                seatId: "05010102", 
+                status: "1", 
+                topPx: "30"
+            },
+            {
+                extId: "05010102", 
+                price: "5", 
+                name: "7号", 
+                rowName: "1", 
+                seatId: "05010102", 
+                status: "1", 
+                topPx: "30"
+            },
+            {
+                extId: "05010102", 
+                price: "6", 
+                name: "8号", 
+                seatId: "05010102", 
+                status: "1", 
+                topPx: "30"
+            },
+
+            ] ,
+            selSeats:[],//选择的场地
+        }
+    },
+    methods:{
+        seatSel(event,seat){
+            console.log('111111');
+            //选座，status==1是可以选择的，0是已售，2是已经选择
+            if(seat.status == 0){
+                return;
+            }
+            if(seat.status == 1){
+                seat.status = 2;
+                console.log(seat.status);
+                this.selSeats.push(seat.name);
+                console.log(this.selSeats);
+                //金额
+                this.selMoney += this.onePrice;
+            }else{
+                seat.status = 1;
+                //从数组中删除某个元素
+                for(var i=0;i<this.selSeats.length;i++){
+                    if(this.selSeats[i] == seat.name){
+                        this.selSeats.splice(i,1);
+                        break;
+                    }
+                }
+                //金额
+                 this.selMoney -= this.onePrice;
             }
         },
-        components:{
-        },
-        mounted() {
-            var that=this
-            that.mySwiper = new Swiper('.swiper-container',{
-                initialSlide:0,
-                autoplay:false,
-                keyboardControl:true,
-                autoHeight:true,
-                observer:true,
-                observeParents:true,
-                onSlideChangeStart:function(){
-                    // console.log(that.mySwiper.activeIndex)
-                    that.nowIndex=that.mySwiper.activeIndex
-                }
-            });
-            // this.getList();
-        },
-        methods: {
-
-            back(){
-                this.$router.go(-1);
-            },
-            tabClick(index){
-                this.nowIndex = index
-                this.mySwiper.slideTo(index,1000,false)
-            },
-        },
-        created(id){
-
-        }
     }
+}
 </script>
 <style>
-    .seat-wapper{
-        height: 1000vh;
+    .vux-header {
+        position: relative;
+        padding: 3px 0;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        background-color: #00bcd4 !important;
     }
-    .header{
-        display: flex;
-        line-height: .86rem;
-        background: #00bcd4;
-        color: #fff;
-    }
-    .header .header-left{
-        width: .64rem;
-        float: left;
-    }
-    .header .header-left .back-icon{
-        text-align: center;
-        font-size: .4rem;
-    }
-    .header .header-right{
-        min-width: 1.04rem;
-        padding: 0 .1rem;
-        float: right;
-        text-align: center;
-        color: #fff;
-        font-size: .26rem;
-    }
-    .header .header-right .arrow-icon{
-        margin-left: -.04rem;
-        font-size: .24rem;
-    }
-
-
-    .navlist{
-        width:98%;
-        height:55px;
-        border-bottom:1px solid rgba(151,151,151,0.1);
-        position:relative;
-        margin-left: 2%;
-    }
-    .navli{
-        /*padding:10px 0px;*/
-        text-align:center;
-        float:left;
-        margin:0 .2rem;
-    }
-    .navli i{
-        font-style: normal;
-        /*font-size: .26px;*/
-    }
-    .activeT{
-        color:#00bcd4;
-        padding-bottom: .3rem;
-        border-bottom: 2px solid #00bcd4;
-    }
-
-    .time-list{
-        float: left;
+    .data-box{
+        width: 16%;
         height: auto;
-        width: 10%;
-        border:1px #cccccc solid;
-        padding-bottom: 30px;
-    }
-
-    .time-list .time-list-item{
-        height: 30px;
-        /* border-bottom: 1px #cccccc solid; */
-        text-align: bottom;
-        line-height: 60px;
-        font-size: 0.26rem;
-    }
-
-    .time-place{
+        border: 1px solid #cccccc;
         float: left;
-        height: 30px;
-        line-height: 30px;
-        border-bottom: #cccccc 1px solid;
+        background-color: #eee;
+        padding-top: 5px;
     }
-    .time-place .place-item{
+    .seats-slider .vux-slider {
+        overflow: hidden;
+        position: relative;
+        width: 82%;
         float: left;
-        margin: 0 .293rem;
-
+        top: 25px;
     }
-
-    .swiper_con{
-        width:80%;
-        margin-bottom:40px;
-        position:relative;
-        /* border: 1px solid red; */
-        margin-left: 0;
-        margin-right: 0;
+    .timeItem{
+        height: 36px;
+        /* border: 1px red solid; */
+        line-height: 45px;
+        margin-left: 6%;
+        font-size: 12px;
     }
-
-    .ivu-col-span-3 {
-        display: block;
-        width: 12.5%;
+    .room{
+        height: 25px;
+        border: 1px #eee solid;
+        width: 83%;
+        margin-left: 16%;
+        position: absolute;
+    }
+    .room-item{
         text-align: center;
-        border-bottom: 1px #cccccc solid;
-        border-right: 1px #cccccc solid;
-        height: 30px;
-        line-height: 30px;
+        font-size: 14px;
+        height: 25px;
+        line-height: 2;
+        font-size: 12px;
     }
-    .choosegrand{
-        position:absolute;
-        top:-3;
-        right:0;
+    .weui-grid {
+        padding: 8px 10px !important;
+        text-align: center;
     }
-    .show{
-        display:block;
+    .weui-grids {
+        position: relative;
+        overflow: hidden;
+        border-right: 1px #eee solid;
     }
-    .none{
-        display:none;
+    .nosel{
+        background-color: #cccccc;
+        color: #ffffff;
+    }
+    .sel{
+        /* background-color: #ffffff; */
+        color: #00bcd4;
+    }
+    .yessel{
+        background-color: #00bcd4;
+        color: #ffffff;
+    }
+    .demo1-item {
+        border-right: 1px solid #ececec;
+        padding: 10px 9px;
+        font-size: 12px;
+    }
+    .demo1-item-selected {
+        background-color: #00bcd4;
+        color: #ffffff;
+    }
+    .seat-swiper > .vux-swiper {
+        overflow: hidden;
+        position: relative;
+        height: 489px !important;
+    }
+    .pay-box{
+        width: 100%;
+        height: 48px;
+        border: 1px #cccccc solid;
+        line-height: 48px；
+    }
+    .pay-box .all-money{
+        height: 48px;
+        line-height: 48px;
+        font-size: 14px;
+        margin-left: 6%;
+    }
+    .pay-box .money-des{
+        font-size: 12px;
+    }
+    .pay-box .pay{
+        height: 48px;
+        line-height: 48px;
+        background-color: #00bcd4;
+        text-align: center;
+    }
+    .pay-box .weui-btn_primary {
+        background-color: #00bcd4 !important;
+    }
+    .pay-box .weui-btn {
+        position: relative;
+        display: block;
+        font-size: 18px;
+        text-align: center;
+        text-decoration: none;
+        color: #FFFFFF;
+        line-height: 2.7;
+        overflow: hidden;
+    }
+    .weui-btn:after {
+        content: " ";
+        width: 200%;
+        height: 200%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: none !important;
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        -webkit-box-sizing: border-box;
+    }
+    .vux-tab .vux-tab-item.vux-tab-selected {
+        color: #00bcd4 !important;
+        border-bottom: 3px solid #00bcd4 !important;
+    }
+    .scrollable .vux-tab-ink-bar {
+        bottom: 17px;
+        position: absolute;
+        background: #00bcd4 !important;
     }
 </style>
-
 

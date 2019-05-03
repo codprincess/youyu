@@ -6,67 +6,62 @@
     <meta name="viewport"  content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="api-token" content="Bearer {{ $apiToken??"" }}">
+
     <title>控制面板</title>
-    <link rel="stylesheet" href="{{ URL::asset('static/home/css/reset.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('static/home/css/border.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('static/home/css/iconfont.css') }}">
     <!-- Styles -->
     <style>
         * {
             margin: 0;
             padding: 0;
         }
-        .app-footer{
-            font-size: 0;
-            position: fixed;
-            bottom:0;
-            padding-top:3px;
-            background: #fff;
-            left:0;
-            width:100%;
-            border-top:1px solid #ddd;
-
+        a {color: #000;text-decoration: none;}
+        .weui-tabbar {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            position: fixed !important;
+            z-index: 500;
+            bottom: 0;
+            width: 100%;
+            background-color: #F7F7FA;
         }
-        .footer-item{
-            font-size: 0.3rem;
-            width:33.33%;
-            height:100%;
-            display: inline-block;
+        .weui-tabbar__item.weui-bar__item_on .weui-tabbar__icon, .weui-tabbar__item.weui-bar__item_on .weui-tabbar__icon > i, .weui-tabbar__item.weui-bar__item_on .weui-tabbar__label {
+            color: #00bcd4 !important;
+        }
+        .weui-tabbar__label {
             text-align: center;
-            padding-top: 16px;
-            background-repeat: no-repeat;
-            background-size: 24px 24px;
-            background-position: center top;
-            padding-bottom: 0.2rem;
-            color:#333;
+            color: #999999;
+            font-size: 12px !important;
+            line-height: 0 !important;
         }
-        .footer-item.router-link-active{
-            color:#00bcd4;
-        }
-
-        /*html, body, #app, .wrapper {*/
-        /*    width: 100%;*/
-        /*    height: 100%;*/
-        /*    overflow: hidden;*/
-        /*}*/
-
-        /*body {*/
-        /*    font-family: "Helvetica Neue", Helvetica, "microsoft yahei", arial, STHeiTi, sans-serif;*/
-        /*}*/
     </style>
 </head>
 <body>
 <div id="app">
-    <keep-alive exclude="Detail">
-        <router-view/>
+    <!--allmap->地图容器，无内容-->
+    <div id="allmap"></div>
+    <!-- <img src="./assets/logo.png"> -->
+    <!-- <router-view/> -->
+    <keep-alive>
+        <router-view :shouldChangeCity="shouldChangeCity" :cityName="cityName"></router-view>
     </keep-alive>
-    <div class="app-footer">
-        <router-link class="footer-item" to='/'>订场</router-link>
-        <router-link class="footer-item" to='/order'>我的订单</router-link>
-        <router-link class="footer-item" to='/user'>联系</router-link>
-    </div>
+    <tabbar>
+        <tabbar-item selected link="/">
+            <img slot="icon" src="./assets/images/home.png" >
+            <span slot="label">订场</span>
+        </tabbar-item>
+        <tabbar-item link="/order">
+            <img slot="icon" src="./assets/images/book.png">
+            <span slot="label">订单</span>
+        </tabbar-item>
+        <tabbar-item  show-dot  link="/component/demo">
+            <img slot="icon" src="./assets/images/my.png">
+            <span slot="label">我的</span>
+        </tabbar-item>
+    </tabbar>
 </div>
 <script type="text/javascript" src="{{ URL::asset('static/home/js/app.js')}}"></script>
+<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=QDUfMKo8APcODw5KAnnNMryb9P4rnwLh"></script>
 {{--<script type="text/javascript">--}}
 {{--$.ajaxSetup({--}}
 {{--headers: {--}}

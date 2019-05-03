@@ -8,23 +8,16 @@
 import Vue from 'vue'
 import router from './router'
 import fastclick from 'fastclick'
-import VueAwesomeSwiper from 'vue-awesome-swiper'
-import store from './store'
-// import 'styles/reset.css'
-// import 'styles/border.css'
-// import 'styles/iconfont.css'
-import 'swiper/dist/css/swiper.css'
-import iView from 'iview';
-import 'iview/dist/styles/iview.css';
+
+
+
 require('./bootstrap');
 
 // window.Vue = require('vue');
 
-
-Vue.use(iView);
 Vue.config.productionTip = false
 fastclick.attach(document.body)
-Vue.use(VueAwesomeSwiper, /* { default global options } */)
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -48,7 +41,7 @@ Vue.use(VueAwesomeSwiper, /* { default global options } */)
 new Vue({
     el: '#app',
     router,
-    store,
+
 })
 
 // const app = new Vue({
