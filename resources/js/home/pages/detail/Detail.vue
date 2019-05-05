@@ -85,6 +85,7 @@ export default {
                     this.city = response.data.data.venueInfo.city;
                     this.street = response.data.data.venueInfo.street;
                     this.id = response.data.data.venueInfo.id;
+
                 }
             }).catch(err=>{
                 console.log(err);

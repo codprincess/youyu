@@ -443,12 +443,14 @@ export default {
     methods:{
         //获取场地信息
         getPlaceListInfo(){
-            axios.get(('/api/venue/'+this.$route.params.id+'/timeList').then(response=>{
+            axios.get('/api/venue/'+this.$route.params.id+'/timeList').then(response=>{
                 console.log(response);
                 if(response){
 
                 }
-            }))
+            }).catch(err=>{
+                console.log(err);
+            })
         },
         seatSel(event,seat){
             console.log('111111');
