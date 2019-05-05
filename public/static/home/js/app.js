@@ -29517,17 +29517,17 @@ var render = function() {
                 {
                   key: index,
                   staticClass: "vux-center",
-                  attrs: { selected: _vm.demo2 === item.name },
+                  attrs: { selected: _vm.demo2 === item },
                   on: {
                     click: function($event) {
-                      _vm.demo2 = item.name
+                      _vm.demo2 = item
                     }
                   }
                 },
                 [
                   _vm._v(
                     "\n                        " +
-                      _vm._s(item.name) +
+                      _vm._s(item.date) +
                       "\n                         "
                   )
                 ]

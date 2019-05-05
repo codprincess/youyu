@@ -6,8 +6,8 @@
         <div style="height:104vh">
             <div style="height:555px;">
                 <tab :line-width=2 active-color='#fc378c' v-model="index">
-                    <tab-item class="vux-center" :selected="demo2 === item.name" v-for="(item, index) in list2" @click="demo2 = item.name" :key="index">
-                        {{item.name}}
+                    <tab-item class="vux-center" :selected="demo2 === item" v-for="(item, index) in list2" @click="demo2 = item" :key="index">
+                        {{item.date}}
                          <!-- <span style="font-size:12px;">30场可订</span> -->
                     </tab-item>
                 </tab>
