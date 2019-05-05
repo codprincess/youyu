@@ -180,7 +180,8 @@ export default {
             axios.get('/api?city=' + _that.cityName ).then(response=>{
                 console.log('33333',response);
                 console.log(response.data.code);
-                if(response.data.code = 0){
+                console.log(response.data.data.bannerList);
+                if(response.data.code == 0){
                     //图片
                     _that.imgList = response.data.data.bannerList;
                     console.log('11111',_that.imgList )

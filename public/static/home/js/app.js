@@ -3546,8 +3546,9 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_5___default.a.get('/api?city=' + _that.cityName).then(response => {
         console.log('33333', response);
         console.log(response.data.code);
+        console.log(response.data.data.bannerList);
 
-        if (response.data.code = 0) {
+        if (response.data.code == 0) {
           _that.imgList = response.data.data.bannerList;
           console.log('11111', _that.imgList);
           _that.list = response.data.data.venueList;
@@ -5713,8 +5714,9 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_5___default.a.get('/api?city=' + _that.cityName).then(response => {
         console.log('33333', response);
         console.log(response.data.code);
+        console.log(response.data.data.bannerList);
 
-        if (response.data.code = 0) {
+        if (response.data.code == 0) {
           _that.imgList = response.data.data.bannerList;
           console.log('11111', _that.imgList);
           _that.list = response.data.data.venueList;
