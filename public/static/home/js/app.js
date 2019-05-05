@@ -3627,10 +3627,10 @@ __webpack_require__.r(__webpack_exports__);
 
   data() {
     return {
-      demo21: null,
       index: 0,
-      list2: ['05-02', '05-03', '05-04', '05-05', '05-06', '05-07'],
-      demo2: '精选',
+      placeList: [],
+      list2: [],
+      demo2: '',
       dataTime: ['09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00'],
       seats: [{
         Id: "05010102",
@@ -3886,7 +3886,11 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/venue/' + this.$route.params.id + '/timeList').then(response => {
         console.log(response);
 
-        if (response) {}
+        if (response) {
+          this.list2 = response.data.data.dateList;
+          this.dateTimeList = response.data.data.dateTimeList;
+          this.placeList = response.data.data.placeList;
+        }
       }).catch(err => {
         console.log(err);
       });
@@ -5797,10 +5801,10 @@ __webpack_require__.r(__webpack_exports__);
 
   data() {
     return {
-      demo21: null,
       index: 0,
-      list2: ['05-02', '05-03', '05-04', '05-05', '05-06', '05-07'],
-      demo2: '精选',
+      placeList: [],
+      list2: [],
+      demo2: '',
       dataTime: ['09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00'],
       seats: [{
         Id: "05010102",
@@ -6056,7 +6060,11 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/venue/' + this.$route.params.id + '/timeList').then(response => {
         console.log(response);
 
-        if (response) {}
+        if (response) {
+          this.list2 = response.data.data.dateList;
+          this.dateTimeList = response.data.data.dateTimeList;
+          this.placeList = response.data.data.placeList;
+        }
       }).catch(err => {
         console.log(err);
       });
@@ -29516,9 +29524,9 @@ var render = function() {
                 },
                 [
                   _vm._v(
-                    "\n                    " +
-                      _vm._s(item) +
-                      "\n                     "
+                    "\n                        " +
+                      _vm._s(item.name) +
+                      "\n                         "
                   )
                 ]
               )
@@ -29556,39 +29564,13 @@ var render = function() {
                 [
                   _c(
                     "flexbox",
-                    [
-                      _c("flexbox-item", [
-                        _c("div", { staticClass: "room-item" }, [_vm._v("1")])
-                      ]),
-                      _vm._v(" "),
-                      _c("flexbox-item", [
-                        _c("div", { staticClass: "room-item" }, [_vm._v("2")])
-                      ]),
-                      _vm._v(" "),
-                      _c("flexbox-item", [
-                        _c("div", { staticClass: "room-item" }, [_vm._v("3")])
-                      ]),
-                      _vm._v(" "),
-                      _c("flexbox-item", [
-                        _c("div", { staticClass: "room-item" }, [_vm._v("4")])
-                      ]),
-                      _vm._v(" "),
-                      _c("flexbox-item", [
-                        _c("div", { staticClass: "room-item" }, [_vm._v("5")])
-                      ]),
-                      _vm._v(" "),
-                      _c("flexbox-item", [
-                        _c("div", { staticClass: "room-item" }, [_vm._v("6")])
-                      ]),
-                      _vm._v(" "),
-                      _c("flexbox-item", [
-                        _c("div", { staticClass: "room-item" }, [_vm._v("7")])
-                      ]),
-                      _vm._v(" "),
-                      _c("flexbox-item", [
-                        _c("div", { staticClass: "room-item" }, [_vm._v("8")])
+                    _vm._l(_vm.placeList, function(item, index) {
+                      return _c("flexbox-item", { key: index }, [
+                        _c("div", { staticClass: "room-item" }, [
+                          _vm._v(_vm._s(item.name))
+                        ])
                       ])
-                    ],
+                    }),
                     1
                   )
                 ],

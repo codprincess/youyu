@@ -7,7 +7,7 @@
             <div style="height:555px;">
                 <tab :line-width=2 active-color='#fc378c' v-model="index">
                     <tab-item class="vux-center" :selected="demo2 === item" v-for="(item, index) in list2" @click="demo2 = item" :key="index">
-                        {{item}}
+                        {{item.name}}
                          <!-- <span style="font-size:12px;">30场可订</span> -->
                     </tab-item>
                 </tab>
@@ -21,14 +21,14 @@
                 <div class="seats-slider">
                     <div class="room">
                         <flexbox>
-                            <flexbox-item><div class="room-item">1</div></flexbox-item>
-                            <flexbox-item><div class="room-item">2</div></flexbox-item>
-                            <flexbox-item><div class="room-item">3</div></flexbox-item>
-                            <flexbox-item><div class="room-item">4</div></flexbox-item>
-                            <flexbox-item><div class="room-item">5</div></flexbox-item>
-                            <flexbox-item><div class="room-item">6</div></flexbox-item>
-                            <flexbox-item><div class="room-item">7</div></flexbox-item>
-                            <flexbox-item><div class="room-item">8</div></flexbox-item>
+                            <flexbox-item v-for="(item,index) in placeList" :key="index"><div class="room-item">{{item.name}}</div></flexbox-item>
+<!--                            <flexbox-item><div class="room-item">2</div></flexbox-item>-->
+<!--                            <flexbox-item><div class="room-item">3</div></flexbox-item>-->
+<!--                            <flexbox-item><div class="room-item">4</div></flexbox-item>-->
+<!--                            <flexbox-item><div class="room-item">5</div></flexbox-item>-->
+<!--                            <flexbox-item><div class="room-item">6</div></flexbox-item>-->
+<!--                            <flexbox-item><div class="room-item">7</div></flexbox-item>-->
+<!--                            <flexbox-item><div class="room-item">8</div></flexbox-item>-->
                         </flexbox>
                     </div>
                     <swiper class="seat-swiper" v-model="index" style="height:489px;" :show-dots="false">
@@ -131,10 +131,10 @@ export default {
     },
     data(){
         return{
-            demo21: null,
             index: 0,
-            list2: ['05-02', '05-03', '05-04', '05-05', '05-06','05-07'],
-            demo2: '精选',
+            placeList:[],
+            list2: [],
+            demo2: '',
             dataTime:['09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00','21:00','22:00'],
             seats:[
             {
@@ -446,7 +446,9 @@ export default {
             axios.get('/api/venue/'+this.$route.params.id+'/timeList').then(response=>{
                 console.log(response);
                 if(response){
-
+                    this.list2 = response.data.data.dateList;
+                    this.dateTimeList = response.data.data.dateTimeList;
+                    this.placeList = response.data.data.placeList;
                 }
             }).catch(err=>{
                 console.log(err);
