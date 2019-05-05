@@ -3452,6 +3452,23 @@ __webpack_require__.r(__webpack_exports__);
     Flexbox: vux_src_components_flexbox_flexbox_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     FlexboxItem: vux_src_components_flexbox_flexbox_item_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     XButton: vux_src_components_x_button_index_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+  },
+
+  created() {
+    this.getDetailInfo();
+  },
+
+  methods: {
+    getDetailInfo() {
+      axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/venue/' + this.$route.params.id + '/detail').then(response => {
+        console.log(response);
+
+        if (response) {}
+      }).catch(err => {
+        console.log(err);
+      });
+    }
+
   }
 });
 
@@ -3486,12 +3503,6 @@ __webpack_require__.r(__webpack_exports__);
     SwiperItem: vux_src_components_swiper_swiper_item_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     Flexbox: vux_src_components_flexbox_flexbox_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     FlexboxItem: vux_src_components_flexbox_flexbox_item_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
-  },
-
-  mounted() {
-    this.$nextTick(() => {
-      this.baiduLocation();
-    });
   },
 
   data() {
@@ -3554,6 +3565,12 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).catch(err => {
         console.log(err);
+      });
+    },
+
+    mounted() {
+      this.$nextTick(() => {
+        this.baiduLocation();
       });
     }
 
@@ -5618,6 +5635,23 @@ __webpack_require__.r(__webpack_exports__);
     Flexbox: vux_src_components_flexbox_flexbox_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     FlexboxItem: vux_src_components_flexbox_flexbox_item_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     XButton: vux_src_components_x_button_index_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+  },
+
+  created() {
+    this.getDetailInfo();
+  },
+
+  methods: {
+    getDetailInfo() {
+      axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/venue/' + this.$route.params.id + '/detail').then(response => {
+        console.log(response);
+
+        if (response) {}
+      }).catch(err => {
+        console.log(err);
+      });
+    }
+
   }
 });
 
@@ -5652,12 +5686,6 @@ __webpack_require__.r(__webpack_exports__);
     SwiperItem: vux_src_components_swiper_swiper_item_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     Flexbox: vux_src_components_flexbox_flexbox_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     FlexboxItem: vux_src_components_flexbox_flexbox_item_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
-  },
-
-  mounted() {
-    this.$nextTick(() => {
-      this.baiduLocation();
-    });
   },
 
   data() {
@@ -5720,6 +5748,12 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).catch(err => {
         console.log(err);
+      });
+    },
+
+    mounted() {
+      this.$nextTick(() => {
+        this.baiduLocation();
       });
     }
 
@@ -30476,7 +30510,7 @@ var render = function() {
                 "flexbox-item",
                 { key: index, attrs: { span: 1 / 2 } },
                 [
-                  _c("router-link", { attrs: { to: "/detail" } }, [
+                  _c("router-link", { attrs: { to: "/detail/" + item.id } }, [
                     _c("div", { staticClass: "venItem" }, [
                       _c("div", { staticClass: "item-pic" }, [
                         _c("img", {
@@ -47757,7 +47791,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
     name: 'Home',
     component: _pages_home_Home__WEBPACK_IMPORTED_MODULE_2__["default"]
   }, {
-    path: '/detail',
+    path: '/detail/:id',
     name: 'Detail',
     component: _pages_detail_Detail__WEBPACK_IMPORTED_MODULE_4__["default"]
   }, {

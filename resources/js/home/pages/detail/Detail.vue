@@ -111,21 +111,21 @@ export default {
         FlexboxItem,
         XButton
     },
-    // created(){
-    //     this.getDetailInfo();
-    // },
-    // methods:{
-    //     getDetailInfo(){
-    //         axios.get('/api/venue/'+this.$route.params.id+'/detail').then(response=>{
-    //             console.log(response)
-    //             if(response.data.code = 0 ){
+    created(){
+        this.getDetailInfo();
+    },
+    methods:{
+        getDetailInfo(){
+            axios.get('/api/venue/'+this.$route.params.id+'/detail').then(response=>{
+                console.log(response)
+                if(response){
 
-    //             }
-    //         }).catch(err=>{
-    //             console.log(err);
-    //         })
-    //     }
-    // }
+                }
+            }).catch(err=>{
+                console.log(err);
+            })
+        }
+    }
 }
 </script>
 <style>
