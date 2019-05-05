@@ -532,6 +532,14 @@ export default {
         line-height: 2;
         font-size: 12px;
     }
+    .vux-tab-ink-bar {
+        position: absolute;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #00bcd4 !important;
+        text-align: center;
+    }
     .weui-grid {
         padding: 8px 10px !important;
         text-align: center;

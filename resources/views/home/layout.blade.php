@@ -24,6 +24,7 @@
             bottom: 0;
             width: 100%;
             background-color: #F7F7FA;
+            padding-bottom: 20px;
         }
         .weui-tabbar__item.weui-bar__item_on .weui-tabbar__icon, .weui-tabbar__item.weui-bar__item_on .weui-tabbar__icon > i, .weui-tabbar__item.weui-bar__item_on .weui-tabbar__label {
             color: #00bcd4 !important;
@@ -33,6 +34,7 @@
             color: #999999;
             font-size: 12px !important;
             line-height: 0 !important;
+            margin-top: 10px !important;
         }
     </style>
 </head>
