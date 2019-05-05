@@ -4,12 +4,12 @@
             <x-header :left-options="{backText: ''}">场馆详情</x-header>
         </div>
         <div class="detail-banner">
-            <img class="banner-img"  src="../../assets/images/444.jpg"/>
+            <img class="banner-img"  :src="cover_uri"/>
         </div>
         <div class="detail-info">
             <flexbox>
-                <flexbox-item><div class="ven-name">育才体育中心</div></flexbox-item>
-                <flexbox-item><div class="ven-comment">3.5分</div></flexbox-item>
+                <flexbox-item><div class="ven-name">{{name}}</div></flexbox-item>
+                <flexbox-item><div class="ven-comment">{{score}}分</div></flexbox-item>
             </flexbox>
         </div>
         <div class="list-box">
@@ -19,7 +19,7 @@
                     <flexbox-item>
                         <div class="ven-address-name">
                            <img alt="" src="../../assets/images/address.png"/>
-                           <span>广西师范大学育才路18号</span>
+                           <span>{{province+city+street}}</span>
                         </div>
                     </flexbox-item>
                     <flexbox-item :span="4"><div class="ven-address-call"><img alt="" src="../../assets/images/tel.png" /></div></flexbox-item>
@@ -51,58 +51,14 @@ import axios from 'axios'
 export default {
     data(){
         return{
-            dateList:[{
-                "date": "04月29日",
-                "freeCount": 62,
-                "minPrice": 0
-                },{
-                "date": "04月29日",
-                "freeCount": 62,
-                "minPrice": 0
-                },{
-                "date": "04月29日",
-                "freeCount": 62,
-                "minPrice": 0
-                },
-                {
-                "date": "04月29日",
-                "freeCount": 62,
-                "minPrice": 0
-                },{
-                "date": "04月29日",
-                "freeCount": 62,
-                "minPrice": 0
-                },{
-                "date": "04月29日",
-                "freeCount": 62,
-                "minPrice": 0
-                },
-                {
-                "date": "04月29日",
-                "freeCount": 62,
-                "minPrice": 0
-                },{
-                "date": "04月29日",
-                "freeCount": 62,
-                "minPrice": 0
-                },{
-                "date": "04月29日",
-                "freeCount": 62,
-                "minPrice": 0
-                },
-                {
-                "date": "04月29日",
-                "freeCount": 62,
-                "minPrice": 0
-                },{
-                "date": "04月29日",
-                "freeCount": 62,
-                "minPrice": 0
-                },{
-                "date": "04月29日",
-                "freeCount": 62,
-                "minPrice": 0
-                }],
+            cover_uri:'',
+            name:'',
+            score:'',
+            address:'',
+            province:'',
+            city:'',
+            street:'',
+            dateList:[],
         }
     },
     components: {
@@ -119,7 +75,13 @@ export default {
             axios.get('/api/venue/'+this.$route.params.id+'/detail').then(response=>{
                 console.log(response)
                 if(response){
-
+                    this.dateList = response.data.dateList;
+                    this.cover_uri = response.data.venueInfo.cover_uri;
+                    this.name = response.data.venueInfo.name;
+                    this.score = response.data.venueInfo.score;
+                    this.province = response.data.venueInfo.province;
+                    this.city = response.data.venueInfo.city;
+                    this.street = response.data.venueInfo.street;
                 }
             }).catch(err=>{
                 console.log(err);

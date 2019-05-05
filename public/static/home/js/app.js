@@ -3395,55 +3395,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data() {
     return {
-      dateList: [{
-        "date": "04月29日",
-        "freeCount": 62,
-        "minPrice": 0
-      }, {
-        "date": "04月29日",
-        "freeCount": 62,
-        "minPrice": 0
-      }, {
-        "date": "04月29日",
-        "freeCount": 62,
-        "minPrice": 0
-      }, {
-        "date": "04月29日",
-        "freeCount": 62,
-        "minPrice": 0
-      }, {
-        "date": "04月29日",
-        "freeCount": 62,
-        "minPrice": 0
-      }, {
-        "date": "04月29日",
-        "freeCount": 62,
-        "minPrice": 0
-      }, {
-        "date": "04月29日",
-        "freeCount": 62,
-        "minPrice": 0
-      }, {
-        "date": "04月29日",
-        "freeCount": 62,
-        "minPrice": 0
-      }, {
-        "date": "04月29日",
-        "freeCount": 62,
-        "minPrice": 0
-      }, {
-        "date": "04月29日",
-        "freeCount": 62,
-        "minPrice": 0
-      }, {
-        "date": "04月29日",
-        "freeCount": 62,
-        "minPrice": 0
-      }, {
-        "date": "04月29日",
-        "freeCount": 62,
-        "minPrice": 0
-      }]
+      cover_uri: '',
+      name: '',
+      score: '',
+      address: '',
+      province: '',
+      city: '',
+      street: '',
+      dateList: []
     };
   },
 
@@ -3463,7 +3422,15 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/venue/' + this.$route.params.id + '/detail').then(response => {
         console.log(response);
 
-        if (response) {}
+        if (response) {
+          this.dateList = response.data.dateList;
+          this.cover_uri = response.data.venueInfo.cover_uri;
+          this.name = response.data.venueInfo.name;
+          this.score = response.data.venueInfo.score;
+          this.province = response.data.venueInfo.province;
+          this.city = response.data.venueInfo.city;
+          this.street = response.data.venueInfo.street;
+        }
       }).catch(err => {
         console.log(err);
       });
@@ -5578,55 +5545,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data() {
     return {
-      dateList: [{
-        "date": "04月29日",
-        "freeCount": 62,
-        "minPrice": 0
-      }, {
-        "date": "04月29日",
-        "freeCount": 62,
-        "minPrice": 0
-      }, {
-        "date": "04月29日",
-        "freeCount": 62,
-        "minPrice": 0
-      }, {
-        "date": "04月29日",
-        "freeCount": 62,
-        "minPrice": 0
-      }, {
-        "date": "04月29日",
-        "freeCount": 62,
-        "minPrice": 0
-      }, {
-        "date": "04月29日",
-        "freeCount": 62,
-        "minPrice": 0
-      }, {
-        "date": "04月29日",
-        "freeCount": 62,
-        "minPrice": 0
-      }, {
-        "date": "04月29日",
-        "freeCount": 62,
-        "minPrice": 0
-      }, {
-        "date": "04月29日",
-        "freeCount": 62,
-        "minPrice": 0
-      }, {
-        "date": "04月29日",
-        "freeCount": 62,
-        "minPrice": 0
-      }, {
-        "date": "04月29日",
-        "freeCount": 62,
-        "minPrice": 0
-      }, {
-        "date": "04月29日",
-        "freeCount": 62,
-        "minPrice": 0
-      }]
+      cover_uri: '',
+      name: '',
+      score: '',
+      address: '',
+      province: '',
+      city: '',
+      street: '',
+      dateList: []
     };
   },
 
@@ -5646,7 +5572,15 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/venue/' + this.$route.params.id + '/detail').then(response => {
         console.log(response);
 
-        if (response) {}
+        if (response) {
+          this.dateList = response.data.dateList;
+          this.cover_uri = response.data.venueInfo.cover_uri;
+          this.name = response.data.venueInfo.name;
+          this.score = response.data.venueInfo.score;
+          this.province = response.data.venueInfo.province;
+          this.city = response.data.venueInfo.city;
+          this.street = response.data.venueInfo.street;
+        }
       }).catch(err => {
         console.log(err);
       });
@@ -28822,7 +28756,9 @@ var render = function() {
       1
     ),
     _vm._v(" "),
-    _vm._m(0),
+    _c("div", { staticClass: "detail-banner" }, [
+      _c("img", { staticClass: "banner-img", attrs: { src: _vm.cover_uri } })
+    ]),
     _vm._v(" "),
     _c(
       "div",
@@ -28832,11 +28768,13 @@ var render = function() {
           "flexbox",
           [
             _c("flexbox-item", [
-              _c("div", { staticClass: "ven-name" }, [_vm._v("育才体育中心")])
+              _c("div", { staticClass: "ven-name" }, [_vm._v(_vm._s(_vm.name))])
             ]),
             _vm._v(" "),
             _c("flexbox-item", [
-              _c("div", { staticClass: "ven-comment" }, [_vm._v("3.5分")])
+              _c("div", { staticClass: "ven-comment" }, [
+                _vm._v(_vm._s(_vm.score) + "分")
+              ])
             ])
           ],
           1
@@ -28862,7 +28800,9 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _c("span", [_vm._v("广西师范大学育才路18号")])
+                  _c("span", [
+                    _vm._v(_vm._s(_vm.province + _vm.city + _vm.street))
+                  ])
                 ])
               ]),
               _vm._v(" "),
@@ -28957,19 +28897,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "detail-banner" }, [
-      _c("img", {
-        staticClass: "banner-img",
-        attrs: { src: __webpack_require__(/*! ../../assets/images/444.jpg */ "./resources/js/home/assets/images/444.jpg") }
-      })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["default"] = (esExports);
@@ -47394,17 +47322,6 @@ new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app',
   router: _router__WEBPACK_IMPORTED_MODULE_1__["default"]
 });
-
-/***/ }),
-
-/***/ "./resources/js/home/assets/images/444.jpg":
-/*!*************************************************!*\
-  !*** ./resources/js/home/assets/images/444.jpg ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/444.jpg?cc3e3705f60df16057f832016a4e52df";
 
 /***/ }),
 
