@@ -3888,6 +3888,7 @@ __webpack_require__.r(__webpack_exports__);
 
         if (response) {
           this.list2 = response.data.data.dateList;
+          console.log(this.list2);
           this.dateTimeList = response.data.data.dateTimeList;
           this.placeList = response.data.data.placeList;
         }
@@ -6062,6 +6063,7 @@ __webpack_require__.r(__webpack_exports__);
 
         if (response) {
           this.list2 = response.data.data.dateList;
+          console.log(this.list2);
           this.dateTimeList = response.data.data.dateTimeList;
           this.placeList = response.data.data.placeList;
         }
@@ -29515,10 +29517,10 @@ var render = function() {
                 {
                   key: index,
                   staticClass: "vux-center",
-                  attrs: { selected: _vm.demo2 === item },
+                  attrs: { selected: _vm.demo2 === item.name },
                   on: {
                     click: function($event) {
-                      _vm.demo2 = item
+                      _vm.demo2 = item.name
                     }
                   }
                 },
