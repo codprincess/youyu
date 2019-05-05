@@ -27,7 +27,7 @@
             </div>
 
             <div class="detail-item">
-                <router-link :to="'/seat/' + id" tag="div" v-for="(item,index) in dateList" :key="index" >
+                <router-link :to="'/seat/'+id" tag="div" v-for="(item,index) in dateList" :key="index" >
                      <flexbox>
                         <flexbox-item :span="4"><div class="item-date">{{item.date}}</div></flexbox-item>
                         <flexbox-item :span="2"><div class="item-free"><span style="color:#00bcd4">{{item.freeCount}}</span>场可订</div></flexbox-item>

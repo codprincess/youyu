@@ -23,7 +23,7 @@ Route::group(['namespace' => 'Home', 'middleware' => 'auth:api'], function () {
 Route::group(['namespace' => 'Home'], function () {
 //    Route::post('/venue/{venue}/order/create', "OrderController@orderCreate");
     Route::get('/venue/{venue}/detail', "VenueController@venueDetail");
-    Route::get('/venue/{venue}/time/list', "VenueController@venueTimeList");
+    Route::get('/venue/{venue}/timeList', "VenueController@venueTimeList");
     Route::post('/venue/{venue}/order/create', "OrderController@orderCreate");
     Route::post('/wx/pay/unifiedOrder/{order}', "PayController@unifiedOrder");
 });

@@ -443,7 +443,7 @@ export default {
     methods:{
         //获取场地信息
         getPlaceListInfo(){
-            axios.get(('/api/venue/'+8+'/time/list').then(response=>{
+            axios.get(('/api/venue/'+this.$route.params.id+'/timeList').then(response=>{
                 console.log(response);
                 if(response){
 

@@ -3883,7 +3883,7 @@ __webpack_require__.r(__webpack_exports__);
 
   methods: {
     getPlaceListInfo() {
-      axios__WEBPACK_IMPORTED_MODULE_10___default.a.get(('/api/venue/' + 8 + '/time/list').then(response => {
+      axios__WEBPACK_IMPORTED_MODULE_10___default.a.get(('/api/venue/' + this.$route.params.id + '/timeList').then(response => {
         console.log(response);
 
         if (response) {}
@@ -6051,7 +6051,7 @@ __webpack_require__.r(__webpack_exports__);
 
   methods: {
     getPlaceListInfo() {
-      axios__WEBPACK_IMPORTED_MODULE_10___default.a.get(('/api/venue/' + 8 + '/time/list').then(response => {
+      axios__WEBPACK_IMPORTED_MODULE_10___default.a.get(('/api/venue/' + this.$route.params.id + '/timeList').then(response => {
         console.log(response);
 
         if (response) {}
