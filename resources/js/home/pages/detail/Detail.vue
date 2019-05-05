@@ -77,6 +77,7 @@ export default {
                 if(response){
                     this.dateList = response.data.dateList;
                     this.cover_uri = response.data.venueInfo.cover_uri;
+                    console.log(this.cover_uri);
                     this.name = response.data.venueInfo.name;
                     this.score = response.data.venueInfo.score;
                     this.province = response.data.venueInfo.province;
