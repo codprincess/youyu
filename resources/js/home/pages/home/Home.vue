@@ -179,11 +179,14 @@ export default {
             let _that = this;
             axios.get('/api?city=' + _that.cityName ).then(response=>{
                 console.log('33333',response);
+                console.log(response.data.code);
                 if(response.data.code = 0){
                     //图片
                     _that.imgList = response.data.data.bannerList;
+                    console.log('11111',_that.imgList )
                     //场馆信息
                     _that.list =response.data.data.venueList;
+                    console.log('22222',_that.list)
                 }
             }).catch(err=>{
                 console.log(err)

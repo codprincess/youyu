@@ -3545,10 +3545,13 @@ __webpack_require__.r(__webpack_exports__);
 
       axios__WEBPACK_IMPORTED_MODULE_5___default.a.get('/api?city=' + _that.cityName).then(response => {
         console.log('33333', response);
+        console.log(response.data.code);
 
         if (response.data.code = 0) {
           _that.imgList = response.data.data.bannerList;
+          console.log('11111', _that.imgList);
           _that.list = response.data.data.venueList;
+          console.log('22222', _that.list);
         }
       }).catch(err => {
         console.log(err);
@@ -5709,10 +5712,13 @@ __webpack_require__.r(__webpack_exports__);
 
       axios__WEBPACK_IMPORTED_MODULE_5___default.a.get('/api?city=' + _that.cityName).then(response => {
         console.log('33333', response);
+        console.log(response.data.code);
 
         if (response.data.code = 0) {
           _that.imgList = response.data.data.bannerList;
+          console.log('11111', _that.imgList);
           _that.list = response.data.data.venueList;
+          console.log('22222', _that.list);
         }
       }).catch(err => {
         console.log(err);
