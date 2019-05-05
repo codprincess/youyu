@@ -115,6 +115,7 @@
 </template>
 <script>
 import { XHeader,Tab,TabItem,Swiper, SwiperItem, Flexbox,FlexboxItem,Grid, GridItem, XButton} from 'vux'
+import axios from 'axios'
 export default {
     components: {
         XHeader,
@@ -432,9 +433,23 @@ export default {
 
             ] ,
             selSeats:[],//选择的场地
+
         }
     },
+    created(){
+        this.getPlaceListInfo();
+    },
+
     methods:{
+        //获取场地信息
+        getPlaceListInfo(){
+            axios.get(('/api/venue/'+this.$route.params.id+'/time/list').then(response=>{
+                console.log(response);
+                if(response){
+
+                }
+            }))
+        },
         seatSel(event,seat){
             console.log('111111');
             //选座，status==1是可以选择的，0是已售，2是已经选择

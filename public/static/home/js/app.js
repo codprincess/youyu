@@ -3424,7 +3424,7 @@ __webpack_require__.r(__webpack_exports__);
         console.log(response);
 
         if (response) {
-          this.dateList = response.data.dateList;
+          this.dateList = response.data.data.dateList;
           this.cover_uri = response.data.data.venueInfo.cover_uri;
           console.log(this.cover_uri);
           this.name = response.data.data.venueInfo.name;
@@ -3598,6 +3598,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vux_src_components_grid_grid_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vux/src/components/grid/grid.vue */ "./node_modules/vux/src/components/grid/grid.vue");
 /* harmony import */ var vux_src_components_grid_grid_item_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vux/src/components/grid/grid-item.vue */ "./node_modules/vux/src/components/grid/grid-item.vue");
 /* harmony import */ var vux_src_components_x_button_index_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vux/src/components/x-button/index.vue */ "./node_modules/vux/src/components/x-button/index.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_10__);
+
 
 
 
@@ -3874,7 +3877,19 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
 
+  created() {
+    this.getPlaceListInfo();
+  },
+
   methods: {
+    getPlaceListInfo() {
+      axios__WEBPACK_IMPORTED_MODULE_10___default.a.get(('/api/venue/' + this.$route.params.id + '/time/list').then(response => {
+        console.log(response);
+
+        if (response) {}
+      }));
+    },
+
     seatSel(event, seat) {
       console.log('111111');
 
@@ -5577,7 +5592,7 @@ __webpack_require__.r(__webpack_exports__);
         console.log(response);
 
         if (response) {
-          this.dateList = response.data.dateList;
+          this.dateList = response.data.data.dateList;
           this.cover_uri = response.data.data.venueInfo.cover_uri;
           console.log(this.cover_uri);
           this.name = response.data.data.venueInfo.name;
@@ -5751,6 +5766,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vux_src_components_grid_grid_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vux/src/components/grid/grid.vue */ "./node_modules/vux/src/components/grid/grid.vue");
 /* harmony import */ var vux_src_components_grid_grid_item_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vux/src/components/grid/grid-item.vue */ "./node_modules/vux/src/components/grid/grid-item.vue");
 /* harmony import */ var vux_src_components_x_button_index_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vux/src/components/x-button/index.vue */ "./node_modules/vux/src/components/x-button/index.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_10__);
+
 
 
 
@@ -6027,7 +6045,19 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
 
+  created() {
+    this.getPlaceListInfo();
+  },
+
   methods: {
+    getPlaceListInfo() {
+      axios__WEBPACK_IMPORTED_MODULE_10___default.a.get(('/api/venue/' + this.$route.params.id + '/time/list').then(response => {
+        console.log(response);
+
+        if (response) {}
+      }));
+    },
+
     seatSel(event, seat) {
       console.log('111111');
 

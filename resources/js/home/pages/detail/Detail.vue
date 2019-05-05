@@ -76,7 +76,7 @@ export default {
             axios.get('/api/venue/'+this.$route.params.id+'/detail').then(response=>{
                 console.log(response)
                 if(response){
-                    this.dateList = response.data.dateList;
+                    this.dateList = response.data.data.dateList;
                     this.cover_uri = response.data.data.venueInfo.cover_uri;
                     console.log(this.cover_uri);
                     this.name = response.data.data.venueInfo.name;
