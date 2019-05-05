@@ -3548,7 +3548,8 @@ __webpack_require__.r(__webpack_exports__);
         console.log(response.data.code);
         console.log(response.data.data.bannerList);
 
-        if (response.data.code == 0) {
+        if (response.data.code === 0) {
+          console.log('22222222');
           _that.imgList = response.data.data.bannerList;
           console.log('11111', _that.imgList);
           _that.list = response.data.data.venueList;
@@ -5716,7 +5717,8 @@ __webpack_require__.r(__webpack_exports__);
         console.log(response.data.code);
         console.log(response.data.data.bannerList);
 
-        if (response.data.code == 0) {
+        if (response.data.code === 0) {
+          console.log('22222222');
           _that.imgList = response.data.data.bannerList;
           console.log('11111', _that.imgList);
           _that.list = response.data.data.venueList;

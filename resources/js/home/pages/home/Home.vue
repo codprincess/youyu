@@ -181,7 +181,8 @@ export default {
                 console.log('33333',response);
                 console.log(response.data.code);
                 console.log(response.data.data.bannerList);
-                if(response.data.code == 0){
+                if(response.data.code === 0){
+                    console.log('22222222')
                     //图片
                     _that.imgList = response.data.data.bannerList;
                     console.log('11111',_that.imgList )
