@@ -1,121 +1,168 @@
 <template>
     <div>
-        <div class="detail-header">
-            <x-header :left-options="{backText: ''}">选择场次</x-header>
-        </div>
-        <div style="height:104vh">
-            <div style="height:555px;">
-                <tab :line-width=2 active-color='#fc378c' v-model="index">
-<!--                    <tab-item class="vux-center" :selected="demo2 === item" v-for="(item, index) in list2" @click="demo2 = item" :key="index">-->
-<!--                        {{item.date}}-->
-<!--                         &lt;!&ndash; <span style="font-size:12px;">30场可订</span> &ndash;&gt;-->
-<!--                    </tab-item>-->
-                    <tab-item class="vux-center" :selected="demo2 === item.date" v-for="(item, index) in list2" @click="demo2 = item.date" :key="index">
-                        {{item.date}}
-                        <!-- <span style="font-size:12px;">30场可订</span> -->
-                    </tab-item>
-                </tab>
-                <div class="data-box">
-                    <flexbox orient="vertical" :gutter="0">
-                        <flexbox-item v-for="(item,index) in dataTime" :key="index">
-                            <div class="timeItem">{{item}}</div>
+        <!--下单页面-->
+        <div v-show="!hasOrder">
+            <div class="detail-header">
+                <x-header :left-options="{backText: ''}">选择场次</x-header>
+            </div>
+            <div style="height:110vh">
+                <div style="height:555px;">
+                    <tab :line-width=2 active-color='#fc378c' v-model="index">
+                        <!--                    <tab-item class="vux-center" :selected="demo2 === item" v-for="(item, index) in list2" @click="demo2 = item" :key="index">-->
+                        <!--                        {{item.date}}-->
+                        <!--                         &lt;!&ndash; <span style="font-size:12px;">30场可订</span> &ndash;&gt;-->
+                        <!--                    </tab-item>-->
+                        <tab-item class="vux-center" :selected="demo2 === item.date" v-for="(item, index) in list2" @click="demo2 = item.date" :key="index">
+                            {{item.date}}
+                            <!-- <span style="font-size:12px;">30场可订</span> -->
+                        </tab-item>
+                    </tab>
+                    <div class="data-box">
+                        <flexbox orient="vertical" :gutter="0">
+                            <flexbox-item v-for="(item,index) in dataTime" :key="index">
+                                <div class="timeItem">{{item}}</div>
+                            </flexbox-item>
+                        </flexbox>
+                    </div>
+                    <div class="seats-slider">
+                        <div class="room">
+                            <flexbox>
+                                <flexbox-item v-for="(item,index) in placeList" :key="index"><div class="room-item">{{item.name}}</div></flexbox-item>
+                                <!--                            <flexbox-item><div class="room-item">2</div></flexbox-item>-->
+                                <!--                            <flexbox-item><div class="room-item">3</div></flexbox-item>-->
+                                <!--                            <flexbox-item><div class="room-item">4</div></flexbox-item>-->
+                                <!--                            <flexbox-item><div class="room-item">5</div></flexbox-item>-->
+                                <!--                            <flexbox-item><div class="room-item">6</div></flexbox-item>-->
+                                <!--                            <flexbox-item><div class="room-item">7</div></flexbox-item>-->
+                                <!--                            <flexbox-item><div class="room-item">8</div></flexbox-item>-->
+                            </flexbox>
+                        </div>
+                        <swiper class="seat-swiper" v-model="index" style="height:489px;" :show-dots="false">
+                            <swiper-item v-for="(item, index) in list2" :key="index">
+                                <div class="tab-swiper vux-center" >
+                                    <div class="roomList">
+                                        <!-- {{item}} -->
+                                        <grid :cols="8" :show-lr-borders="false">
+                                            <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
+                                                <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
+                                            </grid-item>
+                                        </grid>
+                                        <grid :cols="8" :show-lr-borders="false">
+                                            <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats2" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
+                                                <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
+                                            </grid-item>
+                                        </grid>
+
+                                        <grid :cols="8" :show-lr-borders="false">
+                                            <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats3" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
+                                                <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
+                                            </grid-item>
+                                        </grid>
+                                        <grid :cols="8" :show-lr-borders="false">
+                                            <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats4" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
+                                                <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
+                                            </grid-item>
+                                        </grid>
+                                        <grid :cols="8" :show-lr-borders="false">
+                                            <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats3" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
+                                                <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
+                                            </grid-item>
+                                        </grid>
+                                        <grid :cols="8" :show-lr-borders="false">
+                                            <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats4" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
+                                                <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
+                                            </grid-item>
+                                        </grid>
+                                        <grid :cols="8" :show-lr-borders="false">
+                                            <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats3" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
+                                                <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
+                                            </grid-item>
+                                        </grid>
+                                        <grid :cols="8" :show-lr-borders="false">
+                                            <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats4" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
+                                                <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
+                                            </grid-item>
+                                        </grid>
+                                        <grid :cols="8" :show-lr-borders="false">
+                                            <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats3" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
+                                                <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
+                                            </grid-item>
+                                        </grid>
+                                        <grid :cols="8" :show-lr-borders="false">
+                                            <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats4" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
+                                                <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
+                                            </grid-item>
+                                        </grid>
+
+                                    </div>
+                                </div>
+                            </swiper-item>
+                        </swiper>
+                    </div>
+
+                </div>
+                <div class="pay-box">
+                    <flexbox>
+                        <flexbox-item :span="5">
+                            <div class="all-money">订金金额<span style="color:#00bcd4">￥0</span></div>
+                        </flexbox-item>
+                        <flexbox-item :span="3">
+                            <div class="money-des">费用明细</div>
+                        </flexbox-item>
+                        <flexbox-item >
+                            <div class="pay">
+                                <x-button mini type="primary" @click.native="payComfirm()">下一步</x-button>
+                            </div>
                         </flexbox-item>
                     </flexbox>
                 </div>
-                <div class="seats-slider">
-                    <div class="room">
-                        <flexbox>
-                            <flexbox-item v-for="(item,index) in placeList" :key="index"><div class="room-item">{{item.name}}</div></flexbox-item>
-<!--                            <flexbox-item><div class="room-item">2</div></flexbox-item>-->
-<!--                            <flexbox-item><div class="room-item">3</div></flexbox-item>-->
-<!--                            <flexbox-item><div class="room-item">4</div></flexbox-item>-->
-<!--                            <flexbox-item><div class="room-item">5</div></flexbox-item>-->
-<!--                            <flexbox-item><div class="room-item">6</div></flexbox-item>-->
-<!--                            <flexbox-item><div class="room-item">7</div></flexbox-item>-->
-<!--                            <flexbox-item><div class="room-item">8</div></flexbox-item>-->
-                        </flexbox>
-                    </div>
-                    <swiper class="seat-swiper" v-model="index" style="height:489px;" :show-dots="false">
-                        <swiper-item v-for="(item, index) in list2" :key="index">
-                            <div class="tab-swiper vux-center" >
-                               <div class="roomList">
-                                   <!-- {{item}} -->
-                                    <grid :cols="8" :show-lr-borders="false">
-                                        <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
-                                            <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
-                                        </grid-item>
-                                    </grid>
-                                    <grid :cols="8" :show-lr-borders="false">
-                                        <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats2" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
-                                            <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
-                                        </grid-item>
-                                    </grid>
-                                    
-                                   <grid :cols="8" :show-lr-borders="false">
-                                        <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats3" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
-                                            <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
-                                        </grid-item>
-                                    </grid>
-                                   <grid :cols="8" :show-lr-borders="false">
-                                        <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats4" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
-                                            <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
-                                        </grid-item>
-                                    </grid>
-                                     <grid :cols="8" :show-lr-borders="false">
-                                        <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats3" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
-                                            <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
-                                        </grid-item>
-                                    </grid>
-                                   <grid :cols="8" :show-lr-borders="false">
-                                        <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats4" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
-                                            <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
-                                        </grid-item>
-                                    </grid>
-                                     <grid :cols="8" :show-lr-borders="false">
-                                        <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats3" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
-                                            <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
-                                        </grid-item>
-                                    </grid>
-                                   <grid :cols="8" :show-lr-borders="false">
-                                        <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats4" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
-                                            <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
-                                        </grid-item>
-                                    </grid>
-                                     <grid :cols="8" :show-lr-borders="false">
-                                        <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats3" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
-                                            <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
-                                        </grid-item>
-                                    </grid>
-                                   <grid :cols="8" :show-lr-borders="false">
-                                        <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats4" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
-                                            <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
-                                        </grid-item>
-                                    </grid>
-                                   
-                               </div>
-                            </div>
-                        </swiper-item>
-                    </swiper>
-                </div>
-                
             </div>
-            <div class="pay-box">
-                <flexbox>
-                    <flexbox-item :span="5">
-                        <div class="all-money">订金金额<span style="color:#00bcd4">￥0</span></div>
-                    </flexbox-item>
-                    <flexbox-item :span="3">
-                        <div class="money-des">费用明细</div>
-                    </flexbox-item>
-                    <flexbox-item >
-                        <div class="pay">
-                            <x-button mini type="primary">去支付</x-button>
-                        </div>
-                    </flexbox-item>
-                </flexbox>
+        </div>
+
+        <!--确认订单-->
+        <div v-show="hasOrder">
+            <div class="detail-header">
+                <x-header :left-options="{backText: ''}">确认订单</x-header>
+            </div>
+            <div class="order-box">
+                <div class="order-list">
+                    <ul style="padding-inline-start: 20px;">
+                        <h4 style="margin-block-start: 1em;margin-block-end: .5em;">天空运动城</h4>
+                        <li>运动类型：<span>羽毛球</span></li>
+                        <li>预定日期：<span>2019-05-06</span></li>
+                        <li>预定场次：<span>1号场 11：00-12：00</span></li>
+                        <li>预定场次：<span>1号场 11：00-12：00</span></li>
+                        <li>预定场次：<span>1号场 11：00-12：00</span></li>
+                        <li>总金额：<span>￥6</span></li>
+                    </ul>
+                </div>
+                <div class="order-desc">
+                    <ul style="padding-inline-start: 20px;">
+                        <h4 style="margin-block-start: 1em;margin-block-end: .5em;">预定须知</h4>
+                        <li>1.当您提交订单后，请在10分钟内支付，否则订单会自动取消</li>
+                        <li>2.您所定场次出售后离开始时间五个内不可退订</li>
+                        <li>3.当您使用场馆时，请遵守场馆相关规定。同时，在您运动时请注意自身以及他人的安全</li>
+                    </ul>
+                </div>
+                <div class="pay-box" style="position:absolute;bottom:0;width:100%;height:100px;">
+                    <flexbox>
+                        <flexbox-item :span="5">
+                            <div class="all-money">订金金额<span style="color:#00bcd4">￥0</span></div>
+                        </flexbox-item>
+                        <flexbox-item :span="3">
+                            <div class="money-des">费用明细</div>
+                        </flexbox-item>
+                        <flexbox-item >
+                            <div class="pay">
+                                <x-button mini type="primary">去支付</x-button>
+                            </div>
+                        </flexbox-item>
+                    </flexbox>
+                </div>
             </div>
         </div>
     </div>
+
 </template>
 <script>
 import { XHeader,Tab,TabItem,Swiper, SwiperItem, Flexbox,FlexboxItem,Grid, GridItem, XButton} from 'vux'
@@ -135,6 +182,7 @@ export default {
     },
     data(){
         return{
+            hasOrder:false,
             index: 0,
             placeList:[],
             list2: [],
@@ -485,6 +533,15 @@ export default {
                  this.selMoney -= this.onePrice;
             }
         },
+
+        //支付
+        payComfirm(){
+            console.log('11111111');
+            this.hasOrder = true;
+            // if(this.selMoney){
+            //
+            // }
+        }
     }
 }
 </script>
@@ -631,6 +688,35 @@ export default {
         bottom: 17px;
         position: absolute;
         background: #00bcd4 !important;
+    }
+
+    /*确认订单*/
+
+    .order-box{
+        width: 100%;
+    }
+    .order-box .order-list{
+        height: auto;
+        border-bottom: #cccccc 1px dotted;
+        /* padding:0px 5%; */
+    }
+    .order-box .order-list ul li{
+        list-style: none;
+        height: 25px;
+        font-size: 14px;
+    }
+    .order-box .order-desc{
+        list-style: none;
+        padding-right:20px;
+        border-bottom: #cccccc 1px dotted;
+    }
+    .order-box .order-desc ul li{
+        list-style: none;
+        font-size: 14px;
+        line-height: 30px;
+        word-break : break-all;
+        word-wrap: break-word;
+        display: block;
     }
 </style>
 

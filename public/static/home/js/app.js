@@ -3627,6 +3627,7 @@ __webpack_require__.r(__webpack_exports__);
 
   data() {
     return {
+      hasOrder: false,
       index: 0,
       placeList: [],
       list2: [],
@@ -3922,6 +3923,11 @@ __webpack_require__.r(__webpack_exports__);
 
         this.selMoney -= this.onePrice;
       }
+    },
+
+    payComfirm() {
+      console.log('11111111');
+      this.hasOrder = true;
     }
 
   }
@@ -5802,6 +5808,7 @@ __webpack_require__.r(__webpack_exports__);
 
   data() {
     return {
+      hasOrder: false,
       index: 0,
       placeList: [],
       list2: [],
@@ -6097,6 +6104,11 @@ __webpack_require__.r(__webpack_exports__);
 
         this.selMoney -= this.onePrice;
       }
+    },
+
+    payComfirm() {
+      console.log('11111111');
+      this.hasOrder = true;
     }
 
   }
@@ -9745,7 +9757,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.vux-header {\n    position: relative;\n    padding: 3px 0;\n    -webkit-box-sizing: border-box;\n    box-sizing: border-box;\n    background-color: #00bcd4 !important;\n}\n.data-box{\n    width: 16%;\n    height: auto;\n    border: 1px solid #cccccc;\n    float: left;\n    background-color: #eee;\n    padding-top: 5px;\n}\n.seats-slider .vux-slider {\n    overflow: hidden;\n    position: relative;\n    width: 82%;\n    float: left;\n    top: 25px;\n}\n.timeItem{\n    height: 36px;\n    /* border: 1px red solid; */\n    line-height: 45px;\n    margin-left: 6%;\n    font-size: 12px;\n}\n.room{\n    height: 25px;\n    border: 1px #eee solid;\n    width: 83%;\n    margin-left: 16%;\n    position: absolute;\n}\n.room-item{\n    text-align: center;\n    font-size: 14px;\n    height: 25px;\n    line-height: 2;\n    font-size: 12px;\n}\n.vux-tab-ink-bar {\n    position: absolute;\n    height: 2px;\n    bottom: 0;\n    left: 0;\n    background-color: #00bcd4 !important;\n    text-align: center;\n}\n.weui-grid {\n    padding: 8px 10px !important;\n    text-align: center;\n}\n.weui-grids {\n    position: relative;\n    overflow: hidden;\n    border-right: 1px #eee solid;\n}\n.nosel{\n    background-color: #cccccc;\n    color: #ffffff;\n}\n.sel{\n    /* background-color: #ffffff; */\n    color: #00bcd4;\n}\n.yessel{\n    background-color: #00bcd4;\n    color: #ffffff;\n}\n.demo1-item {\n    border-right: 1px solid #ececec;\n    padding: 10px 9px;\n    font-size: 12px;\n}\n.demo1-item-selected {\n    background-color: #00bcd4;\n    color: #ffffff;\n}\n.seat-swiper > .vux-swiper {\n    overflow: hidden;\n    position: relative;\n    height: 489px !important;\n}\n.pay-box{\n    width: 100%;\n    height: 48px;\n    border: 1px #cccccc solid;\n    line-height: 48px；\n}\n.pay-box .all-money{\n    height: 48px;\n    line-height: 48px;\n    font-size: 14px;\n    margin-left: 6%;\n}\n.pay-box .money-des{\n    font-size: 12px;\n}\n.pay-box .pay{\n    height: 48px;\n    line-height: 48px;\n    background-color: #00bcd4;\n    text-align: center;\n}\n.pay-box .weui-btn_primary {\n    background-color: #00bcd4 !important;\n}\n.pay-box .weui-btn {\n    position: relative;\n    display: block;\n    font-size: 18px;\n    text-align: center;\n    text-decoration: none;\n    color: #FFFFFF;\n    line-height: 2.7;\n    overflow: hidden;\n}\n.weui-btn:after {\n    content: \" \";\n    width: 200%;\n    height: 200%;\n    position: absolute;\n    top: 0;\n    left: 0;\n    border: none !important;\n    -webkit-transform: scale(0.5);\n    transform: scale(0.5);\n    -webkit-transform-origin: 0 0;\n    transform-origin: 0 0;\n    -webkit-box-sizing: border-box;\n}\n.vux-tab .vux-tab-item.vux-tab-selected {\n    color: #00bcd4 !important;\n    border-bottom: 3px solid #00bcd4 !important;\n}\n.scrollable .vux-tab-ink-bar {\n    bottom: 17px;\n    position: absolute;\n    background: #00bcd4 !important;\n}\n", ""]);
+exports.push([module.i, "\n.vux-header {\n    position: relative;\n    padding: 3px 0;\n    -webkit-box-sizing: border-box;\n    box-sizing: border-box;\n    background-color: #00bcd4 !important;\n}\n.data-box{\n    width: 16%;\n    height: auto;\n    border: 1px solid #cccccc;\n    float: left;\n    background-color: #eee;\n    padding-top: 5px;\n}\n.seats-slider .vux-slider {\n    overflow: hidden;\n    position: relative;\n    width: 82%;\n    float: left;\n    top: 25px;\n}\n.timeItem{\n    height: 36px;\n    /* border: 1px red solid; */\n    line-height: 45px;\n    margin-left: 6%;\n    font-size: 12px;\n}\n.room{\n    height: 25px;\n    border: 1px #eee solid;\n    width: 83%;\n    margin-left: 16%;\n    position: absolute;\n}\n.room-item{\n    text-align: center;\n    font-size: 14px;\n    height: 25px;\n    line-height: 2;\n    font-size: 12px;\n}\n.vux-tab-ink-bar {\n    position: absolute;\n    height: 2px;\n    bottom: 0;\n    left: 0;\n    background-color: #00bcd4 !important;\n    text-align: center;\n}\n.weui-grid {\n    padding: 8px 10px !important;\n    text-align: center;\n}\n.weui-grids {\n    position: relative;\n    overflow: hidden;\n    border-right: 1px #eee solid;\n}\n.nosel{\n    background-color: #cccccc;\n    color: #ffffff;\n}\n.sel{\n    /* background-color: #ffffff; */\n    color: #00bcd4;\n}\n.yessel{\n    background-color: #00bcd4;\n    color: #ffffff;\n}\n.demo1-item {\n    border-right: 1px solid #ececec;\n    padding: 10px 9px;\n    font-size: 12px;\n}\n.demo1-item-selected {\n    background-color: #00bcd4;\n    color: #ffffff;\n}\n.seat-swiper > .vux-swiper {\n    overflow: hidden;\n    position: relative;\n    height: 489px !important;\n}\n.pay-box{\n    width: 100%;\n    height: 48px;\n    border: 1px #cccccc solid;\n    line-height: 48px；\n}\n.pay-box .all-money{\n    height: 48px;\n    line-height: 48px;\n    font-size: 14px;\n    margin-left: 6%;\n}\n.pay-box .money-des{\n    font-size: 12px;\n}\n.pay-box .pay{\n    height: 48px;\n    line-height: 48px;\n    background-color: #00bcd4;\n    text-align: center;\n}\n.pay-box .weui-btn_primary {\n    background-color: #00bcd4 !important;\n}\n.pay-box .weui-btn {\n    position: relative;\n    display: block;\n    font-size: 18px;\n    text-align: center;\n    text-decoration: none;\n    color: #FFFFFF;\n    line-height: 2.7;\n    overflow: hidden;\n}\n.weui-btn:after {\n    content: \" \";\n    width: 200%;\n    height: 200%;\n    position: absolute;\n    top: 0;\n    left: 0;\n    border: none !important;\n    -webkit-transform: scale(0.5);\n    transform: scale(0.5);\n    -webkit-transform-origin: 0 0;\n    transform-origin: 0 0;\n    -webkit-box-sizing: border-box;\n}\n.vux-tab .vux-tab-item.vux-tab-selected {\n    color: #00bcd4 !important;\n    border-bottom: 3px solid #00bcd4 !important;\n}\n.scrollable .vux-tab-ink-bar {\n    bottom: 17px;\n    position: absolute;\n    background: #00bcd4 !important;\n}\n\n/*确认订单*/\n.order-box{\n    width: 100%;\n}\n.order-box .order-list{\n    height: auto;\n    border-bottom: #cccccc 1px dotted;\n    /* padding:0px 5%; */\n}\n.order-box .order-list ul li{\n    list-style: none;\n    height: 25px;\n    font-size: 14px;\n}\n.order-box .order-desc{\n    list-style: none;\n    padding-right:20px;\n    border-bottom: #cccccc 1px dotted;\n}\n.order-box .order-desc ul li{\n    list-style: none;\n    font-size: 14px;\n    line-height: 30px;\n    word-break : break-all;\n    word-wrap: break-word;\n    display: block;\n}\n", ""]);
 
 // exports
 
@@ -29485,91 +29497,81 @@ var render = function() {
   return _c("div", [
     _c(
       "div",
-      { staticClass: "detail-header" },
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: !_vm.hasOrder,
+            expression: "!hasOrder"
+          }
+        ]
+      },
       [
-        _c("x-header", { attrs: { "left-options": { backText: "" } } }, [
-          _vm._v("选择场次")
-        ])
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c("div", { staticStyle: { height: "104vh" } }, [
-      _c(
-        "div",
-        { staticStyle: { height: "555px" } },
-        [
+        _c(
+          "div",
+          { staticClass: "detail-header" },
+          [
+            _c("x-header", { attrs: { "left-options": { backText: "" } } }, [
+              _vm._v("选择场次")
+            ])
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("div", { staticStyle: { height: "110vh" } }, [
           _c(
-            "tab",
-            {
-              attrs: { "line-width": 2, "active-color": "#fc378c" },
-              model: {
-                value: _vm.index,
-                callback: function($$v) {
-                  _vm.index = $$v
-                },
-                expression: "index"
-              }
-            },
-            _vm._l(_vm.list2, function(item, index) {
-              return _c(
-                "tab-item",
+            "div",
+            { staticStyle: { height: "555px" } },
+            [
+              _c(
+                "tab",
                 {
-                  key: index,
-                  staticClass: "vux-center",
-                  attrs: { selected: _vm.demo2 === item.date },
-                  on: {
-                    click: function($event) {
-                      _vm.demo2 = item.date
-                    }
+                  attrs: { "line-width": 2, "active-color": "#fc378c" },
+                  model: {
+                    value: _vm.index,
+                    callback: function($$v) {
+                      _vm.index = $$v
+                    },
+                    expression: "index"
                   }
                 },
-                [
-                  _vm._v(
-                    "\n                        " +
-                      _vm._s(item.date) +
-                      "\n                        "
+                _vm._l(_vm.list2, function(item, index) {
+                  return _c(
+                    "tab-item",
+                    {
+                      key: index,
+                      staticClass: "vux-center",
+                      attrs: { selected: _vm.demo2 === item.date },
+                      on: {
+                        click: function($event) {
+                          _vm.demo2 = item.date
+                        }
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(item.date) +
+                          "\n                        "
+                      )
+                    ]
                   )
-                ]
-              )
-            }),
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "data-box" },
-            [
-              _c(
-                "flexbox",
-                { attrs: { orient: "vertical", gutter: 0 } },
-                _vm._l(_vm.dataTime, function(item, index) {
-                  return _c("flexbox-item", { key: index }, [
-                    _c("div", { staticClass: "timeItem" }, [
-                      _vm._v(_vm._s(item))
-                    ])
-                  ])
                 }),
                 1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "seats-slider" },
-            [
+              ),
+              _vm._v(" "),
               _c(
                 "div",
-                { staticClass: "room" },
+                { staticClass: "data-box" },
                 [
                   _c(
                     "flexbox",
-                    _vm._l(_vm.placeList, function(item, index) {
+                    { attrs: { orient: "vertical", gutter: 0 } },
+                    _vm._l(_vm.dataTime, function(item, index) {
                       return _c("flexbox-item", { key: index }, [
-                        _c("div", { staticClass: "room-item" }, [
-                          _vm._v(_vm._s(item.name))
+                        _c("div", { staticClass: "timeItem" }, [
+                          _vm._v(_vm._s(item))
                         ])
                       ])
                     }),
@@ -29580,422 +29582,633 @@ var render = function() {
               ),
               _vm._v(" "),
               _c(
-                "swiper",
-                {
-                  staticClass: "seat-swiper",
-                  staticStyle: { height: "489px" },
-                  attrs: { "show-dots": false },
-                  model: {
-                    value: _vm.index,
-                    callback: function($$v) {
-                      _vm.index = $$v
-                    },
-                    expression: "index"
-                  }
-                },
-                _vm._l(_vm.list2, function(item, index) {
-                  return _c("swiper-item", { key: index }, [
-                    _c("div", { staticClass: "tab-swiper vux-center" }, [
+                "div",
+                { staticClass: "seats-slider" },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "room" },
+                    [
                       _c(
-                        "div",
-                        { staticClass: "roomList" },
-                        [
-                          _c(
-                            "grid",
-                            { attrs: { cols: 8, "show-lr-borders": false } },
-                            _vm._l(_vm.seats, function(seat, index) {
-                              return _c(
-                                "grid-item",
-                                {
-                                  key: index,
-                                  class: [
-                                    { nosel: seat.status == 0 },
-                                    { sel: seat.status == 1 },
-                                    { yessel: seat.status == 2 }
-                                  ],
-                                  nativeOn: {
-                                    click: function($event) {
-                                      return _vm.seatSel($event, seat)
-                                    }
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "span",
-                                    {
-                                      staticClass: "grid-center",
-                                      staticStyle: { "font-size": "12px" }
-                                    },
-                                    [_vm._v("￥" + _vm._s(seat.price))]
-                                  )
-                                ]
-                              )
-                            }),
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "grid",
-                            { attrs: { cols: 8, "show-lr-borders": false } },
-                            _vm._l(_vm.seats2, function(seat, index) {
-                              return _c(
-                                "grid-item",
-                                {
-                                  key: index,
-                                  class: [
-                                    { nosel: seat.status == 0 },
-                                    { sel: seat.status == 1 },
-                                    { yessel: seat.status == 2 }
-                                  ],
-                                  nativeOn: {
-                                    click: function($event) {
-                                      return _vm.seatSel($event, seat)
-                                    }
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "span",
-                                    {
-                                      staticClass: "grid-center",
-                                      staticStyle: { "font-size": "12px" }
-                                    },
-                                    [_vm._v("￥" + _vm._s(seat.price))]
-                                  )
-                                ]
-                              )
-                            }),
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "grid",
-                            { attrs: { cols: 8, "show-lr-borders": false } },
-                            _vm._l(_vm.seats3, function(seat, index) {
-                              return _c(
-                                "grid-item",
-                                {
-                                  key: index,
-                                  class: [
-                                    { nosel: seat.status == 0 },
-                                    { sel: seat.status == 1 },
-                                    { yessel: seat.status == 2 }
-                                  ],
-                                  nativeOn: {
-                                    click: function($event) {
-                                      return _vm.seatSel($event, seat)
-                                    }
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "span",
-                                    {
-                                      staticClass: "grid-center",
-                                      staticStyle: { "font-size": "12px" }
-                                    },
-                                    [_vm._v("￥" + _vm._s(seat.price))]
-                                  )
-                                ]
-                              )
-                            }),
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "grid",
-                            { attrs: { cols: 8, "show-lr-borders": false } },
-                            _vm._l(_vm.seats4, function(seat, index) {
-                              return _c(
-                                "grid-item",
-                                {
-                                  key: index,
-                                  class: [
-                                    { nosel: seat.status == 0 },
-                                    { sel: seat.status == 1 },
-                                    { yessel: seat.status == 2 }
-                                  ],
-                                  nativeOn: {
-                                    click: function($event) {
-                                      return _vm.seatSel($event, seat)
-                                    }
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "span",
-                                    {
-                                      staticClass: "grid-center",
-                                      staticStyle: { "font-size": "12px" }
-                                    },
-                                    [_vm._v("￥" + _vm._s(seat.price))]
-                                  )
-                                ]
-                              )
-                            }),
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "grid",
-                            { attrs: { cols: 8, "show-lr-borders": false } },
-                            _vm._l(_vm.seats3, function(seat, index) {
-                              return _c(
-                                "grid-item",
-                                {
-                                  key: index,
-                                  class: [
-                                    { nosel: seat.status == 0 },
-                                    { sel: seat.status == 1 },
-                                    { yessel: seat.status == 2 }
-                                  ],
-                                  nativeOn: {
-                                    click: function($event) {
-                                      return _vm.seatSel($event, seat)
-                                    }
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "span",
-                                    {
-                                      staticClass: "grid-center",
-                                      staticStyle: { "font-size": "12px" }
-                                    },
-                                    [_vm._v("￥" + _vm._s(seat.price))]
-                                  )
-                                ]
-                              )
-                            }),
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "grid",
-                            { attrs: { cols: 8, "show-lr-borders": false } },
-                            _vm._l(_vm.seats4, function(seat, index) {
-                              return _c(
-                                "grid-item",
-                                {
-                                  key: index,
-                                  class: [
-                                    { nosel: seat.status == 0 },
-                                    { sel: seat.status == 1 },
-                                    { yessel: seat.status == 2 }
-                                  ],
-                                  nativeOn: {
-                                    click: function($event) {
-                                      return _vm.seatSel($event, seat)
-                                    }
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "span",
-                                    {
-                                      staticClass: "grid-center",
-                                      staticStyle: { "font-size": "12px" }
-                                    },
-                                    [_vm._v("￥" + _vm._s(seat.price))]
-                                  )
-                                ]
-                              )
-                            }),
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "grid",
-                            { attrs: { cols: 8, "show-lr-borders": false } },
-                            _vm._l(_vm.seats3, function(seat, index) {
-                              return _c(
-                                "grid-item",
-                                {
-                                  key: index,
-                                  class: [
-                                    { nosel: seat.status == 0 },
-                                    { sel: seat.status == 1 },
-                                    { yessel: seat.status == 2 }
-                                  ],
-                                  nativeOn: {
-                                    click: function($event) {
-                                      return _vm.seatSel($event, seat)
-                                    }
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "span",
-                                    {
-                                      staticClass: "grid-center",
-                                      staticStyle: { "font-size": "12px" }
-                                    },
-                                    [_vm._v("￥" + _vm._s(seat.price))]
-                                  )
-                                ]
-                              )
-                            }),
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "grid",
-                            { attrs: { cols: 8, "show-lr-borders": false } },
-                            _vm._l(_vm.seats4, function(seat, index) {
-                              return _c(
-                                "grid-item",
-                                {
-                                  key: index,
-                                  class: [
-                                    { nosel: seat.status == 0 },
-                                    { sel: seat.status == 1 },
-                                    { yessel: seat.status == 2 }
-                                  ],
-                                  nativeOn: {
-                                    click: function($event) {
-                                      return _vm.seatSel($event, seat)
-                                    }
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "span",
-                                    {
-                                      staticClass: "grid-center",
-                                      staticStyle: { "font-size": "12px" }
-                                    },
-                                    [_vm._v("￥" + _vm._s(seat.price))]
-                                  )
-                                ]
-                              )
-                            }),
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "grid",
-                            { attrs: { cols: 8, "show-lr-borders": false } },
-                            _vm._l(_vm.seats3, function(seat, index) {
-                              return _c(
-                                "grid-item",
-                                {
-                                  key: index,
-                                  class: [
-                                    { nosel: seat.status == 0 },
-                                    { sel: seat.status == 1 },
-                                    { yessel: seat.status == 2 }
-                                  ],
-                                  nativeOn: {
-                                    click: function($event) {
-                                      return _vm.seatSel($event, seat)
-                                    }
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "span",
-                                    {
-                                      staticClass: "grid-center",
-                                      staticStyle: { "font-size": "12px" }
-                                    },
-                                    [_vm._v("￥" + _vm._s(seat.price))]
-                                  )
-                                ]
-                              )
-                            }),
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "grid",
-                            { attrs: { cols: 8, "show-lr-borders": false } },
-                            _vm._l(_vm.seats4, function(seat, index) {
-                              return _c(
-                                "grid-item",
-                                {
-                                  key: index,
-                                  class: [
-                                    { nosel: seat.status == 0 },
-                                    { sel: seat.status == 1 },
-                                    { yessel: seat.status == 2 }
-                                  ],
-                                  nativeOn: {
-                                    click: function($event) {
-                                      return _vm.seatSel($event, seat)
-                                    }
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "span",
-                                    {
-                                      staticClass: "grid-center",
-                                      staticStyle: { "font-size": "12px" }
-                                    },
-                                    [_vm._v("￥" + _vm._s(seat.price))]
-                                  )
-                                ]
-                              )
-                            }),
-                            1
-                          )
-                        ],
+                        "flexbox",
+                        _vm._l(_vm.placeList, function(item, index) {
+                          return _c("flexbox-item", { key: index }, [
+                            _c("div", { staticClass: "room-item" }, [
+                              _vm._v(_vm._s(item.name))
+                            ])
+                          ])
+                        }),
                         1
                       )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "swiper",
+                    {
+                      staticClass: "seat-swiper",
+                      staticStyle: { height: "489px" },
+                      attrs: { "show-dots": false },
+                      model: {
+                        value: _vm.index,
+                        callback: function($$v) {
+                          _vm.index = $$v
+                        },
+                        expression: "index"
+                      }
+                    },
+                    _vm._l(_vm.list2, function(item, index) {
+                      return _c("swiper-item", { key: index }, [
+                        _c("div", { staticClass: "tab-swiper vux-center" }, [
+                          _c(
+                            "div",
+                            { staticClass: "roomList" },
+                            [
+                              _c(
+                                "grid",
+                                {
+                                  attrs: { cols: 8, "show-lr-borders": false }
+                                },
+                                _vm._l(_vm.seats, function(seat, index) {
+                                  return _c(
+                                    "grid-item",
+                                    {
+                                      key: index,
+                                      class: [
+                                        { nosel: seat.status == 0 },
+                                        { sel: seat.status == 1 },
+                                        { yessel: seat.status == 2 }
+                                      ],
+                                      nativeOn: {
+                                        click: function($event) {
+                                          return _vm.seatSel($event, seat)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "span",
+                                        {
+                                          staticClass: "grid-center",
+                                          staticStyle: { "font-size": "12px" }
+                                        },
+                                        [_vm._v("￥" + _vm._s(seat.price))]
+                                      )
+                                    ]
+                                  )
+                                }),
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "grid",
+                                {
+                                  attrs: { cols: 8, "show-lr-borders": false }
+                                },
+                                _vm._l(_vm.seats2, function(seat, index) {
+                                  return _c(
+                                    "grid-item",
+                                    {
+                                      key: index,
+                                      class: [
+                                        { nosel: seat.status == 0 },
+                                        { sel: seat.status == 1 },
+                                        { yessel: seat.status == 2 }
+                                      ],
+                                      nativeOn: {
+                                        click: function($event) {
+                                          return _vm.seatSel($event, seat)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "span",
+                                        {
+                                          staticClass: "grid-center",
+                                          staticStyle: { "font-size": "12px" }
+                                        },
+                                        [_vm._v("￥" + _vm._s(seat.price))]
+                                      )
+                                    ]
+                                  )
+                                }),
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "grid",
+                                {
+                                  attrs: { cols: 8, "show-lr-borders": false }
+                                },
+                                _vm._l(_vm.seats3, function(seat, index) {
+                                  return _c(
+                                    "grid-item",
+                                    {
+                                      key: index,
+                                      class: [
+                                        { nosel: seat.status == 0 },
+                                        { sel: seat.status == 1 },
+                                        { yessel: seat.status == 2 }
+                                      ],
+                                      nativeOn: {
+                                        click: function($event) {
+                                          return _vm.seatSel($event, seat)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "span",
+                                        {
+                                          staticClass: "grid-center",
+                                          staticStyle: { "font-size": "12px" }
+                                        },
+                                        [_vm._v("￥" + _vm._s(seat.price))]
+                                      )
+                                    ]
+                                  )
+                                }),
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "grid",
+                                {
+                                  attrs: { cols: 8, "show-lr-borders": false }
+                                },
+                                _vm._l(_vm.seats4, function(seat, index) {
+                                  return _c(
+                                    "grid-item",
+                                    {
+                                      key: index,
+                                      class: [
+                                        { nosel: seat.status == 0 },
+                                        { sel: seat.status == 1 },
+                                        { yessel: seat.status == 2 }
+                                      ],
+                                      nativeOn: {
+                                        click: function($event) {
+                                          return _vm.seatSel($event, seat)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "span",
+                                        {
+                                          staticClass: "grid-center",
+                                          staticStyle: { "font-size": "12px" }
+                                        },
+                                        [_vm._v("￥" + _vm._s(seat.price))]
+                                      )
+                                    ]
+                                  )
+                                }),
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "grid",
+                                {
+                                  attrs: { cols: 8, "show-lr-borders": false }
+                                },
+                                _vm._l(_vm.seats3, function(seat, index) {
+                                  return _c(
+                                    "grid-item",
+                                    {
+                                      key: index,
+                                      class: [
+                                        { nosel: seat.status == 0 },
+                                        { sel: seat.status == 1 },
+                                        { yessel: seat.status == 2 }
+                                      ],
+                                      nativeOn: {
+                                        click: function($event) {
+                                          return _vm.seatSel($event, seat)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "span",
+                                        {
+                                          staticClass: "grid-center",
+                                          staticStyle: { "font-size": "12px" }
+                                        },
+                                        [_vm._v("￥" + _vm._s(seat.price))]
+                                      )
+                                    ]
+                                  )
+                                }),
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "grid",
+                                {
+                                  attrs: { cols: 8, "show-lr-borders": false }
+                                },
+                                _vm._l(_vm.seats4, function(seat, index) {
+                                  return _c(
+                                    "grid-item",
+                                    {
+                                      key: index,
+                                      class: [
+                                        { nosel: seat.status == 0 },
+                                        { sel: seat.status == 1 },
+                                        { yessel: seat.status == 2 }
+                                      ],
+                                      nativeOn: {
+                                        click: function($event) {
+                                          return _vm.seatSel($event, seat)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "span",
+                                        {
+                                          staticClass: "grid-center",
+                                          staticStyle: { "font-size": "12px" }
+                                        },
+                                        [_vm._v("￥" + _vm._s(seat.price))]
+                                      )
+                                    ]
+                                  )
+                                }),
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "grid",
+                                {
+                                  attrs: { cols: 8, "show-lr-borders": false }
+                                },
+                                _vm._l(_vm.seats3, function(seat, index) {
+                                  return _c(
+                                    "grid-item",
+                                    {
+                                      key: index,
+                                      class: [
+                                        { nosel: seat.status == 0 },
+                                        { sel: seat.status == 1 },
+                                        { yessel: seat.status == 2 }
+                                      ],
+                                      nativeOn: {
+                                        click: function($event) {
+                                          return _vm.seatSel($event, seat)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "span",
+                                        {
+                                          staticClass: "grid-center",
+                                          staticStyle: { "font-size": "12px" }
+                                        },
+                                        [_vm._v("￥" + _vm._s(seat.price))]
+                                      )
+                                    ]
+                                  )
+                                }),
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "grid",
+                                {
+                                  attrs: { cols: 8, "show-lr-borders": false }
+                                },
+                                _vm._l(_vm.seats4, function(seat, index) {
+                                  return _c(
+                                    "grid-item",
+                                    {
+                                      key: index,
+                                      class: [
+                                        { nosel: seat.status == 0 },
+                                        { sel: seat.status == 1 },
+                                        { yessel: seat.status == 2 }
+                                      ],
+                                      nativeOn: {
+                                        click: function($event) {
+                                          return _vm.seatSel($event, seat)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "span",
+                                        {
+                                          staticClass: "grid-center",
+                                          staticStyle: { "font-size": "12px" }
+                                        },
+                                        [_vm._v("￥" + _vm._s(seat.price))]
+                                      )
+                                    ]
+                                  )
+                                }),
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "grid",
+                                {
+                                  attrs: { cols: 8, "show-lr-borders": false }
+                                },
+                                _vm._l(_vm.seats3, function(seat, index) {
+                                  return _c(
+                                    "grid-item",
+                                    {
+                                      key: index,
+                                      class: [
+                                        { nosel: seat.status == 0 },
+                                        { sel: seat.status == 1 },
+                                        { yessel: seat.status == 2 }
+                                      ],
+                                      nativeOn: {
+                                        click: function($event) {
+                                          return _vm.seatSel($event, seat)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "span",
+                                        {
+                                          staticClass: "grid-center",
+                                          staticStyle: { "font-size": "12px" }
+                                        },
+                                        [_vm._v("￥" + _vm._s(seat.price))]
+                                      )
+                                    ]
+                                  )
+                                }),
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "grid",
+                                {
+                                  attrs: { cols: 8, "show-lr-borders": false }
+                                },
+                                _vm._l(_vm.seats4, function(seat, index) {
+                                  return _c(
+                                    "grid-item",
+                                    {
+                                      key: index,
+                                      class: [
+                                        { nosel: seat.status == 0 },
+                                        { sel: seat.status == 1 },
+                                        { yessel: seat.status == 2 }
+                                      ],
+                                      nativeOn: {
+                                        click: function($event) {
+                                          return _vm.seatSel($event, seat)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "span",
+                                        {
+                                          staticClass: "grid-center",
+                                          staticStyle: { "font-size": "12px" }
+                                        },
+                                        [_vm._v("￥" + _vm._s(seat.price))]
+                                      )
+                                    ]
+                                  )
+                                }),
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ])
+                      ])
+                    }),
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "pay-box" },
+            [
+              _c(
+                "flexbox",
+                [
+                  _c("flexbox-item", { attrs: { span: 5 } }, [
+                    _c("div", { staticClass: "all-money" }, [
+                      _vm._v("订金金额"),
+                      _c("span", { staticStyle: { color: "#00bcd4" } }, [
+                        _vm._v("￥0")
+                      ])
                     ])
+                  ]),
+                  _vm._v(" "),
+                  _c("flexbox-item", { attrs: { span: 3 } }, [
+                    _c("div", { staticClass: "money-des" }, [
+                      _vm._v("费用明细")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("flexbox-item", [
+                    _c(
+                      "div",
+                      { staticClass: "pay" },
+                      [
+                        _c(
+                          "x-button",
+                          {
+                            attrs: { mini: "", type: "primary" },
+                            nativeOn: {
+                              click: function($event) {
+                                return _vm.payComfirm()
+                              }
+                            }
+                          },
+                          [_vm._v("下一步")]
+                        )
+                      ],
+                      1
+                    )
                   ])
-                }),
+                ],
                 1
               )
             ],
             1
           )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "pay-box" },
-        [
+        ])
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.hasOrder,
+            expression: "hasOrder"
+          }
+        ]
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "detail-header" },
+          [
+            _c("x-header", { attrs: { "left-options": { backText: "" } } }, [
+              _vm._v("确认订单")
+            ])
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "order-box" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._m(1),
+          _vm._v(" "),
           _c(
-            "flexbox",
+            "div",
+            {
+              staticClass: "pay-box",
+              staticStyle: {
+                position: "absolute",
+                bottom: "0",
+                width: "100%",
+                height: "100px"
+              }
+            },
             [
-              _c("flexbox-item", { attrs: { span: 5 } }, [
-                _c("div", { staticClass: "all-money" }, [
-                  _vm._v("订金金额"),
-                  _c("span", { staticStyle: { color: "#00bcd4" } }, [
-                    _vm._v("￥0")
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("flexbox-item", { attrs: { span: 3 } }, [
-                _c("div", { staticClass: "money-des" }, [_vm._v("费用明细")])
-              ]),
-              _vm._v(" "),
-              _c("flexbox-item", [
-                _c(
-                  "div",
-                  { staticClass: "pay" },
-                  [
-                    _c("x-button", { attrs: { mini: "", type: "primary" } }, [
-                      _vm._v("去支付")
+              _c(
+                "flexbox",
+                [
+                  _c("flexbox-item", { attrs: { span: 5 } }, [
+                    _c("div", { staticClass: "all-money" }, [
+                      _vm._v("订金金额"),
+                      _c("span", { staticStyle: { color: "#00bcd4" } }, [
+                        _vm._v("￥0")
+                      ])
                     ])
-                  ],
-                  1
-                )
-              ])
+                  ]),
+                  _vm._v(" "),
+                  _c("flexbox-item", { attrs: { span: 3 } }, [
+                    _c("div", { staticClass: "money-des" }, [
+                      _vm._v("费用明细")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("flexbox-item", [
+                    _c(
+                      "div",
+                      { staticClass: "pay" },
+                      [
+                        _c(
+                          "x-button",
+                          { attrs: { mini: "", type: "primary" } },
+                          [_vm._v("去支付")]
+                        )
+                      ],
+                      1
+                    )
+                  ])
+                ],
+                1
+              )
             ],
             1
           )
-        ],
-        1
-      )
-    ])
+        ])
+      ]
+    )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "order-list" }, [
+      _c("ul", { staticStyle: { "padding-inline-start": "20px" } }, [
+        _c(
+          "h4",
+          {
+            staticStyle: {
+              "margin-block-start": "1em",
+              "margin-block-end": ".5em"
+            }
+          },
+          [_vm._v("天空运动城")]
+        ),
+        _vm._v(" "),
+        _c("li", [_vm._v("运动类型："), _c("span", [_vm._v("羽毛球")])]),
+        _vm._v(" "),
+        _c("li", [_vm._v("预定日期："), _c("span", [_vm._v("2019-05-06")])]),
+        _vm._v(" "),
+        _c("li", [
+          _vm._v("预定场次："),
+          _c("span", [_vm._v("1号场 11：00-12：00")])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _vm._v("预定场次："),
+          _c("span", [_vm._v("1号场 11：00-12：00")])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _vm._v("预定场次："),
+          _c("span", [_vm._v("1号场 11：00-12：00")])
+        ]),
+        _vm._v(" "),
+        _c("li", [_vm._v("总金额："), _c("span", [_vm._v("￥6")])])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "order-desc" }, [
+      _c("ul", { staticStyle: { "padding-inline-start": "20px" } }, [
+        _c(
+          "h4",
+          {
+            staticStyle: {
+              "margin-block-start": "1em",
+              "margin-block-end": ".5em"
+            }
+          },
+          [_vm._v("预定须知")]
+        ),
+        _vm._v(" "),
+        _c("li", [
+          _vm._v("1.当您提交订单后，请在10分钟内支付，否则订单会自动取消")
+        ]),
+        _vm._v(" "),
+        _c("li", [_vm._v("2.您所定场次出售后离开始时间五个内不可退订")]),
+        _vm._v(" "),
+        _c("li", [
+          _vm._v(
+            "3.当您使用场馆时，请遵守场馆相关规定。同时，在您运动时请注意自身以及他人的安全"
+          )
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["default"] = (esExports);
