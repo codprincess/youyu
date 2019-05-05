@@ -6,9 +6,13 @@
         <div style="height:104vh">
             <div style="height:555px;">
                 <tab :line-width=2 active-color='#fc378c' v-model="index">
-                    <tab-item class="vux-center" :selected="demo2 === item" v-for="(item, index) in list2" @click="demo2 = item" :key="index">
+<!--                    <tab-item class="vux-center" :selected="demo2 === item" v-for="(item, index) in list2" @click="demo2 = item" :key="index">-->
+<!--                        {{item.date}}-->
+<!--                         &lt;!&ndash; <span style="font-size:12px;">30场可订</span> &ndash;&gt;-->
+<!--                    </tab-item>-->
+                    <tab-item class="vux-center" :selected="demo2 === item.date" v-for="(item, index) in list2" @click="demo2 = item.date" :key="index">
                         {{item.date}}
-                         <!-- <span style="font-size:12px;">30场可订</span> -->
+                        <!-- <span style="font-size:12px;">30场可订</span> -->
                     </tab-item>
                 </tab>
                 <div class="data-box">
@@ -134,7 +138,7 @@ export default {
             index: 0,
             placeList:[],
             list2: [],
-            demo2: '',
+            demo2: '05-05',
             dataTime:['09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00','21:00','22:00'],
             seats:[
             {

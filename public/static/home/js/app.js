@@ -3630,7 +3630,7 @@ __webpack_require__.r(__webpack_exports__);
       index: 0,
       placeList: [],
       list2: [],
-      demo2: '',
+      demo2: '05-05',
       dataTime: ['09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00'],
       seats: [{
         Id: "05010102",
@@ -5805,7 +5805,7 @@ __webpack_require__.r(__webpack_exports__);
       index: 0,
       placeList: [],
       list2: [],
-      demo2: '',
+      demo2: '05-05',
       dataTime: ['09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00'],
       seats: [{
         Id: "05010102",
@@ -29517,10 +29517,10 @@ var render = function() {
                 {
                   key: index,
                   staticClass: "vux-center",
-                  attrs: { selected: _vm.demo2 === item },
+                  attrs: { selected: _vm.demo2 === item.date },
                   on: {
                     click: function($event) {
-                      _vm.demo2 = item
+                      _vm.demo2 = item.date
                     }
                   }
                 },
@@ -29528,7 +29528,7 @@ var render = function() {
                   _vm._v(
                     "\n                        " +
                       _vm._s(item.date) +
-                      "\n                         "
+                      "\n                        "
                   )
                 ]
               )
