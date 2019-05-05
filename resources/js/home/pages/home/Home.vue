@@ -30,17 +30,17 @@
                         <router-link to="/detail">
                             <div class="venItem" >
                                 <div class="item-pic" >
-                                    <img alt="图片" :src="item.src"/>
-                                    <div class="item-name">{{item.title}}</div>
+                                    <img alt="图片" :src="item.cover_uri"/>
+                                    <div class="item-name">{{item.name}}</div>
                                 </div>
                                 <div class="item-info">
                                     <div class="item-address">
-                                        <div style="padding-left:4%;float:left;width: 60%;">{{item.address}}</div>
+                                        <div style="padding-left:4%;float:left;width: 60%;">{{item.street}}</div>
                                         <span >天气：晴</span>
                                     </div>
                                     <div class="item-price">
                                         <div style="padding-left:4%;float:left;width: 60%;">总/空：6/3</div>
-                                        <span style="color:#00bcd4">￥{{item.price}}起</span>
+                                        <span style="color:#00bcd4">￥{{item.score}}起</span>
                                     </div>
                                 </div>
                                 
@@ -80,53 +80,55 @@ export default {
              shouldChangeCity: true,
             // results: [],
             value: '输入场馆名称',
+           //https://youyu.aicode.site/
             imgList: [
-                'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2728642449,2819884282&fm=27&gp=0.jpg',
-                'http://www.gxljcollege.cn/__local/0/9E/B2/453545B2429FA0C68415CF8AA3E_04DD257C_A9B5E.png?e=.png',
-                'http://www.gxljcollege.cn/__local/0/9E/B2/453545B2429FA0C68415CF8AA3E_04DD257C_A9B5E.png?e=.png'
+                // 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2728642449,2819884282&fm=27&gp=0.jpg',
+                // 'http://www.gxljcollege.cn/__local/0/9E/B2/453545B2429FA0C68415CF8AA3E_04DD257C_A9B5E.png?e=.png',
+                // 'http://www.gxljcollege.cn/__local/0/9E/B2/453545B2429FA0C68415CF8AA3E_04DD257C_A9B5E.png?e=.png'
             ],
-            list: [{
-                id:1,
-                src: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2728642449,2819884282&fm=27&gp=0.jpg',
-                title: '师范大学体育中心',
-                price:3,
-                address: '七星区育才路',
-                
-            }, {
-                id:2,
-                src: 'https://youyu.aicode.site/storage/190428/u17bsJTiBg7zpQ4xCUp8yazQKzUzDwNbps13P7ts.jpeg',
-                title: '大学体育中心',
-                price:4,
-                address: '七星区育才路',
-            },
-            {
-                id:3,
-                src: 'http://www.gxljcollege.cn/__local/0/9E/B2/453545B2429FA0C68415CF8AA3E_04DD257C_A9B5E.png?e=.png',
-                title: '师范大学2',
-                price:4,
-                address: '七星区育才路2',
-            },
-            {
-                id:1,
-                src: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2728642449,2819884282&fm=27&gp=0.jpg',
-                title: '师范大学体育中心',
-                price:3,
-                address: '七星区育才路',
-                
-            }, {
-                id:2,
-                src: 'https://youyu.aicode.site/storage/190428/u17bsJTiBg7zpQ4xCUp8yazQKzUzDwNbps13P7ts.jpeg',
-                title: '大学体育中心',
-                price:4,
-                address: '七星区育才路',
-            },
-            {
-                id:3,
-                src: 'http://www.gxljcollege.cn/__local/0/9E/B2/453545B2429FA0C68415CF8AA3E_04DD257C_A9B5E.png?e=.png',
-                title: '师范大学2',
-                price:4,
-                address: '七星区育才路2',
-            },
+             list: [
+                 //{
+            //     id:1,
+            //     src: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2728642449,2819884282&fm=27&gp=0.jpg',
+            //     title: '师范大学体育中心',
+            //     price:3,
+            //     address: '七星区育才路',
+            //
+            // }, {
+            //     id:2,
+            //     src: 'https://youyu.aicode.site/storage/190428/u17bsJTiBg7zpQ4xCUp8yazQKzUzDwNbps13P7ts.jpeg',
+            //     title: '大学体育中心',
+            //     price:4,
+            //     address: '七星区育才路',
+            // },
+            // {
+            //     id:3,
+            //     src: 'http://www.gxljcollege.cn/__local/0/9E/B2/453545B2429FA0C68415CF8AA3E_04DD257C_A9B5E.png?e=.png',
+            //     title: '师范大学2',
+            //     price:4,
+            //     address: '七星区育才路2',
+            // },
+            // {
+            //     id:1,
+            //     src: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2728642449,2819884282&fm=27&gp=0.jpg',
+            //     title: '师范大学体育中心',
+            //     price:3,
+            //     address: '七星区育才路',
+            //
+            // }, {
+            //     id:2,
+            //     src: 'https://youyu.aicode.site/storage/190428/u17bsJTiBg7zpQ4xCUp8yazQKzUzDwNbps13P7ts.jpeg',
+            //     title: '大学体育中心',
+            //     price:4,
+            //     address: '七星区育才路',
+            // },
+            // {
+            //     id:3,
+            //     src: 'http://www.gxljcollege.cn/__local/0/9E/B2/453545B2429FA0C68415CF8AA3E_04DD257C_A9B5E.png?e=.png',
+            //     title: '师范大学2',
+            //     price:4,
+            //     address: '七星区育才路2',
+            // },
             ]
        }
     },
@@ -178,17 +180,20 @@ export default {
             axios.get('/api?city=' + _that.cityName ).then(response=>{
                 console.log('33333',response);
                 if(response.data.code = 0){
-
+                    //图片
+                    _that.imgList = response.data.data.bannerList;
+                    //场馆信息
+                    _that.list =response.data.data.venueList;
                 }
             }).catch(err=>{
                 console.log(err)
             })
         },
 
-        //轮播图
-        demo06_onIndexChange (index) {
-            this.demo06_index = index
-        },
+        // //轮播图
+        // demo06_onIndexChange (index) {
+        //     this.demo06_index = index
+        // },
         
 
     }

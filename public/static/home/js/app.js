@@ -3499,44 +3499,8 @@ __webpack_require__.r(__webpack_exports__);
       cityName: '桂林',
       shouldChangeCity: true,
       value: '输入场馆名称',
-      imgList: ['https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2728642449,2819884282&fm=27&gp=0.jpg', 'http://www.gxljcollege.cn/__local/0/9E/B2/453545B2429FA0C68415CF8AA3E_04DD257C_A9B5E.png?e=.png', 'http://www.gxljcollege.cn/__local/0/9E/B2/453545B2429FA0C68415CF8AA3E_04DD257C_A9B5E.png?e=.png'],
-      list: [{
-        id: 1,
-        src: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2728642449,2819884282&fm=27&gp=0.jpg',
-        title: '师范大学体育中心',
-        price: 3,
-        address: '七星区育才路'
-      }, {
-        id: 2,
-        src: 'https://youyu.aicode.site/storage/190428/u17bsJTiBg7zpQ4xCUp8yazQKzUzDwNbps13P7ts.jpeg',
-        title: '大学体育中心',
-        price: 4,
-        address: '七星区育才路'
-      }, {
-        id: 3,
-        src: 'http://www.gxljcollege.cn/__local/0/9E/B2/453545B2429FA0C68415CF8AA3E_04DD257C_A9B5E.png?e=.png',
-        title: '师范大学2',
-        price: 4,
-        address: '七星区育才路2'
-      }, {
-        id: 1,
-        src: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2728642449,2819884282&fm=27&gp=0.jpg',
-        title: '师范大学体育中心',
-        price: 3,
-        address: '七星区育才路'
-      }, {
-        id: 2,
-        src: 'https://youyu.aicode.site/storage/190428/u17bsJTiBg7zpQ4xCUp8yazQKzUzDwNbps13P7ts.jpeg',
-        title: '大学体育中心',
-        price: 4,
-        address: '七星区育才路'
-      }, {
-        id: 3,
-        src: 'http://www.gxljcollege.cn/__local/0/9E/B2/453545B2429FA0C68415CF8AA3E_04DD257C_A9B5E.png?e=.png',
-        title: '师范大学2',
-        price: 4,
-        address: '七星区育才路2'
-      }]
+      imgList: [],
+      list: []
     };
   },
 
@@ -3582,14 +3546,13 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_5___default.a.get('/api?city=' + _that.cityName).then(response => {
         console.log('33333', response);
 
-        if (response.data.code = 0) {}
+        if (response.data.code = 0) {
+          _that.imgList = response.data.data.bannerList;
+          _that.list = response.data.data.venueList;
+        }
       }).catch(err => {
         console.log(err);
       });
-    },
-
-    demo06_onIndexChange(index) {
-      this.demo06_index = index;
     }
 
   }
@@ -5700,44 +5663,8 @@ __webpack_require__.r(__webpack_exports__);
       cityName: '桂林',
       shouldChangeCity: true,
       value: '输入场馆名称',
-      imgList: ['https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2728642449,2819884282&fm=27&gp=0.jpg', 'http://www.gxljcollege.cn/__local/0/9E/B2/453545B2429FA0C68415CF8AA3E_04DD257C_A9B5E.png?e=.png', 'http://www.gxljcollege.cn/__local/0/9E/B2/453545B2429FA0C68415CF8AA3E_04DD257C_A9B5E.png?e=.png'],
-      list: [{
-        id: 1,
-        src: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2728642449,2819884282&fm=27&gp=0.jpg',
-        title: '师范大学体育中心',
-        price: 3,
-        address: '七星区育才路'
-      }, {
-        id: 2,
-        src: 'https://youyu.aicode.site/storage/190428/u17bsJTiBg7zpQ4xCUp8yazQKzUzDwNbps13P7ts.jpeg',
-        title: '大学体育中心',
-        price: 4,
-        address: '七星区育才路'
-      }, {
-        id: 3,
-        src: 'http://www.gxljcollege.cn/__local/0/9E/B2/453545B2429FA0C68415CF8AA3E_04DD257C_A9B5E.png?e=.png',
-        title: '师范大学2',
-        price: 4,
-        address: '七星区育才路2'
-      }, {
-        id: 1,
-        src: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2728642449,2819884282&fm=27&gp=0.jpg',
-        title: '师范大学体育中心',
-        price: 3,
-        address: '七星区育才路'
-      }, {
-        id: 2,
-        src: 'https://youyu.aicode.site/storage/190428/u17bsJTiBg7zpQ4xCUp8yazQKzUzDwNbps13P7ts.jpeg',
-        title: '大学体育中心',
-        price: 4,
-        address: '七星区育才路'
-      }, {
-        id: 3,
-        src: 'http://www.gxljcollege.cn/__local/0/9E/B2/453545B2429FA0C68415CF8AA3E_04DD257C_A9B5E.png?e=.png',
-        title: '师范大学2',
-        price: 4,
-        address: '七星区育才路2'
-      }]
+      imgList: [],
+      list: []
     };
   },
 
@@ -5783,14 +5710,13 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_5___default.a.get('/api?city=' + _that.cityName).then(response => {
         console.log('33333', response);
 
-        if (response.data.code = 0) {}
+        if (response.data.code = 0) {
+          _that.imgList = response.data.data.bannerList;
+          _that.list = response.data.data.venueList;
+        }
       }).catch(err => {
         console.log(err);
       });
-    },
-
-    demo06_onIndexChange(index) {
-      this.demo06_index = index;
     }
 
   }
@@ -30549,10 +30475,12 @@ var render = function() {
                   _c("router-link", { attrs: { to: "/detail" } }, [
                     _c("div", { staticClass: "venItem" }, [
                       _c("div", { staticClass: "item-pic" }, [
-                        _c("img", { attrs: { alt: "图片", src: item.src } }),
+                        _c("img", {
+                          attrs: { alt: "图片", src: item.cover_uri }
+                        }),
                         _vm._v(" "),
                         _c("div", { staticClass: "item-name" }, [
-                          _vm._v(_vm._s(item.title))
+                          _vm._v(_vm._s(item.name))
                         ])
                       ]),
                       _vm._v(" "),
@@ -30567,7 +30495,7 @@ var render = function() {
                                 width: "60%"
                               }
                             },
-                            [_vm._v(_vm._s(item.address))]
+                            [_vm._v(_vm._s(item.street))]
                           ),
                           _vm._v(" "),
                           _c("span", [_vm._v("天气：晴")])
@@ -30587,7 +30515,7 @@ var render = function() {
                           ),
                           _vm._v(" "),
                           _c("span", { staticStyle: { color: "#00bcd4" } }, [
-                            _vm._v("￥" + _vm._s(item.price) + "起")
+                            _vm._v("￥" + _vm._s(item.score) + "起")
                           ])
                         ])
                       ])
