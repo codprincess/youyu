@@ -27,7 +27,7 @@
             </div>
 
             <div class="detail-item">
-                <router-link to="/seat" tag="div" v-for="(item,index) in dateList" :key="index" >
+                <router-link :to="'/seat/' + id" tag="div" v-for="(item,index) in dateList" :key="index" >
                      <flexbox>
                         <flexbox-item :span="4"><div class="item-date">{{item.date}}</div></flexbox-item>
                         <flexbox-item :span="2"><div class="item-free"><span style="color:#00bcd4">{{item.freeCount}}</span>场可订</div></flexbox-item>
@@ -51,6 +51,7 @@ import axios from 'axios'
 export default {
     data(){
         return{
+            id:'',
             cover_uri:'',
             name:'',
             score:'',
@@ -76,13 +77,14 @@ export default {
                 console.log(response)
                 if(response){
                     this.dateList = response.data.dateList;
-                    this.cover_uri = response.data.venueInfo.cover_uri;
+                    this.cover_uri = response.data.data.venueInfo.cover_uri;
                     console.log(this.cover_uri);
-                    this.name = response.data.venueInfo.name;
-                    this.score = response.data.venueInfo.score;
-                    this.province = response.data.venueInfo.province;
-                    this.city = response.data.venueInfo.city;
-                    this.street = response.data.venueInfo.street;
+                    this.name = response.data.data.venueInfo.name;
+                    this.score = response.data.data.venueInfo.score;
+                    this.province = response.data.data.venueInfo.province;
+                    this.city = response.data.data.venueInfo.city;
+                    this.street = response.data.data.venueInfo.street;
+                    this.id = response.data.data.venueInfo.id;
                 }
             }).catch(err=>{
                 console.log(err);

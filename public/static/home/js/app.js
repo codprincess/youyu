@@ -3395,6 +3395,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data() {
     return {
+      id: '',
       cover_uri: '',
       name: '',
       score: '',
@@ -3424,13 +3425,14 @@ __webpack_require__.r(__webpack_exports__);
 
         if (response) {
           this.dateList = response.data.dateList;
-          this.cover_uri = response.data.venueInfo.cover_uri;
+          this.cover_uri = response.data.data.venueInfo.cover_uri;
           console.log(this.cover_uri);
-          this.name = response.data.venueInfo.name;
-          this.score = response.data.venueInfo.score;
-          this.province = response.data.venueInfo.province;
-          this.city = response.data.venueInfo.city;
-          this.street = response.data.venueInfo.street;
+          this.name = response.data.data.venueInfo.name;
+          this.score = response.data.data.venueInfo.score;
+          this.province = response.data.data.venueInfo.province;
+          this.city = response.data.data.venueInfo.city;
+          this.street = response.data.data.venueInfo.street;
+          this.id = response.data.data.venueInfo.id;
         }
       }).catch(err => {
         console.log(err);
@@ -5546,6 +5548,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data() {
     return {
+      id: '',
       cover_uri: '',
       name: '',
       score: '',
@@ -5575,13 +5578,14 @@ __webpack_require__.r(__webpack_exports__);
 
         if (response) {
           this.dateList = response.data.dateList;
-          this.cover_uri = response.data.venueInfo.cover_uri;
+          this.cover_uri = response.data.data.venueInfo.cover_uri;
           console.log(this.cover_uri);
-          this.name = response.data.venueInfo.name;
-          this.score = response.data.venueInfo.score;
-          this.province = response.data.venueInfo.province;
-          this.city = response.data.venueInfo.city;
-          this.street = response.data.venueInfo.street;
+          this.name = response.data.data.venueInfo.name;
+          this.score = response.data.data.venueInfo.score;
+          this.province = response.data.data.venueInfo.province;
+          this.city = response.data.data.venueInfo.city;
+          this.street = response.data.data.venueInfo.street;
+          this.id = response.data.data.venueInfo.id;
         }
       }).catch(err => {
         console.log(err);
@@ -28831,7 +28835,7 @@ var render = function() {
         _vm._l(_vm.dateList, function(item, index) {
           return _c(
             "router-link",
-            { key: index, attrs: { to: "/seat", tag: "div" } },
+            { key: index, attrs: { to: "/seat/" + _vm.id, tag: "div" } },
             [
               _c(
                 "flexbox",
@@ -47714,7 +47718,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
     name: 'Detail',
     component: _pages_detail_Detail__WEBPACK_IMPORTED_MODULE_4__["default"]
   }, {
-    path: '/seat',
+    path: '/seat/:id',
     name: 'Seat',
     component: _pages_seat_Seat__WEBPACK_IMPORTED_MODULE_5__["default"]
   }, {

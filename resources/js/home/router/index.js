@@ -22,7 +22,7 @@ export default new Router({
             component: Detail
         },
         {
-            path: '/seat',
+            path: '/seat/:id',
             name: 'Seat',
             component: Seat
         },
