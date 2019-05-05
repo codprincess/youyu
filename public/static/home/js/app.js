@@ -3545,14 +3545,11 @@ __webpack_require__.r(__webpack_exports__);
 
       axios__WEBPACK_IMPORTED_MODULE_5___default.a.get('/api?city=' + _that.cityName).then(response => {
         console.log('33333', response);
-        console.log(response.data.code);
-        console.log(response.data.data.bannerList);
 
-        if (response.data.code === 0) {
-          console.log('22222222');
+        if (response) {
           _that.imgList = response.data.data.bannerList;
           console.log('11111', _that.imgList);
-          _that.list = response.data.data.venueList;
+          _that.list = response.data.data.venueList.data;
           console.log('22222', _that.list);
         }
       }).catch(err => {
@@ -5714,14 +5711,11 @@ __webpack_require__.r(__webpack_exports__);
 
       axios__WEBPACK_IMPORTED_MODULE_5___default.a.get('/api?city=' + _that.cityName).then(response => {
         console.log('33333', response);
-        console.log(response.data.code);
-        console.log(response.data.data.bannerList);
 
-        if (response.data.code === 0) {
-          console.log('22222222');
+        if (response) {
           _that.imgList = response.data.data.bannerList;
           console.log('11111', _that.imgList);
-          _that.list = response.data.data.venueList;
+          _that.list = response.data.data.venueList.data;
           console.log('22222', _that.list);
         }
       }).catch(err => {
@@ -30456,7 +30450,7 @@ var render = function() {
             return _c(
               "swiper-item",
               { key: index, staticClass: "swiper-demo-img" },
-              [_c("img", { attrs: { src: item } })]
+              [_c("img", { attrs: { src: item.picture_uri } })]
             )
           }),
           1

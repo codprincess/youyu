@@ -17,7 +17,7 @@
         </div>
         <div class="swiper-wrapper">
            <swiper :aspect-ratio="300/800"  auto>
-               <swiper-item class="swiper-demo-img" v-for="(item, index) in imgList" :key="index"><img :src="item"></swiper-item>
+               <swiper-item class="swiper-demo-img" v-for="(item, index) in imgList" :key="index"><img :src="item.picture_uri"></swiper-item>
            </swiper>
         </div>
         <div class="ven-wrapper">
@@ -179,15 +179,12 @@ export default {
             let _that = this;
             axios.get('/api?city=' + _that.cityName ).then(response=>{
                 console.log('33333',response);
-                console.log(response.data.code);
-                console.log(response.data.data.bannerList);
-                if(response.data.code === 0){
-                    console.log('22222222')
+                if(response){
                     //图片
                     _that.imgList = response.data.data.bannerList;
                     console.log('11111',_that.imgList )
                     //场馆信息
-                    _that.list =response.data.data.venueList;
+                    _that.list =response.data.data.venueList.data;
                     console.log('22222',_that.list)
                 }
             }).catch(err=>{
