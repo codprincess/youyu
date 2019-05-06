@@ -72,6 +72,8 @@ class VenueRepository
             ->get()
             ->toArray();
 
+        dd($dateHourList);
+
         foreach ($dateHourList as $time) {
             $dateTimeList[$time['start_hour']] = VenueTime::where('venue_id', $venue->id)
                 ->where('date', $pickDate)
