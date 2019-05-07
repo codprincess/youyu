@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Admin;
+use App\Models\Permission;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -32,6 +34,13 @@ class IndexController extends Controller
         switch (strtolower($model)){
             case 'admin':
                 $query = new Admin();
+                break;
+            case 'role':
+                $query = new Role();
+                break;
+            case 'permission':
+                $query = new Permission();
+                $query = $query->where('parent_id', $request->get('parent_id', 0));
                 break;
             default:
                 $query = new Admin();

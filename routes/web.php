@@ -19,7 +19,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::get('logout', 'LoginController@logout')->name('admin.logout');
 
     //后台页面
-
+    Route::get('data','IndexController@data')->name('admin.data');
     Route::get('/index', 'IndexController@layout');
     Route::get('/index1', 'IndexController@index')->name('admin.index1');
     Route::get('/index2', 'IndexController@index1')->name('admin.index2');
@@ -54,7 +54,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
 
     //添加场次
     Route::get('venuestime/create', 'VenueTimeController@create')->name('admin.venuesTime.create');
-    Route::post('venuestime/store', 'VenueTimeController@store')->name('admin.venuesTime.store');
+    Route::get('venuestime/store', 'VenueTimeController@store')->name('admin.venuesTime.store');
 
     //获取微信登录用户信息
     Route::get('/userdata', 'MemberController@data')->name('admin.member.data');
@@ -73,6 +73,29 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::get('/bannerdata', 'BannerController@data')->name('admin.banners.data');
     //删除
     Route::delete('banner/destroy', 'BannerController@destroy')->name('admin.banners.destroy');
+
+    //角色管理
+    Route::get('role','RoleController@index')->name('admin.role');
+    //添加
+    Route::get('role/create','RoleController@create')->name('admin.role.create');
+    Route::post('role/store','RoleController@store')->name('admin.role.store');
+    //编辑
+    Route::get('role/{id}/edit','RoleController@edit')->name('admin.role.edit');
+    Route::put('role/{id}/update','RoleController@update')->name('admin.role.update');
+    //删除
+    Route::delete('role/destroy','RoleController@destroy')->name('admin.role.destroy');
+
+
+    //权限管理
+    Route::get('permission','PermissionController@index')->name('admin.permission');
+    //添加
+    Route::get('permission/create','PermissionController@create')->name('admin.permission.create');
+    Route::post('permission/store','PermissionController@store')->name('admin.permission.store');
+    //编辑
+    Route::get('permission/{id}/edit','PermissionController@edit')->name('admin.permission.edit');
+    Route::put('permission/{id}/update','PermissionController@update')->name('admin.permission.update');
+    //删除
+    Route::delete('permission/destroy','PermissionController@destroy')->name('admin.permission.destroy');
 
 });
 

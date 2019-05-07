@@ -65,14 +65,14 @@ class VenueRepository
             ->groupBy('date')
             ->get()
             ->toArray();
-
+       // dd($dateList );
         $dateHourList = VenueTime::select('start_hour')->where('venue_id', $venue->id)
             ->where('date', $pickDate)
             ->groupBy('start_hour')
             ->get()
             ->toArray();
 
-      //  dd($dateHourList);
+       // dd($dateHourList);
 
         foreach ($dateHourList as $time) {
             $dateTimeList[$time['start_hour']] = VenueTime::where('venue_id', $venue->id)
@@ -106,6 +106,7 @@ class VenueRepository
                 'name' => $place['name']
             ];
         }
+
         $data = [
             'currentDate' => $pickDate,
             'dateList' => $dateList,

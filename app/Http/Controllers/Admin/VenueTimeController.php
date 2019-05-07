@@ -11,6 +11,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Venue;
+use App\Models\VenuePlace;
+use App\Models\VenueTime;
 use App\Repositories\VenueRepository;
 use Illuminate\Http\Request;
 
@@ -23,41 +25,35 @@ class VenueTimeController extends Controller
     public function store(Request $request)    {
         // 创建场馆
         $validator = \Validator::make($request->all(), [
-            'name' => 'required|string:max:255|min:2',
-            'district' => 'required|string:max:20|min:2',
-            'status' => 'required|int',
-            'description' => 'required|string|min:5',
-            'province' => 'required|string:max:32',
-            'city' => 'required|string:max:20|min:2',
-            'street' => 'required|string:max:20|min:2',
-//            'cover_uri' => 'required|string:max:255|min:2',
+            'venue_id' => 'required|string:max:255|min:2',
+            'date' => 'required|string:max:255|min:2',
             'start_at' => 'required|string:max:64|min:2',
             'end_at' => 'required|string:max:64|min:2',
-            'phone' => 'required|string:max:32|min:2',
-            'venue_place_list' => 'required|string:max:255|min:2',  // 1号场
         ]);
 
         if ($validator->fails()) {
             return $this->success('失败啦', $validator->errors()->first());
         }
-        $data = $request->only(['name', 'district', 'status', 'description', 'province', 'city', 'street', 'cover_uri', 'start_at', 'end_at', 'phone',]);
+        $data = $request->only(['venue_id','date','start_at','end_at']);
         // dd($data);
 
-        $venuePlaceList = explode(',', \request('venue_place_list'));
-        $venuePlaceListData = [];
-        $venue = Venue::create($data);
-        //dd($venue);
+        $venuePlaceList = VenuePlace::where('venue_id',$data['venue_id'])->get();
+        dd($venuePlaceList);
         foreach ($venuePlaceList as $k=>$venuePlace) {
-            $venuePlaceListData[] = [
-                'name' => $venuePlace,
-                'weight' => $k,
-                'venue_id' => $venue->id,
+            $venueTimeListData[] = [
+                'place_id' =>$venuePlace['id'],
+                'venue_id' =>$data['venue_id'],
+                'date' =>$data['date'],
+                'start_hour' =>date("H",$data['start_at']),
+                'start_minute' =>date("i",$data['start_at']),
+                'end_hour' =>date("H",$data['end_at']),
+                'end_minute' =>date("i",$data['end_at']),
             ];
         }
-        if (count($venuePlaceListData) > 0) {
-            VenuePlace::insert($venuePlaceListData);
+        if (count($venueTimeListData) > 0) {
+            VenueTime::insert($venueTimeListData);
         }
-        return $this->success('创建成功', $venue);
+        return $this->success('创建成功', $venueTimeListData);
     }
 
     public function update(Request $request, Venue $venue)

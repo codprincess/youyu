@@ -66,7 +66,7 @@
                 </li>
                 <li class="layui-nav-item" lay-unselect>
                     <a href="javascript:;">
-                        <cite>贤心</cite>
+                        <cite>有羽</cite>
                     </a>
                     <dl class="layui-nav-child">
                         <dd><a lay-href="set/user/info.html">基本资料</a></dd>
@@ -120,10 +120,10 @@
                                 <a lay-href="{{route('admin.user')}}">管理员管理</a>
                             </dd>
                             <dd data-name="角色管理">
-                                <a lay-href="{{route('admin.index1')}}">角色管理</a>
+                                <a lay-href="{{route('admin.role')}}">角色管理</a>
                             </dd>
                             <dd data-name="权限管理">
-                                <a lay-href="{{route('admin.index2')}}">权限管理</a>
+                                <a lay-href="{{route('admin.permission')}}">权限管理</a>
                             </dd>
                         </dl>
                     </li>
