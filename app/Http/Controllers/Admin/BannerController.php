@@ -80,8 +80,4 @@ class BannerController extends Controller
     }
 
 
-
-
-
-
 }

@@ -161,6 +161,17 @@
                             </dd>
                         </dl>
                     </li>
+                    <li data-name="订单管理" class="layui-nav-item">
+                        <a href="javascript:;" lay-tips="订单管理" >
+                            <i class="layui-icon layui-icon-app"></i>
+                            <cite>订单管理</cite>
+                        </a>
+                        <dl class="layui-nav-child">
+                            <dd data-name="订单管理">
+                                <a lay-href="{{route('admin.order')}}">订单管理</a>
+                            </dd>
+                        </dl>
+                    </li>
 
                     {{--@foreach($menus as $menu)--}}
                         {{--@can($menu->name)--}}

@@ -107,6 +107,12 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     //删除
     Route::delete('permission/destroy','PermissionController@destroy')->name('admin.permission.destroy');
 
+
+    //订单模块
+    Route::get('/order','OrderController@index')->name('admin.order');
+    //获取订单数据
+    Route::get('/orderdata','OrderController@data')->name('admin.order.data');
+
 });
 
 

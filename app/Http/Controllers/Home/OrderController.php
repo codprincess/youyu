@@ -47,6 +47,7 @@ class OrderController extends Controller
         $insertData = [
             'user_id' => Auth::guard('api')->id() ?? 0,
             'venue_id' => $venue->id,
+            'order_name' =>$venue->name,
             'order_no' => $this->createOrderSn(),
             'venue_time_ids' => $data['venueTimeIds'],
             'total_amount' => $totalAmount,
