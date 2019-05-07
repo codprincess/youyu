@@ -14,6 +14,7 @@ use Spatie\Permission\Traits\HasRoles;
 class Admin extends Authenticatable
 {
     use Notifiable, HasRoles;
+    protected $guard_name = 'web';
 
     protected  $table = 'admins';
 

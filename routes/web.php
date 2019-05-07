@@ -39,6 +39,13 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     //删除
     Route::delete('user/destroy', 'AdminController@destroy')->name('admin.user.destroy');
 
+    //分配角色
+    Route::get('user/{id}/role','AdminController@role')->name('admin.user.role');
+    Route::put('user/{id}/assignRole','AdminController@assignRole')->name('admin.user.assignRole');
+    //分配权限
+    Route::get('user/{id}/permission','AdminController@permission')->name('admin.user.permission');
+    Route::put('user/{id}/assignPermission','AdminController@assignPermission')->name('admin.user.assignPermission');
+
     //场馆数据
     Route::get('/venuedata', 'VenueController@data')->name('admin.venue.data');
     //场馆
@@ -84,6 +91,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::put('role/{id}/update','RoleController@update')->name('admin.role.update');
     //删除
     Route::delete('role/destroy','RoleController@destroy')->name('admin.role.destroy');
+    //分配权限
+    Route::get('role/{id}/permission','RoleController@permission')->name('admin.role.permission');
+    Route::put('role/{id}/assignPermission','RoleController@assignPermission')->name('admin.role.assignPermission');
 
 
     //权限管理
@@ -98,6 +108,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::delete('permission/destroy','PermissionController@destroy')->name('admin.permission.destroy');
 
 });
+
+
+
 
 
 Route::group(['namespace' => 'Home'], function () {

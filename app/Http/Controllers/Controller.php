@@ -39,29 +39,28 @@ class Controller extends BaseController
     }
 
     /**
-     * 处理权限分类的
+     * 处理权限分类
      */
-    public function tree($list = [],$pk = 'id',$pid = 'parent_id',$child = 'child',$root = 0)
+    public function tree($list=[], $pk='id', $pid = 'parent_id', $child = '_child', $root = 0)
     {
         if (empty($list)){
             $list = Permission::get()->toArray();
         }
-
-        //创建tree
+        // 创建Tree
         $tree = array();
-        if(is_array($list)){
-            //创建基于主键的数组引用
+        if(is_array($list)) {
+            // 创建基于主键的数组引用
             $refer = array();
-            foreach($list as $key => $data){
+            foreach ($list as $key => $data) {
                 $refer[$data[$pk]] =& $list[$key];
             }
-            foreach ($list as $key =>$data){
-                //判断是否存在parent
-                $parentId = $data[$pid];
-                if($root == $parentId){
+            foreach ($list as $key => $data) {
+                // 判断是否存在parent
+                $parentId =  $data[$pid];
+                if ($root == $parentId) {
                     $tree[] =& $list[$key];
                 }else{
-                    if(isset($refer[$parentId])){
+                    if (isset($refer[$parentId])) {
                         $parent =& $refer[$parentId];
                         $parent[$child][] =& $list[$key];
                     }
@@ -70,6 +69,39 @@ class Controller extends BaseController
         }
         return $tree;
     }
+
+//    /**
+//     * 处理权限分类的
+//     */
+//    public function tree($list = [],$pk = 'id',$pid = 'parent_id',$child = 'child',$root = 0)
+//    {
+//        if (empty($list)){
+//            $list = Permission::get()->toArray();
+//        }
+//
+//        //创建tree
+//        $tree = array();
+//        if(is_array($list)){
+//            //创建基于主键的数组引用
+//            $refer = array();
+//            foreach($list as $key => $data){
+//                $refer[$data[$pk]] =& $list[$key];
+//            }
+//            foreach ($list as $key =>$data){
+//                //判断是否存在parent
+//                $parentId = $data[$pid];
+//                if($root == $parentId){
+//                    $tree[] =& $list[$key];
+//                }else{
+//                    if(isset($refer[$parentId])){
+//                        $parent =& $refer[$parentId];
+//                        $parent[$child][] =& $list[$key];
+//                    }
+//                }
+//            }
+//        }
+//        return $tree;
+//    }
 
 
 }
