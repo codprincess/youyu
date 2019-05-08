@@ -29,19 +29,16 @@
 
                 </div>
             </script>
-            <script type="text/html" id="barDemo">
-                {{# if (d.status === "1"){ }}
-                    <a class="layui-btn layui-btn-mini" lay-event="btn1">待付款</a>
-                {{# } else if(d.status === "2"){ }}
-                     <a class="layui-btn layui-btn-mini" lay-event="btn1">已支付</a>
-                {{ # } else { }}
-                    <a class="layui-btn layui-btn-mini" lay-event="btn1">已取消</a>
-                {{ # } }}
-{{--            <a href="@{{d.avatar}}" target="_blank" title="点击查看"><img src="@{{d.avatar}}" alt="" width="28" height="28"></a>--}}
-            </script>
-{{--            <script type="text/html" id="avatar">--}}
-{{--                <a href="@{{d.avatar}}" target="_blank" title="点击查看"><img src="@{{d.avatar}}" alt="" width="28" height="28"></a>--}}
+{{--            <script type="text/html" id="barDemo">--}}
+{{--                {{# if (d.status=== '1') { }}--}}
+{{--                   待付款--}}
+{{--                {{# } else if(d.status=== '2') { }}--}}
+{{--                    已支付--}}
+{{--                {{# } else (d.status=== '3') { }}--}}
+{{--                    已取消--}}
+{{--                {{#  }); }}--}}
 {{--            </script>--}}
+
         </div>
     </div>
 @endsection
@@ -67,7 +64,15 @@
                         ,{field: 'venue_time_ids', title: '场次'}
                         ,{field: 'order_no', title: '订单号'}
                         ,{field: 'total_amount', title: '总金额'}
-                        ,{field: 'status', title: '支付状态',toolbar:'#barDemo',width:100}
+                        ,{field: 'status', title: '支付状态',width:100,templet:function (res) {
+                            if(res.status == '1'){
+                                return  ' 待付款'
+                            }else if (res.status == '2'){
+                                return '已支付'
+                            } else if(res.status == '3') {
+                                return '已取消'
+                            }
+                        }}
                         ,{field: 'created_at', title: '创建时间'}
                         ,{field: 'updated_at', title: '更新时间'}
 //                        ,{fixed: 'right', width: 120, align:'center', toolbar: '#options'}

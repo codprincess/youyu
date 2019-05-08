@@ -20,8 +20,6 @@ class VenueController extends Controller
 
     public function create(Request $request)
     {
-
-
         // 创建场地
 
         return view('admin.venues.create');
@@ -63,7 +61,11 @@ class VenueController extends Controller
         if (count($venuePlaceListData) > 0) {
             VenuePlace::insert($venuePlaceListData);
         }
-        return $this->success('创建成功', $venue);
+        if($venue){
+            return redirect()->to(route('admin.venues'))->with(['status'=>'添加场馆成功']);
+        }
+        return redirect()->to(route('admin.venues'))->withErrors('系统出错了');
+        //return $this->success('创建成功');
     }
 
 //    public function show($id)

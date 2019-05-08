@@ -83,14 +83,14 @@
 <div class="layui-form-item">
     <label for="" class="layui-form-label">开放时间</label>
     <div class="layui-inline">
-        <input type="text" class="layui-input" value="{{$venueList->start_at??old('start_at')}}" id="test1" name="start_at">
+        <input type="text" class="layui-input" value="{{$venueList->start_at??old('start_at')}}"  id="test1" placeholder="yyyy-MM-dd" name="start_at">
     </div>
 </div>
 
 <div class="layui-form-item">
     <label for="" class="layui-form-label">关闭时间</label>
     <div class="layui-inline">
-        <input type="text" class="layui-input" value="{{$venueList->end_at??old('end_at')}}" id="test1" name="end_at">
+        <input type="text" class="layui-input" value="{{$venueList->end_at??old('end_at')}}" id="test2" placeholder="yyyy-MM-dd" name="end_at">
     </div>
 </div>
 <div class="layui-form-item">
@@ -135,6 +135,29 @@
         <a  class="layui-btn" href="{{route('admin.venues')}}" >返 回</a>
     </div>
 </div>
+@section('app-js')
+<script src="/static/admin/layuiadmin/layui/laydate.js"></script>
+<script>
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+        //常规用法
+        laydate.render({
+            elem: '#test1'
+        });
+        laydate.render({
+            elem: '#test2'
+        });
+
+        // //时间范围
+        // laydate.render({
+        //     elem: '#test9'
+        //     ,type: 'time'
+        //     ,range: true
+        // });
+
+    });
+</script>
+@endsection
 
 
 
