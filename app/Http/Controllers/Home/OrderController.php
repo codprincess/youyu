@@ -58,6 +58,7 @@ class OrderController extends Controller
             'status' => 1,
         ];
         DB::beginTransaction();
+        $res=[];
         try {
             // 创建订单
             $res = Order::create($insertData);
@@ -70,7 +71,8 @@ class OrderController extends Controller
             DB::rollBack();
 
         }
-        return $this->success('创建成功', $insertData);
+
+        return $this->success('创建成功', $res);
     }
 
 
