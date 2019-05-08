@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authentication;
+use Illuminate\Notifications\Notifiable;
 
-class User extends Model
+class User extends Authentication
 {
+    use  Notifiable;
     protected $guarded = [];
-    protected $primaryKey = 'id';
 
     public function venues()
     {
