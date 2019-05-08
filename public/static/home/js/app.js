@@ -3633,246 +3633,19 @@ __webpack_require__.r(__webpack_exports__);
       list2: [],
       demo2: '05-05',
       dataTime: ['09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00'],
-      seats: [{
-        Id: "05010102",
-        price: "6",
-        name: "1号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "0"
-      }, {
-        Id: "05010102",
-        price: "6",
-        name: "2号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1"
-      }, {
-        Id: "05010102",
-        price: "6",
-        name: "3号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "0"
-      }, {
-        Id: "05010102",
-        price: "7",
-        name: "4号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1"
-      }, {
-        extId: "05010102",
-        price: "8",
-        name: "5号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1",
-        topPx: "30"
-      }, {
-        extId: "05010102",
-        price: "3",
-        name: "6号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1",
-        topPx: "30"
-      }, {
-        extId: "05010102",
-        price: "5",
-        name: "7号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1",
-        topPx: "30"
-      }, {
-        extId: "05010102",
-        price: "6",
-        name: "8号",
-        seatId: "05010102",
-        status: "1",
-        topPx: "30"
-      }],
-      seats2: [{
-        Id: "05010102",
-        price: "6",
-        name: "1号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1"
-      }, {
-        Id: "05010102",
-        price: "6",
-        name: "2号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1"
-      }, {
-        Id: "05010102",
-        price: "6",
-        name: "3号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "0"
-      }, {
-        Id: "05010102",
-        price: "7",
-        name: "4号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "0"
-      }, {
-        extId: "05010102",
-        price: "8",
-        name: "5号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1",
-        topPx: "30"
-      }, {
-        extId: "05010102",
-        price: "3",
-        name: "6号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1",
-        topPx: "30"
-      }, {
-        extId: "05010102",
-        price: "5",
-        name: "7号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1",
-        topPx: "30"
-      }, {
-        extId: "05010102",
-        price: "6",
-        name: "8号",
-        seatId: "05010102",
-        status: "1",
-        topPx: "30"
-      }],
-      seats3: [{
-        Id: "05010102",
-        price: "6",
-        name: "1号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1"
-      }, {
-        Id: "05010102",
-        price: "6",
-        name: "2号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1"
-      }, {
-        Id: "05010102",
-        price: "6",
-        name: "3号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "0"
-      }, {
-        Id: "05010102",
-        price: "7",
-        name: "4号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "0"
-      }, {
-        extId: "05010102",
-        price: "8",
-        name: "5号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1",
-        topPx: "30"
-      }, {
-        extId: "05010102",
-        price: "3",
-        name: "6号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1",
-        topPx: "30"
-      }, {
-        extId: "05010102",
-        price: "5",
-        name: "7号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1",
-        topPx: "30"
-      }, {
-        extId: "05010102",
-        price: "6",
-        name: "8号",
-        seatId: "05010102",
-        status: "1",
-        topPx: "30"
-      }],
-      seats4: [{
-        Id: "05010102",
-        price: "6",
-        name: "1号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1"
-      }, {
-        Id: "05010102",
-        price: "6",
-        name: "2号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1"
-      }, {
-        Id: "05010102",
-        price: "6",
-        name: "3号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "0"
-      }, {
-        Id: "05010102",
-        price: "7",
-        name: "4号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "0"
-      }, {
-        extId: "05010102",
-        price: "8",
-        name: "5号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1",
-        topPx: "30"
-      }, {
-        extId: "05010102",
-        price: "3",
-        name: "6号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1",
-        topPx: "30"
-      }, {
-        extId: "05010102",
-        price: "5",
-        name: "7号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1",
-        topPx: "30"
-      }, {
-        extId: "05010102",
-        price: "6",
-        name: "8号",
-        seatId: "05010102",
-        status: "1",
-        topPx: "30"
-      }],
+      seats: [],
+      seats1: [],
+      seats2: [],
+      seats3: [],
+      seats4: [],
+      seats5: [],
+      seats6: [],
+      seats7: [],
+      seats8: [],
+      seats9: [],
+      seats10: [],
+      seats11: [],
+      seats12: [],
       selSeats: [] //选择的场地
 
     };
@@ -3890,7 +3663,20 @@ __webpack_require__.r(__webpack_exports__);
         if (response) {
           this.list2 = response.data.data.dateList;
           this.placeList = response.data.data.placeList;
-          this.dateTimeList = response.data.data.dateTimeList[0];
+          this.dateTimeList = response.data.data.dateTimeList;
+          this.seats = this.dateTimeList[0];
+          this.seats1 = this.dateTimeList[1];
+          this.seats2 = this.dateTimeList[2];
+          this.seats3 = this.dateTimeList[3];
+          this.seats4 = this.dateTimeList[4];
+          this.seats5 = this.dateTimeList[5];
+          this.seats6 = this.dateTimeList[6];
+          this.seats7 = this.dateTimeList[7];
+          this.seats8 = this.dateTimeList[8];
+          this.seats9 = this.dateTimeList[9];
+          this.seats10 = this.dateTimeList[10];
+          this.seats11 = this.dateTimeList[11];
+          this.seats12 = this.dateTimeList[12];
           console.log('33333', this.dateTimeList);
         }
       }).catch(err => {
@@ -5814,246 +5600,19 @@ __webpack_require__.r(__webpack_exports__);
       list2: [],
       demo2: '05-05',
       dataTime: ['09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00'],
-      seats: [{
-        Id: "05010102",
-        price: "6",
-        name: "1号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "0"
-      }, {
-        Id: "05010102",
-        price: "6",
-        name: "2号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1"
-      }, {
-        Id: "05010102",
-        price: "6",
-        name: "3号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "0"
-      }, {
-        Id: "05010102",
-        price: "7",
-        name: "4号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1"
-      }, {
-        extId: "05010102",
-        price: "8",
-        name: "5号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1",
-        topPx: "30"
-      }, {
-        extId: "05010102",
-        price: "3",
-        name: "6号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1",
-        topPx: "30"
-      }, {
-        extId: "05010102",
-        price: "5",
-        name: "7号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1",
-        topPx: "30"
-      }, {
-        extId: "05010102",
-        price: "6",
-        name: "8号",
-        seatId: "05010102",
-        status: "1",
-        topPx: "30"
-      }],
-      seats2: [{
-        Id: "05010102",
-        price: "6",
-        name: "1号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1"
-      }, {
-        Id: "05010102",
-        price: "6",
-        name: "2号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1"
-      }, {
-        Id: "05010102",
-        price: "6",
-        name: "3号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "0"
-      }, {
-        Id: "05010102",
-        price: "7",
-        name: "4号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "0"
-      }, {
-        extId: "05010102",
-        price: "8",
-        name: "5号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1",
-        topPx: "30"
-      }, {
-        extId: "05010102",
-        price: "3",
-        name: "6号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1",
-        topPx: "30"
-      }, {
-        extId: "05010102",
-        price: "5",
-        name: "7号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1",
-        topPx: "30"
-      }, {
-        extId: "05010102",
-        price: "6",
-        name: "8号",
-        seatId: "05010102",
-        status: "1",
-        topPx: "30"
-      }],
-      seats3: [{
-        Id: "05010102",
-        price: "6",
-        name: "1号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1"
-      }, {
-        Id: "05010102",
-        price: "6",
-        name: "2号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1"
-      }, {
-        Id: "05010102",
-        price: "6",
-        name: "3号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "0"
-      }, {
-        Id: "05010102",
-        price: "7",
-        name: "4号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "0"
-      }, {
-        extId: "05010102",
-        price: "8",
-        name: "5号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1",
-        topPx: "30"
-      }, {
-        extId: "05010102",
-        price: "3",
-        name: "6号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1",
-        topPx: "30"
-      }, {
-        extId: "05010102",
-        price: "5",
-        name: "7号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1",
-        topPx: "30"
-      }, {
-        extId: "05010102",
-        price: "6",
-        name: "8号",
-        seatId: "05010102",
-        status: "1",
-        topPx: "30"
-      }],
-      seats4: [{
-        Id: "05010102",
-        price: "6",
-        name: "1号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1"
-      }, {
-        Id: "05010102",
-        price: "6",
-        name: "2号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1"
-      }, {
-        Id: "05010102",
-        price: "6",
-        name: "3号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "0"
-      }, {
-        Id: "05010102",
-        price: "7",
-        name: "4号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "0"
-      }, {
-        extId: "05010102",
-        price: "8",
-        name: "5号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1",
-        topPx: "30"
-      }, {
-        extId: "05010102",
-        price: "3",
-        name: "6号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1",
-        topPx: "30"
-      }, {
-        extId: "05010102",
-        price: "5",
-        name: "7号",
-        rowName: "1",
-        seatId: "05010102",
-        status: "1",
-        topPx: "30"
-      }, {
-        extId: "05010102",
-        price: "6",
-        name: "8号",
-        seatId: "05010102",
-        status: "1",
-        topPx: "30"
-      }],
+      seats: [],
+      seats1: [],
+      seats2: [],
+      seats3: [],
+      seats4: [],
+      seats5: [],
+      seats6: [],
+      seats7: [],
+      seats8: [],
+      seats9: [],
+      seats10: [],
+      seats11: [],
+      seats12: [],
       selSeats: [] //选择的场地
 
     };
@@ -6071,7 +5630,20 @@ __webpack_require__.r(__webpack_exports__);
         if (response) {
           this.list2 = response.data.data.dateList;
           this.placeList = response.data.data.placeList;
-          this.dateTimeList = response.data.data.dateTimeList[0];
+          this.dateTimeList = response.data.data.dateTimeList;
+          this.seats = this.dateTimeList[0];
+          this.seats1 = this.dateTimeList[1];
+          this.seats2 = this.dateTimeList[2];
+          this.seats3 = this.dateTimeList[3];
+          this.seats4 = this.dateTimeList[4];
+          this.seats5 = this.dateTimeList[5];
+          this.seats6 = this.dateTimeList[6];
+          this.seats7 = this.dateTimeList[7];
+          this.seats8 = this.dateTimeList[8];
+          this.seats9 = this.dateTimeList[9];
+          this.seats10 = this.dateTimeList[10];
+          this.seats11 = this.dateTimeList[11];
+          this.seats12 = this.dateTimeList[12];
           console.log('33333', this.dateTimeList);
         }
       }).catch(err => {
@@ -29666,6 +29238,42 @@ var render = function() {
                                 {
                                   attrs: { cols: 8, "show-lr-borders": false }
                                 },
+                                _vm._l(_vm.seats1, function(seat, index) {
+                                  return _c(
+                                    "grid-item",
+                                    {
+                                      key: index,
+                                      class: [
+                                        { nosel: seat.status == 0 },
+                                        { sel: seat.status == 1 },
+                                        { yessel: seat.status == 2 }
+                                      ],
+                                      nativeOn: {
+                                        click: function($event) {
+                                          return _vm.seatSel($event, seat)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "span",
+                                        {
+                                          staticClass: "grid-center",
+                                          staticStyle: { "font-size": "12px" }
+                                        },
+                                        [_vm._v("￥" + _vm._s(seat.price))]
+                                      )
+                                    ]
+                                  )
+                                }),
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "grid",
+                                {
+                                  attrs: { cols: 8, "show-lr-borders": false }
+                                },
                                 _vm._l(_vm.seats2, function(seat, index) {
                                   return _c(
                                     "grid-item",
@@ -29774,7 +29382,7 @@ var render = function() {
                                 {
                                   attrs: { cols: 8, "show-lr-borders": false }
                                 },
-                                _vm._l(_vm.seats3, function(seat, index) {
+                                _vm._l(_vm.seats5, function(seat, index) {
                                   return _c(
                                     "grid-item",
                                     {
@@ -29810,7 +29418,7 @@ var render = function() {
                                 {
                                   attrs: { cols: 8, "show-lr-borders": false }
                                 },
-                                _vm._l(_vm.seats4, function(seat, index) {
+                                _vm._l(_vm.seats6, function(seat, index) {
                                   return _c(
                                     "grid-item",
                                     {
@@ -29846,7 +29454,7 @@ var render = function() {
                                 {
                                   attrs: { cols: 8, "show-lr-borders": false }
                                 },
-                                _vm._l(_vm.seats3, function(seat, index) {
+                                _vm._l(_vm.seats7, function(seat, index) {
                                   return _c(
                                     "grid-item",
                                     {
@@ -29882,7 +29490,7 @@ var render = function() {
                                 {
                                   attrs: { cols: 8, "show-lr-borders": false }
                                 },
-                                _vm._l(_vm.seats4, function(seat, index) {
+                                _vm._l(_vm.seats8, function(seat, index) {
                                   return _c(
                                     "grid-item",
                                     {
@@ -29918,7 +29526,7 @@ var render = function() {
                                 {
                                   attrs: { cols: 8, "show-lr-borders": false }
                                 },
-                                _vm._l(_vm.seats3, function(seat, index) {
+                                _vm._l(_vm.seats9, function(seat, index) {
                                   return _c(
                                     "grid-item",
                                     {
@@ -29954,7 +29562,79 @@ var render = function() {
                                 {
                                   attrs: { cols: 8, "show-lr-borders": false }
                                 },
-                                _vm._l(_vm.seats4, function(seat, index) {
+                                _vm._l(_vm.seats10, function(seat, index) {
+                                  return _c(
+                                    "grid-item",
+                                    {
+                                      key: index,
+                                      class: [
+                                        { nosel: seat.status == 0 },
+                                        { sel: seat.status == 1 },
+                                        { yessel: seat.status == 2 }
+                                      ],
+                                      nativeOn: {
+                                        click: function($event) {
+                                          return _vm.seatSel($event, seat)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "span",
+                                        {
+                                          staticClass: "grid-center",
+                                          staticStyle: { "font-size": "12px" }
+                                        },
+                                        [_vm._v("￥" + _vm._s(seat.price))]
+                                      )
+                                    ]
+                                  )
+                                }),
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "grid",
+                                {
+                                  attrs: { cols: 8, "show-lr-borders": false }
+                                },
+                                _vm._l(_vm.seats11, function(seat, index) {
+                                  return _c(
+                                    "grid-item",
+                                    {
+                                      key: index,
+                                      class: [
+                                        { nosel: seat.status == 0 },
+                                        { sel: seat.status == 1 },
+                                        { yessel: seat.status == 2 }
+                                      ],
+                                      nativeOn: {
+                                        click: function($event) {
+                                          return _vm.seatSel($event, seat)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "span",
+                                        {
+                                          staticClass: "grid-center",
+                                          staticStyle: { "font-size": "12px" }
+                                        },
+                                        [_vm._v("￥" + _vm._s(seat.price))]
+                                      )
+                                    ]
+                                  )
+                                }),
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "grid",
+                                {
+                                  attrs: { cols: 8, "show-lr-borders": false }
+                                },
+                                _vm._l(_vm.seats12, function(seat, index) {
                                   return _c(
                                     "grid-item",
                                     {

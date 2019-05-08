@@ -28,13 +28,6 @@
                         <div class="room">
                             <flexbox>
                                 <flexbox-item v-for="(item,index) in placeList" :key="index"><div class="room-item">{{item.name}}</div></flexbox-item>
-                                <!--                            <flexbox-item><div class="room-item">2</div></flexbox-item>-->
-                                <!--                            <flexbox-item><div class="room-item">3</div></flexbox-item>-->
-                                <!--                            <flexbox-item><div class="room-item">4</div></flexbox-item>-->
-                                <!--                            <flexbox-item><div class="room-item">5</div></flexbox-item>-->
-                                <!--                            <flexbox-item><div class="room-item">6</div></flexbox-item>-->
-                                <!--                            <flexbox-item><div class="room-item">7</div></flexbox-item>-->
-                                <!--                            <flexbox-item><div class="room-item">8</div></flexbox-item>-->
                             </flexbox>
                         </div>
                         <swiper class="seat-swiper" v-model="index" style="height:489px;" :show-dots="false">
@@ -48,18 +41,13 @@
                                             </grid-item>
                                         </grid>
                                         <grid :cols="8" :show-lr-borders="false">
-                                            <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats2" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
+                                            <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats1" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
                                                 <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
                                             </grid-item>
                                         </grid>
 
                                         <grid :cols="8" :show-lr-borders="false">
-                                            <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats3" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
-                                                <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
-                                            </grid-item>
-                                        </grid>
-                                        <grid :cols="8" :show-lr-borders="false">
-                                            <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats4" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
+                                            <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats2" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
                                                 <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
                                             </grid-item>
                                         </grid>
@@ -74,22 +62,42 @@
                                             </grid-item>
                                         </grid>
                                         <grid :cols="8" :show-lr-borders="false">
-                                            <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats3" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
+                                            <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats5" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
                                                 <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
                                             </grid-item>
                                         </grid>
                                         <grid :cols="8" :show-lr-borders="false">
-                                            <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats4" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
+                                            <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats6" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
                                                 <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
                                             </grid-item>
                                         </grid>
                                         <grid :cols="8" :show-lr-borders="false">
-                                            <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats3" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
+                                            <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats7" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
                                                 <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
                                             </grid-item>
                                         </grid>
                                         <grid :cols="8" :show-lr-borders="false">
-                                            <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats4" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
+                                            <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats8" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
+                                                <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
+                                            </grid-item>
+                                        </grid>
+                                        <grid :cols="8" :show-lr-borders="false">
+                                            <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats9" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
+                                                <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
+                                            </grid-item>
+                                        </grid>
+                                        <grid :cols="8" :show-lr-borders="false">
+                                            <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats10" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
+                                                <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
+                                            </grid-item>
+                                        </grid>
+                                        <grid :cols="8" :show-lr-borders="false">
+                                            <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats11" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
+                                                <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
+                                            </grid-item>
+                                        </grid>
+                                        <grid :cols="8" :show-lr-borders="false">
+                                            <grid-item  @click.native="seatSel($event,seat)" v-for="(seat,index) in seats12" :key="index"  :class='[{nosel : seat.status == 0},{sel : seat.status == 1},{yessel : seat.status == 2}]'>
                                                 <span class="grid-center" style="font-size:12px;">￥{{seat.price}}</span>
                                             </grid-item>
                                         </grid>
@@ -188,302 +196,19 @@ export default {
             list2: [],
             demo2: '05-05',
             dataTime:['09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00','21:00','22:00'],
-            seats:[
-            {
-                Id: "05010102", 
-                price: "6",  
-                name: "1号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "0", 
-                
-            },
-            {
-                Id: "05010102", 
-                price: "6", 
-                name: "2号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "1", 
-                
-            },
-            {
-                Id: "05010102", 
-                price: "6",  
-                name: "3号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "0", 
-                
-            },
-            {
-                Id: "05010102", 
-                price: "7",  
-                name: "4号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "1", 
-                
-            },
-            {
-                extId: "05010102", 
-                price: "8",  
-                name: "5号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "1", 
-                topPx: "30"
-            },
-            {
-                extId: "05010102", 
-                price: "3", 
-                name: "6号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "1", 
-                topPx: "30"
-            },
-            {
-                extId: "05010102", 
-                price: "5", 
-                name: "7号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "1", 
-                topPx: "30"
-            },
-            {
-                extId: "05010102", 
-                price: "6", 
-                name: "8号", 
-                seatId: "05010102", 
-                status: "1", 
-                topPx: "30"
-            },
-
-            ] ,
-            seats2:[
-            {
-                Id: "05010102", 
-                price: "6",  
-                name: "1号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "1", 
-                
-            },
-            {
-                Id: "05010102", 
-                price: "6", 
-                name: "2号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "1", 
-                
-            },
-            {
-                Id: "05010102", 
-                price: "6",  
-                name: "3号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "0", 
-                
-            },
-            {
-                Id: "05010102", 
-                price: "7",  
-                name: "4号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "0", 
-                
-            },
-            {
-                extId: "05010102", 
-                price: "8",  
-                name: "5号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "1", 
-                topPx: "30"
-            },
-            {
-                extId: "05010102", 
-                price: "3", 
-                name: "6号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "1", 
-                topPx: "30"
-            },
-            {
-                extId: "05010102", 
-                price: "5", 
-                name: "7号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "1", 
-                topPx: "30"
-            },
-            {
-                extId: "05010102", 
-                price: "6", 
-                name: "8号", 
-                seatId: "05010102", 
-                status: "1", 
-                topPx: "30"
-            },
-
-            ] ,
-             seats3:[
-            {
-                Id: "05010102", 
-                price: "6",  
-                name: "1号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "1", 
-                
-            },
-            {
-                Id: "05010102", 
-                price: "6", 
-                name: "2号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "1", 
-                
-            },
-            {
-                Id: "05010102", 
-                price: "6",  
-                name: "3号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "0", 
-                
-            },
-            {
-                Id: "05010102", 
-                price: "7",  
-                name: "4号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "0", 
-                
-            },
-            {
-                extId: "05010102", 
-                price: "8",  
-                name: "5号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "1", 
-                topPx: "30"
-            },
-            {
-                extId: "05010102", 
-                price: "3", 
-                name: "6号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "1", 
-                topPx: "30"
-            },
-            {
-                extId: "05010102", 
-                price: "5", 
-                name: "7号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "1", 
-                topPx: "30"
-            },
-            {
-                extId: "05010102", 
-                price: "6", 
-                name: "8号", 
-                seatId: "05010102", 
-                status: "1", 
-                topPx: "30"
-            },
-
-            ] ,
-             seats4:[
-            {
-                Id: "05010102", 
-                price: "6",  
-                name: "1号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "1", 
-                
-            },
-            {
-                Id: "05010102", 
-                price: "6", 
-                name: "2号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "1", 
-                
-            },
-            {
-                Id: "05010102", 
-                price: "6",  
-                name: "3号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "0", 
-                
-            },
-            {
-                Id: "05010102", 
-                price: "7",  
-                name: "4号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "0", 
-                
-            },
-            {
-                extId: "05010102", 
-                price: "8",  
-                name: "5号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "1", 
-                topPx: "30"
-            },
-            {
-                extId: "05010102", 
-                price: "3", 
-                name: "6号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "1", 
-                topPx: "30"
-            },
-            {
-                extId: "05010102", 
-                price: "5", 
-                name: "7号", 
-                rowName: "1", 
-                seatId: "05010102", 
-                status: "1", 
-                topPx: "30"
-            },
-            {
-                extId: "05010102", 
-                price: "6", 
-                name: "8号", 
-                seatId: "05010102", 
-                status: "1", 
-                topPx: "30"
-            },
-
-            ] ,
+            seats:[],
+            seats1:[],
+            seats2:[],
+            seats3:[],
+            seats4:[],
+            seats5:[],
+            seats6:[],
+            seats7:[],
+            seats8:[],
+            seats9:[],
+            seats10:[],
+            seats11:[],
+            seats12:[],
             selSeats:[],//选择的场地
 
         }
@@ -501,7 +226,23 @@ export default {
                     this.list2 = response.data.data.dateList;
                     this.placeList = response.data.data.placeList;
                     // console.log(this.list2);
-                    this.dateTimeList = response.data.data.dateTimeList[0];
+                    this.dateTimeList = response.data.data.dateTimeList;
+                    this.seats = this.dateTimeList[0];
+                    this.seats1 = this.dateTimeList[1];
+                    this.seats2 = this.dateTimeList[2];
+                    this.seats3 = this.dateTimeList[3];
+                    this.seats4 = this.dateTimeList[4];
+                    this.seats5 = this.dateTimeList[5];
+                    this.seats6 = this.dateTimeList[6];
+                    this.seats7 = this.dateTimeList[7];
+                    this.seats8 = this.dateTimeList[8];
+                    this.seats9 = this.dateTimeList[9];
+                    this.seats10= this.dateTimeList[10];
+                    this.seats11 = this.dateTimeList[11];
+                    this.seats12 = this.dateTimeList[12];
+
+
+
                     console.log('33333',this.dateTimeList);
                     // for (var i = 0; i < this.dateTimeList.length;i++){
                     //     this.seatsList = this.dateTimeList[i][0];
