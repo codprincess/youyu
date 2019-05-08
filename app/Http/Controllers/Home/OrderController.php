@@ -17,6 +17,7 @@ use App\Repositories\VenueRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class OrderController extends Controller
 {
@@ -39,7 +40,9 @@ class OrderController extends Controller
         $data = $request->only(['venueTimeIds']);
 
         // $venueTimeIdList = explode(',', \request('venueTimeIds'));
+
         $venueTimeIdList = \request('venueTimeIds');
+        $venueTimeIds = implode(',', \request('venueTimeIds'));
         $isLock = VenueTime::whereIn('id', $venueTimeIdList)->Where('status', 1)->get(['id'])->toArray();
         if (count($isLock) != count($venueTimeIdList)) {
             return $this->fail('预定失败,该场次已被被人预定,请返回重新选场', []);
@@ -48,24 +51,26 @@ class OrderController extends Controller
         $insertData = [
             'user_id' => Auth::guard('api')->id() ?? 0,
             'venue_id' => $venue->id,
-            'order_name' =>$venue->name,
+            'order_name' => $venue->name,
             'order_no' => $this->createOrderSn(),
-            'venue_time_ids' => $data['venueTimeIds'],
+            'venue_time_ids' => $venueTimeIds,
             'total_amount' => $totalAmount,
             'status' => 1,
         ];
         DB::beginTransaction();
         try {
             // 创建订单
-            $venue = Order::create($insertData);
+            $res = Order::create($insertData);
             // 更新场次状态
             VenueTime::whereIn('id', $venueTimeIdList)->update(['status' => 0]);
+            Log::debug("create order success", [$res]);
             DB::commit();
         } catch (\Exception $e) {
+            Log::error("create order error", (array)$e);
             DB::rollBack();
 
         }
-        return $this->success('创建成功', $venue);
+        return $this->success('创建成功', $insertData);
     }
 
 
