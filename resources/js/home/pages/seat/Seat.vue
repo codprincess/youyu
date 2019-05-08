@@ -180,6 +180,7 @@
 </template>
 <script>
 import { XHeader,Tab,TabItem,Swiper, SwiperItem, Flexbox,FlexboxItem,Grid, GridItem, XButton} from 'vux'
+import wx from 'weixin-jsapi'
 import axios from 'axios'
 export default {
     components: {
@@ -223,6 +224,7 @@ export default {
     },
     created(){
         this.getPlaceListInfo();
+        this.makeOrder();
     },
 
     methods:{
@@ -278,6 +280,24 @@ export default {
                 //金额
                  this.selMoney -= seat.price;
             }
+        },
+
+        //创建订单
+        makeOrder(){
+          axios.post('/api/venue/'+this.$route.params.id+'/order/create',{
+              params:{
+                  venueTimeIds: this.selSeats
+              }
+          }).then(response=>{
+              console.log(response);
+          })
+        },
+
+        //获取配置
+        getConfig(){
+            axios.post('api/wx/pay/unifiedOrder/{order}').then(response=>{
+                console.log(response)
+            })
         },
 
         //支付
