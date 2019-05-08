@@ -8,10 +8,6 @@
             <div style="height:140vh">
                 <div style="height:555px;">
                     <tab :line-width=2 active-color='#fc378c' v-model="index">
-                        <!--                    <tab-item class="vux-center" :selected="demo2 === item" v-for="(item, index) in list2" @click="demo2 = item" :key="index">-->
-                        <!--                        {{item.date}}-->
-                        <!--                         &lt;!&ndash; <span style="font-size:12px;">30场可订</span> &ndash;&gt;-->
-                        <!--                    </tab-item>-->
                         <tab-item class="vux-center" :selected="demo2 === item.date" v-for="(item, index) in list2" @click="demo2 = item.date" :key="index">
                             {{item.date}}
                             <!-- <span style="font-size:12px;">30场可订</span> -->
@@ -27,9 +23,6 @@
                     </div>
                     <div class="seats-slider">
                         <div class="room">
-<!--                            <flexbox>-->
-<!--                                <flexbox-item v-for="(item,index) in placeList" :key="index"><div class="room-item">{{item.name}}</div></flexbox-item>-->
-<!--                            </flexbox>-->
                             <grid :cols="8" :show-lr-borders="false">
                                 <grid-item v-for="(item,index) in placeList" :key="index">
                                     <span class="grid-center" style="font-size:12px;">{{item.name}}</span>
@@ -125,7 +118,7 @@
                         </flexbox-item>
                         <flexbox-item >
                             <div class="pay">
-                                <x-button mini type="primary" @click.native="payComfirm()">下一步</x-button>
+                                <x-button mini type="primary" @click.native="makeOrder()">下一步</x-button>
                             </div>
                         </flexbox-item>
                     </flexbox>
@@ -224,7 +217,7 @@ export default {
     },
     created(){
         this.getPlaceListInfo();
-        this.makeOrder();
+       // this.makeOrder();
     },
 
     methods:{
@@ -290,6 +283,7 @@ export default {
               }
           }).then(response=>{
               console.log(response);
+              this.hasOrder = true;
           })
         },
 

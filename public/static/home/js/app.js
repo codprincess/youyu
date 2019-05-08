@@ -3657,7 +3657,6 @@ __webpack_require__.r(__webpack_exports__);
 
   created() {
     this.getPlaceListInfo();
-    this.makeOrder();
   },
 
   methods: {
@@ -3721,6 +3720,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(response => {
         console.log(response);
+        this.hasOrder = true;
       });
     },
 
@@ -5643,7 +5643,6 @@ __webpack_require__.r(__webpack_exports__);
 
   created() {
     this.getPlaceListInfo();
-    this.makeOrder();
   },
 
   methods: {
@@ -5707,6 +5706,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(response => {
         console.log(response);
+        this.hasOrder = true;
       });
     },
 
@@ -29163,9 +29163,9 @@ var render = function() {
                     },
                     [
                       _vm._v(
-                        "\n                            " +
+                        "\n                        " +
                           _vm._s(item.date) +
-                          "\n                            "
+                          "\n                        "
                       )
                     ]
                   )
@@ -29758,7 +29758,7 @@ var render = function() {
                             attrs: { mini: "", type: "primary" },
                             nativeOn: {
                               click: function($event) {
-                                return _vm.payComfirm()
+                                return _vm.makeOrder()
                               }
                             }
                           },
