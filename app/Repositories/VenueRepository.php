@@ -75,7 +75,7 @@ class VenueRepository
        // dd($dateHourList);
 
         foreach ($dateHourList as $time) {
-            $dateTimeList[$time['start_hour']] = VenueTime::where('venue_id', $venue->id)
+            $dateTimeList[] = VenueTime::where('venue_id', $venue->id)
                 ->where('date', $pickDate)
                 ->where('start_hour', $time['start_hour'])
                 ->orderBy('place_id', 'ASC')

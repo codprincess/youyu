@@ -3890,7 +3890,7 @@ __webpack_require__.r(__webpack_exports__);
         if (response) {
           this.list2 = response.data.data.dateList;
           this.placeList = response.data.data.placeList;
-          this.dateTimeList = response.data.data.dateTimeList.length[0];
+          this.dateTimeList = response.data.data.dateTimeList[0];
           console.log('33333', this.dateTimeList);
         }
       }).catch(err => {
@@ -6071,7 +6071,7 @@ __webpack_require__.r(__webpack_exports__);
         if (response) {
           this.list2 = response.data.data.dateList;
           this.placeList = response.data.data.placeList;
-          this.dateTimeList = response.data.data.dateTimeList.length[0];
+          this.dateTimeList = response.data.data.dateTimeList[0];
           console.log('33333', this.dateTimeList);
         }
       }).catch(err => {
