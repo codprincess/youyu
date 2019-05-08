@@ -30,7 +30,7 @@ class OrderController extends Controller
     {
         // 创建订单
         $validator = \Validator::make($request->all(), [
-            'venueTimeIds' => 'required|string:max:64|min:1',
+            'venueTimeIds' => 'required|array:max:64|min:1',
         ]);
 
         if ($validator->fails()) {
@@ -38,7 +38,8 @@ class OrderController extends Controller
         }
         $data = $request->only(['venueTimeIds']);
 
-        $venueTimeIdList = explode(',', \request('venueTimeIds'));
+        // $venueTimeIdList = explode(',', \request('venueTimeIds'));
+        $venueTimeIdList = \request('venueTimeIds');
         $isLock = VenueTime::whereIn('id', $venueTimeIdList)->Where('status', 1)->get(['id'])->toArray();
         if (count($isLock) != count($venueTimeIdList)) {
             return $this->fail('预定失败,该场次已被被人预定,请返回重新选场', []);

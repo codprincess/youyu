@@ -278,7 +278,7 @@ export default {
         //创建订单
         makeOrder(){
            var params ={
-                ids: this.selSeats
+               venueTimeIds: this.selSeats
            }
           axios.post('/api/venue/'+this.$route.params.id+'/order/create',params).then(response=>{
               console.log(response);
@@ -399,7 +399,7 @@ export default {
         width: 100%;
         height: 48px;
         border: 1px #cccccc solid;
-        line-height: 48px；
+        line-height: 48px;
     }
     .pay-box .all-money{
         height: 48px;
