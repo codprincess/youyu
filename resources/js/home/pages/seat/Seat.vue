@@ -5,7 +5,7 @@
             <div class="detail-header">
                 <x-header :left-options="{backText: ''}">选择场次</x-header>
             </div>
-            <div style="height:110vh">
+            <div style="height:140vh">
                 <div style="height:555px;">
                     <tab :line-width=2 active-color='#fc378c' v-model="index">
                         <!--                    <tab-item class="vux-center" :selected="demo2 === item" v-for="(item, index) in list2" @click="demo2 = item" :key="index">-->
@@ -134,7 +134,7 @@
         </div>
 
         <!--确认订单-->
-        <div v-show="hasOrder">
+        <div  style="height: 580px;" v-show="hasOrder">
             <div class="detail-header">
                 <x-header :left-options="{backText: ''}">确认订单</x-header>
             </div>

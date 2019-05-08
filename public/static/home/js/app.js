@@ -29091,7 +29091,7 @@ var render = function() {
           1
         ),
         _vm._v(" "),
-        _c("div", { staticStyle: { height: "110vh" } }, [
+        _c("div", { staticStyle: { height: "140vh" } }, [
           _c(
             "div",
             { staticStyle: { height: "555px" } },
@@ -29748,7 +29748,8 @@ var render = function() {
             value: _vm.hasOrder,
             expression: "hasOrder"
           }
-        ]
+        ],
+        staticStyle: { height: "580px" }
       },
       [
         _c(
