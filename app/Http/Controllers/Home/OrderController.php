@@ -30,7 +30,7 @@ class OrderController extends Controller
     {
         // 创建订单
         $validator = \Validator::make($request->all(), [
-            'venueTimeIds' => 'required|array:max:64|min:1',
+            'venueTimeIds' => 'required',
         ]);
 
         if ($validator->fails()) {
