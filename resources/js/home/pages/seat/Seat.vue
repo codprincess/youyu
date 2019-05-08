@@ -452,6 +452,8 @@ export default {
 
     .order-box{
         width: 100%;
+        padding-left: 5%;
+        padding-right: 5%;
     }
     .order-box .order-list{
         height: auto;
