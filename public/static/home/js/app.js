@@ -29123,9 +29123,9 @@ var render = function() {
                     },
                     [
                       _vm._v(
-                        "\n                        " +
+                        "\n                            " +
                           _vm._s(item.date) +
-                          "\n                        "
+                          "\n                            "
                       )
                     ]
                   )
@@ -29138,13 +29138,18 @@ var render = function() {
                 { staticClass: "data-box" },
                 [
                   _c(
-                    "flexbox",
-                    { attrs: { orient: "vertical", gutter: 0 } },
+                    "grid",
+                    { attrs: { cols: 8, "show-lr-borders": false } },
                     _vm._l(_vm.dataTime, function(item, index) {
-                      return _c("flexbox-item", { key: index }, [
-                        _c("div", { staticClass: "timeItem" }, [
-                          _vm._v(_vm._s(item))
-                        ])
+                      return _c("grid-item", { key: index }, [
+                        _c(
+                          "span",
+                          {
+                            staticClass: "grid-center",
+                            staticStyle: { "font-size": "12px" }
+                          },
+                          [_vm._v(_vm._s(item))]
+                        )
                       ])
                     }),
                     1

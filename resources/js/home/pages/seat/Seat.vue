@@ -18,11 +18,17 @@
                         </tab-item>
                     </tab>
                     <div class="data-box">
-                        <flexbox orient="vertical" :gutter="0">
-                            <flexbox-item v-for="(item,index) in dataTime" :key="index">
-                                <div class="timeItem">{{item}}</div>
-                            </flexbox-item>
-                        </flexbox>
+<!--                        <flexbox orient="vertical" :gutter="0">-->
+<!--                            <flexbox-item v-for="(item,index) in dataTime" :key="index">-->
+<!--                                <div class="timeItem">{{item}}</div>-->
+<!--                            </flexbox-item>-->
+<!--                        </flexbox>-->
+                        <grid :cols="8" :show-lr-borders="false">
+                            <grid-item  v-for="(item,index) in dataTime" :key="index" >
+                                <span class="grid-center" style="font-size:12px;">{{item}}</span>
+                            </grid-item>
+                        </grid>
+
                     </div>
                     <div class="seats-slider">
                         <div class="room">
