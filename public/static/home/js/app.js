@@ -3714,11 +3714,10 @@ __webpack_require__.r(__webpack_exports__);
     },
 
     makeOrder() {
-      axios__WEBPACK_IMPORTED_MODULE_11___default.a.post('/api/venue/' + this.$route.params.id + '/order/create', {
-        params: {
-          venueTimeIds: this.selSeats
-        }
-      }).then(response => {
+      var params = {
+        ids: this.selSeats
+      };
+      axios__WEBPACK_IMPORTED_MODULE_11___default.a.post('/api/venue/' + this.$route.params.id + '/order/create', params).then(response => {
         console.log(response);
         this.hasOrder = true;
       });
@@ -5700,11 +5699,10 @@ __webpack_require__.r(__webpack_exports__);
     },
 
     makeOrder() {
-      axios__WEBPACK_IMPORTED_MODULE_11___default.a.post('/api/venue/' + this.$route.params.id + '/order/create', {
-        params: {
-          venueTimeIds: this.selSeats
-        }
-      }).then(response => {
+      var params = {
+        ids: this.selSeats
+      };
+      axios__WEBPACK_IMPORTED_MODULE_11___default.a.post('/api/venue/' + this.$route.params.id + '/order/create', params).then(response => {
         console.log(response);
         this.hasOrder = true;
       });

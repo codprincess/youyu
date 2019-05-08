@@ -277,11 +277,10 @@ export default {
 
         //创建订单
         makeOrder(){
-          axios.post('/api/venue/'+this.$route.params.id+'/order/create',{
-              params:{
-                  venueTimeIds: this.selSeats
-              }
-          }).then(response=>{
+           var params ={
+                ids: this.selSeats
+           }
+          axios.post('/api/venue/'+this.$route.params.id+'/order/create',params).then(response=>{
               console.log(response);
               this.hasOrder = true;
           })
