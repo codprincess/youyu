@@ -29138,18 +29138,13 @@ var render = function() {
                 { staticClass: "data-box" },
                 [
                   _c(
-                    "grid",
-                    { attrs: { cols: 8, "show-lr-borders": false } },
+                    "flexbox",
+                    { attrs: { orient: "vertical", gutter: 0 } },
                     _vm._l(_vm.dataTime, function(item, index) {
-                      return _c("grid-item", { key: index }, [
-                        _c(
-                          "span",
-                          {
-                            staticClass: "grid-center",
-                            staticStyle: { "font-size": "12px" }
-                          },
-                          [_vm._v(_vm._s(item))]
-                        )
+                      return _c("flexbox-item", { key: index }, [
+                        _c("div", { staticClass: "timeItem" }, [
+                          _vm._v(_vm._s(item))
+                        ])
                       ])
                     }),
                     1
@@ -29167,12 +29162,18 @@ var render = function() {
                     { staticClass: "room" },
                     [
                       _c(
-                        "flexbox",
+                        "grid",
+                        { attrs: { cols: 8, "show-lr-borders": false } },
                         _vm._l(_vm.placeList, function(item, index) {
-                          return _c("flexbox-item", { key: index }, [
-                            _c("div", { staticClass: "room-item" }, [
-                              _vm._v(_vm._s(item.name))
-                            ])
+                          return _c("grid-item", { key: index }, [
+                            _c(
+                              "span",
+                              {
+                                staticClass: "grid-center",
+                                staticStyle: { "font-size": "12px" }
+                              },
+                              [_vm._v(_vm._s(item.name))]
+                            )
                           ])
                         }),
                         1
