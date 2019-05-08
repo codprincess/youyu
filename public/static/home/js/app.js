@@ -3646,7 +3646,9 @@ __webpack_require__.r(__webpack_exports__);
       seats10: [],
       seats11: [],
       seats12: [],
-      selSeats: [] //选择的场地
+      selSeats: [],
+      //选择的场地
+      selMoney: 0 //初始价钱
 
     };
   },
@@ -3685,8 +3687,6 @@ __webpack_require__.r(__webpack_exports__);
     },
 
     seatSel(event, seat) {
-      console.log('111111');
-
       if (seat.status == 0) {
         return;
       }
@@ -3694,20 +3694,20 @@ __webpack_require__.r(__webpack_exports__);
       if (seat.status == 1) {
         seat.status = 2;
         console.log(seat.status);
-        this.selSeats.push(seat.name);
+        this.selSeats.push(seat.id);
         console.log(this.selSeats);
-        this.selMoney += this.onePrice;
+        this.selMoney += seat.price;
       } else {
         seat.status = 1;
 
         for (var i = 0; i < this.selSeats.length; i++) {
-          if (this.selSeats[i] == seat.name) {
+          if (this.selSeats[i] == seat.id) {
             this.selSeats.splice(i, 1);
             break;
           }
         }
 
-        this.selMoney -= this.onePrice;
+        this.selMoney -= seat.price;
       }
     },
 
@@ -5613,7 +5613,9 @@ __webpack_require__.r(__webpack_exports__);
       seats10: [],
       seats11: [],
       seats12: [],
-      selSeats: [] //选择的场地
+      selSeats: [],
+      //选择的场地
+      selMoney: 0 //初始价钱
 
     };
   },
@@ -5652,8 +5654,6 @@ __webpack_require__.r(__webpack_exports__);
     },
 
     seatSel(event, seat) {
-      console.log('111111');
-
       if (seat.status == 0) {
         return;
       }
@@ -5661,20 +5661,20 @@ __webpack_require__.r(__webpack_exports__);
       if (seat.status == 1) {
         seat.status = 2;
         console.log(seat.status);
-        this.selSeats.push(seat.name);
+        this.selSeats.push(seat.id);
         console.log(this.selSeats);
-        this.selMoney += this.onePrice;
+        this.selMoney += seat.price;
       } else {
         seat.status = 1;
 
         for (var i = 0; i < this.selSeats.length; i++) {
-          if (this.selSeats[i] == seat.name) {
+          if (this.selSeats[i] == seat.id) {
             this.selSeats.splice(i, 1);
             break;
           }
         }
 
-        this.selMoney -= this.onePrice;
+        this.selMoney -= seat.price;
       }
     },
 
@@ -29698,7 +29698,7 @@ var render = function() {
                     _c("div", { staticClass: "all-money" }, [
                       _vm._v("订金金额"),
                       _c("span", { staticStyle: { color: "#00bcd4" } }, [
-                        _vm._v("￥0")
+                        _vm._v("￥" + _vm._s(_vm.selMoney))
                       ])
                     ])
                   ]),
@@ -29789,7 +29789,7 @@ var render = function() {
                     _c("div", { staticClass: "all-money" }, [
                       _vm._v("订金金额"),
                       _c("span", { staticStyle: { color: "#00bcd4" } }, [
-                        _vm._v("￥0")
+                        _vm._v("￥" + _vm._s(_vm.selMoney))
                       ])
                     ])
                   ]),

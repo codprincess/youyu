@@ -118,7 +118,7 @@
                 <div class="pay-box">
                     <flexbox>
                         <flexbox-item :span="5">
-                            <div class="all-money">订金金额<span style="color:#00bcd4">￥0</span></div>
+                            <div class="all-money">订金金额<span style="color:#00bcd4">￥{{selMoney}}</span></div>
                         </flexbox-item>
                         <flexbox-item :span="3">
                             <div class="money-des">费用明细</div>
@@ -161,7 +161,7 @@
                 <div class="pay-box" style="position:absolute;bottom:0;width:100%;height:100px;">
                     <flexbox>
                         <flexbox-item :span="5">
-                            <div class="all-money">订金金额<span style="color:#00bcd4">￥0</span></div>
+                            <div class="all-money">订金金额<span style="color:#00bcd4">￥{{selMoney}}</span></div>
                         </flexbox-item>
                         <flexbox-item :span="3">
                             <div class="money-des">费用明细</div>
@@ -216,6 +216,8 @@ export default {
             seats11:[],
             seats12:[],
             selSeats:[],//选择的场地
+            selMoney:0,//初始价钱
+
 
         }
     },
@@ -246,23 +248,13 @@ export default {
                     this.seats10= this.dateTimeList[10];
                     this.seats11 = this.dateTimeList[11];
                     this.seats12 = this.dateTimeList[12];
-
-
-
                     console.log('33333',this.dateTimeList);
-                    // for (var i = 0; i < this.dateTimeList.length;i++){
-                    //     this.seatsList = this.dateTimeList[i][0];
-                    // }
-                    //this.seatsList = response.data.data.dateTimeList;
-                    //console.log('11111',this.seatsList)
-
                 }
             }).catch(err=>{
                 console.log(err);
             })
         },
         seatSel(event,seat){
-            console.log('111111');
             //选座，status==1是可以选择的，0是已售，2是已经选择
             if(seat.status == 0){
                 return;
@@ -270,21 +262,21 @@ export default {
             if(seat.status == 1){
                 seat.status = 2;
                 console.log(seat.status);
-                this.selSeats.push(seat.name);
+                this.selSeats.push(seat.id);
                 console.log(this.selSeats);
                 //金额
-                this.selMoney += this.onePrice;
+                this.selMoney += seat.price;
             }else{
                 seat.status = 1;
                 //从数组中删除某个元素
                 for(var i=0;i<this.selSeats.length;i++){
-                    if(this.selSeats[i] == seat.name){
+                    if(this.selSeats[i] == seat.id){
                         this.selSeats.splice(i,1);
                         break;
                     }
                 }
                 //金额
-                 this.selMoney -= this.onePrice;
+                 this.selMoney -= seat.price;
             }
         },
 
