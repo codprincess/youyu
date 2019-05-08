@@ -3894,7 +3894,7 @@ __webpack_require__.r(__webpack_exports__);
           console.log(this.dateTimeList);
 
           for (var i = 0; i < this.dateTimeList.length; i++) {
-            this.seatsList = this.dateTimeList[i];
+            this.seatsList = this.dateTimeList[i][0];
           }
 
           console.log('11111', this.seatsList);
@@ -6081,7 +6081,7 @@ __webpack_require__.r(__webpack_exports__);
           console.log(this.dateTimeList);
 
           for (var i = 0; i < this.dateTimeList.length; i++) {
-            this.seatsList = this.dateTimeList[i];
+            this.seatsList = this.dateTimeList[i][0];
           }
 
           console.log('11111', this.seatsList);

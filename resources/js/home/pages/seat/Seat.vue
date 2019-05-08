@@ -504,7 +504,7 @@ export default {
                     this.dateTimeList = response.data.data.dateTimeList;
                     console.log(this.dateTimeList);
                     for (var i = 0; i < this.dateTimeList.length;i++){
-                        this.seatsList = this.dateTimeList[i];
+                        this.seatsList = this.dateTimeList[i][0];
                     }
                     //this.seatsList = response.data.data.dateTimeList;
                     console.log('11111',this.seatsList)
