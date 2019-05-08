@@ -343,6 +343,10 @@ export default {
         line-height: 2;
         font-size: 12px;
     }
+    .room .weui-grid {
+        padding: 2px 10px !important;
+        text-align: center;
+    }
     .vux-tab-ink-bar {
         position: absolute;
         height: 2px;
@@ -351,7 +355,7 @@ export default {
         background-color: #00bcd4 !important;
         text-align: center;
     }
-    .weui-grid {
+    .roomList .weui-grid {
         padding: 8px 10px !important;
         text-align: center;
     }
@@ -413,7 +417,7 @@ export default {
     .pay-box .weui-btn {
         position: relative;
         display: block;
-        font-size: 18px;
+        font-size: 16px;
         text-align: center;
         text-decoration: none;
         color: #FFFFFF;
