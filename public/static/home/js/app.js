@@ -3885,12 +3885,18 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getPlaceListInfo() {
       axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/venue/' + this.$route.params.id + '/timeList').then(response => {
+        console.log(response);
+
         if (response) {
           this.list2 = response.data.data.dateList;
+          this.placeList = response.data.data.placeList;
           this.dateTimeList = response.data.data.dateTimeList;
           console.log(this.dateTimeList);
-          this.placeList = response.data.data.placeList;
-          this.seatsList = response.data.data.dateTimeList[0];
+
+          for (var i = 0; i < this.dateTimeList.length; i++) {
+            this.seatsList = this.dateTimeList[i];
+          }
+
           console.log('11111', this.seatsList);
         }
       }).catch(err => {
@@ -6066,12 +6072,18 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getPlaceListInfo() {
       axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/venue/' + this.$route.params.id + '/timeList').then(response => {
+        console.log(response);
+
         if (response) {
           this.list2 = response.data.data.dateList;
+          this.placeList = response.data.data.placeList;
           this.dateTimeList = response.data.data.dateTimeList;
           console.log(this.dateTimeList);
-          this.placeList = response.data.data.placeList;
-          this.seatsList = response.data.data.dateTimeList[0];
+
+          for (var i = 0; i < this.dateTimeList.length; i++) {
+            this.seatsList = this.dateTimeList[i];
+          }
+
           console.log('11111', this.seatsList);
         }
       }).catch(err => {
