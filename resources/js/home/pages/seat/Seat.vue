@@ -496,12 +496,16 @@ export default {
         //获取场地信息
         getPlaceListInfo(){
             axios.get('/api/venue/'+this.$route.params.id+'/timeList').then(response=>{
-                console.log(response);
+               // console.log(response);
                 if(response){
                     this.list2 = response.data.data.dateList;
-                    console.log(this.list2);
+                    // console.log(this.list2);
                     this.dateTimeList = response.data.data.dateTimeList;
+                    console.log(this.dateTimeList);
                     this.placeList = response.data.data.placeList;
+                    this.seatsList = response.data.data.dateTimeList[0];
+                    console.log('11111',this.seatsList)
+
                 }
             }).catch(err=>{
                 console.log(err);
