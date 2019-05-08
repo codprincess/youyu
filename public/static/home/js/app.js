@@ -3890,14 +3890,8 @@ __webpack_require__.r(__webpack_exports__);
         if (response) {
           this.list2 = response.data.data.dateList;
           this.placeList = response.data.data.placeList;
-          this.dateTimeList = response.data.data.dateTimeList;
-          console.log(this.dateTimeList);
-
-          for (var i = 0; i < this.dateTimeList.length; i++) {
-            this.seatsList = this.dateTimeList[i][0];
-          }
-
-          console.log('11111', this.seatsList);
+          this.dateTimeList = response.data.data.dateTimeList.length[0];
+          console.log('33333', this.dateTimeList);
         }
       }).catch(err => {
         console.log(err);
@@ -6077,14 +6071,8 @@ __webpack_require__.r(__webpack_exports__);
         if (response) {
           this.list2 = response.data.data.dateList;
           this.placeList = response.data.data.placeList;
-          this.dateTimeList = response.data.data.dateTimeList;
-          console.log(this.dateTimeList);
-
-          for (var i = 0; i < this.dateTimeList.length; i++) {
-            this.seatsList = this.dateTimeList[i][0];
-          }
-
-          console.log('11111', this.seatsList);
+          this.dateTimeList = response.data.data.dateTimeList.length[0];
+          console.log('33333', this.dateTimeList);
         }
       }).catch(err => {
         console.log(err);

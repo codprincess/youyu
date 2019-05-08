@@ -501,13 +501,13 @@ export default {
                     this.list2 = response.data.data.dateList;
                     this.placeList = response.data.data.placeList;
                     // console.log(this.list2);
-                    this.dateTimeList = response.data.data.dateTimeList;
-                    console.log(this.dateTimeList);
-                    for (var i = 0; i < this.dateTimeList.length;i++){
-                        this.seatsList = this.dateTimeList[i][0];
-                    }
+                    this.dateTimeList = response.data.data.dateTimeList.length[0];
+                    console.log('33333',this.dateTimeList);
+                    // for (var i = 0; i < this.dateTimeList.length;i++){
+                    //     this.seatsList = this.dateTimeList[i][0];
+                    // }
                     //this.seatsList = response.data.data.dateTimeList;
-                    console.log('11111',this.seatsList)
+                    //console.log('11111',this.seatsList)
 
                 }
             }).catch(err=>{
