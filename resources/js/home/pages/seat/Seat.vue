@@ -297,6 +297,7 @@ export default {
             axios.post('/api/wx/pay/unifiedOrder/'+this.order_id).then(response=>{
                 console.log(response);
                 if (response){
+                    console.log(response.data.data.appId);
                     wx.ready(function () {
                         wx.chooseWXPay({
                             appId:response.data.data.appId,

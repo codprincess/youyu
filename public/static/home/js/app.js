@@ -3733,6 +3733,7 @@ __webpack_require__.r(__webpack_exports__);
         console.log(response);
 
         if (response) {
+          console.log(response.data.data.appId);
           weixin_jsapi__WEBPACK_IMPORTED_MODULE_10__["default"].ready(function () {
             weixin_jsapi__WEBPACK_IMPORTED_MODULE_10__["default"].chooseWXPay({
               appId: response.data.data.appId,
@@ -5749,6 +5750,7 @@ __webpack_require__.r(__webpack_exports__);
         console.log(response);
 
         if (response) {
+          console.log(response.data.data.appId);
           weixin_jsapi__WEBPACK_IMPORTED_MODULE_10__["default"].ready(function () {
             weixin_jsapi__WEBPACK_IMPORTED_MODULE_10__["default"].chooseWXPay({
               appId: response.data.data.appId,
