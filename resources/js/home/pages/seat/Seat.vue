@@ -295,7 +295,8 @@ export default {
         //支付
         payComfirm(){
             axios.post('api/wx/pay/unifiedOrder/'+this.order_id).then(response=>{
-                console.log(response)
+                console.log(response);
+                console.log('22222');
             }).catch(err=>{
                 console.log(err);
             })

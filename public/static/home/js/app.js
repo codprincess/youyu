@@ -3731,6 +3731,7 @@ __webpack_require__.r(__webpack_exports__);
     payComfirm() {
       axios__WEBPACK_IMPORTED_MODULE_11___default.a.post('api/wx/pay/unifiedOrder/' + this.order_id).then(response => {
         console.log(response);
+        console.log('22222');
       }).catch(err => {
         console.log(err);
       });
@@ -5718,6 +5719,7 @@ __webpack_require__.r(__webpack_exports__);
     payComfirm() {
       axios__WEBPACK_IMPORTED_MODULE_11___default.a.post('api/wx/pay/unifiedOrder/' + this.order_id).then(response => {
         console.log(response);
+        console.log('22222');
       }).catch(err => {
         console.log(err);
       });
