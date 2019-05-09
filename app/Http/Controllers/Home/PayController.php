@@ -50,26 +50,27 @@ class PayController extends Controller
         $outTradeNo = $order->order_no;
         $orderName = "订场";
         $notifyUrl = $this->notifyUrl;
+        Log::info("notifyUrl is ",[$notifyUrl]);
         $data = (new PayService($this->mchId, $this->appId, $this->appKey, $this->mchKey))
             ->unifiedOrder($openid, $totalFee, $outTradeNo, $orderName, $notifyUrl);
         return $this->success("下单成功", $data);
     }
 
-    public function payOrder($postObj)
+    public function payOrder($postArr)
     {
-        $order = Order::where('order_no', $postObj->out_trade_no)
+        $order = Order::where('order_no', $postArr['out_trade_no'])
             ->first()
             ->toArray();
         if (count($order) == 0) {
             Log::error("订单支付失败，订单不存在", [
-                'postObj' => $postObj,
+                'postObj' => $postArr,
                 'order' => $order,
             ]);
             return false;
         }
-        if ($order['total_amount'] != $postObj->total_fee) {
+        if ($order['total_amount'] != $postArr['total_fee']) {
             Log::error("订单支付失败，金额错误", [
-                'postObj' => $postObj,
+                'postObj' => $postArr,
                 'order' => $order,
             ]);
             return false;
@@ -87,27 +88,33 @@ class PayController extends Controller
      */
     public function notify()
     {
+        Log::info('notify ok');
         $postStr = file_get_contents('php://input');
         //禁止引用外部xml实体
         libxml_disable_entity_loader(true);
         $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
         if ($postObj === false) {
+            Log::error('parse xml error');
             die('parse xml error');
         }
         if ($postObj->return_code != 'SUCCESS') {
+            Log::error($postObj->return_msg);
             die($postObj->return_msg);
         }
         if ($postObj->result_code != 'SUCCESS') {
+            Log::error($postObj->err_code);
             die($postObj->err_code);
         }
         $arr = (array)$postObj;
         unset($arr['sign']);
         if (self::getSign($arr, $this->mchKey) == $postObj->sign) {
             // 改变订单状态
-            if ($this->payOrder($postObj)) {
-                Log::debug("pay success", $arr);
+            if ($this->payOrder($arr)) {
+                Log::info("pay success", $arr);
                 return '<xml><return_code><![CDATA[SUCCESS]]></return_code><return_msg><![CDATA[OK]]></return_msg></xml>';
             }
+        }else{
+            Log::error("pay sign error", $arr);
         }
     }
 

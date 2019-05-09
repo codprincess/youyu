@@ -277,7 +277,8 @@ export default {
 
         //创建订单
         makeOrder(){
-            if (this.selSeats == []) {
+            if (this.selSeats.length === 0) {
+                console.log('请先选择场次')
                 Toast({
                     message:"请先选择场次"
                 });
