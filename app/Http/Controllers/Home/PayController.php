@@ -50,6 +50,7 @@ class PayController extends Controller
         $outTradeNo = $order->order_no;
         $orderName = "订场";
         $notifyUrl = $this->notifyUrl;
+        $notifyUrl = 'https://youyu.aicode.site/wx/pay/notify';
         Log::info("notifyUrl is ",[$notifyUrl]);
         $data = (new PayService($this->mchId, $this->appId, $this->appKey, $this->mchKey))
             ->unifiedOrder($openid, $totalFee, $outTradeNo, $orderName, $notifyUrl);
