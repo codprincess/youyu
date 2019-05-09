@@ -298,25 +298,53 @@ export default {
                 console.log(response);
                 if (response){
                     console.log(response.data.data.appId);
-                    wx.ready(function () {
-                        wx.chooseWXPay({
-                            appId:response.data.data.appId,
-                            timeStamp:response.data.data.timeStamp,// 支付签名时间戳
-                            nonceStr:response.data.data.nonceStr,// 支付签名随机串，不长于 32
-                            package:response.data.data.package,// 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=\*\*\*）
-                            paySign:response.data.data.paySign,// 支付签名
-                            signType:response.data.data.signType,// 签名方式
-                            success:function (res) {
-                                console.log('success',res);
+                    function onBridgeReady(){
+                        WeixinJSBridge.invoke(
+                            'getBrandWCPayRequest', {
+                                "appId":response.data.data.appId,     //公众号名称，由商户传入
+                                "timeStamp":response.data.data.timeStamp,      //时间戳，自1970年以来的秒数
+                                "nonceStr":response.data.data.nonceStr, //随机串
+                                "package":response.data.data.package,
+                                "signType":response.data.data.signType,         //微信签名方式：
+                                "paySign":response.data.data.paySign //微信签名
                             },
-                            cancel:function (res) {
-                                console.log('取消支付')
-                            },
-                            fail:function (res) {
-                                console.log('支付失败')
-                            }
-                        })
-                    })
+                            function(res){
+                                if(res.err_msg == "get_brand_wcpay_request:ok" ){
+                                    console.log('ok')
+                                    // 使用以上方式判断前端返回,微信团队郑重提示：
+                                    //res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
+                                }
+                            });
+                    }
+                    if (typeof WeixinJSBridge == "undefined"){
+                        if( document.addEventListener ){
+                            document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+                        }else if (document.attachEvent){
+                            document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+                            document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+                        }
+                    }else{
+                        onBridgeReady();
+                    }
+                    // wx.ready(function () {
+                    //     wx.chooseWXPay({
+                    //         appId:response.data.data.appId,
+                    //         timeStamp:response.data.data.timeStamp,// 支付签名时间戳
+                    //         nonceStr:response.data.data.nonceStr,// 支付签名随机串，不长于 32
+                    //         package:response.data.data.package,// 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=\*\*\*）
+                    //         paySign:response.data.data.paySign,// 支付签名
+                    //         signType:response.data.data.signType,// 签名方式
+                    //         success:function (res) {
+                    //             console.log('success',res);
+                    //         },
+                    //         cancel:function (res) {
+                    //             console.log('取消支付')
+                    //         },
+                    //         fail:function (res) {
+                    //             console.log('支付失败')
+                    //         }
+                    //     })
+                    // })
                 }else {
                     console.log('获取支付信息失败，请重试')
                 }
