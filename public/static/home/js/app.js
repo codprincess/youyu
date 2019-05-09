@@ -2979,6 +2979,133 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js!./node_modules/vux-loader/src/script-loader.js!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./node_modules/vux/src/components/toast/index.vue":
+/*!******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/vux-loader/src/script-loader.js!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./node_modules/vux/src/components/toast/index.vue ***!
+  \******************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mixins_safari_fix__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../mixins/safari-fix */ "./node_modules/vux/src/mixins/safari-fix.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'toast',
+  mixins: [_mixins_safari_fix__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  props: {
+    value: Boolean,
+    time: {
+      type: Number,
+      default: 2000
+    },
+    type: {
+      type: String,
+      default: 'success'
+    },
+    transition: String,
+    width: {
+      type: String,
+      default: '7.6em'
+    },
+    isShowMask: {
+      type: Boolean,
+      default: false
+    },
+    text: String,
+    position: String
+  },
+
+  data() {
+    return {
+      show: false
+    };
+  },
+
+  created() {
+    if (this.value) {
+      this.show = true;
+    }
+  },
+
+  computed: {
+    currentTransition() {
+      if (this.transition) {
+        return this.transition;
+      }
+
+      if (this.position === 'top') {
+        return 'vux-slide-from-top';
+      }
+
+      if (this.position === 'bottom') {
+        return 'vux-slide-from-bottom';
+      }
+
+      return 'vux-fade';
+    },
+
+    toastClass() {
+      return {
+        'weui-toast_forbidden': this.type === 'warn',
+        'weui-toast_cancel': this.type === 'cancel',
+        'weui-toast_success': this.type === 'success',
+        'weui-toast_text': this.type === 'text',
+        'vux-toast-top': this.position === 'top',
+        'vux-toast-bottom': this.position === 'bottom',
+        'vux-toast-middle': this.position === 'middle'
+      };
+    },
+
+    style() {
+      if (this.type === 'text' && this.width === 'auto') {
+        return {
+          padding: '10px'
+        };
+      }
+    }
+
+  },
+  watch: {
+    show(val) {
+      if (val) {
+        this.$emit('input', true);
+        this.$emit('on-show');
+        this.fixSafariOverflowScrolling('auto');
+        clearTimeout(this.timeout);
+        this.timeout = setTimeout(() => {
+          this.show = false;
+          this.$emit('input', false);
+          this.$emit('on-hide');
+          this.fixSafariOverflowScrolling('touch');
+        }, this.time);
+      }
+    },
+
+    value(val) {
+      this.show = val;
+    }
+
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js!./node_modules/vux-loader/src/script-loader.js!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./node_modules/vux/src/components/x-button/index.vue":
 /*!*********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib!./node_modules/vux-loader/src/script-loader.js!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./node_modules/vux/src/components/x-button/index.vue ***!
@@ -3598,7 +3725,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vux_src_components_grid_grid_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vux/src/components/grid/grid.vue */ "./node_modules/vux/src/components/grid/grid.vue");
 /* harmony import */ var vux_src_components_grid_grid_item_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vux/src/components/grid/grid-item.vue */ "./node_modules/vux/src/components/grid/grid-item.vue");
 /* harmony import */ var vux_src_components_x_button_index_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vux/src/components/x-button/index.vue */ "./node_modules/vux/src/components/x-button/index.vue");
-/* harmony import */ var weixin_jsapi__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! weixin-jsapi */ "./node_modules/weixin-jsapi/index.js");
+/* harmony import */ var vux_src_components_toast_index_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vux/src/components/toast/index.vue */ "./node_modules/vux/src/components/toast/index.vue");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_11__);
 
@@ -3624,7 +3751,8 @@ __webpack_require__.r(__webpack_exports__);
     FlexboxItem: vux_src_components_flexbox_flexbox_item_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
     Grid: vux_src_components_grid_grid_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
     GridItem: vux_src_components_grid_grid_item_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
-    XButton: vux_src_components_x_button_index_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
+    XButton: vux_src_components_x_button_index_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
+    Toast: vux_src_components_toast_index_vue__WEBPACK_IMPORTED_MODULE_10__["default"]
   },
 
   data() {
@@ -3714,18 +3842,24 @@ __webpack_require__.r(__webpack_exports__);
     },
 
     makeOrder() {
-      var params = {
-        venueTimeIds: this.selSeats
-      };
-      axios__WEBPACK_IMPORTED_MODULE_11___default.a.post('/api/venue/' + this.$route.params.id + '/order/create', params).then(response => {
-        if (response) {
-          console.log(response);
-          this.order_id = response.data.data.id;
-          this.hasOrder = true;
-        }
-      }).catch(err => {
-        console.log(err);
-      });
+      if (this.selSeats == []) {
+        Object(vux_src_components_toast_index_vue__WEBPACK_IMPORTED_MODULE_10__["default"])({
+          message: "请先选择场次"
+        });
+      } else {
+        var params = {
+          venueTimeIds: this.selSeats
+        };
+        axios__WEBPACK_IMPORTED_MODULE_11___default.a.post('/api/venue/' + this.$route.params.id + '/order/create', params).then(response => {
+          if (response) {
+            console.log(response);
+            this.order_id = response.data.data.id;
+            this.hasOrder = true;
+          }
+        }).catch(err => {
+          console.log(err);
+        });
+      }
     },
 
     payComfirm() {
@@ -3751,6 +3885,7 @@ __webpack_require__.r(__webpack_exports__);
             }, function (res) {
               if (res.err_msg == "get_brand_wcpay_request:ok") {
                 console.log('ok');
+                this.hasOrder = false;
               }
             });
           }
@@ -5003,6 +5138,133 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js!./node_modules/vux-loader/src/script-loader.js!./node_modules/vux-loader/src/script-loader.js!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./node_modules/vux/src/components/toast/index.vue":
+/*!*****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/vux-loader/src/script-loader.js!./node_modules/vux-loader/src/script-loader.js!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./node_modules/vux/src/components/toast/index.vue ***!
+  \*****************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mixins_safari_fix__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../mixins/safari-fix */ "./node_modules/vux/src/mixins/safari-fix.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'toast',
+  mixins: [_mixins_safari_fix__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  props: {
+    value: Boolean,
+    time: {
+      type: Number,
+      default: 2000
+    },
+    type: {
+      type: String,
+      default: 'success'
+    },
+    transition: String,
+    width: {
+      type: String,
+      default: '7.6em'
+    },
+    isShowMask: {
+      type: Boolean,
+      default: false
+    },
+    text: String,
+    position: String
+  },
+
+  data() {
+    return {
+      show: false
+    };
+  },
+
+  created() {
+    if (this.value) {
+      this.show = true;
+    }
+  },
+
+  computed: {
+    currentTransition() {
+      if (this.transition) {
+        return this.transition;
+      }
+
+      if (this.position === 'top') {
+        return 'vux-slide-from-top';
+      }
+
+      if (this.position === 'bottom') {
+        return 'vux-slide-from-bottom';
+      }
+
+      return 'vux-fade';
+    },
+
+    toastClass() {
+      return {
+        'weui-toast_forbidden': this.type === 'warn',
+        'weui-toast_cancel': this.type === 'cancel',
+        'weui-toast_success': this.type === 'success',
+        'weui-toast_text': this.type === 'text',
+        'vux-toast-top': this.position === 'top',
+        'vux-toast-bottom': this.position === 'bottom',
+        'vux-toast-middle': this.position === 'middle'
+      };
+    },
+
+    style() {
+      if (this.type === 'text' && this.width === 'auto') {
+        return {
+          padding: '10px'
+        };
+      }
+    }
+
+  },
+  watch: {
+    show(val) {
+      if (val) {
+        this.$emit('input', true);
+        this.$emit('on-show');
+        this.fixSafariOverflowScrolling('auto');
+        clearTimeout(this.timeout);
+        this.timeout = setTimeout(() => {
+          this.show = false;
+          this.$emit('input', false);
+          this.$emit('on-hide');
+          this.fixSafariOverflowScrolling('touch');
+        }, this.time);
+      }
+    },
+
+    value(val) {
+      this.show = val;
+    }
+
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js!./node_modules/vux-loader/src/script-loader.js!./node_modules/vux-loader/src/script-loader.js!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./node_modules/vux/src/components/x-button/index.vue":
 /*!********************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib!./node_modules/vux-loader/src/script-loader.js!./node_modules/vux-loader/src/script-loader.js!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./node_modules/vux/src/components/x-button/index.vue ***!
@@ -5622,7 +5884,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vux_src_components_grid_grid_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vux/src/components/grid/grid.vue */ "./node_modules/vux/src/components/grid/grid.vue");
 /* harmony import */ var vux_src_components_grid_grid_item_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vux/src/components/grid/grid-item.vue */ "./node_modules/vux/src/components/grid/grid-item.vue");
 /* harmony import */ var vux_src_components_x_button_index_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vux/src/components/x-button/index.vue */ "./node_modules/vux/src/components/x-button/index.vue");
-/* harmony import */ var weixin_jsapi__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! weixin-jsapi */ "./node_modules/weixin-jsapi/index.js");
+/* harmony import */ var vux_src_components_toast_index_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vux/src/components/toast/index.vue */ "./node_modules/vux/src/components/toast/index.vue");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_11__);
 
@@ -5648,7 +5910,8 @@ __webpack_require__.r(__webpack_exports__);
     FlexboxItem: vux_src_components_flexbox_flexbox_item_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
     Grid: vux_src_components_grid_grid_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
     GridItem: vux_src_components_grid_grid_item_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
-    XButton: vux_src_components_x_button_index_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
+    XButton: vux_src_components_x_button_index_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
+    Toast: vux_src_components_toast_index_vue__WEBPACK_IMPORTED_MODULE_10__["default"]
   },
 
   data() {
@@ -5738,18 +6001,24 @@ __webpack_require__.r(__webpack_exports__);
     },
 
     makeOrder() {
-      var params = {
-        venueTimeIds: this.selSeats
-      };
-      axios__WEBPACK_IMPORTED_MODULE_11___default.a.post('/api/venue/' + this.$route.params.id + '/order/create', params).then(response => {
-        if (response) {
-          console.log(response);
-          this.order_id = response.data.data.id;
-          this.hasOrder = true;
-        }
-      }).catch(err => {
-        console.log(err);
-      });
+      if (this.selSeats == []) {
+        Object(vux_src_components_toast_index_vue__WEBPACK_IMPORTED_MODULE_10__["default"])({
+          message: "请先选择场次"
+        });
+      } else {
+        var params = {
+          venueTimeIds: this.selSeats
+        };
+        axios__WEBPACK_IMPORTED_MODULE_11___default.a.post('/api/venue/' + this.$route.params.id + '/order/create', params).then(response => {
+          if (response) {
+            console.log(response);
+            this.order_id = response.data.data.id;
+            this.hasOrder = true;
+          }
+        }).catch(err => {
+          console.log(err);
+        });
+      }
     },
 
     payComfirm() {
@@ -5775,6 +6044,7 @@ __webpack_require__.r(__webpack_exports__);
             }, function (res) {
               if (res.err_msg == "get_brand_wcpay_request:ok") {
                 console.log('ok');
+                this.hasOrder = false;
               }
             });
           }
@@ -9349,6 +9619,25 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 // module
 exports.push([module.i, "\n.vux-header {\n    position: relative;\n    padding: 3px 0;\n    -webkit-box-sizing: border-box;\n    box-sizing: border-box;\n    background-color: #00bcd4 !important;\n}\n.orderItem{\n    min-height: 120px;\n    border-bottom: 1px #eeeeee solid;\n    padding:5px 5% 5px 5%;\n    font-size: 12px;\n}\n.orderItem p{\n    line-height: 25px;\n}\n.orderItem .waitPay{\n    color :red;\n    float:right;\n}\n.orderItem .hasPay{\n    color :#ccc;\n    float:right;\n}\n.orderItem .order-price{\n    float:right;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-14ee3e0e\",\"scoped\":false,\"hasInlineConfig\":false}!./node_modules/vux-loader/src/after-less-loader.js!./node_modules/less-loader/dist/cjs.js!./node_modules/vux-loader/src/style-loader.js!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./node_modules/vux/src/components/toast/index.vue":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/style-compiler?{"vue":true,"id":"data-v-14ee3e0e","scoped":false,"hasInlineConfig":false}!./node_modules/vux-loader/src/after-less-loader.js!./node_modules/less-loader/dist/cjs.js!./node_modules/vux-loader/src/style-loader.js!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./node_modules/vux/src/components/toast/index.vue ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.vux-fade-enter-active,\n.vux-fade-leave-active {\n  opacity: 1;\n  transition: opacity linear 0.2s;\n}\n.vux-fade-enter,\n.vux-fade-leave-to {\n  opacity: 0;\n}\n.vux-dialog-enter-active {\n  animation: vux-dialog-in 0.5s;\n}\n.vux-dialog-leave-active {\n  animation: vux-dialog-out 0.3s;\n}\n@keyframes vux-dialog-in {\n0% {\n    transform: scale(1.185);\n    opacity: 0;\n}\n100% {\n    transform: scale(1);\n    opacity: 1;\n}\n}\n@keyframes vux-dialog-out {\n0% {\n    transform: scale(1);\n    opacity: 1;\n}\n100% {\n    transform: scale(0.85);\n    opacity: 0;\n}\n}\n.vux-mask-enter,\n.vux-mask-leave-active {\n  opacity: 0;\n}\n.vux-mask-leave-active,\n.vux-mask-enter-active {\n  transition: opacity 300ms;\n}\n/**\n* actionsheet\n*/\n/**\n* en: primary type text color of menu item\n* zh-CN: 菜单项primary类型的文本颜色\n*/\n/**\n* en: warn type text color of menu item\n* zh-CN: 菜单项warn类型的文本颜色\n*/\n/**\n* en: default type text color of menu item\n* zh-CN: 菜单项default类型的文本颜色\n*/\n/**\n* en: disabled type text color of menu item\n* zh-CN: 菜单项disabled类型的文本颜色\n*/\n/**\n* datetime\n*/\n/**\n* tabbar\n*/\n/**\n* tab\n*/\n/**\n* dialog\n*/\n/**\n* en: title and content's padding-left and padding-right\n* zh-CN: 标题及内容区域的 padding-left 和 padding-right\n*/\n/**\n* x-number\n*/\n/**\n* checkbox\n*/\n/**\n* check-icon\n*/\n/**\n* Cell\n*/\n/**\n* Mask\n*/\n/**\n* Range\n*/\n/**\n* Tabbar\n*/\n/**\n* Header\n*/\n/**\n* Timeline\n*/\n/**\n* Switch\n*/\n/**\n* Button\n*/\n/**\n* en: border radius\n* zh-CN: 圆角边框\n*/\n/**\n* en: font color\n* zh-CN: 字体颜色\n*/\n/**\n* en: margin-top value between previous button, not works when there is only one button\n* zh-CN: 与相邻按钮的 margin-top 间隙，只有一个按钮时不生效\n*/\n/**\n* en: button height\n* zh-CN: 按钮高度\n*/\n/**\n* en: the font color in disabled\n* zh-CN: disabled状态下的字体颜色\n*/\n/**\n* en: the font color in disabled\n* zh-CN: disabled状态下的字体颜色\n*/\n/**\n* en: font size\n* zh-CN: 字体大小\n*/\n/**\n* en: the font size of the mini type\n* zh-CN: mini类型的字体大小\n*/\n/**\n* en: the line height of the mini type\n* zh-CN: mini类型的行高\n*/\n/**\n* en: the background color of the warn type\n* zh-CN: warn类型的背景颜色\n*/\n/**\n* en: the background color of the warn type in active\n* zh-CN: active状态下，warn类型的背景颜色\n*/\n/**\n* en: the background color of the warn type in disabled\n* zh-CN: disabled状态下，warn类型的背景颜色\n*/\n/**\n* en: the background color of the default type\n* zh-CN: default类型的背景颜色\n*/\n/**\n* en: the font color of the default type\n* zh-CN: default类型的字体颜色\n*/\n/**\n* en: the background color of the default type in active\n* zh-CN: active状态下，default类型的背景颜色\n*/\n/**\n* en: the font color of the default type in disabled\n* zh-CN: disabled状态下，default类型的字体颜色\n*/\n/**\n* en: the background color of the default type in disabled\n* zh-CN: disabled状态下，default类型的背景颜色\n*/\n/**\n* en: the font color of the default type in active\n* zh-CN: active状态下，default类型的字体颜色\n*/\n/**\n* en: the background color of the primary type\n* zh-CN: primary类型的背景颜色\n*/\n/**\n* en: the background color of the primary type in active\n* zh-CN: active状态下，primary类型的背景颜色\n*/\n/**\n* en: the background color of the primary type in disabled\n* zh-CN: disabled状态下，primary类型的背景颜色\n*/\n/**\n* en: the font color of the plain primary type\n* zh-CN: plain的primary类型的字体颜色\n*/\n/**\n* en: the border color of the plain primary type\n* zh-CN: plain的primary类型的边框颜色\n*/\n/**\n* en: the font color of the plain primary type in active\n* zh-CN: active状态下，plain的primary类型的字体颜色\n*/\n/**\n* en: the border color of the plain primary type in active\n* zh-CN: active状态下，plain的primary类型的边框颜色\n*/\n/**\n* en: the font color of the plain default type\n* zh-CN: plain的default类型的字体颜色\n*/\n/**\n* en: the border color of the plain default type\n* zh-CN: plain的default类型的边框颜色\n*/\n/**\n* en: the font color of the plain default type in active\n* zh-CN: active状态下，plain的default类型的字体颜色\n*/\n/**\n* en: the border color of the plain default type in active\n* zh-CN: active状态下，plain的default类型的边框颜色\n*/\n/**\n* en: the font color of the plain warn type\n* zh-CN: plain的warn类型的字体颜色\n*/\n/**\n* en: the border color of the plain warn type\n* zh-CN: plain的warn类型的边框颜色\n*/\n/**\n* en: the font color of the plain warn type in active\n* zh-CN: active状态下，plain的warn类型的字体颜色\n*/\n/**\n* en: the border color of the plain warn type in active\n* zh-CN: active状态下，plain的warn类型的边框颜色\n*/\n/**\n* swipeout\n*/\n/**\n* Cell\n*/\n/**\n* Badge\n*/\n/**\n* en: badge background color\n* zh-CN: badge的背景颜色\n*/\n/**\n* Popover\n*/\n/**\n* Button tab\n*/\n/**\n* en: not used\n* zh-CN: 未被使用\n*/\n/**\n* en: border radius color\n* zh-CN: 圆角边框的半径\n*/\n/**\n* en: border color\n* zh-CN: 边框的颜色\n*/\n/**\n* en: not used\n* zh-CN: 默认状态下圆角边框的颜色\n*/\n/**\n* en: not used\n* zh-CN: 未被使用\n*/\n/**\n* en: default background color\n* zh-CN: 默认状态下的背景颜色\n*/\n/**\n* en: selected background color\n* zh-CN: 选中状态下的背景颜色\n*/\n/**\n* en: not used\n* zh-CN: 未被使用\n*/\n/* alias */\n/**\n* en: not used\n* zh-CN: 未被使用\n*/\n/**\n* en: default text color\n* zh-CN: 默认状态下的文本颜色\n*/\n/**\n* en: height\n* zh-CN: 元素高度\n*/\n/**\n* en: line height\n* zh-CN: 元素行高\n*/\n/**\n* Swiper\n*/\n/**\n* checklist\n*/\n/**\n* popup-picker\n*/\n/**\n* popup\n*/\n/**\n* popup-header\n*/\n/**\n* form-preview\n*/\n/**\n* sticky\n*/\n/**\n* group\n*/\n/**\n* en: margin-top of title\n* zh-CN: 标题的margin-top\n*/\n/**\n* en: margin-bottom of title\n* zh-CN: 标题的margin-bottom\n*/\n/**\n* en: margin-top of footer title\n* zh-CN: 底部标题的margin-top\n*/\n/**\n* en: margin-bottom of footer title\n* zh-CN: 底部标题的margin-bottom\n*/\n/**\n* toast\n*/\n/**\n* en: text size of content\n* zh-CN: 内容文本大小\n*/\n/**\n* en: default top\n* zh-CN: 默认状态下距离顶部的高度\n*/\n/**\n* en: position top\n* zh-CN: 顶部显示的高度\n*/\n/**\n* en: position bottom\n* zh-CN: 底部显示的高度\n*/\n/**\n* en: z-index\n* zh-CN: z-index\n*/\n/**\n* icon\n*/\n/**\n* calendar\n*/\n/**\n* en: forward and backward arrows color\n* zh-CN: 前进后退的箭头颜色\n*/\n/**\n* en: text color of week highlight\n* zh-CN: 周末高亮的文本颜色\n*/\n/**\n* en: background color when selected\n* zh-CN: 选中时的背景颜色\n*/\n/**\n* en: text color when disabled\n* zh-CN: 禁用时的文本颜色\n*/\n/**\n* en: text color of today\n* zh-CN: 今天的文本颜色\n*/\n/**\n* en: font size of cell\n* zh-CN: 单元格的字号\n*/\n/**\n* en: background color\n* zh-CN: 背景颜色\n*/\n/**\n* en: size of date cell\n* zh-CN: 日期单元格尺寸大小\n*/\n/**\n* en: line height of date cell\n* zh-CN: 日期单元格的行高\n*/\n/**\n* en: text color of header\n* zh-CN: 头部的文本颜色\n*/\n/**\n* week-calendar\n*/\n/**\n* search\n*/\n/**\n* en: text color of cancel button\n* zh-CN: 取消按钮文本颜色\n*/\n/**\n* en: background color\n* zh-CN: 背景颜色\n*/\n/**\n* en: text color of placeholder\n* zh-CN: placeholder文本颜色\n*/\n/**\n* radio\n*/\n/**\n* en: checked icon color\n* zh-CN: 选中状态的图标颜色\n*/\n/**\n* loadmore\n*/\n/**\n* en: not used\n* zh-CN: 未被使用\n*/\n/**\n* loading\n*/\n/**\n* en: z-index\n* zh-CN: z-index\n*/\n.weui-mask {\n  position: fixed;\n  z-index: 1000;\n  top: 0;\n  right: 0;\n  left: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.6);\n}\n.weui-mask_transparent {\n  position: fixed;\n  z-index: 1000;\n  top: 0;\n  right: 0;\n  left: 0;\n  bottom: 0;\n}\n@font-face {\n  font-weight: normal;\n  font-style: normal;\n  font-family: \"weui\";\n  src: url('data:application/octet-stream;base64,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') format('truetype');\n}\n[class^=\"weui-icon-\"],\n[class*=\" weui-icon-\"] {\n  display: inline-block;\n  vertical-align: middle;\n  font: normal normal normal 14px/1 \"weui\";\n  font-size: inherit;\n  text-rendering: auto;\n  -webkit-font-smoothing: antialiased;\n}\n[class^=\"weui-icon-\"]:before,\n[class*=\" weui-icon-\"]:before {\n  display: inline-block;\n  margin-left: 0.2em;\n  margin-right: 0.2em;\n}\n.weui-icon-circle:before {\n  content: \"\\EA01\";\n}\n/* '' */\n.weui-icon-download:before {\n  content: \"\\EA02\";\n}\n/* '' */\n.weui-icon-info:before {\n  content: \"\\EA03\";\n}\n/* '' */\n.weui-icon-safe-success:before {\n  content: \"\\EA04\";\n}\n/* '' */\n.weui-icon-safe-warn:before {\n  content: \"\\EA05\";\n}\n/* '' */\n.weui-icon-success:before {\n  content: \"\\EA06\";\n}\n/* '' */\n.weui-icon-success-circle:before {\n  content: \"\\EA07\";\n}\n/* '' */\n.weui-icon-success-no-circle:before {\n  content: \"\\EA08\";\n}\n/* '' */\n.weui-icon-waiting:before {\n  content: \"\\EA09\";\n}\n/* '' */\n.weui-icon-waiting-circle:before {\n  content: \"\\EA0A\";\n}\n/* '' */\n.weui-icon-warn:before {\n  content: \"\\EA0B\";\n}\n/* '' */\n.weui-icon-info-circle:before {\n  content: \"\\EA0C\";\n}\n/* '' */\n.weui-icon-cancel:before {\n  content: \"\\EA0D\";\n}\n/* '' */\n.weui-icon-search:before {\n  content: \"\\EA0E\";\n}\n/* '' */\n.weui-icon-clear:before {\n  content: \"\\EA0F\";\n}\n/* '' */\n.weui-icon-back:before {\n  content: \"\\EA10\";\n}\n/* '' */\n.weui-icon-delete:before {\n  content: \"\\EA11\";\n}\n/* '' */\n[class^=\"weui-icon_\"]:before,\n[class*=\" weui-icon_\"]:before {\n  margin: 0;\n}\n.weui-icon-success {\n  font-size: 23px;\n  color: #09BB07;\n}\n.weui-icon-waiting {\n  font-size: 23px;\n  color: #10AEFF;\n}\n.weui-icon-warn {\n  font-size: 23px;\n  color: #F43530;\n}\n.weui-icon-info {\n  font-size: 23px;\n  color: #10AEFF;\n}\n.weui-icon-success-circle {\n  font-size: 23px;\n  color: #09BB07;\n}\n.weui-icon-success-no-circle {\n  font-size: 23px;\n  color: #09BB07;\n}\n.weui-icon-waiting-circle {\n  font-size: 23px;\n  color: #10AEFF;\n}\n.weui-icon-circle {\n  font-size: 23px;\n  color: #C9C9C9;\n}\n.weui-icon-download {\n  font-size: 23px;\n  color: #09BB07;\n}\n.weui-icon-info-circle {\n  font-size: 23px;\n  color: #09BB07;\n}\n.weui-icon-safe-success {\n  color: #09BB07;\n}\n.weui-icon-safe-warn {\n  color: #FFBE00;\n}\n.weui-icon-cancel {\n  color: #F43530;\n  font-size: 22px;\n}\n.weui-icon-search {\n  color: #B2B2B2;\n  font-size: 14px;\n}\n.weui-icon-clear {\n  color: #B2B2B2;\n  font-size: 14px;\n}\n.weui-icon-delete.weui-icon_gallery-delete {\n  color: #FFFFFF;\n  font-size: 22px;\n}\n.weui-icon_msg {\n  font-size: 93px;\n}\n.weui-icon_msg.weui-icon-warn {\n  color: #F76260;\n}\n.weui-icon_msg-primary {\n  font-size: 93px;\n}\n.weui-icon_msg-primary.weui-icon-warn {\n  color: #FFBE00;\n}\n.weui-toast {\n  position: fixed;\n  z-index: 5001;\n  width: 7.6em;\n  min-height: 7.6em;\n  top: 180px;\n  left: 50%;\n  margin-left: -3.8em;\n  background: rgba(17, 17, 17, 0.7);\n  text-align: center;\n  border-radius: 5px;\n  color: #FFFFFF;\n}\n.weui-icon_toast {\n  margin: 22px 0 0;\n  display: block;\n}\n.weui-icon_toast.weui-icon-success-no-circle:before {\n  color: #FFFFFF;\n  font-size: 55px;\n}\n.weui-icon_toast.weui-loading {\n  margin: 30px 0 0;\n  width: 38px;\n  height: 38px;\n  vertical-align: baseline;\n}\n.weui-toast__content {\n  margin: 0 0 15px;\n}\n.weui-toast.vux-toast-top {\n  top: 10px;\n}\n.weui-toast.vux-toast-bottom {\n  top: auto;\n  bottom: 10px;\n  transform: translateX(-50%);\n}\n.weui-toast.vux-toast-middle {\n  top: 50%;\n  transform: translateX(-50%) translateY(-50%);\n}\n.vux-slide-from-top-enter,\n.vux-slide-from-top-leave-active {\n  opacity: 0;\n  transform: translateX(-50%) translateY(-100%) !important;\n}\n.vux-slide-from-bottom-enter,\n.vux-slide-from-bottom-leave-active {\n  opacity: 0;\n  transform: translateX(-50%) translateY(100%) !important;\n}\n.vux-slide-from-top-enter-active,\n.vux-slide-from-top-leave-active,\n.vux-slide-from-bottom-enter-active,\n.vux-slide-from-bottom-leave-active {\n  transition: all 400ms cubic-bezier(0.36, 0.66, 0.04, 1);\n}\n.weui-toast {\n  transform: translateX(-50%);\n  margin-left: 0!important;\n}\n.weui-toast.weui-toast_forbidden {\n  color: #F76260;\n}\n.weui-toast.weui-toast_forbidden .weui-toast__content {\n  margin-top: 10px;\n}\n.weui-toast.weui-toast_text {\n  min-height: 0;\n}\n.weui-toast_text .weui-toast__content {\n  margin: 0;\n  padding-top: 10px;\n  padding-bottom: 10px;\n  border-radius: 15px;\n}\n.weui-toast__content {\n  font-size: 16px;\n}\n.weui-loading_toast .weui-toast__content {\n  margin-top: 0;\n}\n.weui-toast_success .weui-icon_toast:before {\n  content: \"\\EA08\";\n}\n.weui-toast_cancel .weui-icon_toast:before {\n  content: \"\\EA0D\";\n}\n.weui-toast_forbidden .weui-icon_toast.weui-icon-success-no-circle:before {\n  content: \"\\EA0B\";\n  color: #F76260;\n}\n", ""]);
 
 // exports
 
@@ -28761,6 +29050,91 @@ if (false) {}
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-14ee3e0e\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vux-loader/src/before-template-compiler-loader.js!./node_modules/vux-loader/src/template-loader.js!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./node_modules/vux/src/components/toast/index.vue":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-14ee3e0e","hasScoped":false,"buble":{"transforms":{}}}!./node_modules/vux-loader/src/before-template-compiler-loader.js!./node_modules/vux-loader/src/template-loader.js!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./node_modules/vux/src/components/toast/index.vue ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "vux-toast" },
+    [
+      _c("div", {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.isShowMask && _vm.show,
+            expression: "isShowMask && show"
+          }
+        ],
+        staticClass: "weui-mask_transparent"
+      }),
+      _vm._v(" "),
+      _c("transition", { attrs: { name: _vm.currentTransition } }, [
+        _c(
+          "div",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.show,
+                expression: "show"
+              }
+            ],
+            staticClass: "weui-toast",
+            class: _vm.toastClass,
+            style: { width: _vm.width }
+          },
+          [
+            _c("i", {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.type !== "text",
+                  expression: "type !== 'text'"
+                }
+              ],
+              staticClass: "weui-icon-success-no-circle weui-icon_toast"
+            }),
+            _vm._v(" "),
+            _vm.text
+              ? _c("p", {
+                  staticClass: "weui-toast__content",
+                  style: _vm.style,
+                  domProps: { innerHTML: _vm._s(_vm.text) }
+                })
+              : _c(
+                  "p",
+                  { staticClass: "weui-toast__content", style: _vm.style },
+                  [_vm._t("default")],
+                  2
+                )
+          ]
+        )
+      ])
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["default"] = (esExports);
+if (false) {}
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-1dba7a06\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vux-loader/src/before-template-compiler-loader.js!./node_modules/vux-loader/src/template-loader.js!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./node_modules/vux/src/components/tab/tab-item.vue":
 /*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-1dba7a06","hasScoped":false,"buble":{"transforms":{}}}!./node_modules/vux-loader/src/before-template-compiler-loader.js!./node_modules/vux-loader/src/template-loader.js!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./node_modules/vux/src/components/tab/tab-item.vue ***!
@@ -33518,6 +33892,26 @@ if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var update = __webpack_require__(/*! ../../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js")("72d787aa", content, false, {});
+// Hot Module Replacement
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-14ee3e0e\",\"scoped\":false,\"hasInlineConfig\":false}!./node_modules/vux-loader/src/after-less-loader.js!./node_modules/less-loader/dist/cjs.js!./node_modules/vux-loader/src/style-loader.js!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./node_modules/vux/src/components/toast/index.vue":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/style-compiler?{"vue":true,"id":"data-v-14ee3e0e","scoped":false,"hasInlineConfig":false}!./node_modules/vux-loader/src/after-less-loader.js!./node_modules/less-loader/dist/cjs.js!./node_modules/vux-loader/src/style-loader.js!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./node_modules/vux/src/components/toast/index.vue ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !../../../../css-loader!../../../../vue-loader/lib/style-compiler?{"vue":true,"id":"data-v-14ee3e0e","scoped":false,"hasInlineConfig":false}!../../../../vux-loader/src/after-less-loader.js!../../../../less-loader/dist/cjs.js!../../../../vux-loader/src/style-loader.js!../../../../vue-loader/lib/selector.js?type=styles&index=0!./index.vue */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-14ee3e0e\",\"scoped\":false,\"hasInlineConfig\":false}!./node_modules/vux-loader/src/after-less-loader.js!./node_modules/less-loader/dist/cjs.js!./node_modules/vux-loader/src/style-loader.js!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./node_modules/vux/src/components/toast/index.vue");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(/*! ../../../../vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js")("56db279c", content, false, {});
 // Hot Module Replacement
 if(false) {}
 
@@ -46966,6 +47360,55 @@ if (false) {}
 
 /***/ }),
 
+/***/ "./node_modules/vux/src/components/toast/index.vue":
+/*!*********************************************************!*\
+  !*** ./node_modules/vux/src/components/toast/index.vue ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_loader_vux_loader_src_script_loader_js_vux_loader_src_script_loader_js_vue_loader_lib_selector_type_script_index_0_index_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !babel-loader!../../../../vux-loader/src/script-loader.js!../../../../vux-loader/src/script-loader.js!../../../../vue-loader/lib/selector?type=script&index=0!./index.vue */ "./node_modules/babel-loader/lib/index.js!./node_modules/vux-loader/src/script-loader.js!./node_modules/vux-loader/src/script-loader.js!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./node_modules/vux/src/components/toast/index.vue");
+/* empty/unused harmony star reexport *//* harmony import */ var _babel_loader_vux_loader_src_script_loader_js_vue_loader_lib_selector_type_script_index_0_index_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !babel-loader!../../../../vux-loader/src/script-loader.js!../../../../vue-loader/lib/selector?type=script&index=0!./index.vue */ "./node_modules/babel-loader/lib/index.js!./node_modules/vux-loader/src/script-loader.js!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./node_modules/vux/src/components/toast/index.vue");
+/* harmony import */ var _vue_loader_lib_template_compiler_index_id_data_v_14ee3e0e_hasScoped_false_buble_transforms_vux_loader_src_before_template_compiler_loader_js_vux_loader_src_template_loader_js_vue_loader_lib_selector_type_template_index_0_index_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../vue-loader/lib/template-compiler/index?{"id":"data-v-14ee3e0e","hasScoped":false,"buble":{"transforms":{}}}!../../../../vux-loader/src/before-template-compiler-loader.js!../../../../vux-loader/src/template-loader.js!../../../../vue-loader/lib/selector?type=template&index=0!./index.vue */ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-14ee3e0e\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vux-loader/src/before-template-compiler-loader.js!./node_modules/vux-loader/src/template-loader.js!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./node_modules/vux/src/components/toast/index.vue");
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(/*! !vue-style-loader!css-loader!../../../../vue-loader/lib/style-compiler/index?{"vue":true,"id":"data-v-14ee3e0e","scoped":false,"hasInlineConfig":false}!../../../../vux-loader/src/after-less-loader.js!less-loader!../../../../vux-loader/src/style-loader.js!../../../../vue-loader/lib/selector?type=styles&index=0!./index.vue */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-14ee3e0e\",\"scoped\":false,\"hasInlineConfig\":false}!./node_modules/vux-loader/src/after-less-loader.js!./node_modules/less-loader/dist/cjs.js!./node_modules/vux-loader/src/style-loader.js!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./node_modules/vux/src/components/toast/index.vue")
+}
+var normalizeComponent = __webpack_require__(/*! ../../../../vue-loader/lib/component-normalizer */ "./node_modules/vue-loader/lib/component-normalizer.js")
+/* script */
+
+
+/* template */
+
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  _babel_loader_vux_loader_src_script_loader_js_vue_loader_lib_selector_type_script_index_0_index_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+  _vue_loader_lib_template_compiler_index_id_data_v_14ee3e0e_hasScoped_false_buble_transforms_vux_loader_src_before_template_compiler_loader_js_vux_loader_src_template_loader_js_vue_loader_lib_selector_type_template_index_0_index_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "node_modules/vux/src/components/toast/index.vue"
+
+/* hot reload */
+if (false) {}
+
+/* harmony default export */ __webpack_exports__["default"] = (Component.exports);
+
+
+/***/ }),
+
 /***/ "./node_modules/vux/src/components/x-button/index.vue":
 /*!************************************************************!*\
   !*** ./node_modules/vux/src/components/x-button/index.vue ***!
@@ -47234,6 +47677,34 @@ const childMixin = {
 
 /***/ }),
 
+/***/ "./node_modules/vux/src/mixins/safari-fix.js":
+/*!***************************************************!*\
+  !*** ./node_modules/vux/src/mixins/safari-fix.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted() {
+    this.$overflowScrollingList = document.querySelectorAll('.vux-fix-safari-overflow-scrolling');
+  },
+
+  methods: {
+    fixSafariOverflowScrolling(type) {
+      if (!this.$overflowScrollingList.length) return; // if (!/iphone/i.test(navigator.userAgent)) return
+
+      for (let i = 0; i < this.$overflowScrollingList.length; i++) {
+        this.$overflowScrollingList[i].style.webkitOverflowScrolling = type;
+      }
+    }
+
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/vux/src/mixins/uuid.js":
 /*!*********************************************!*\
   !*** ./node_modules/vux/src/mixins/uuid.js ***!
@@ -47312,401 +47783,6 @@ module.exports = function(module) {
 	}
 	return module;
 };
-
-
-/***/ }),
-
-/***/ "./node_modules/weixin-jsapi/index.js":
-/*!********************************************!*\
-  !*** ./node_modules/weixin-jsapi/index.js ***!
-  \********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-!function (a, b) {
-    function c(b, c, d) {
-        a.WeixinJSBridge ? WeixinJSBridge.invoke(b, e(c), function (a) {
-            g(b, a, d)
-        }) : j(b, d)
-    }
-
-    function d(b, c, d) {
-        a.WeixinJSBridge ? WeixinJSBridge.on(b, function (a) {
-            d && d.trigger && d.trigger(a), g(b, a, c)
-        }) : d ? j(b, d) : j(b, c)
-    }
-
-    function e(a) {
-        return a = a || {}, a.appId = z.appId, a.verifyAppId = z.appId, a.verifySignType = "sha1", a.verifyTimestamp = z.timestamp + "", a.verifyNonceStr = z.nonceStr, a.verifySignature = z.signature, a
-    }
-
-    function f(a) {
-        return {
-            timeStamp: a.timestamp + "",
-            nonceStr: a.nonceStr,
-            "package": a.package,
-            paySign: a.paySign,
-            signType: a.signType || "SHA1"
-        }
-    }
-
-    function g(a, b, c) {
-        var d, e, f;
-        switch (delete b.err_code, delete b.err_desc, delete b.err_detail, d = b.errMsg, d || (d = b.err_msg, delete b.err_msg, d = h(a, d, c), b.errMsg = d), c = c || {}, c._complete && (c._complete(b), delete c._complete), d = b.errMsg || "", z.debug && !c.isInnerInvoke && alert(JSON.stringify(b)), e = d.indexOf(":"), f = d.substring(e + 1)) {
-            case"ok":
-                c.success && c.success(b);
-                break;
-            case"cancel":
-                c.cancel && c.cancel(b);
-                break;
-            default:
-                c.fail && c.fail(b)
-        }
-        c.complete && c.complete(b)
-    }
-
-    function h(a, b) {
-        var d, e, f, g;
-        if (b) {
-            switch (d = b.indexOf(":"), a) {
-                case o.config:
-                    e = "config";
-                    break;
-                case o.openProductSpecificView:
-                    e = "openProductSpecificView";
-                    break;
-                default:
-                    e = b.substring(0, d), e = e.replace(/_/g, " "), e = e.replace(/\b\w+\b/g, function (a) {
-                        return a.substring(0, 1).toUpperCase() + a.substring(1)
-                    }), e = e.substring(0, 1).toLowerCase() + e.substring(1), e = e.replace(/ /g, ""), -1 != e.indexOf("Wcpay") && (e = e.replace("Wcpay", "WCPay")), f = p[e], f && (e = f)
-            }
-            g = b.substring(d + 1), "confirm" == g && (g = "ok"), "failed" == g && (g = "fail"), -1 != g.indexOf("failed_") && (g = g.substring(7)), -1 != g.indexOf("fail_") && (g = g.substring(5)), g = g.replace(/_/g, " "), g = g.toLowerCase(), ("access denied" == g || "no permission to execute" == g) && (g = "permission denied"), "config" == e && "function not exist" == g && (g = "ok"), b = e + ":" + g
-        }
-        return b
-    }
-
-    function i(a) {
-        var b, c, d, e;
-        if (a) {
-            for (b = 0, c = a.length; c > b; ++b)d = a[b], e = o[d], e && (a[b] = e);
-            return a
-        }
-    }
-
-    function j(a, b) {
-        if (!(!z.debug || b && b.isInnerInvoke)) {
-            var c = p[a];
-            c && (a = c), b && b._complete && delete b._complete, console.log('"' + a + '",', b || "")
-        }
-    }
-
-    function k() {
-        if (!("6.0.2" > w || y.systemType < 0)) {
-            var b = new Image;
-            y.appId = z.appId, y.initTime = x.initEndTime - x.initStartTime, y.preVerifyTime = x.preVerifyEndTime - x.preVerifyStartTime, C.getNetworkType({
-                isInnerInvoke: !0,
-                success: function (a) {
-                    y.networkType = a.networkType;
-                    var c = "https://open.weixin.qq.com/sdk/report?v=" + y.version + "&o=" + y.isPreVerifyOk + "&s=" + y.systemType + "&c=" + y.clientVersion + "&a=" + y.appId + "&n=" + y.networkType + "&i=" + y.initTime + "&p=" + y.preVerifyTime + "&u=" + y.url;
-                    b.src = c
-                }
-            })
-        }
-    }
-
-    function l() {
-        return (new Date).getTime()
-    }
-
-    function m(b) {
-        t && (a.WeixinJSBridge ? b() : q.addEventListener && q.addEventListener("WeixinJSBridgeReady", b, !1))
-    }
-
-    function n() {
-        C.invoke || (C.invoke = function (b, c, d) {
-            a.WeixinJSBridge && WeixinJSBridge.invoke(b, e(c), d)
-        }, C.on = function (b, c) {
-            a.WeixinJSBridge && WeixinJSBridge.on(b, c)
-        })
-    }
-
-    var o, p, q, r, s, t, u, v, w, x, y, z, A, B, C;
-    if (!a.jWeixin)return o = {
-        config: "preVerifyJSAPI",
-        onMenuShareTimeline: "menu:share:timeline",
-        onMenuShareAppMessage: "menu:share:appmessage",
-        onMenuShareQQ: "menu:share:qq",
-        onMenuShareWeibo: "menu:share:weiboApp",
-        onMenuShareQZone: "menu:share:QZone",
-        previewImage: "imagePreview",
-        getLocation: "geoLocation",
-        openProductSpecificView: "openProductViewWithPid",
-        addCard: "batchAddCard",
-        openCard: "batchViewCard",
-        chooseWXPay: "getBrandWCPayRequest"
-    }, p = function () {
-        var b, a = {};
-        for (b in o)a[o[b]] = b;
-        return a
-    }(), q = a.document,
-        r = q.title,
-        s = navigator.userAgent.toLowerCase(), t = -1 != s.indexOf("micromessenger"), u = -1 != s.indexOf("android"), v = -1 != s.indexOf("iphone") || -1 != s.indexOf("ipad"), w = function () {
-        var a = s.match(/micromessenger\/(\d+\.\d+\.\d+)/) || s.match(/micromessenger\/(\d+\.\d+)/);
-        return a ? a[1] : ""
-    }(), x = {initStartTime: l(), initEndTime: 0, preVerifyStartTime: 0, preVerifyEndTime: 0}, y = {
-        version: 1,
-        appId: "",
-        initTime: 0,
-        preVerifyTime: 0,
-        networkType: "",
-        isPreVerifyOk: 1,
-        systemType: v ? 1 : u ? 2 : -1,
-        clientVersion: w,
-        url: encodeURIComponent(location.href)
-    }, z = {}, A = {_completes: []}, B = {state: 0, res: {}}, m(function () {
-        x.initEndTime = l()
-    }), C = {
-        config: function (a) {
-            z = a, j("config", a);
-            var b = z.check === !1 ? !1 : !0;
-            m(function () {
-                var a, d, e;
-                if (b)c(o.config, {verifyJsApiList: i(z.jsApiList)}, function () {
-                    A._complete = function (a) {
-                        x.preVerifyEndTime = l(), B.state = 1, B.res = a
-                    }, A.success = function () {
-                        y.isPreVerifyOk = 0
-                    }, A.fail = function (a) {
-                        A._fail ? A._fail(a) : B.state = -1
-                    };
-                    var a = A._completes;
-                    return a.push(function () {
-                        z.debug || k()
-                    }), A.complete = function () {
-                        for (var c = 0, d = a.length; d > c; ++c)a[c]();
-                        A._completes = []
-                    }, A
-                }()), x.preVerifyStartTime = l(); else {
-                    for (B.state = 1, a = A._completes, d = 0, e = a.length; e > d; ++d)a[d]();
-                    A._completes = []
-                }
-            }), z.beta && n()
-        }, ready: function (a) {
-            0 != B.state ? a() : (A._completes.push(a), !t && z.debug && a())
-        }, error: function (a) {
-            "6.0.2" > w || (-1 == B.state ? a(B.res) : A._fail = a)
-        }, checkJsApi: function (a) {
-            var b = function (a) {
-                var c, d, b = a.checkResult;
-                for (c in b)d = p[c], d && (b[d] = b[c], delete b[c]);
-                return a
-            };
-            c("checkJsApi", {jsApiList: i(a.jsApiList)}, function () {
-                return a._complete = function (a) {
-                    if (u) {
-                        var c = a.checkResult;
-                        c && (a.checkResult = JSON.parse(c))
-                    }
-                    a = b(a)
-                }, a
-            }())
-        }, onMenuShareTimeline: function (a) {
-            d(o.onMenuShareTimeline, {
-                complete: function () {
-                    c("shareTimeline", {
-                        title: a.title || r,
-                        desc: a.title || r,
-                        img_url: a.imgUrl || "",
-                        link: a.link || location.href
-                    }, a)
-                }
-            }, a)
-        }, onMenuShareAppMessage: function (a) {
-            d(o.onMenuShareAppMessage, {
-                complete: function () {
-                    c("sendAppMessage", {
-                        title: a.title || r,
-                        desc: a.desc || "",
-                        link: a.link || location.href,
-                        img_url: a.imgUrl || "",
-                        type: a.type || "link",
-                        data_url: a.dataUrl || ""
-                    }, a)
-                }
-            }, a)
-        }, onMenuShareQQ: function (a) {
-            d(o.onMenuShareQQ, {
-                complete: function () {
-                    c("shareQQ", {
-                        title: a.title || r,
-                        desc: a.desc || "",
-                        img_url: a.imgUrl || "",
-                        link: a.link || location.href
-                    }, a)
-                }
-            }, a)
-        }, onMenuShareWeibo: function (a) {
-            d(o.onMenuShareWeibo, {
-                complete: function () {
-                    c("shareWeiboApp", {
-                        title: a.title || r,
-                        desc: a.desc || "",
-                        img_url: a.imgUrl || "",
-                        link: a.link || location.href
-                    }, a)
-                }
-            }, a)
-        }, onMenuShareQZone: function (a) {
-            d(o.onMenuShareQZone, {
-                complete: function () {
-                    c("shareQZone", {
-                        title: a.title || r,
-                        desc: a.desc || "",
-                        img_url: a.imgUrl || "",
-                        link: a.link || location.href
-                    }, a)
-                }
-            }, a)
-        }, startRecord: function (a) {
-            c("startRecord", {}, a)
-        }, stopRecord: function (a) {
-            c("stopRecord", {}, a)
-        }, onVoiceRecordEnd: function (a) {
-            d("onVoiceRecordEnd", a)
-        }, playVoice: function (a) {
-            c("playVoice", {localId: a.localId}, a)
-        }, pauseVoice: function (a) {
-            c("pauseVoice", {localId: a.localId}, a)
-        }, stopVoice: function (a) {
-            c("stopVoice", {localId: a.localId}, a)
-        }, onVoicePlayEnd: function (a) {
-            d("onVoicePlayEnd", a)
-        }, uploadVoice: function (a) {
-            c("uploadVoice", {localId: a.localId, isShowProgressTips: 0 == a.isShowProgressTips ? 0 : 1}, a)
-        }, downloadVoice: function (a) {
-            c("downloadVoice", {serverId: a.serverId, isShowProgressTips: 0 == a.isShowProgressTips ? 0 : 1}, a)
-        }, translateVoice: function (a) {
-            c("translateVoice", {localId: a.localId, isShowProgressTips: 0 == a.isShowProgressTips ? 0 : 1}, a)
-        }, chooseImage: function (a) {
-            c("chooseImage", {
-                scene: "1|2",
-                count: a.count || 9,
-                sizeType: a.sizeType || ["original", "compressed"],
-                sourceType: a.sourceType || ["album", "camera"]
-            }, function () {
-                return a._complete = function (a) {
-                    if (u) {
-                        var b = a.localIds;
-                        b && (a.localIds = JSON.parse(b))
-                    }
-                }, a
-            }())
-        }, previewImage: function (a) {
-            c(o.previewImage, {current: a.current, urls: a.urls}, a)
-        }, uploadImage: function (a) {
-            c("uploadImage", {localId: a.localId, isShowProgressTips: 0 == a.isShowProgressTips ? 0 : 1}, a)
-        }, downloadImage: function (a) {
-            c("downloadImage", {serverId: a.serverId, isShowProgressTips: 0 == a.isShowProgressTips ? 0 : 1}, a)
-        }, getNetworkType: function (a) {
-            var b = function (a) {
-                var c, d, e, b = a.errMsg;
-                if (a.errMsg = "getNetworkType:ok", c = a.subtype, delete a.subtype, c)a.networkType = c; else switch (d = b.indexOf(":"), e = b.substring(d + 1)) {
-                    case"wifi":
-                    case"edge":
-                    case"wwan":
-                        a.networkType = e;
-                        break;
-                    default:
-                        a.errMsg = "getNetworkType:fail"
-                }
-                return a
-            };
-            c("getNetworkType", {}, function () {
-                return a._complete = function (a) {
-                    a = b(a)
-                }, a
-            }())
-        }, openLocation: function (a) {
-            c("openLocation", {
-                latitude: a.latitude,
-                longitude: a.longitude,
-                name: a.name || "",
-                address: a.address || "",
-                scale: a.scale || 28,
-                infoUrl: a.infoUrl || ""
-            }, a)
-        }, getLocation: function (a) {
-            a = a || {}, c(o.getLocation, {type: a.type || "wgs84"}, function () {
-                return a._complete = function (a) {
-                    delete a.type
-                }, a
-            }())
-        }, hideOptionMenu: function (a) {
-            c("hideOptionMenu", {}, a)
-        }, showOptionMenu: function (a) {
-            c("showOptionMenu", {}, a)
-        }, closeWindow: function (a) {
-            a = a || {}, c("closeWindow", {immediate_close: a.immediateClose || 0}, a)
-        }, hideMenuItems: function (a) {
-            c("hideMenuItems", {menuList: a.menuList}, a)
-        }, showMenuItems: function (a) {
-            c("showMenuItems", {menuList: a.menuList}, a)
-        }, hideAllNonBaseMenuItem: function (a) {
-            c("hideAllNonBaseMenuItem", {}, a)
-        }, showAllNonBaseMenuItem: function (a) {
-            c("showAllNonBaseMenuItem", {}, a)
-        }, scanQRCode: function (a) {
-            a = a || {}, c("scanQRCode", {
-                needResult: a.needResult || 0,
-                scanType: a.scanType || ["qrCode", "barCode"]
-            }, function () {
-                return a._complete = function (a) {
-                    var b, c;
-                    v && (b = a.resultStr, b && (c = JSON.parse(b), a.resultStr = c && c.scan_code && c.scan_code.scan_result))
-                }, a
-            }())
-        }, openProductSpecificView: function (a) {
-            c(o.openProductSpecificView, {pid: a.productId, view_type: a.viewType || 0}, a)
-        }, addCard: function (a) {
-            var e, f, g, h, b = a.cardList, d = [];
-            for (e = 0, f = b.length; f > e; ++e)g = b[e], h = {card_id: g.cardId, card_ext: g.cardExt}, d.push(h);
-            c(o.addCard, {card_list: d}, function () {
-                return a._complete = function (a) {
-                    var c, d, e, b = a.card_list;
-                    if (b) {
-                        for (b = JSON.parse(b), c = 0, d = b.length; d > c; ++c)e = b[c], e.cardId = e.card_id, e.cardExt = e.card_ext, e.isSuccess = e.is_succ ? !0 : !1, delete e.card_id, delete e.card_ext, delete e.is_succ;
-                        a.cardList = b, delete a.card_list
-                    }
-                }, a
-            }())
-        }, chooseCard: function (a) {
-            c("chooseCard", {
-                app_id: z.appId,
-                location_id: a.shopId || "",
-                sign_type: a.signType || "SHA1",
-                card_id: a.cardId || "",
-                card_type: a.cardType || "",
-                card_sign: a.cardSign,
-                time_stamp: a.timestamp + "",
-                nonce_str: a.nonceStr
-            }, function () {
-                return a._complete = function (a) {
-                    a.cardList = a.choose_card_info, delete a.choose_card_info
-                }, a
-            }())
-        }, openCard: function (a) {
-            var e, f, g, h, b = a.cardList, d = [];
-            for (e = 0, f = b.length; f > e; ++e)g = b[e], h = {card_id: g.cardId, code: g.code}, d.push(h);
-            c(o.openCard, {card_list: d}, a)
-        }, chooseWXPay: function (a) {
-            c(o.chooseWXPay, f(a), a)
-        }
-    }, b && (a.wx = a.jWeixin = C), C
-}(window,!0);
-
-/* harmony default export */ __webpack_exports__["default"] = (window.wx);
 
 
 /***/ }),

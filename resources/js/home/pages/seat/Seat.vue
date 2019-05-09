@@ -172,8 +172,7 @@
 
 </template>
 <script>
-import { XHeader,Tab,TabItem,Swiper, SwiperItem, Flexbox,FlexboxItem,Grid, GridItem, XButton} from 'vux'
-import wx from 'weixin-jsapi'
+import { XHeader,Tab,TabItem,Swiper, SwiperItem, Flexbox,FlexboxItem,Grid, GridItem, XButton,Toast} from 'vux'
 import axios from 'axios'
 export default {
     components: {
@@ -187,6 +186,7 @@ export default {
         Grid, 
         GridItem,
         XButton,
+        Toast
     },
     data(){
         return{
@@ -277,19 +277,26 @@ export default {
 
         //创建订单
         makeOrder(){
-           var params ={
-               venueTimeIds: this.selSeats
-           }
-          axios.post('/api/venue/'+this.$route.params.id+'/order/create',params).then(response=>{
-              if (response){
-                  console.log(response);
-                  this.order_id = response.data.data.id;
-                  this.hasOrder = true;
-              }
+            if (this.selSeats == []) {
+                Toast({
+                    message:"请先选择场次"
+                });
+            }else{
+                var params ={
+                    venueTimeIds: this.selSeats
+                }
+                axios.post('/api/venue/'+this.$route.params.id+'/order/create',params).then(response=>{
+                    if (response){
+                        console.log(response);
+                        this.order_id = response.data.data.id;
+                        this.hasOrder = true;
+                    }
 
-          }).catch(err=>{
-              console.log(err);
-          })
+                }).catch(err=>{
+                    console.log(err);
+                })
+            }
+
         },
 
         //支付
@@ -311,6 +318,7 @@ export default {
                             function(res){
                                 if(res.err_msg == "get_brand_wcpay_request:ok" ){
                                     console.log('ok')
+                                    this.hasOrder = false;
                                     // 使用以上方式判断前端返回,微信团队郑重提示：
                                     //res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
                                 }
@@ -326,25 +334,7 @@ export default {
                     }else{
                         onBridgeReady();
                     }
-                    // wx.ready(function () {
-                    //     wx.chooseWXPay({
-                    //         appId:response.data.data.appId,
-                    //         timeStamp:response.data.data.timeStamp,// 支付签名时间戳
-                    //         nonceStr:response.data.data.nonceStr,// 支付签名随机串，不长于 32
-                    //         package:response.data.data.package,// 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=\*\*\*）
-                    //         paySign:response.data.data.paySign,// 支付签名
-                    //         signType:response.data.data.signType,// 签名方式
-                    //         success:function (res) {
-                    //             console.log('success',res);
-                    //         },
-                    //         cancel:function (res) {
-                    //             console.log('取消支付')
-                    //         },
-                    //         fail:function (res) {
-                    //             console.log('支付失败')
-                    //         }
-                    //     })
-                    // })
+
                 }else {
                     console.log('获取支付信息失败，请重试')
                 }
