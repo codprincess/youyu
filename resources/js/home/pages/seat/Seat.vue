@@ -161,7 +161,7 @@
                         </flexbox-item>
                         <flexbox-item >
                             <div class="pay">
-                                <x-button mini type="primary">去支付</x-button>
+                                <x-button mini type="primary" @click.native="payComfirm()">去支付</x-button>
                             </div>
                         </flexbox-item>
                     </flexbox>
@@ -281,26 +281,34 @@ export default {
                venueTimeIds: this.selSeats
            }
           axios.post('/api/venue/'+this.$route.params.id+'/order/create',params).then(response=>{
-              console.log(response);
-              this.hasOrder = true;
-          })
-        },
+              if (response){
+                  console.log(response);
+                  this.order_id = response.data.data.id;
+                  this.hasOrder = true;
+              }
 
-        //获取配置
-        getConfig(){
-            axios.post('api/wx/pay/unifiedOrder/{order}').then(response=>{
-                console.log(response)
-            })
+          }).catch(err=>{
+              console.log(err);
+          })
         },
 
         //支付
         payComfirm(){
-            console.log('11111111');
-            this.hasOrder = true;
-            // if(this.selMoney){
-            //
-            // }
-        }
+            axios.post('api/wx/pay/unifiedOrder/'+this.order_id).then(response=>{
+                console.log(response)
+            }).catch(err=>{
+                console.log(err);
+            })
+        },
+
+        //支付
+        // payComfirm(){
+        //     console.log('11111111');
+        //     this.hasOrder = true;
+        //     // if(this.selMoney){
+        //     //
+        //     // }
+        // }
     }
 }
 </script>

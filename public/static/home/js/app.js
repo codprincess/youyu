@@ -3718,20 +3718,22 @@ __webpack_require__.r(__webpack_exports__);
         venueTimeIds: this.selSeats
       };
       axios__WEBPACK_IMPORTED_MODULE_11___default.a.post('/api/venue/' + this.$route.params.id + '/order/create', params).then(response => {
-        console.log(response);
-        this.hasOrder = true;
-      });
-    },
-
-    getConfig() {
-      axios__WEBPACK_IMPORTED_MODULE_11___default.a.post('api/wx/pay/unifiedOrder/{order}').then(response => {
-        console.log(response);
+        if (response) {
+          console.log(response);
+          this.order_id = response.data.data.id;
+          this.hasOrder = true;
+        }
+      }).catch(err => {
+        console.log(err);
       });
     },
 
     payComfirm() {
-      console.log('11111111');
-      this.hasOrder = true;
+      axios__WEBPACK_IMPORTED_MODULE_11___default.a.post('api/wx/pay/unifiedOrder/' + this.order_id).then(response => {
+        console.log(response);
+      }).catch(err => {
+        console.log(err);
+      });
     }
 
   }
@@ -5703,20 +5705,22 @@ __webpack_require__.r(__webpack_exports__);
         venueTimeIds: this.selSeats
       };
       axios__WEBPACK_IMPORTED_MODULE_11___default.a.post('/api/venue/' + this.$route.params.id + '/order/create', params).then(response => {
-        console.log(response);
-        this.hasOrder = true;
-      });
-    },
-
-    getConfig() {
-      axios__WEBPACK_IMPORTED_MODULE_11___default.a.post('api/wx/pay/unifiedOrder/{order}').then(response => {
-        console.log(response);
+        if (response) {
+          console.log(response);
+          this.order_id = response.data.data.id;
+          this.hasOrder = true;
+        }
+      }).catch(err => {
+        console.log(err);
       });
     },
 
     payComfirm() {
-      console.log('11111111');
-      this.hasOrder = true;
+      axios__WEBPACK_IMPORTED_MODULE_11___default.a.post('api/wx/pay/unifiedOrder/' + this.order_id).then(response => {
+        console.log(response);
+      }).catch(err => {
+        console.log(err);
+      });
     }
 
   }
@@ -29843,7 +29847,14 @@ var render = function() {
                       [
                         _c(
                           "x-button",
-                          { attrs: { mini: "", type: "primary" } },
+                          {
+                            attrs: { mini: "", type: "primary" },
+                            nativeOn: {
+                              click: function($event) {
+                                return _vm.payComfirm()
+                              }
+                            }
+                          },
                           [_vm._v("去支付")]
                         )
                       ],
