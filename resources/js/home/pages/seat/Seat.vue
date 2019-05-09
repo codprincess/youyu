@@ -296,7 +296,29 @@ export default {
         payComfirm(){
             axios.post('/api/wx/pay/unifiedOrder/'+this.order_id).then(response=>{
                 console.log(response);
-                console.log('22222');
+                if (response){
+                    wx.ready(function () {
+                        wx.chooseWXPay({
+                            appId:response.data.data.appId,
+                            timeStamp:response.data.data.timeStamp,// 支付签名时间戳
+                            nonceStr:response.data.data.nonceStr,// 支付签名随机串，不长于 32
+                            package:response.data.data.package,// 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=\*\*\*）
+                            paySign:response.data.data.paySign,// 支付签名
+                            signType:response.data.data.signType,// 签名方式
+                            success:function (res) {
+                                console.log('success',res);
+                            },
+                            cancel:function (res) {
+                                console.log('取消支付')
+                            },
+                            fail:function (res) {
+                                console.log('支付失败')
+                            }
+                        })
+                    })
+                }else {
+                    console.log('获取支付信息失败，请重试')
+                }
             }).catch(err=>{
                 console.log(err);
             })
