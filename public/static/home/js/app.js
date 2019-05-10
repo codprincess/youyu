@@ -47951,10 +47951,6 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('tabbar', vux_src_component
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('tabbar-item', vux_src_components_tabbar_tabbar_item_vue__WEBPACK_IMPORTED_MODULE_4__["default"]);
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vux_src_plugins_toast_index_js__WEBPACK_IMPORTED_MODULE_5__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuxToastPlugin);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vux_src_plugins_toast_index_js__WEBPACK_IMPORTED_MODULE_5__["default"], {
-  position: 'top'
-});
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/home/bootstrap.js");
 

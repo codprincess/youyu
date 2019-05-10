@@ -18,10 +18,10 @@ Vue.use(ToastPlugin)
 
 // 或者umd方式
 // 引入构建的js文件
-Vue.use(vuxToastPlugin)
-
-// 默认参数
-Vue.use(ToastPlugin, {position: 'top'})
+// Vue.use(vuxToastPlugin)
+//
+// // 默认参数
+// Vue.use(ToastPlugin, {position: 'top'})
 
 require('./bootstrap');
 
