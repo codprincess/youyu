@@ -44,7 +44,7 @@
 {{--    <div id="allmap"></div>--}}
     <!-- <img src="./logo.png"> -->
     <!-- <router-view/> -->
-    <keep-alive>
+{{--    <keep-alive>--}}
         <router-view ></router-view>
         <tabbar>
             <tabbar-item selected link="/">
@@ -60,7 +60,7 @@
                 <span slot="label">我的</span>
             </tabbar-item>
         </tabbar>
-    </keep-alive>
+{{--    </keep-alive>--}}
 </div>
 
 
