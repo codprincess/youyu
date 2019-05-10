@@ -46,21 +46,21 @@
     <!-- <router-view/> -->
     <keep-alive>
         <router-view ></router-view>
+        <tabbar>
+            <tabbar-item selected link="/">
+                <img slot="icon" src="./js/home/images/home.png" >
+                <span slot="label">订场</span>
+            </tabbar-item>
+            <tabbar-item link="/order">
+                <img slot="icon" src="./js/home/images/book.png">
+                <span slot="label">订单</span>
+            </tabbar-item>
+            <tabbar-item  show-dot  link="/component/demo">
+                <img slot="icon" src="./js/home/images/my.png">
+                <span slot="label">我的</span>
+            </tabbar-item>
+        </tabbar>
     </keep-alive>
-    <tabbar>
-        <tabbar-item selected link="/">
-            <img slot="icon" src="./js/home/images/home.png" >
-            <span slot="label">订场</span>
-        </tabbar-item>
-        <tabbar-item link="/order">
-            <img slot="icon" src="./js/home/images/book.png">
-            <span slot="label">订单</span>
-        </tabbar-item>
-        <tabbar-item  show-dot  link="/component/demo">
-            <img slot="icon" src="./js/home/images/my.png">
-            <span slot="label">我的</span>
-        </tabbar-item>
-    </tabbar>
 </div>
 
 

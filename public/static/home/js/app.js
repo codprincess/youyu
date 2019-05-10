@@ -3842,10 +3842,9 @@ __webpack_require__.r(__webpack_exports__);
     },
 
     makeOrder() {
-      if (this.selSeats == []) {
-        Object(vux_src_components_toast_index_vue__WEBPACK_IMPORTED_MODULE_10__["default"])({
-          message: "请先选择场次"
-        });
+      if (this.selSeats.length === 0) {
+        console.log('请先选择场次');
+        this.$vux.toast.text('请先选择场次', 'top');
       } else {
         var params = {
           venueTimeIds: this.selSeats
@@ -6001,10 +6000,9 @@ __webpack_require__.r(__webpack_exports__);
     },
 
     makeOrder() {
-      if (this.selSeats == []) {
-        Object(vux_src_components_toast_index_vue__WEBPACK_IMPORTED_MODULE_10__["default"])({
-          message: "请先选择场次"
-        });
+      if (this.selSeats.length === 0) {
+        console.log('请先选择场次');
+        this.$vux.toast.text('请先选择场次', 'top');
       } else {
         var params = {
           venueTimeIds: this.selSeats
@@ -9732,7 +9730,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.vux-header {\n    position: relative;\n    padding: 3px 0;\n    -webkit-box-sizing: border-box;\n    box-sizing: border-box;\n    background-color: #00bcd4 !important;\n}\n.data-box{\n    width: 16%;\n    height: auto;\n    border: 1px solid #cccccc;\n    float: left;\n    background-color: #eee;\n    padding-top: 5px;\n}\n.seats-slider .vux-slider {\n    overflow: hidden;\n    position: relative;\n    width: 82%;\n    float: left;\n    top: 25px;\n}\n.timeItem{\n    height: 36px;\n    /* border: 1px red solid; */\n    line-height: 45px;\n    margin-left: 6%;\n    font-size: 12px;\n}\n.room{\n    height: 25px;\n    border: 1px #eee solid;\n    width: 83%;\n    margin-left: 16%;\n    position: absolute;\n}\n.room-item{\n    text-align: center;\n    font-size: 14px;\n    height: 25px;\n    line-height: 2;\n    font-size: 12px;\n}\n.room .weui-grid {\n    padding: 2px 10px !important;\n    text-align: center;\n}\n.vux-tab-ink-bar {\n    position: absolute;\n    height: 2px;\n    bottom: 0;\n    left: 0;\n    background-color: #00bcd4 !important;\n    text-align: center;\n}\n.roomList .weui-grid {\n    padding: 8px 10px !important;\n    text-align: center;\n}\n.weui-grids {\n    position: relative;\n    overflow: hidden;\n    border-right: 1px #eee solid;\n}\n.nosel{\n    background-color: #cccccc;\n    color: #ffffff;\n}\n.sel{\n    /* background-color: #ffffff; */\n    color: #00bcd4;\n}\n.yessel{\n    background-color: #00bcd4;\n    color: #ffffff;\n}\n.demo1-item {\n    border-right: 1px solid #ececec;\n    padding: 10px 9px;\n    font-size: 12px;\n}\n.demo1-item-selected {\n    background-color: #00bcd4;\n    color: #ffffff;\n}\n.seat-swiper > .vux-swiper {\n    overflow: hidden;\n    position: relative;\n    height: 489px !important;\n}\n.pay-box{\n    width: 100%;\n    height: 48px;\n    border: 1px #cccccc solid;\n    line-height: 48px;\n}\n.pay-box .all-money{\n    height: 48px;\n    line-height: 48px;\n    font-size: 14px;\n    margin-left: 6%;\n}\n.pay-box .money-des{\n    font-size: 12px;\n}\n.pay-box .pay{\n    height: 48px;\n    line-height: 48px;\n    background-color: #00bcd4;\n    text-align: center;\n}\n.pay-box .weui-btn_primary {\n    background-color: #00bcd4 !important;\n}\n.pay-box .weui-btn {\n    position: relative;\n    display: block;\n    font-size: 16px;\n    text-align: center;\n    text-decoration: none;\n    color: #FFFFFF;\n    line-height: 2.7;\n    overflow: hidden;\n}\n.weui-btn:after {\n    content: \" \";\n    width: 200%;\n    height: 200%;\n    position: absolute;\n    top: 0;\n    left: 0;\n    border: none !important;\n    -webkit-transform: scale(0.5);\n    transform: scale(0.5);\n    -webkit-transform-origin: 0 0;\n    transform-origin: 0 0;\n    -webkit-box-sizing: border-box;\n}\n.vux-tab .vux-tab-item.vux-tab-selected {\n    color: #00bcd4 !important;\n    border-bottom: 3px solid #00bcd4 !important;\n}\n.scrollable .vux-tab-ink-bar {\n    bottom: 17px;\n    position: absolute;\n    background: #00bcd4 !important;\n}\n\n/*确认订单*/\n.order-box{\n    width: 100%;\n    padding-left: 5%;\n    padding-right: 5%;\n}\n.order-box .order-list{\n    height: auto;\n    border-bottom: #cccccc 1px dotted;\n    /* padding:0px 5%; */\n}\n.order-box .order-list ul li{\n    list-style: none;\n    height: 25px;\n    font-size: 14px;\n}\n.order-box .order-desc{\n    list-style: none;\n    padding-right:20px;\n    border-bottom: #cccccc 1px dotted;\n}\n.order-box .order-desc ul li{\n    list-style: none;\n    font-size: 14px;\n    line-height: 30px;\n    word-break : break-all;\n    word-wrap: break-word;\n    display: block;\n}\n", ""]);
+exports.push([module.i, "\n.vux-header {\n    position: relative;\n    padding: 3px 0;\n    -webkit-box-sizing: border-box;\n    box-sizing: border-box;\n    background-color: #00bcd4 !important;\n}\n.data-box{\n    width: 16%;\n    height: auto;\n    border: 1px solid #cccccc;\n    float: left;\n    background-color: #eee;\n    padding-top: 5px;\n}\n.seats-slider .vux-slider {\n    overflow: hidden;\n    position: relative;\n    width: 82%;\n    float: left;\n    top: 25px;\n}\n.timeItem{\n    height: 36px;\n    /* border: 1px red solid; */\n    line-height: 45px;\n    margin-left: 6%;\n    font-size: 12px;\n}\n.room{\n    height: 25px;\n    border: 1px #eee solid;\n    width: 83%;\n    margin-left: 16%;\n    position: absolute;\n}\n.room-item{\n    text-align: center;\n    font-size: 14px;\n    height: 25px;\n    line-height: 2;\n    font-size: 12px;\n}\n.room .weui-grid {\n    padding: 2px 10px !important;\n    text-align: center;\n}\n.vux-tab-ink-bar {\n    position: absolute;\n    height: 2px;\n    bottom: 0;\n    left: 0;\n    background-color: #00bcd4 !important;\n    text-align: center;\n}\n.roomList .weui-grid {\n    padding: 8px 10px !important;\n    text-align: center;\n}\n.weui-grids {\n    position: relative;\n    overflow: hidden;\n    border-right: 1px #eee solid;\n}\n.nosel{\n    background-color: #cccccc;\n    color: #ffffff;\n}\n.sel{\n    /* background-color: #ffffff; */\n    color: #00bcd4;\n}\n.yessel{\n    background-color: #00bcd4;\n    color: #ffffff;\n}\n.demo1-item {\n    border-right: 1px solid #ececec;\n    padding: 10px 9px;\n    font-size: 12px;\n}\n.demo1-item-selected {\n    background-color: #00bcd4;\n    color: #ffffff;\n}\n.seat-swiper > .vux-swiper {\n    overflow: hidden;\n    position: relative;\n    height: 489px !important;\n}\n.pay-box{\n    width: 100%;\n    height: 48px;\n    border: 1px #cccccc solid;\n    line-height: 48px;\n}\n.pay-box .all-money{\n    height: 48px;\n    line-height: 48px;\n    font-size: 14px;\n    margin-left: 6%;\n}\n.pay-box .money-des{\n    font-size: 12px;\n}\n.pay-box .pay{\n    height: 48px;\n    line-height: 48px;\n    background-color: #00bcd4;\n    text-align: center;\n}\n.pay-box .weui-btn_primary {\n    background-color: #00bcd4 !important;\n}\n.pay-box .weui-btn {\n    position: relative;\n    display: block;\n    font-size: 16px;\n    text-align: center;\n    text-decoration: none;\n    color: #FFFFFF;\n    line-height: 2.7;\n    overflow: hidden;\n}\n.weui-btn:after {\n    content: \" \";\n    width: 200%;\n    height: 200%;\n    position: absolute;\n    top: 0;\n    left: 0;\n    border: none !important;\n    -webkit-transform: scale(0.5);\n    transform: scale(0.5);\n    -webkit-transform-origin: 0 0;\n    transform-origin: 0 0;\n    -webkit-box-sizing: border-box;\n}\n.vux-tab .vux-tab-item.vux-tab-selected {\n    color: #00bcd4 !important;\n    border-bottom: 3px solid #00bcd4 !important;\n}\n.scrollable .vux-tab-ink-bar {\n    bottom: 17px;\n    position: absolute;\n    background: #00bcd4 !important;\n}\n\n/*确认订单*/\n.order-box{\n    width: 100%;\n}\n.order-box .order-list{\n    padding-left: 5%;\n    padding-right: 5%;\n    height: auto;\n    border-bottom: #cccccc 1px dotted;\n    /* padding:0px 5%; */\n}\n.order-box .order-list ul li{\n    list-style: none;\n    height: 25px;\n    font-size: 14px;\n}\n.order-box .order-desc{\n    padding-left: 5%;\n    padding-right: 5%;\n    list-style: none;\n    border-bottom: #cccccc 1px dotted;\n}\n.order-box .order-desc ul li{\n    list-style: none;\n    font-size: 14px;\n    line-height: 30px;\n    word-break : break-all;\n    word-wrap: break-word;\n    display: block;\n}\n", ""]);
 
 // exports
 
@@ -47508,6 +47506,40 @@ if (false) {}
 
 /***/ }),
 
+/***/ "./node_modules/vux/src/libs/plugin_helper.js":
+/*!****************************************************!*\
+  !*** ./node_modules/vux/src/libs/plugin_helper.js ***!
+  \****************************************************/
+/*! exports provided: mergeOptions */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mergeOptions", function() { return mergeOptions; });
+/* harmony import */ var object_assign__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! object-assign */ "./node_modules/object-assign/index.js");
+/* harmony import */ var object_assign__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(object_assign__WEBPACK_IMPORTED_MODULE_0__);
+
+
+const mergeOptions = function ($vm, options) {
+  const defaults = {};
+
+  for (let i in $vm.$options.props) {
+    if (i !== 'value') {
+      defaults[i] = $vm.$options.props[i].default;
+    }
+  }
+
+  const _options = object_assign__WEBPACK_IMPORTED_MODULE_0___default()({}, defaults, options);
+
+  for (let i in _options) {
+    $vm[i] = _options[i];
+  }
+};
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vux/src/libs/router.js":
 /*!*********************************************!*\
   !*** ./node_modules/vux/src/libs/router.js ***!
@@ -47723,6 +47755,107 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/vux/src/plugins/toast/index.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/vux/src/plugins/toast/index.js ***!
+  \*****************************************************/
+/*! exports provided: default, install */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "install", function() { return install; });
+/* harmony import */ var object_assign__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! object-assign */ "./node_modules/object-assign/index.js");
+/* harmony import */ var object_assign__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(object_assign__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_toast__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/toast */ "./node_modules/vux/src/components/toast/index.vue");
+/* harmony import */ var _libs_plugin_helper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../libs/plugin_helper */ "./node_modules/vux/src/libs/plugin_helper.js");
+
+
+
+let $vm;
+let watcher;
+const plugin = {
+  install(vue, pluginOptions = {}) {
+    const Toast = vue.extend(_components_toast__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
+    if (!$vm) {
+      $vm = new Toast({
+        el: document.createElement('div')
+      });
+      document.body.appendChild($vm.$el);
+    }
+
+    const defaults = {};
+
+    for (let i in $vm.$options.props) {
+      if (i !== 'value') {
+        defaults[i] = $vm.$options.props[i].default;
+      }
+    }
+
+    const toast = {
+      show(options = {}) {
+        // destroy watcher
+        watcher && watcher();
+
+        if (typeof options === 'string') {
+          Object(_libs_plugin_helper__WEBPACK_IMPORTED_MODULE_2__["mergeOptions"])($vm, object_assign__WEBPACK_IMPORTED_MODULE_0___default()({}, pluginOptions, {
+            text: options
+          }));
+        } else if (typeof options === 'object') {
+          Object(_libs_plugin_helper__WEBPACK_IMPORTED_MODULE_2__["mergeOptions"])($vm, object_assign__WEBPACK_IMPORTED_MODULE_0___default()({}, pluginOptions, options));
+        }
+
+        if (typeof options === 'object' && options.onShow || options.onHide) {
+          watcher = $vm.$watch('show', val => {
+            val && options.onShow && options.onShow($vm);
+            val === false && options.onHide && options.onHide($vm);
+          });
+        }
+
+        $vm.show = true;
+      },
+
+      text(text, position = 'default') {
+        this.show({
+          type: 'text',
+          width: 'auto',
+          position,
+          text
+        });
+      },
+
+      hide() {
+        $vm.show = false;
+      },
+
+      isVisible() {
+        return $vm.show;
+      }
+
+    }; // all Vux's plugins are included in this.$vux
+
+    if (!vue.$vux) {
+      vue.$vux = {
+        toast
+      };
+    } else {
+      vue.$vux.toast = toast;
+    }
+
+    vue.mixin({
+      created: function () {
+        this.$vux = vue.$vux;
+      }
+    });
+  }
+
+};
+/* harmony default export */ __webpack_exports__["default"] = (plugin);
+const install = plugin.install;
+
+/***/ }),
+
 /***/ "./node_modules/webpack/buildin/global.js":
 /*!***********************************!*\
   !*** (webpack)/buildin/global.js ***!
@@ -47803,6 +47936,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var fastclick__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(fastclick__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var vux_src_components_tabbar_tabbar_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vux/src/components/tabbar/tabbar.vue */ "./node_modules/vux/src/components/tabbar/tabbar.vue");
 /* harmony import */ var vux_src_components_tabbar_tabbar_item_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vux/src/components/tabbar/tabbar-item.vue */ "./node_modules/vux/src/components/tabbar/tabbar-item.vue");
+/* harmony import */ var vux_src_plugins_toast_index_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vux/src/plugins/toast/index.js */ "./node_modules/vux/src/plugins/toast/index.js");
 /**
 * First we will load all of this project's JavaScript dependencies which
 * includes Vue and other libraries. It is a great starting point when
@@ -47815,6 +47949,12 @@ __webpack_require__.r(__webpack_exports__);
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('tabbar', vux_src_components_tabbar_tabbar_vue__WEBPACK_IMPORTED_MODULE_3__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('tabbar-item', vux_src_components_tabbar_tabbar_item_vue__WEBPACK_IMPORTED_MODULE_4__["default"]);
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vux_src_plugins_toast_index_js__WEBPACK_IMPORTED_MODULE_5__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuxToastPlugin);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vux_src_plugins_toast_index_js__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  position: 'top'
+});
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/home/bootstrap.js");
 

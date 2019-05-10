@@ -279,9 +279,7 @@ export default {
         makeOrder(){
             if (this.selSeats.length === 0) {
                 console.log('请先选择场次')
-                Toast({
-                    message:"请先选择场次"
-                });
+                this.$vux.toast.text('请先选择场次', 'top')
             }else{
                 var params ={
                     venueTimeIds: this.selSeats
@@ -320,6 +318,7 @@ export default {
                                 if(res.err_msg == "get_brand_wcpay_request:ok" ){
                                     console.log('ok')
                                     this.hasOrder = false;
+
                                     // 使用以上方式判断前端返回,微信团队郑重提示：
                                     //res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
                                 }
@@ -508,10 +507,10 @@ export default {
 
     .order-box{
         width: 100%;
-        padding-left: 5%;
-        padding-right: 5%;
     }
     .order-box .order-list{
+        padding-left: 5%;
+        padding-right: 5%;
         height: auto;
         border-bottom: #cccccc 1px dotted;
         /* padding:0px 5%; */
@@ -522,8 +521,9 @@ export default {
         font-size: 14px;
     }
     .order-box .order-desc{
+        padding-left: 5%;
+        padding-right: 5%;
         list-style: none;
-        padding-right:20px;
         border-bottom: #cccccc 1px dotted;
     }
     .order-box .order-desc ul li{

@@ -13,6 +13,15 @@ import { Tabbar, TabbarItem } from 'vux'
 
 Vue.component('tabbar', Tabbar)
 Vue.component('tabbar-item', TabbarItem)
+import  { ToastPlugin } from 'vux'
+Vue.use(ToastPlugin)
+
+// 或者umd方式
+// 引入构建的js文件
+Vue.use(vuxToastPlugin)
+
+// 默认参数
+Vue.use(ToastPlugin, {position: 'top'})
 
 require('./bootstrap');
 
