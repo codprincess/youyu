@@ -32,23 +32,25 @@ class VenueTimeController extends Controller
         $validator = \Validator::make($request->all(), [
             'venue_id' => 'required|string:max:255|min:2',
             'date' => 'required|string:max:255|min:2',
+            'price' => 'required',
             'hour' => 'required|string:max:64|min:2',
         ]);
 
         if ($validator->fails()) {
             return $this->success('失败啦', $validator->errors()->first());
         }
-        $data = $request->only(['venue_id', 'date', 'hour']);
+        $data = $request->only(['venue_id', 'date', 'hour', 'price']);
         // dd($data);
         $hourArr = explode(" - ", $data['hour']);
         $startHourArr = explode(":", $hourArr[0]);
         $endHourArr = explode(":", $hourArr[1]);
         $venuePlaceList = VenuePlace::where('venue_id', $data['venue_id'])->get();
-        $venueTimeListData=[];
+        $venueTimeListData = [];
         foreach ($venuePlaceList as $k => $venuePlace) {
             $venueTimeListData[] = [
                 'place_id' => $venuePlace['id'],
                 'venue_id' => $data['venue_id'],
+                'price' => $data['price'],
                 'date' => $data['date'],
                 'start_hour' => $startHourArr[0],
                 'start_minute' => $startHourArr[1],
@@ -60,7 +62,7 @@ class VenueTimeController extends Controller
 
             VenueTime::insert($venueTimeListData);
         }
-        return redirect()->to(route('admin.venues'))->with(['status'=>'添加场次成功']);
+        return redirect()->to(route('admin.venues'))->with(['status' => '添加场次成功']);
     }
 
     public function update(Request $request, Venue $venue)

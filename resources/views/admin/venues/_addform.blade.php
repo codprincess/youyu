@@ -19,7 +19,7 @@
 <div class="layui-form-item">
     <label for="" class="layui-form-label">单价</label>
     <div class="layui-input-block">
-        <input style="width: 40%" type="number" name="score" value="" lay-verify="required" placeholder="请输入单价"
+        <input style="width: 40%" type="number" name="price" value="" lay-verify="required" placeholder="请输入单价"
                class="layui-input">
     </div>
 </div>
