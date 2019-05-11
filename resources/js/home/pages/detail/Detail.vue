@@ -22,7 +22,7 @@
                            <span>{{province+city+street}}</span>
                         </div>
                     </flexbox-item>
-                    <flexbox-item :span="4"><div class="ven-address-call"><img alt="" src="../../assets/images/tel.png" /></div></flexbox-item>
+                    <flexbox-item :span="4"><div class="ven-address-call"><img alt="" @click.native="callPhone" src="../../assets/images/tel.png" /></div></flexbox-item>
                 </flexbox>
             </div>
 
@@ -90,6 +90,9 @@ export default {
             }).catch(err=>{
                 console.log(err);
             })
+        },
+        callPhone(){
+            window.location.href = 'tel://15277381073'
         }
     }
 }

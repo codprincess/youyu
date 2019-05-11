@@ -136,10 +136,8 @@
                     <ul style="padding-inline-start: 20px;">
                         <h4>天空运动城</h4>
                         <li>运动类型：<span>羽毛球</span></li>
-                        <li>预定日期：<span>2019-05-06</span></li>
-                        <li>预定场次：<span>1号场 11：00-12：00</span></li>
-                        <li>预定场次：<span>1号场 11：00-12：00</span></li>
-                        <li>预定场次：<span>1号场 11：00-12：00</span></li>
+                        <li>预定日期：<span>2019-05-12</span></li>
+                        <li>预定场次：<span>{{selSeats}}</span></li>
                         <li>总金额：<span>￥6</span></li>
                     </ul>
                 </div>
@@ -289,6 +287,7 @@ export default {
                         console.log(response);
                         this.order_id = response.data.data.id;
                         this.hasOrder = true;
+                        this.$vux.toast.text('预定成功,请在10分钟内付款', 'top')
                     }
 
                 }).catch(err=>{
