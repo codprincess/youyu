@@ -3702,7 +3702,9 @@ __webpack_require__.r(__webpack_exports__);
   },
 
   data() {
-    return {};
+    return {
+      orderLists: []
+    };
   },
 
   created() {
@@ -3714,8 +3716,64 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.get('/api/orderList').then(response => {
         console.log(response);
 
-        if (response) {}
+        if (response) {
+          this.orderLists = response.data.data;
+        }
       });
+    },
+
+    payComfirm(id) {
+      console.log(id);
+      this.order_id = id;
+
+      if (this.order_id) {
+        axios__WEBPACK_IMPORTED_MODULE_3___default.a.post('/api/wx/pay/unifiedOrder/' + this.order_id).then(response => {
+          console.log(response);
+
+          if (response) {
+            console.log(response.data.data.appId);
+
+            function onBridgeReady() {
+              WeixinJSBridge.invoke('getBrandWCPayRequest', {
+                "appId": response.data.data.appId,
+                //公众号名称，由商户传入
+                "timeStamp": response.data.data.timeStamp,
+                //时间戳，自1970年以来的秒数
+                "nonceStr": response.data.data.nonceStr,
+                //随机串
+                "package": response.data.data.package,
+                "signType": response.data.data.signType,
+                //微信签名方式：
+                "paySign": response.data.data.paySign //微信签名
+
+              }, function (res) {
+                if (res.err_msg == "get_brand_wcpay_request:ok") {
+                  console.log('ok');
+                  this.hasOrder = false;
+                  this.$router.push('/order');
+                }
+              });
+            }
+
+            if (typeof WeixinJSBridge == "undefined") {
+              if (document.addEventListener) {
+                document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+              } else if (document.attachEvent) {
+                document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+                document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+              }
+            } else {
+              onBridgeReady();
+            }
+          } else {
+            console.log('获取支付信息失败，请重试');
+          }
+        }).catch(err => {
+          console.log(err);
+        });
+      } else {
+        this.$vux.toast.text('您的订单可能出现异常', 'top');
+      }
     }
 
   }
@@ -5878,7 +5936,9 @@ __webpack_require__.r(__webpack_exports__);
   },
 
   data() {
-    return {};
+    return {
+      orderLists: []
+    };
   },
 
   created() {
@@ -5890,8 +5950,64 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.get('/api/orderList').then(response => {
         console.log(response);
 
-        if (response) {}
+        if (response) {
+          this.orderLists = response.data.data;
+        }
       });
+    },
+
+    payComfirm(id) {
+      console.log(id);
+      this.order_id = id;
+
+      if (this.order_id) {
+        axios__WEBPACK_IMPORTED_MODULE_3___default.a.post('/api/wx/pay/unifiedOrder/' + this.order_id).then(response => {
+          console.log(response);
+
+          if (response) {
+            console.log(response.data.data.appId);
+
+            function onBridgeReady() {
+              WeixinJSBridge.invoke('getBrandWCPayRequest', {
+                "appId": response.data.data.appId,
+                //公众号名称，由商户传入
+                "timeStamp": response.data.data.timeStamp,
+                //时间戳，自1970年以来的秒数
+                "nonceStr": response.data.data.nonceStr,
+                //随机串
+                "package": response.data.data.package,
+                "signType": response.data.data.signType,
+                //微信签名方式：
+                "paySign": response.data.data.paySign //微信签名
+
+              }, function (res) {
+                if (res.err_msg == "get_brand_wcpay_request:ok") {
+                  console.log('ok');
+                  this.hasOrder = false;
+                  this.$router.push('/order');
+                }
+              });
+            }
+
+            if (typeof WeixinJSBridge == "undefined") {
+              if (document.addEventListener) {
+                document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+              } else if (document.attachEvent) {
+                document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+                document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+              }
+            } else {
+              onBridgeReady();
+            }
+          } else {
+            console.log('获取支付信息失败，请重试');
+          }
+        }).catch(err => {
+          console.log(err);
+        });
+      } else {
+        this.$vux.toast.text('您的订单可能出现异常', 'top');
+      }
     }
 
   }
@@ -29004,73 +29120,53 @@ var render = function() {
     _c("div", [
       _c(
         "div",
-        [
-          _c(
+        _vm._l(_vm.orderLists, function(item, index) {
+          return _c(
             "flexbox",
-            { attrs: { orient: "vertical" } },
+            { key: index, attrs: { orient: "vertical" } },
             [
               _c("flexbox-item", [
                 _c("div", { staticClass: "orderItem" }, [
                   _c("p", [
-                    _c("span", [_vm._v("场地：广西师范大学羽毛球场 ")]),
+                    _c("span", [
+                      _vm._v("场地：" + _vm._s(item.order_name) + " ")
+                    ]),
                     _vm._v(" "),
-                    _c("span", { staticClass: "waitPay" }, [_vm._v("待支付")])
+                    _vm._item.status === 1
+                      ? _c(
+                          "span",
+                          {
+                            staticClass: "waitPay",
+                            nativeOn: {
+                              click: function($event) {
+                                return _vm.payComfirm(item.id)
+                              }
+                            }
+                          },
+                          [_vm._v("待支付")]
+                        )
+                      : _c("span", { staticClass: "hasPay" }, [
+                          _vm._v("已支付")
+                        ])
                   ]),
                   _c("p", [
-                    _c("span", [_vm._v("下单时间：2019-3-20 17:21 ")]),
+                    _c("span", [
+                      _vm._v("下单时间：" + _vm._s(item.created_at) + " ")
+                    ]),
                     _c("span", { staticClass: "order-price" }, [
-                      _vm._v("金额：8元")
+                      _vm._v("金额：" + _vm._s(item.total_amount) + "元")
                     ])
                   ]),
                   _c("p", [
                     _vm._v("18:00-19:00  "),
-                    _c("span", [_vm._v("1号场")])
-                  ]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _vm._v("21:00-22:00  "),
-                    _c("span", [_vm._v("1号场")])
-                  ])
-                ])
-              ])
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "flexbox",
-            { attrs: { orient: "vertical" } },
-            [
-              _c("flexbox-item", [
-                _c("div", { staticClass: "orderItem" }, [
-                  _c("p", [
-                    _c("span", [_vm._v("场地：广西师范大学羽毛球场 ")]),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "hasPay" }, [_vm._v("待支付")])
-                  ]),
-                  _c("p"),
-                  _c("p", [
-                    _c("span", [_vm._v("下单时间：2019-3-20 17:21 ")]),
-                    _c("span", { staticClass: "order-price" }, [
-                      _vm._v("金额：8元")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _vm._v("18:00-19:00  "),
-                    _c("span", [_vm._v("1号场")])
-                  ]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _vm._v("21:00-22:00  "),
-                    _c("span", [_vm._v("1号场")])
+                    _c("span", [_vm._v(_vm._s(item.venue_time_ids) + "号场")])
                   ])
                 ])
               ])
             ],
             1
           )
-        ],
+        }),
         1
       )
     ])
