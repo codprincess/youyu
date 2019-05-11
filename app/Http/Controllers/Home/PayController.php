@@ -59,6 +59,7 @@ class PayController extends Controller
 
     public function payOrder($postArr)
     {
+        Log::info("pay success", $postArr);
         $order = Order::where('order_no', $postArr['out_trade_no'])
             ->first()
             ->toArray();
@@ -111,7 +112,6 @@ class PayController extends Controller
         if (self::getSign($arr, $this->mchKey) == $postObj->sign) {
             // 改变订单状态
             if ($this->payOrder($arr)) {
-                Log::info("pay success", $arr);
                 return '<xml><return_code><![CDATA[SUCCESS]]></return_code><return_msg><![CDATA[OK]]></return_msg></xml>';
             }
         }else{
