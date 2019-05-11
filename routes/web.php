@@ -61,7 +61,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
 
     //添加场次
     Route::get('venuestime/create', 'VenueTimeController@create')->name('admin.venuesTime.create');
-    Route::get('venuestime/store', 'VenueTimeController@store')->name('admin.venuesTime.store');
+    Route::post('venuestime/store', 'VenueTimeController@store')->name('admin.venuesTime.store');
 
     //获取微信登录用户信息
     Route::get('/userdata', 'MemberController@data')->name('admin.member.data');

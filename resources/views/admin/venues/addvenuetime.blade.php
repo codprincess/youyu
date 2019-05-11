@@ -6,8 +6,7 @@
             <h2>添加场次</h2>
         </div>
         <div class="layui-card-body">
-            <form class="layui-form"  method="post">
-                {{ method_field('put') }}
+            <form class="layui-form"  method="post" action="{{route('admin.venuesTime.store')}}" >
                 @include('admin.venues._addform')
             </form>
         </div>

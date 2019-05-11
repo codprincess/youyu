@@ -20,7 +20,7 @@
             <table id="dataTable" lay-filter="dataTable"></table>
             <script type="text/html" id="options">
                 <div class="layui-btn-group">
-                    <a class="layui-btn layui-btn-sm" href="{{ route('admin.venuesTime.create') }}">添加场次</a>
+                    <a class="layui-btn layui-btn-sm" lay-event="add">添加场次</a>
                         <a class="layui-btn layui-btn-sm" lay-event="edit">编辑</a>
                         <a class="layui-btn layui-btn-danger layui-btn-sm" lay-event="del">删除</a>
                 </div>
@@ -83,6 +83,8 @@
                         });
                     } else if(layEvent === 'edit'){
                         location.href = '/admin/venues/'+data.id+'/edit';
+                    }else  if (layEvent === 'add'){
+                        location.href = '/admin/venuestime/create?venue_id='+data.id;
                     }
                 });
 

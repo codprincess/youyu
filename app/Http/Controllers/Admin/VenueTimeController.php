@@ -18,42 +18,49 @@ use Illuminate\Http\Request;
 
 class VenueTimeController extends Controller
 {
-    public function create()
+    public function create(Request $request)
     {
-        return view('admin.venues.addvenuetime');
+
+        return view('admin.venues.addvenuetime', [
+            'venue_id' => $request->get('venue_id')
+        ]);
     }
-    public function store(Request $request)    {
+
+    public function store(Request $request)
+    {
         // 创建场馆
         $validator = \Validator::make($request->all(), [
             'venue_id' => 'required|string:max:255|min:2',
             'date' => 'required|string:max:255|min:2',
-            'start_at' => 'required|string:max:64|min:2',
-            'end_at' => 'required|string:max:64|min:2',
+            'hour' => 'required|string:max:64|min:2',
         ]);
 
         if ($validator->fails()) {
             return $this->success('失败啦', $validator->errors()->first());
         }
-        $data = $request->only(['venue_id','date','start_at','end_at']);
+        $data = $request->only(['venue_id', 'date', 'hour']);
         // dd($data);
-
-        $venuePlaceList = VenuePlace::where('venue_id',$data['venue_id'])->get();
-        dd($venuePlaceList);
-        foreach ($venuePlaceList as $k=>$venuePlace) {
+        $hourArr = explode(" - ", $data['hour']);
+        $startHourArr = explode(":", $hourArr[0]);
+        $endHourArr = explode(":", $hourArr[1]);
+        $venuePlaceList = VenuePlace::where('venue_id', $data['venue_id'])->get();
+        $venueTimeListData=[];
+        foreach ($venuePlaceList as $k => $venuePlace) {
             $venueTimeListData[] = [
-                'place_id' =>$venuePlace['id'],
-                'venue_id' =>$data['venue_id'],
-                'date' =>$data['date'],
-                'start_hour' =>date("H",$data['start_at']),
-                'start_minute' =>date("i",$data['start_at']),
-                'end_hour' =>date("H",$data['end_at']),
-                'end_minute' =>date("i",$data['end_at']),
+                'place_id' => $venuePlace['id'],
+                'venue_id' => $data['venue_id'],
+                'date' => $data['date'],
+                'start_hour' => $startHourArr[0],
+                'start_minute' => $startHourArr[1],
+                'end_hour' => date("H", $endHourArr[0]),
+                'end_minute' => date("i", $endHourArr[1]),
             ];
         }
         if (count($venueTimeListData) > 0) {
+
             VenueTime::insert($venueTimeListData);
         }
-        return $this->success('创建成功', $venueTimeListData);
+        return redirect()->to(route('admin.venues'))->with(['status'=>'添加场次成功']);
     }
 
     public function update(Request $request, Venue $venue)

@@ -15,6 +15,7 @@ class VenueController extends Controller
 
     public function index()
     {
+
         return view('admin.venues.index');
     }
 
