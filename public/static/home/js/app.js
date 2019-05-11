@@ -30437,23 +30437,33 @@ var render = function() {
         _vm._v(" "),
         _c("div", { staticClass: "order-box" }, [
           _c("div", { staticClass: "order-list" }, [
-            _c("ul", { staticStyle: { "padding-inline-start": "20px" } }, [
-              _c("h4", [_vm._v("天空运动城")]),
-              _vm._v(" "),
-              _vm._m(0),
-              _vm._v(" "),
-              _vm._m(1),
-              _vm._v(" "),
-              _c("li", [
-                _vm._v("预定场次："),
-                _c("span", [_vm._v(_vm._s(_vm.selSeats))])
-              ]),
-              _vm._v(" "),
-              _vm._m(2)
-            ])
+            _c(
+              "ul",
+              {
+                staticStyle: {
+                  "padding-inline-start": "20px",
+                  "padding-top": "20px"
+                }
+              },
+              [
+                _vm._m(0),
+                _vm._v(" "),
+                _vm._m(1),
+                _vm._v(" "),
+                _c("li", [
+                  _vm._v("预定场次："),
+                  _c("span", [_vm._v(_vm._s(_vm.selSeats))])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _vm._v("总金额："),
+                  _c("span", [_vm._v("￥" + _vm._s(_vm.selMoney))])
+                ])
+              ]
+            )
           ]),
           _vm._v(" "),
-          _vm._m(3),
+          _vm._m(2),
           _vm._v(" "),
           _c(
             "div",
@@ -30534,28 +30544,28 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("li", [_vm._v("总金额："), _c("span", [_vm._v("￥6")])])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "order-desc" }, [
-      _c("ul", { staticStyle: { "padding-inline-start": "20px" } }, [
-        _c("h4", [_vm._v("预定须知")]),
-        _vm._v(" "),
-        _c("li", [
-          _vm._v("1.当您提交订单后，请在10分钟内支付，否则订单会自动取消")
-        ]),
-        _vm._v(" "),
-        _c("li", [_vm._v("2.您所定场次出售后离开始时间五个内不可退订")]),
-        _vm._v(" "),
-        _c("li", [
-          _vm._v(
-            "3.当您使用场馆时，请遵守场馆相关规定。同时，在您运动时请注意自身以及他人的安全"
-          )
-        ])
-      ])
+      _c(
+        "ul",
+        {
+          staticStyle: { "padding-inline-start": "20px", "padding-top": "20px" }
+        },
+        [
+          _c("h4", [_vm._v("预定须知")]),
+          _vm._v(" "),
+          _c("li", [
+            _vm._v("1.当您提交订单后，请在10分钟内支付，否则订单会自动取消")
+          ]),
+          _vm._v(" "),
+          _c("li", [_vm._v("2.您所定场次出售后离开始时间五个内不可退订")]),
+          _vm._v(" "),
+          _c("li", [
+            _vm._v(
+              "3.当您使用场馆时，请遵守场馆相关规定。同时，在您运动时请注意自身以及他人的安全"
+            )
+          ])
+        ]
+      )
     ])
   }
 ]

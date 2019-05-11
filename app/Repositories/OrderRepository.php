@@ -10,7 +10,7 @@ class OrderRepository
 {
     public function getOrderList(Order $order)
     {
-        $orderList = Order::all();
+        $orderList = Order::orderBy('created_at', 'desc')->get();
         return $orderList;
     }
 }
