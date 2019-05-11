@@ -28,12 +28,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
-
-
         // crontab -e
-        // * * * * * docker exec -it php php /data/www/youyu/artisan schedule:run >> /dev/null 2>&1
+        // * * * * * docker exec -i php php /data/www/youyu/artisan schedule:run >> /data/sh/jobs-youyu.log 2>&1
 
         // 每分钟执行一次
         $schedule->call(function () {
