@@ -3688,8 +3688,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vux_src_components_x_header_index_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vux/src/components/x-header/index.vue */ "./node_modules/vux/src/components/x-header/index.vue");
 /* harmony import */ var vux_src_components_flexbox_flexbox_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vux/src/components/flexbox/flexbox.vue */ "./node_modules/vux/src/components/flexbox/flexbox.vue");
 /* harmony import */ var vux_src_components_flexbox_flexbox_item_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vux/src/components/flexbox/flexbox-item.vue */ "./node_modules/vux/src/components/flexbox/flexbox-item.vue");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var vux_src_components_x_button_index_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vux/src/components/x-button/index.vue */ "./node_modules/vux/src/components/x-button/index.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
@@ -3698,7 +3700,8 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     XHeader: vux_src_components_x_header_index_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     Flexbox: vux_src_components_flexbox_flexbox_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    FlexboxItem: vux_src_components_flexbox_flexbox_item_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+    FlexboxItem: vux_src_components_flexbox_flexbox_item_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    XButton: vux_src_components_x_button_index_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
 
   data() {
@@ -3713,7 +3716,7 @@ __webpack_require__.r(__webpack_exports__);
 
   methods: {
     getOrderList() {
-      axios__WEBPACK_IMPORTED_MODULE_3___default.a.get('/api/orderList').then(response => {
+      axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/orderList').then(response => {
         console.log(response);
 
         if (response) {
@@ -3727,7 +3730,7 @@ __webpack_require__.r(__webpack_exports__);
       this.order_id = id;
 
       if (this.order_id) {
-        axios__WEBPACK_IMPORTED_MODULE_3___default.a.post('/api/wx/pay/unifiedOrder/' + this.order_id).then(response => {
+        axios__WEBPACK_IMPORTED_MODULE_4___default.a.post('/api/wx/pay/unifiedOrder/' + this.order_id).then(response => {
           console.log(response);
 
           if (response) {
@@ -5922,8 +5925,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vux_src_components_x_header_index_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vux/src/components/x-header/index.vue */ "./node_modules/vux/src/components/x-header/index.vue");
 /* harmony import */ var vux_src_components_flexbox_flexbox_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vux/src/components/flexbox/flexbox.vue */ "./node_modules/vux/src/components/flexbox/flexbox.vue");
 /* harmony import */ var vux_src_components_flexbox_flexbox_item_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vux/src/components/flexbox/flexbox-item.vue */ "./node_modules/vux/src/components/flexbox/flexbox-item.vue");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var vux_src_components_x_button_index_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vux/src/components/x-button/index.vue */ "./node_modules/vux/src/components/x-button/index.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
@@ -5932,7 +5937,8 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     XHeader: vux_src_components_x_header_index_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     Flexbox: vux_src_components_flexbox_flexbox_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    FlexboxItem: vux_src_components_flexbox_flexbox_item_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+    FlexboxItem: vux_src_components_flexbox_flexbox_item_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    XButton: vux_src_components_x_button_index_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
 
   data() {
@@ -5947,7 +5953,7 @@ __webpack_require__.r(__webpack_exports__);
 
   methods: {
     getOrderList() {
-      axios__WEBPACK_IMPORTED_MODULE_3___default.a.get('/api/orderList').then(response => {
+      axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/orderList').then(response => {
         console.log(response);
 
         if (response) {
@@ -5961,7 +5967,7 @@ __webpack_require__.r(__webpack_exports__);
       this.order_id = id;
 
       if (this.order_id) {
-        axios__WEBPACK_IMPORTED_MODULE_3___default.a.post('/api/wx/pay/unifiedOrder/' + this.order_id).then(response => {
+        axios__WEBPACK_IMPORTED_MODULE_4___default.a.post('/api/wx/pay/unifiedOrder/' + this.order_id).then(response => {
           console.log(response);
 
           if (response) {
@@ -9768,7 +9774,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.vux-header {\n    position: relative;\n    padding: 3px 0;\n    -webkit-box-sizing: border-box;\n    box-sizing: border-box;\n    background-color: #00bcd4 !important;\n}\n.orderItem{\n    min-height: 120px;\n    border-bottom: 1px #eeeeee solid;\n    padding:5px 5% 5px 5%;\n    font-size: 12px;\n}\n.orderItem p{\n    line-height: 25px;\n}\n.orderItem .waitPay{\n    color :red;\n    float:right;\n}\n.orderItem .hasPay{\n    color :#ccc;\n    float:right;\n}\n.orderItem .order-price{\n    float:right;\n}\n", ""]);
+exports.push([module.i, "\n.vux-header {\n    position: relative;\n    padding: 3px 0;\n    -webkit-box-sizing: border-box;\n    box-sizing: border-box;\n    background-color: #00bcd4 !important;\n}\n.orderItem{\n    min-height: 120px;\n    border-bottom: 1px #eeeeee solid;\n    padding:5px 5% 5px 5%;\n    font-size: 12px;\n}\n.orderItem p{\n    line-height: 25px;\n}\n.orderItem .waitPay{\n    color :red;\n    float:right;\n    margin-top: -10px;\n}\n.orderItem .waitPay .weui-btn_primary {\n    background-color: #00bcd4 !important;\n}\n.orderItem .waitPay .weui-btn_mini {\n    display: inline-block;\n    padding: 0 .32em;\n    line-height: 2.3;\n    font-size: 13px;\n}\n.orderItem .hasPay{\n    color :#ccc;\n    float:right;\n}\n.orderItem .order-price{\n    float:right;\n}\n", ""]);
 
 // exports
 
@@ -29127,28 +29133,32 @@ var render = function() {
             [
               _c("flexbox-item", [
                 _c("div", { staticClass: "orderItem" }, [
-                  _c("p", [
-                    _c("span", [
-                      _vm._v("场地：" + _vm._s(item.order_name) + " ")
-                    ]),
-                    _vm._v(" "),
-                    item.status === 1
-                      ? _c(
-                          "span",
-                          {
-                            staticClass: "waitPay",
-                            nativeOn: {
-                              click: function($event) {
-                                return _vm.payComfirm(item.id)
+                  _c(
+                    "p",
+                    [
+                      _c("span", [
+                        _vm._v("场地：" + _vm._s(item.order_name) + " ")
+                      ]),
+                      _vm._v(" "),
+                      item.status === 1
+                        ? _c(
+                            "x-button",
+                            {
+                              attrs: { mini: "", type: "primary" },
+                              nativeOn: {
+                                click: function($event) {
+                                  return _vm.payComfirm(item.id)
+                                }
                               }
-                            }
-                          },
-                          [_vm._v("待支付")]
-                        )
-                      : _c("span", { staticClass: "hasPay" }, [
-                          _vm._v("已支付")
-                        ])
-                  ]),
+                            },
+                            [_vm._v("待支付")]
+                          )
+                        : _c("span", { staticClass: "hasPay" }, [
+                            _vm._v("已支付")
+                          ])
+                    ],
+                    1
+                  ),
                   _c("p", [
                     _c("span", [
                       _vm._v("下单时间：" + _vm._s(item.created_at) + " ")

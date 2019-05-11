@@ -10,7 +10,7 @@
                         <div class="orderItem">
                             <p>
                                 <span>场地：{{item.order_name}} </span>
-                                <span v-if="item.status === 1" class="waitPay" @click.native="payComfirm(item.id)">待支付</span>
+                                <x-button mini type="primary" v-if="item.status === 1" @click.native="payComfirm(item.id)">待支付</x-button>
                                 <span v-else class="hasPay">已支付</span>
                             <p>
                             <span>下单时间：{{item.created_at}} </span><span class="order-price">金额：{{item.total_amount}}元</span>
@@ -35,13 +35,14 @@
     </div>
 </template>
 <script>
-import { XHeader,Flexbox,FlexboxItem} from 'vux'
+import { XHeader,Flexbox,FlexboxItem,XButton} from 'vux'
 import axios from 'axios'
 export default {
      components: {
         XHeader,
         Flexbox,
-        FlexboxItem
+        FlexboxItem,
+         XButton
     },
     data(){
         return{
@@ -133,6 +134,16 @@ export default {
     .orderItem .waitPay{
         color :red;
         float:right;
+        margin-top: -10px;
+    }
+    .orderItem .waitPay .weui-btn_primary {
+        background-color: #00bcd4 !important;
+    }
+    .orderItem .waitPay .weui-btn_mini {
+        display: inline-block;
+        padding: 0 .32em;
+        line-height: 2.3;
+        font-size: 13px;
     }
     .orderItem .hasPay{
         color :#ccc;
