@@ -61,8 +61,7 @@ class PayController extends Controller
     {
         Log::info("pay success", $postArr);
         $order = Order::where('order_no', $postArr['out_trade_no'])
-            ->first()
-            ->toArray();
+            ->first();
         if (count($order) == 0) {
             Log::error("订单支付失败，订单不存在", [
                 'postObj' => $postArr,
@@ -70,7 +69,7 @@ class PayController extends Controller
             ]);
             return false;
         }
-        if ($order['total_amount'] != $postArr['total_fee']) {
+        if ($order->total_amount != $postArr['total_fee']) {
             Log::error("订单支付失败，金额错误", [
                 'postObj' => $postArr,
                 'order' => $order,
