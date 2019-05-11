@@ -62,7 +62,7 @@ class PayController extends Controller
         Log::info("pay success", $postArr);
         $order = Order::where('order_no', $postArr['out_trade_no'])
             ->first();
-        if (count($order) == 0) {
+        if ($order->id == 0) {
             Log::error("订单支付失败，订单不存在", [
                 'postObj' => $postArr,
                 'order' => $order,
