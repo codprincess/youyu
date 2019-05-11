@@ -9774,7 +9774,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.vux-header {\n    position: relative;\n    padding: 3px 0;\n    -webkit-box-sizing: border-box;\n    box-sizing: border-box;\n    background-color: #00bcd4 !important;\n}\n.orderItem{\n    min-height: 120px;\n    border-bottom: 1px #eeeeee solid;\n    padding:5px 5% 5px 5%;\n    font-size: 12px;\n}\n.orderItem p{\n    line-height: 25px;\n}\n.orderItem .waitPay{\n    color :red;\n    float:right;\n    margin-top: -10px;\n}\n.orderItem .waitPay .weui-btn_primary {\n    background-color: #00bcd4 !important;\n}\n.orderItem .waitPay .weui-btn_mini {\n    display: inline-block;\n    padding: 0 .32em;\n    line-height: 2.3;\n    font-size: 13px;\n}\n.orderItem .hasPay{\n    color :#ccc;\n    float:right;\n}\n.orderItem .order-price{\n    float:right;\n}\n", ""]);
+exports.push([module.i, "\n.vux-header {\n    position: relative;\n    padding: 3px 0;\n    -webkit-box-sizing: border-box;\n    box-sizing: border-box;\n    background-color: #00bcd4 !important;\n}\n.orderItem{\n    min-height: 120px;\n    border-bottom: 1px #eeeeee solid;\n    padding:5px 5% 5px 5%;\n    font-size: 12px;\n}\n.orderItem p{\n    line-height: 25px;\n}\n.orderItem .waitPay{\n    color :red;\n    float:right;\n    /*margin-top: -10px;*/\n}\n.orderItem .waitPay .weui-btn_primary {\n    background-color: #00bcd4 !important;\n}\n.orderItem .waitPay .weui-btn_mini {\n    display: inline-block;\n    padding: 0 .32em;\n    line-height: 2;\n    font-size: 13px;\n}\n.orderItem .hasPay{\n    color :#ccc;\n    float:right;\n}\n.orderItem .order-price{\n    float:right;\n}\n", ""]);
 
 // exports
 
@@ -29133,7 +29133,7 @@ var render = function() {
             [
               _c("flexbox-item", [
                 _c("div", { staticClass: "orderItem" }, [
-                  _c("p", [
+                  _c("p", { staticStyle: { "line-height": "40px" } }, [
                     _c("span", [
                       _vm._v("场地：" + _vm._s(item.order_name) + " ")
                     ]),

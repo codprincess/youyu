@@ -8,7 +8,7 @@
                 <flexbox orient="vertical" v-for="(item,index) in orderLists" :key="index">
                     <flexbox-item>
                         <div class="orderItem">
-                            <p>
+                            <p style="line-height: 40px;">
                                 <span>场地：{{item.order_name}} </span>
                                 <span v-if="item.status === 1" class="waitPay">
                                     <x-button mini type="primary"  @click.native="payComfirm(item.id)">待支付</x-button>
@@ -136,7 +136,7 @@ export default {
     .orderItem .waitPay{
         color :red;
         float:right;
-        margin-top: -10px;
+        /*margin-top: -10px;*/
     }
     .orderItem .waitPay .weui-btn_primary {
         background-color: #00bcd4 !important;
@@ -144,7 +144,7 @@ export default {
     .orderItem .waitPay .weui-btn_mini {
         display: inline-block;
         padding: 0 .32em;
-        line-height: 2.3;
+        line-height: 2;
         font-size: 13px;
     }
     .orderItem .hasPay{
