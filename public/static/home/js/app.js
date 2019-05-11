@@ -3688,6 +3688,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vux_src_components_x_header_index_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vux/src/components/x-header/index.vue */ "./node_modules/vux/src/components/x-header/index.vue");
 /* harmony import */ var vux_src_components_flexbox_flexbox_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vux/src/components/flexbox/flexbox.vue */ "./node_modules/vux/src/components/flexbox/flexbox.vue");
 /* harmony import */ var vux_src_components_flexbox_flexbox_item_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vux/src/components/flexbox/flexbox-item.vue */ "./node_modules/vux/src/components/flexbox/flexbox-item.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
@@ -3700,8 +3703,22 @@ __webpack_require__.r(__webpack_exports__);
 
   data() {
     return {};
-  }
+  },
 
+  created() {
+    this.getOrderList();
+  },
+
+  methods: {
+    getOrderList() {
+      axios__WEBPACK_IMPORTED_MODULE_3___default.a.get('/api/orderList').then(response => {
+        console.log(response);
+
+        if (response) {}
+      });
+    }
+
+  }
 });
 
 /***/ }),
@@ -3885,6 +3902,7 @@ __webpack_require__.r(__webpack_exports__);
               if (res.err_msg == "get_brand_wcpay_request:ok") {
                 console.log('ok');
                 this.hasOrder = false;
+                this.$router.push('/order');
               }
             });
           }
@@ -5846,6 +5864,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vux_src_components_x_header_index_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vux/src/components/x-header/index.vue */ "./node_modules/vux/src/components/x-header/index.vue");
 /* harmony import */ var vux_src_components_flexbox_flexbox_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vux/src/components/flexbox/flexbox.vue */ "./node_modules/vux/src/components/flexbox/flexbox.vue");
 /* harmony import */ var vux_src_components_flexbox_flexbox_item_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vux/src/components/flexbox/flexbox-item.vue */ "./node_modules/vux/src/components/flexbox/flexbox-item.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
@@ -5858,8 +5879,22 @@ __webpack_require__.r(__webpack_exports__);
 
   data() {
     return {};
-  }
+  },
 
+  created() {
+    this.getOrderList();
+  },
+
+  methods: {
+    getOrderList() {
+      axios__WEBPACK_IMPORTED_MODULE_3___default.a.get('/api/orderList').then(response => {
+        console.log(response);
+
+        if (response) {}
+      });
+    }
+
+  }
 });
 
 /***/ }),
@@ -6043,6 +6078,7 @@ __webpack_require__.r(__webpack_exports__);
               if (res.err_msg == "get_brand_wcpay_request:ok") {
                 console.log('ok');
                 this.hasOrder = false;
+                this.$router.push('/order');
               }
             });
           }

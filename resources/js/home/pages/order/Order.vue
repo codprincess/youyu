@@ -32,6 +32,7 @@
 </template>
 <script>
 import { XHeader,Flexbox,FlexboxItem} from 'vux'
+import axios from 'axios'
 export default {
      components: {
         XHeader,
@@ -42,6 +43,19 @@ export default {
         return{
 
         }
+    },
+    created(){
+         this.getOrderList();
+    },
+    methods:{
+         getOrderList(){
+             axios.get('/api/orderList').then(response=>{
+                 console.log(response);
+                 if (response){
+
+                 }
+             })
+         }
     }
 }
 </script>

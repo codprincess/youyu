@@ -13,6 +13,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\Venue;
 use App\Models\VenueTime;
+use App\Repositories\OrderRepository;
 use App\Repositories\VenueRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -73,6 +74,14 @@ class OrderController extends Controller
         }
 
         return $this->success('创建成功', $res);
+    }
+
+    public function orderList(Request $request,Order $order)
+    {
+
+        $orderLists = (new OrderRepository())->getOrderList($order);
+        return $this->success('获取成功',$orderLists);
+
     }
 
 
