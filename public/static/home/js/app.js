@@ -29132,7 +29132,7 @@ var render = function() {
                       _vm._v("场地：" + _vm._s(item.order_name) + " ")
                     ]),
                     _vm._v(" "),
-                    _vm._item.status === 1
+                    item.status === 1
                       ? _c(
                           "span",
                           {
