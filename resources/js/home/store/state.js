@@ -1,10 +1,10 @@
 let defaultCity = '桂林'
-try {
-  if (localStorage.city) {
-    defaultCity = localStorage.city
-  }
-} catch (e) {}
+try{
+    if(localStorage.cityName){
+        defaultCity = localStorage.cityName
+    }
+} catch(e){}
 
-export default {
-  city: defaultCity
+export default{
+    cityName:defaultCity
 }

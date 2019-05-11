@@ -134,7 +134,7 @@
             <div class="order-box">
                 <div class="order-list">
                     <ul style="padding-inline-start: 20px;">
-                        <h4 style="margin-block-start: 1em;margin-block-end: .5em;">天空运动城</h4>
+                        <h4>天空运动城</h4>
                         <li>运动类型：<span>羽毛球</span></li>
                         <li>预定日期：<span>2019-05-06</span></li>
                         <li>预定场次：<span>1号场 11：00-12：00</span></li>
@@ -145,7 +145,7 @@
                 </div>
                 <div class="order-desc">
                     <ul style="padding-inline-start: 20px;">
-                        <h4 style="margin-block-start: 1em;margin-block-end: .5em;">预定须知</h4>
+                        <h4>预定须知</h4>
                         <li>1.当您提交订单后，请在10分钟内支付，否则订单会自动取消</li>
                         <li>2.您所定场次出售后离开始时间五个内不可退订</li>
                         <li>3.当您使用场馆时，请遵守场馆相关规定。同时，在您运动时请注意自身以及他人的安全</li>

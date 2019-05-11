@@ -16,7 +16,7 @@
                                 <span v-else class="hasPay">已支付</span>
                             <p>
                             <span>下单时间：{{item.created_at}} </span><span class="order-price">金额：{{item.total_amount}}元</span>
-                            <p>18:00-19:00  <span>{{item.venue_time_ids}}号场</span></p>
+                            <p>18:00-19:00  <span>:{{item.venue_time_ids}}号场</span></p>
 <!--                            <p>21:00-22:00  <span>1号场</span></p>-->
                         </div>
                     </flexbox-item>

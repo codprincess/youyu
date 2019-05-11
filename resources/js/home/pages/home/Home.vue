@@ -58,6 +58,7 @@
 <script>
 import { Search ,Swiper,SwiperItem, Flexbox,FlexboxItem,} from 'vux'
 import axios from 'axios'
+import { mapState } from 'vuex'
 export default {
     components:{
         Search,
@@ -70,7 +71,7 @@ export default {
 
     data(){
        return{
-             cityName: '桂林',
+            // cityName: '桂林',
              shouldChangeCity: true,
             // results: [],
             value: '输入场馆名称',
@@ -84,6 +85,9 @@ export default {
         this.getHomeInfo()
     },
 
+    computed: {
+        ...mapState(['cityName'])
+    },
     methods:{
             baiduLocation() {
                 this.$parent.shouldChangeCity = true;

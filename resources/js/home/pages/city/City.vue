@@ -42,6 +42,7 @@
 import { XHeader,Search} from 'vux'
 import {cityList} from '../../common/city.js';
 import BScroll from 'better-scroll';
+import {mapState,mapMutations} from 'vuex'
 export default {
     props: ['shouldChangeCity'],
     data() {
@@ -131,12 +132,20 @@ export default {
             });
         }
     },
+    computed:{
+        ...mapState({
+            cityName:'cityName'
+        })
+    },
     methods: {
         selectCity(cityName) {
-            this.$parent.cityName = cityName;
-            this.$parent.shouldChangeCity = false;
+            // this.$parent.cityName = cityName;
+            // this.$parent.shouldChangeCity = false;
+            this.changeCity(cityName)
+            this.shouldChangeCity = false;
             this.$router.go(-1);
         },
+        ...mapMutations(['changeCity']),
         cancelSearch() {
             this.searchMsg = '';
         },

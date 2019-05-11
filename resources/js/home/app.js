@@ -8,7 +8,7 @@
 import Vue from 'vue'
 import router from './router'
 import fastclick from 'fastclick'
-
+import store from './store'
 import { Tabbar, TabbarItem } from 'vux'
 
 Vue.component('tabbar', Tabbar)
@@ -53,7 +53,7 @@ fastclick.attach(document.body)
 new Vue({
     el: '#app',
     router,
-
+    store,
 })
 
 // const app = new Vue({
