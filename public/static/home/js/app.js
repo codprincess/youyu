@@ -29133,32 +29133,35 @@ var render = function() {
             [
               _c("flexbox-item", [
                 _c("div", { staticClass: "orderItem" }, [
-                  _c(
-                    "p",
-                    [
-                      _c("span", [
-                        _vm._v("场地：" + _vm._s(item.order_name) + " ")
-                      ]),
-                      _vm._v(" "),
-                      item.status === 1
-                        ? _c(
-                            "x-button",
-                            {
-                              attrs: { mini: "", type: "primary" },
-                              nativeOn: {
-                                click: function($event) {
-                                  return _vm.payComfirm(item.id)
+                  _c("p", [
+                    _c("span", [
+                      _vm._v("场地：" + _vm._s(item.order_name) + " ")
+                    ]),
+                    _vm._v(" "),
+                    item.status === 1
+                      ? _c(
+                          "span",
+                          { staticClass: "waitPay" },
+                          [
+                            _c(
+                              "x-button",
+                              {
+                                attrs: { mini: "", type: "primary" },
+                                nativeOn: {
+                                  click: function($event) {
+                                    return _vm.payComfirm(item.id)
+                                  }
                                 }
-                              }
-                            },
-                            [_vm._v("待支付")]
-                          )
-                        : _c("span", { staticClass: "hasPay" }, [
-                            _vm._v("已支付")
-                          ])
-                    ],
-                    1
-                  ),
+                              },
+                              [_vm._v("待支付")]
+                            )
+                          ],
+                          1
+                        )
+                      : _c("span", { staticClass: "hasPay" }, [
+                          _vm._v("已支付")
+                        ])
+                  ]),
                   _c("p", [
                     _c("span", [
                       _vm._v("下单时间：" + _vm._s(item.created_at) + " ")

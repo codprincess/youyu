@@ -10,7 +10,9 @@
                         <div class="orderItem">
                             <p>
                                 <span>场地：{{item.order_name}} </span>
-                                <x-button mini type="primary" v-if="item.status === 1" @click.native="payComfirm(item.id)">待支付</x-button>
+                                <span v-if="item.status === 1" class="waitPay">
+                                    <x-button mini type="primary"  @click.native="payComfirm(item.id)">待支付</x-button>
+                                </span>
                                 <span v-else class="hasPay">已支付</span>
                             <p>
                             <span>下单时间：{{item.created_at}} </span><span class="order-price">金额：{{item.total_amount}}元</span>
